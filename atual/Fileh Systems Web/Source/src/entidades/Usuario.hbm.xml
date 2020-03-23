@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="Usuario" table="USUARIO">
+		<id name="Usu_cd_usuario" 				column="USU_CD_USUARIO">
+			<generator class="native" />
+		</id>
+
+		<property name="Usu_nm_usuario" 		column="USU_NM_USUARIO" 	not-null="true" />
+		<property name="Usu_nr_cnpj" 			column="USU_NR_CNPJ" 		not-null="true" />
+		<property name="Usu_ds_email" 			column="USU_DS_EMAIL" 		not-null="true" />
+		<property name="Usu_ds_subdominio" 		column="USU_DS_SUBDOMINIO" 	not-null="true" />
+
+		<property name="Usu_ds_fantasia" 		column="USU_DS_FANTASIA" 	not-null="false" />
+		<property name="Usu_ds_logradouro" 		column="USU_DS_LOGRADOURO" 	not-null="false" />
+		<property name="Usu_ds_numero" 			column="USU_DS_NUMERO" 		not-null="false" />
+		<property name="Usu_ds_bairro" 			column="USU_DS_BAIRRO" 		not-null="false" />
+		<property name="Usu_ds_cidade" 			column="USU_DS_CIDADE" 		not-null="false" />
+		<property name="Usu_ds_uf" 				column="USU_DS_UF" 			not-null="false" />
+		<property name="Usu_ds_tel" 			column="USU_DS_TEL" 		not-null="false" />	
+		<property name="Usu_cd_plano" 			column="USU_CD_PLANO" 		not-null="true"  />				
+		 
+	</class>
+</hibernate-mapping>

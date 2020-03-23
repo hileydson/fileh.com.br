@@ -1,0 +1,11 @@
+	if((<%=request.getSession().getAttribute("proposta_comercial_criada").toString()%> != 'S')  ){	
+		
+		if ( (request.getSession().getAttribute("proposta_editando") != null)  ){
+		  $( "#proposta_comercial_criada-dialog-message" ).dialog( "open" );
+	  }else{
+		  $( "#proposta_comercial-dialog-message" ).dialog( "open" );
+	  };
+	  
+	}else{
+		sessionStorage.setItem("proposta_comercial_criada","N");	
+	};

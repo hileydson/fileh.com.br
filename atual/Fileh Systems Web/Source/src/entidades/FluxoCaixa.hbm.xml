@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="FluxoCaixa" table="FLUXO_CAIXA">
+		<id name="Flu_cd_fluxo_caixa" 					column="FLU_CD_FLUXO_CAIXA">
+			<generator class="native" />
+		</id>
+
+		
+		<property name="Flu_ds_fluxo_caixa" 			column="FLU_DS_FLUXO_CAIXA" 			not-null="true" />
+		<property name="Flu_cd_entidade" 				column="FLU_CD_ENTIDADE" 				not-null="true" />
+		<property name="Flu_vl_fluxo_caixa" 			column="FLU_VL_FLUXO_CAIXA" 			not-null="true" />
+		<property name="Flu_dt_cadastro" 				column="FLU_DT_CADASTRO" 				not-null="true" />
+		<property name="Flu_fl_tipo" 					column="FLU_FL_TIPO" 					not-null="true" />
+		<property name="Flu_ds_forma_pagamento" 		column="FLU_DS_FORMA_PAGAMENTO" 		/>
+
+	</class>
+</hibernate-mapping>

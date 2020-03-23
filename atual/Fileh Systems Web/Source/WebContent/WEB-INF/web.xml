@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Fileh Systems - SubDominio</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>-1</session-timeout>
+  </session-config>
+  <error-page>
+    <error-code>401</error-code>
+    <location>/Logoff.action</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/Logoff.action</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/Logoff.action</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/processoErroAcesso.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>503</error-code>
+    <location>/Logoff.action</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/processoErro.jsp</location>
+  </error-page>
+
+  <context-param>
+    <param-name>tempfile.dir</param-name>
+    <param-value>tmpfiles</param-value>
+  </context-param>  
+  
+  <servlet>
+    <description></description>
+    <display-name>CentralActionsServlet</display-name>
+    <servlet-name>CentralActionsServlet</servlet-name>
+    <servlet-class>servlets.CentralActionsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CentralActionsServlet</servlet-name>
+    <url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+</web-app>

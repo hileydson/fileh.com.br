@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="SituacaoProposta" table="SITUACAO_PROPOSTA">
+		<id name="Sip_cd_situacao_proposta" 					column="SIP_CD_SITUACAO_PROPOSTA">
+			<generator class="native" />
+		</id>
+
+		
+		<property name="Sip_ds_situacao_proposta" 			column="SIP_DS_SITUACAO_PROPOSTA" 			not-null="true" />
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="Fornecedor" table="FORNECEDOR">
+		<id name="For_cd_fornecedor" 					column="FOR_CD_FORNECEDOR">
+			<generator class="native" />
+		</id>
+
+		<property name="For_cd_usuario" 			column="FOR_CD_USUARIO" 			not-null="true" />
+		
+		<property name="For_ds_fornecedor" 			column="FOR_DS_FORNECEDOR" 			not-null="true" />
+		<property name="For_nr_cnpj" 				column="FOR_NR_CNPJ" 				/>
+		<property name="For_ds_logradouro" 			column="FOR_DS_LOGRADOURO" 			/>
+		<property name="For_ds_bairro" 				column="FOR_DS_BAIRRO" 				/>
+		<property name="For_ds_cidade" 				column="FOR_DS_CIDADE" 				/>
+		<property name="For_nr_cep" 				column="FOR_NR_CEP" 				/>
+		<property name="For_nr_insc_estadual" 		column="FOR_NR_INSC_ESTADUAL" 		/>
+		<property name="For_nr_insc_municipal" 		column="FOR_NR_INSC_MUNICIPAL" 		/>
+		<property name="For_ds_contato" 			column="FOR_DS_CONTATO" 			/>
+		
+	</class>
+</hibernate-mapping>

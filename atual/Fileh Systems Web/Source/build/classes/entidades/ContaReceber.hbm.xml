@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="ContaReceber" table="CONTA_RECEBER">
+		<id name="Cor_cd_conta_receber" 					column="cor_cd_conta_receber">
+			<generator class="native" />
+		</id>
+
+		<property name="Cor_cd_usuario" 			column="cor_cd_usuario" 				not-null="true" />
+		
+		<property name="Cor_ds_conta_receber" 		column="COR_DS_CONTA_RECEBER" 			not-null="true" />
+		<property name="Cor_dt_vencimento" 			column="COR_DT_VENCIMENTO" 				not-null="true" />
+		<property name="Cor_vl_conta_receber" 		column="COR_VL_CONTA_RECEBER" 			not-null="true" />
+		<property name="Cor_dt_cadastro" 			column="COR_DT_CADASTRO" 				/>
+		<property name="Cor_nr_documento" 			column="COR_NR_DOCUMENTO" 				/>
+		<property name="Cor_fl_parcelado" 			column="COR_FL_PARCELADO" 				not-null="true" insert="false" update="false"/>
+		<property name="Cor_nr_parcela" 			column="COR_NR_PARCELA" 				not-null="true" />
+		<property name="Cor_ds_fornecedor" 			column="COR_DS_FORNECEDOR" 				not-null="true"/>
+		<property name="Cor_fl_recebido" 			column="COR_FL_RECEBIDO" 				/>
+		<property name="Cor_ds_tipo_conta" 			column="COR_DS_TIPO_CONTA" 				not-null="true" />
+				
+	</class>
+</hibernate-mapping>

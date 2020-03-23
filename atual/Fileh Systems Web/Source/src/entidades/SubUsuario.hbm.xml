@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="SubUsuario" table="SUBUSUARIO">
+		<id name="Sbu_cd_subusuario" 					column="SBU_CD_SUBUSUARIO">
+			<generator class="native" />
+		</id>
+
+		<property name="Sbu_cd_usuario" 			column="SBU_CD_USUARIO" 			not-null="true" />
+		
+		<property name="Sbu_nm_subusuario" 			column="SBU_NM_SUBUSUARIO" 			not-null="true" />
+		<property name="Sbu_ds_login" 				column="SBU_DS_LOGIN" 				not-null="true" />		
+		<property name="Sbu_sh_subusuario" 			column="SBU_SH_SUBUSUARIO" 			not-null="true" />
+		<property name="Sbu_fl_modulo_financeiro" 	column="SBU_FL_MODULO_FINANCEIRO" 	not-null="true" />
+		<property name="Sbu_fl_modulo_venda" 		column="SBU_FL_MODULO_VENDA" 		not-null="true" />
+		<property name="Sbu_fl_adm" 				column="SBU_FL_ADM" 				not-null="true" />
+		<property name="Sbu_fl_modulo_cliente" 		column="SBU_FL_MODULO_CLIENTE" 		not-null="true" />
+		<property name="Sbu_fl_modulo_caixa" 		column="SBU_FL_MODULO_CAIXA" 		not-null="true" />
+		<property name="Sbu_ds_msg_footer" 			column="SBU_DS_MSG_FOOTER" 			not-null="false" />
+		
+	</class>
+</hibernate-mapping>
