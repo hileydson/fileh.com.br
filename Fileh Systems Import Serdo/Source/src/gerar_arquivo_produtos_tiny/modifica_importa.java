@@ -182,8 +182,8 @@ public class modifica_importa extends javax.swing.JFrame {
         
         //TODO: CONECTAR AO BANCO E JOGAR PARA ALGO TIPO ESSE TABLE AE
         
-
-        Table table = new Table(new File(this.jTextField_caminho_arquivo.getText().replace("\r", "")));
+        //Table table = new Table(new File(this.jTextField_caminho_arquivo.getText().replace("\r", "")));
+        Table table = new Table(new File("TESTE"));
         String arquivo_destino = this.jTextField_caminho_destino.getText();
 
         PrintWriter printWriter = null;
@@ -247,9 +247,6 @@ public class modifica_importa extends javax.swing.JFrame {
             Logger.getLogger(modifica_importa.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showConfirmDialog(null,"Não foi possível concluir o processo, verifique a localização dos arquivos !","Atenção", JOptionPane.CLOSED_OPTION);
         } catch (CorruptedTableException ex) {
-            Logger.getLogger(modifica_importa.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showConfirmDialog(null,"Não foi possível concluir o processo, verifique a localização dos arquivos !","Atenção", JOptionPane.CLOSED_OPTION);
-        } catch (DbfLibException ex) {
             Logger.getLogger(modifica_importa.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showConfirmDialog(null,"Não foi possível concluir o processo, verifique a localização dos arquivos !","Atenção", JOptionPane.CLOSED_OPTION);
         }
