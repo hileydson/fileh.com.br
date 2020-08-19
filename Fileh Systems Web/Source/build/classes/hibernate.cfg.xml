@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+      
+    <property name="connection.driver_class"> com.mysql.jdbc.Driver </property>
+    
+    <property name="connection.url"> jdbc:mysql://localhost:3306/fileh </property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">camila</property> 
+	
+    
+    <property name="dialect"> org.hibernate.dialect.MySQLDialect </property>    
+    <property name="current_session_context_class">thread</property>
+    <!--<property name="hibernate.connection.autocommit">true</property> -->
+    
+    
+    <!-- Trata da exceção 'java.net.SocketException Broken Pipe' que da no pool do servidor -->
+  	<property name="hibernate.connection.provider_class"> org.hibernate.connection.C3P0ConnectionProvider </property>
+	<property name="hibernate.c3p0.min_size">1</property>
+	<property name="hibernate.c3p0.max_size">100</property>
+	<property name="hibernate.c3p0.timeout">7200</property>
+	<property name="hibernate.c3p0.idle_test_period">100</property>  
+	
+    
+    <mapping resource="entidades/Usuario.hbm.xml" />
+  	<mapping resource="entidades/Parametro.hbm.xml" />
+  	<mapping resource="entidades/Plano.hbm.xml" />
+
+  	
+  	
+  </session-factory>
+</hibernate-configuration>
+
+
+
+
+
+    <!-- BASE DE TESTE - LOCAL - PROJETO PRINCIPAL
+    
+    <property name="connection.url"> jdbc:mysql://localhost:3306/fileh </property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">camila</property> 
+    
+     BASE DE TESTE - LOCAL - PROJETO PRINCIPAL-->
+    
+    
+    
+    
+    <!-- BASE DE PRODUÇÃO - KINGHOST - fileh - PROJETO PRINCIPAL  
+  
+    <property name="connection.url"> jdbc:mysql://mysql03-farm13.kinghost.net:3306/fileh </property>
+    <property name="connection.username">fileh</property>
+    <property name="connection.password">camila123</property> 
+
+	 BASE DE PRODUÇÃO - KINGHOST - fileh - PROJETO PRINCIPAL -->  
+	

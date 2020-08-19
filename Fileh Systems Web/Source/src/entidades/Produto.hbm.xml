@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="Produto" table="PRODUTO">
+		<id name="Prd_cd_produto" 					column="PRD_CD_PRODUTO">
+			<generator class="native" />
+		</id>
+
+		<property name="Prd_cd_usuario" 			column="PRD_CD_USUARIO" 			not-null="true" />
+		
+		<property name="Prd_ds_produto" 			column="PRD_DS_PRODUTO" 			not-null="true" />
+		<property name="Prd_vl_preco" 				column="PRD_VL_PRECO" 				not-null="true" />
+		<property name="Prd_ds_unidade" 			column="PRD_DS_UNIDADE" 			not-null="true" />
+		<property name="Prd_nr_estoque" 			column="PRD_NR_ESTOQUE" 			not-null="true" />
+		
+	</class>
+</hibernate-mapping>

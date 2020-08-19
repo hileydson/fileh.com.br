@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="Plano" table="PLANO">
+		<id name="Pla_cd_plano" 					column="PLA_CD_PLANO">
+			<generator class="native" />
+		</id>
+
+		<property name="Pla_ds_plano" 				column="PLA_DS_PLANO" 				not-null="true" />
+		
+		<property name="Pla_nm_plano" 				column="PLA_NM_PLANO" 				not-null="true" />
+		<property name="Pla_ds_espaco" 				column="PLA_DS_ESPACO" 				not-null="true" />
+		
+	</class>
+</hibernate-mapping>

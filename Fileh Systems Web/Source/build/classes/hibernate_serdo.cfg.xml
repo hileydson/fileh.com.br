@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+      
+    <property name="connection.driver_class"> com.mysql.jdbc.Driver </property>
+    
+    <property name="connection.url"> jdbc:mysql://localhost:3306/fileh01 </property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">camila</property> 
+	
+	
+    
+    <property name="dialect"> org.hibernate.dialect.MySQLDialect </property>    
+    <property name="current_session_context_class">thread</property>
+    <!--<property name="hibernate.connection.autocommit">true</property> -->
+    
+    
+    <!-- Trata da exceção 'java.net.SocketException Broken Pipe' que da no pool do servidor -->
+  	<property name="hibernate.connection.provider_class"> org.hibernate.connection.C3P0ConnectionProvider </property>
+	<property name="hibernate.c3p0.min_size">1</property>
+	<property name="hibernate.c3p0.max_size">100</property>
+	<property name="hibernate.c3p0.timeout">7200</property>
+	<property name="hibernate.c3p0.idle_test_period">100</property>  
+	
+    
+  	<mapping resource="entidades/SubUsuario.hbm.xml" />
+  	<mapping resource="entidades/Cliente.hbm.xml" />
+  	<mapping resource="entidades/Entidade.hbm.xml" />
+  	<mapping resource="entidades/PropostaComercial.hbm.xml" />
+  	<mapping resource="entidades/TipoConta.hbm.xml" />
+  	<mapping resource="entidades/Parametro.hbm.xml" />
+  	<mapping resource="entidades/Fornecedor.hbm.xml" />
+  	<mapping resource="entidades/Produto.hbm.xml" />
+  	<mapping resource="entidades/ItemProposta.hbm.xml" />
+  	<mapping resource="entidades/ContaReceber.hbm.xml" />
+  	<mapping resource="entidades/ContaPagar.hbm.xml" />
+  	<mapping resource="entidades/SituacaoProposta.hbm.xml" />
+  	<mapping resource="entidades/FormaPagamento.hbm.xml" />
+  	<mapping resource="entidades/FluxoCaixa.hbm.xml" />
+
+  	
+  	
+  </session-factory>
+</hibernate-configuration>
+
+
+
+
+
+
+
+	<!-- SERDO -->
+
+    <!-- BASE DE TESTE - LOCAL - PROJETO SUBDOMINIO
+    
+    <property name="connection.url"> jdbc:mysql://localhost:3306/fileh01 </property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">camila</property> 
+    
+     BASE DE TESTE - LOCAL - PROJETO SUBDOMINIO-->
+    
+    
+    
+    
+    <!-- BASE DE PRODUÇÃO - KINGHOST - fileh01 - PROJETO SUBDOMINIO  
+  
+    <property name="connection.url"> jdbc:mysql://mysql03-farm13.kinghost.net:3306/fileh01 </property>
+    <property name="connection.username">fileh01</property>
+    <property name="connection.password">camila123</property> 
+
+	 BASE DE PRODUÇÃO - KINGHOST - fileh01 - PROJETO SUBDOMINIO -->  

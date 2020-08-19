@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="TipoConta" table="TIPO_CONTA">
+		<id name="Tco_cd_tipo_conta" 					column="TCO_CD_TIPO_CONTA">
+			<generator class="native" />
+		</id>
+
+		<property name="Tco_cd_usuario" 			column="TCO_CD_USUARIO" 			not-null="true" />
+		
+		<property name="Tco_ds_tipo_conta" 			column="TCO_DS_TIPO_CONTA" 			not-null="true" />
+		
+	</class>
+</hibernate-mapping>

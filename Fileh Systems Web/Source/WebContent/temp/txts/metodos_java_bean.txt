@@ -1,0 +1,14 @@
+<c:if test="${usuario.Usu_ds_email == null}">
+		caramba cara!!!
+	</c:if>
+	
+	
+	
+	<jsp:getProperty name="usuario" property="Usu_ds_email"/> 
+	
+	
+	
+	
+	caramba cara!!!
+<jsp:useBean id="usuario" class="entidades.Usuario" scope="session"></jsp:useBean>
+<jsp:useBean id="subusuario" class="entidades.SubUsuario" scope="session"></jsp:useBean>

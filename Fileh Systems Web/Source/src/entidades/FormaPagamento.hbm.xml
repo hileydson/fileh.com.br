@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="entidades">
+	<class name="FormaPagamento" table="FORMA_PAGAMENTO">
+		<id name="Fop_cd_forma_pagamento" 					column="FOP_CD_FORMA_PAGAMENTO">
+			<generator class="native" />
+		</id>
+
+		
+		<property name="Fop_ds_forma_pagamento" 			column="FOP_DS_FORMA_PAGAMENTO" 			not-null="true" />
+		<property name="Fop_fl_tipo" 						column="FOP_FL_TIPO" 						not-null="true" />
+		
+	</class>
+</hibernate-mapping>
