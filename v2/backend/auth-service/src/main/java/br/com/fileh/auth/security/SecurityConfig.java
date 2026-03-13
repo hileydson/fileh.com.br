@@ -35,10 +35,11 @@ public class SecurityConfig {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+    public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userDetailsService) {
+        // Pass the service directly into the constructor
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailsService);
 
-        authProvider.setUserDetailsService(userDetailsService);
+        // If you have a PasswordEncoder bean, set it here
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
@@ -59,17 +60,19 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http, UserDetailsServiceImpl userDetailsService) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> 
-                    auth.requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/test/**").permitAll()
-                        .anyRequest().authenticated()
+                .authorizeHttpRequests(auth ->
+                        auth.requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers("/api/test/**").permitAll()
+                                .anyRequest().authenticated()
                 );
 
-        http.authenticationProvider(authenticationProvider());
+        // Corrigido: Passando o userDetailsService injetado para o método do provedor
+        http.authenticationProvider(authenticationProvider(userDetailsService));
+
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
