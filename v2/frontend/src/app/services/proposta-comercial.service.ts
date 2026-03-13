@@ -1,0 +1,42 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface PropostaComercial {
+  id?: number;
+  usuarioId?: number;
+  clienteId?: number;
+  valorDesconto: number;
+  valorFrete: number;
+  dataCadastro?: string;
+  dataPrevista?: string;
+  observacao?: string;
+  atendente?: string;
+  situacao?: string;
+  formaPagamento?: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PropostaComercialService {
+  private apiUrl = '/api/propostas';
+
+  constructor(private http: HttpClient) {}
+
+  getAllByTenant(tenantId: number): Observable<PropostaComercial[]> {
+    return this.http.get<PropostaComercial[]>(`${this.apiUrl}/tenant/${tenantId}`);
+  }
+
+  create(proposta: PropostaComercial): Observable<PropostaComercial> {
+    return this.http.post<PropostaComercial>(this.apiUrl, proposta);
+  }
+
+  update(id: number, proposta: PropostaComercial): Observable<PropostaComercial> {
+    return this.http.put<PropostaComercial>(`${this.apiUrl}/${id}`, proposta);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
