@@ -1,3 +1,68 @@
+# Application Rewrite Plan: Fileh Systems
+
+    The legacy application currently uses a monolithic architecture with JSP for the frontend, a custom Java Servlet/Action approach for routing (*.action), and Hibernate with XML configurations (
+    .hbm.xml
+    ) for database mapping using MySQL.
+
+    We will rewrite this to a Modern Microservices Architecture using Java (Spring Boot) for the backend and Angular for the frontend.
+
+    User Review Required
+    IMPORTANT
+
+    This is a complete rewrite and architectural shift. Please confirm:
+
+    Which Java version do you prefer? (Java 17 or Java 21 are recommended).
+    Do you want to keep using MySQL as the primary database for all microservices, or split into different databases/schemas per microservice?
+    Does the system need an API Gateway (e.g., Spring Cloud Gateway) for routing the Angular frontend to the various services?
+    Are there any specific modern design patterns (like CQRS, Event-Driven) you want implemented, or a standard RESTful architecture with JWT authentication?
+
+
+# Proposed Architecture & Changes
+The monolithic application will be broken down into the following components:
+
+    1. Frontend: Angular Workspace
+    Framework: Angular (latest version).
+    Styling: CSS/SCSS (TailwindCSS or Angular Material could be introduced if desired for modern aesthetics).
+    Communication: HttpClient to consume the REST APIs.
+    Security: JWT Interceptors and Auth Guards.
+    Replaces: WebContent/*.jsp, custom CSS in 
+    WebContent/css
+    .
+
+    2. Microservices Architecture (Backend)
+    We will transition the src/entidades and src/action directly into distinct bounded contexts.
+
+        a. Gateway and Registry (Optional but recommended)
+        Spring Cloud Gateway: Central entry point for the Angular app. Routes requests to their responsive microservices.
+        Eureka Server: Service registry for horizontal scalability.
+        b. Auth & Identity Service (Microservice 1)
+        Responsibilities: User authentication, authorization, JWT token generation, Tenant management.
+        Entities Migrated: Usuario, SubUsuario, Plano, Parametro.
+        Frameworks: Spring Boot, Spring Security, Spring Data JPA.
+        c. Financial Service (Microservice 2)
+        Responsibilities: Financial records, receivables, payables, and cash flow.
+        Entities Migrated: ContaPagar, ContaReceber, FluxoCaixa, FormaPagamento, TipoConta.
+        d. CRM & Entities Service (Microservice 3)
+        Responsibilities: Customer and supplier management.
+        Entities Migrated: Cliente, Fornecedor, Entidade.
+        e. Commercial & Sales Service (Microservice 4)
+        Responsibilities: Products and proposals.
+        Entities Migrated: Produto, PropostaComercial, ItemProposta, SituacaoProposta.
+        Verification Plan
+        Automated Tests
+        Backend:
+        Implementation of JUnit 5 / Mockito for unit testing domain logic.
+        Using Testcontainers with MySQL for integration testing of Spring Data JPA repositories.
+        Frontend:
+        Jasmine/Karma or Jest for component unit testing.
+        Manual Verification
+        Deploying the frontend locally.
+        Authenticating via the UI to receive a JWT.
+        Testing CRUD operations (e.g., CadastrarCliente) through the Angular UI, which routes to the API Gateway, and subsequently to the CRM Microservice, validating the data in the local MySQL instance.
+
+
+
+
 # O que foi desenvolvido
 
 # 1. Backend (Microsserviços)
