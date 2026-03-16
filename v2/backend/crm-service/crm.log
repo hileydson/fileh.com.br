@@ -1,0 +1,203 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< br.com.fileh:crm-service >----------------------
+[INFO] Building crm-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.3:run (default-cli) > test-compile @ crm-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ crm-service ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ crm-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ crm-service ---
+[INFO] skip non existing resourceDirectory /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/crm-service/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ crm-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.0.3:run (default-cli) < test-compile @ crm-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.3:run (default-cli) @ crm-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-16T11:10:24.863-03:00  INFO 1546978 --- [crm-service] [           main] br.com.fileh.crm.CrmServiceApplication   : Starting CrmServiceApplication using Java 21.0.10 with PID 1546978 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/crm-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/crm-service)
+2026-03-16T11:10:24.865-03:00  INFO 1546978 --- [crm-service] [           main] br.com.fileh.crm.CrmServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-03-16T11:10:25.129-03:00  INFO 1546978 --- [crm-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-16T11:10:25.177-03:00  INFO 1546978 --- [crm-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 3 JPA repository interfaces.
+2026-03-16T11:10:25.236-03:00  INFO 1546978 --- [crm-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=59be9f11-0429-34ec-aa34-968835a8f997
+2026-03-16T11:10:25.380-03:00  INFO 1546978 --- [crm-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-03-16T11:10:25.386-03:00  INFO 1546978 --- [crm-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-16T11:10:25.386-03:00  INFO 1546978 --- [crm-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-16T11:10:25.407-03:00  INFO 1546978 --- [crm-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 524 ms
+2026-03-16T11:10:25.483-03:00  INFO 1546978 --- [crm-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-16T11:10:25.508-03:00  INFO 1546978 --- [crm-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-16T11:10:25.711-03:00  INFO 1546978 --- [crm-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-16T11:10:25.726-03:00  INFO 1546978 --- [crm-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-16T11:10:25.814-03:00  INFO 1546978 --- [crm-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dcad16f
+2026-03-16T11:10:25.815-03:00  INFO 1546978 --- [crm-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-16T11:10:25.848-03:00  WARN 1546978 --- [crm-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-16T11:10:25.858-03:00  INFO 1546978 --- [crm-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: fileh_v2/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-16T11:10:26.215-03:00  INFO 1546978 --- [crm-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-16T11:10:26.265-03:00  INFO 1546978 --- [crm-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-16T11:10:26.300-03:00  INFO 1546978 --- [crm-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-16T11:10:26.396-03:00  WARN 1546978 --- [crm-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-16T11:10:26.619-03:00  INFO 1546978 --- [crm-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-03-16T11:10:26.632-03:00  WARN 1546978 --- [crm-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-16T11:10:26.642-03:00  INFO 1546978 --- [crm-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-03-16T11:10:26.651-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-03-16T11:10:26.653-03:00  INFO 1546978 --- [crm-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-03-16T11:10:26.656-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-16T11:10:26.863-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-16T11:10:26.864-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-03-16T11:10:26.865-03:00  INFO 1546978 --- [crm-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-16T11:10:26.865-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773670226865 with initial instances count: 0
+2026-03-16T11:10:26.867-03:00  INFO 1546978 --- [crm-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CRM-SERVICE with eureka with status UP
+2026-03-16T11:10:26.867-03:00  INFO 1546978 --- [crm-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773670226867, current=UP, previous=STARTING]
+2026-03-16T11:10:26.868-03:00  INFO 1546978 --- [crm-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CRM-SERVICE/192.168.0.71:crm-service:8082: registering service...
+2026-03-16T11:10:26.873-03:00  INFO 1546978 --- [crm-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-03-16T11:10:26.874-03:00  INFO 1546978 --- [crm-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2026-03-16T11:10:26.894-03:00  INFO 1546978 --- [crm-service] [           main] br.com.fileh.crm.CrmServiceApplication   : Started CrmServiceApplication in 2.225 seconds (process running for 2.438)
+2026-03-16T11:10:26.925-03:00  INFO 1546978 --- [crm-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CRM-SERVICE/192.168.0.71:crm-service:8082 - registration status: 204
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-03-16T11:10:56.866-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-16T11:10:56.879-03:00  INFO 1546978 --- [crm-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-16T11:15:26.658-03:00  INFO 1546978 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-16T11:18:48.201-03:00  INFO 1546978 --- [crm-service] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-16T11:18:48.201-03:00  INFO 1546978 --- [crm-service] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-16T11:18:48.202-03:00  INFO 1546978 --- [crm-service] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    select
+        c1_0.cli_cd_cliente,
+        c1_0.cli_ds_bairro,
+        c1_0.cli_nr_cpf,
+        c1_0.cli_ds_entidade,
+        c1_0.cli_ds_logradouro,
+        c1_0.cli_nm_cliente,
+        c1_0.cli_ds_referencia,
+        c1_0.cli_nr_tel,
+        c1_0.cli_ds_uf,
+        c1_0.cli_cd_usuario 
+    from
+        cliente c1_0 
+    where
+        c1_0.cli_cd_usuario=?
+Hibernate: 
+    select
+        f1_0.for_cd_fornecedor,
+        f1_0.for_ds_bairro,
+        f1_0.for_nr_cep,
+        f1_0.for_ds_cidade,
+        f1_0.for_nr_cnpj,
+        f1_0.for_ds_contato,
+        f1_0.for_nr_insc_estadual,
+        f1_0.for_nr_insc_municipal,
+        f1_0.for_ds_logradouro,
+        f1_0.for_ds_fornecedor,
+        f1_0.for_cd_usuario 
+    from
+        fornecedor f1_0 
+    where
+        f1_0.for_cd_usuario=?
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+Hibernate: 
+    select
+        c1_0.cli_cd_cliente,
+        c1_0.cli_ds_bairro,
+        c1_0.cli_nr_cpf,
+        c1_0.cli_ds_entidade,
+        c1_0.cli_ds_logradouro,
+        c1_0.cli_nm_cliente,
+        c1_0.cli_ds_referencia,
+        c1_0.cli_nr_tel,
+        c1_0.cli_ds_uf,
+        c1_0.cli_cd_usuario 
+    from
+        cliente c1_0 
+    where
+        c1_0.cli_cd_usuario=?
+Hibernate: 
+    select
+        f1_0.for_cd_fornecedor,
+        f1_0.for_ds_bairro,
+        f1_0.for_nr_cep,
+        f1_0.for_ds_cidade,
+        f1_0.for_nr_cnpj,
+        f1_0.for_ds_contato,
+        f1_0.for_nr_insc_estadual,
+        f1_0.for_nr_insc_municipal,
+        f1_0.for_ds_logradouro,
+        f1_0.for_ds_fornecedor,
+        f1_0.for_cd_usuario 
+    from
+        fornecedor f1_0 
+    where
+        f1_0.for_cd_usuario=?
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+2026-03-16T11:20:26.659-03:00  INFO 1546978 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-16T11:25:26.660-03:00  INFO 1546978 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-16T11:30:26.661-03:00  INFO 1546978 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-16T11:35:26.661-03:00  INFO 1546978 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-16T11:40:26.662-03:00  INFO 1546978 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

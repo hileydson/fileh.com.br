@@ -1,0 +1,20 @@
+nohup: ignoring input
+
+> frontend@0.0.0 start
+> ng serve --proxy-config src/proxy.conf.json
+
+Component HMR has been enabled, see https://angular.dev/hmr for more info.
+❯ Building...
+✔ Building...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 323.14 kB | 
+polyfills.js        | polyfills     |  89.77 kB | 
+styles.css          | styles        |  27.45 kB | 
+
+                    | Initial total | 440.36 kB
+
+Application bundle generation complete. [1.083 seconds]
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
