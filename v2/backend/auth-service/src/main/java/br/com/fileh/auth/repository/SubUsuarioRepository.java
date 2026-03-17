@@ -6,4 +6,5 @@ import java.util.Optional;
 
 public interface SubUsuarioRepository extends JpaRepository<SubUsuario, Long> {
     Optional<SubUsuario> findByLogin(String login);
+    java.util.List<SubUsuario> findByUsuarioId(Long usuarioId);
 }

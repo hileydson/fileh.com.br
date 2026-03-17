@@ -11,6 +11,7 @@ import { FluxoCaixaListComponent } from './components/fluxo-caixa-list/fluxo-cai
 import { authGuard } from './guards/auth.guard';
 import { SelecionarEntidadeComponent } from './components/selecionar-entidade/selecionar-entidade.component';
 import { VendasConfigComponent } from './components/vendas-config/vendas-config.component';
+import { SubUsuarioListComponent } from './components/subusuario-list/subusuario-list.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
             { path: 'contas-receber', component: ContaReceberListComponent },
             { path: 'fluxo-caixa', component: FluxoCaixaListComponent },
             { path: 'vendas-config', component: VendasConfigComponent },
+            { path: 'usuarios', component: SubUsuarioListComponent },
             { path: '', redirectTo: 'clientes', pathMatch: 'full' }
         ]
     },

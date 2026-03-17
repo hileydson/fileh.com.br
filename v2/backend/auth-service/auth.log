@@ -186,3 +186,130 @@ Hibernate:
 2026-03-17T14:11:53.321-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-17T14:16:53.324-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-17T14:21:53.325-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:26:53.326-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:31:53.326-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:36:53.327-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:41:53.328-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:46:53.328-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:51:53.329-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:56:53.329-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T15:01:53.330-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T15:06:53.335-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T15:11:53.338-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-17T15:14:18.432-03:00 ERROR 858062 --- [auth-service] [nio-8081-exec-3] b.c.f.a.security.jwt.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+USUARIO: adm SENHA:adm
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-17T15:16:53.339-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-17T15:21:34.149-03:00 ERROR 858062 --- [auth-service] [nio-8081-exec-7] b.c.f.a.security.jwt.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2026-03-17T15:21:53.341-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T15:26:53.342-03:00  INFO 858062 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

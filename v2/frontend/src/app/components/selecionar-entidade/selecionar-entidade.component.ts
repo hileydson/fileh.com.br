@@ -50,7 +50,10 @@ export class SelecionarEntidadeComponent implements OnInit {
   }
 
   selecionarEntidade(entidadeId: number): void {
-    this.authService.updateEntidadeId(entidadeId);
+    const entidade = this.entidades.find(e => e.id === entidadeId);
+    if (entidade) {
+        this.authService.updateEntidadeId(entidadeId, entidade.descricao || entidade.nome);
+    }
     this.router.navigate(['/']);
   }
 }

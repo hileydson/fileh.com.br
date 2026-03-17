@@ -6,6 +6,7 @@ export interface AuthContext {
   id: number;
   tenantId: number;
   entidadeId: number | null;
+  entidadeNome?: string | null;
   username: string;
   email: string;
   roles: string[];
@@ -65,10 +66,11 @@ export class AuthService {
     return ctx ? JSON.parse(ctx) : null;
   }
 
-  updateEntidadeId(entidadeId: number): void {
+  updateEntidadeId(entidadeId: number, nome: string): void {
     const ctx = this.getAuthContext();
     if (ctx) {
       ctx.entidadeId = entidadeId;
+      ctx.entidadeNome = nome;
       localStorage.setItem('auth_context', JSON.stringify(ctx));
     }
   }

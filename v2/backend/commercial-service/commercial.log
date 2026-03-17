@@ -98622,3 +98622,358 @@ Hibernate:
     where
         fp1_0.fgp_cd_entidade=?
 2026-03-17T14:26:15.554-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:31:15.555-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
+    from
+        situacao_proposta sp1_0 
+    where
+        sp1_0.sip_cd_entidade=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-17T14:36:15.556-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:41:15.557-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:46:15.557-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:51:15.559-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T14:56:15.560-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-17T15:01:15.561-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-17T15:06:15.566-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-17T15:11:15.567-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-17T15:16:15.567-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T15:21:15.568-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
+    from
+        situacao_proposta sp1_0 
+    where
+        sp1_0.sip_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-17T15:26:15.576-03:00  INFO 1009002 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

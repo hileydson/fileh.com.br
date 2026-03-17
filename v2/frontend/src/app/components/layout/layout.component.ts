@@ -11,8 +11,14 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
+  entidadeNome: string = 'Painel Administrativo';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeNome) {
+      this.entidadeNome = ctx.entidadeNome;
+    }
+  }
 
   logout(): void {
     this.authService.logout();
