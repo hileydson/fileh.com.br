@@ -9,6 +9,7 @@ export interface Produto {
   sku: string;
   valorVenda: number;
   unidade: string;
+  estoque: number;
 }
 
 @Injectable({
@@ -33,5 +34,17 @@ export class ProdutoService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  deleteAll(entidadeId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/all/${entidadeId}`);
+  }
+
+  importAdd(entidadeId: number, produtos: Produto[]): Observable<number> {
+    return this.http.post<number>(`${this.apiUrl}/import/${entidadeId}`, produtos);
+  }
+
+  importReplace(entidadeId: number, produtos: Produto[]): Observable<number> {
+    return this.http.post<number>(`${this.apiUrl}/import-replace/${entidadeId}`, produtos);
   }
 }

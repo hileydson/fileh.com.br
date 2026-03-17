@@ -1,9 +1,17 @@
 server:
   port: 8083
+  tomcat:
+    max-http-form-post-size: 20MB
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
 
 spring:
   application:
     name: commercial-service
+  codec:
+    max-in-memory-size: 20MB
   datasource:
     url: jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root

@@ -32,6 +32,7 @@ public class ProdutoController {
             produto.setSku(details.getSku());
             produto.setValorVenda(details.getValorVenda());
             produto.setUnidade(details.getUnidade());
+            produto.setEstoque(details.getEstoque());
             return ResponseEntity.ok(repository.save(produto));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -43,5 +44,40 @@ public class ProdutoController {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    // Limpar todos os produtos de uma entidade
+    @DeleteMapping("/all/{entidadeId}")
+    public ResponseEntity<Void> deleteAll(@PathVariable Long entidadeId) {
+        List<Produto> existing = repository.findByEntidadeId(entidadeId);
+        repository.deleteAll(existing);
+        return ResponseEntity.ok().build();
+    }
+
+    // Importar CSV - modo ADICIONAR
+    @PostMapping("/import/{entidadeId}")
+    public ResponseEntity<Integer> importAdd(@PathVariable Long entidadeId, @RequestBody List<Produto> produtos) {
+        for (Produto p : produtos) {
+            p.setEntidadeId(entidadeId);
+            p.setId(null); // Ignora ID legado para evitar conflitos no banco global
+            repository.save(p);
+        }
+        return ResponseEntity.ok(produtos.size());
+    }
+
+    // Importar CSV - modo SUBSTITUIR (deleta todos da entidade e insere novos)
+    @PostMapping("/import-replace/{entidadeId}")
+    public ResponseEntity<Integer> importReplace(@PathVariable Long entidadeId, @RequestBody List<Produto> produtos) {
+        // Deletar todos os produtos da entidade
+        List<Produto> existing = repository.findByEntidadeId(entidadeId);
+        repository.deleteAll(existing);
+
+        // Inserir novos
+        for (Produto p : produtos) {
+            p.setEntidadeId(entidadeId);
+            p.setId(null); // força insert
+            repository.save(p);
+        }
+        return ResponseEntity.ok(produtos.size());
     }
 }

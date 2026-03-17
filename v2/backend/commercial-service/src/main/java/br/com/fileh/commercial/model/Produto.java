@@ -32,4 +32,7 @@ public class Produto {
 
     @Column(name = "PRO_DS_UNIDADE", nullable = false)
     private String unidade;
+
+    @Column(name = "PRO_NR_ESTOQUE")
+    private Integer estoque = 0;
 }

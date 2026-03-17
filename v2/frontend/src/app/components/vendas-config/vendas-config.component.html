@@ -4,10 +4,16 @@
       <h2 class="text-2xl font-bold text-slate-800">Configurações de Vendas</h2>
       <p class="text-slate-500 text-sm mt-1">Gerencie produtos, categorias, faturamento e opções do funil de propostas.</p>
     </div>
-    <button (click)="openModal()" class="mt-4 sm:mt-0 btn-primary flex items-center">
-      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-      Adicionar Novo(a)
-    </button>
+    <div class="flex space-x-3">
+      <button *ngIf="activeTab === 'produtos'" (click)="openImportModal()" class="mt-4 sm:mt-0 px-4 py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-lg font-medium flex items-center transition-colors border border-emerald-200">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+        Importar CSV
+      </button>
+      <button (click)="openModal()" class="mt-4 sm:mt-0 btn-primary flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        Adicionar Novo(a)
+      </button>
+    </div>
   </div>
 
   <!-- Tabs Navigation -->
@@ -34,6 +40,7 @@
              <th class="p-4 font-semibold">SKU / Código</th>
              <th class="p-4 font-semibold">Valor (R$)</th>
              <th class="p-4 font-semibold">Unidade</th>
+             <th class="p-4 font-semibold text-center">Estoque</th>
              <th class="p-4 font-semibold text-center w-32">Ações</th>
           </tr>
           <tr *ngIf="activeTab === 'situacoes' || activeTab === 'formas'">
@@ -43,7 +50,7 @@
         </thead>
         <tbody class="divide-y divide-slate-100">
           <tr *ngIf="loading">
-             <td colspan="5" class="p-8 text-center text-slate-500">
+             <td colspan="6" class="p-8 text-center text-slate-500">
               <div class="flex justify-center items-center">
                 <svg class="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -54,12 +61,13 @@
           </tr>
           
           <ng-container *ngIf="!loading && activeTab === 'produtos'">
-            <tr *ngIf="produtos.length === 0"><td colspan="5" class="p-8 text-center text-slate-500">Nenhum produto cadastrado.</td></tr>
+            <tr *ngIf="produtos.length === 0"><td colspan="6" class="p-8 text-center text-slate-500">Nenhum produto cadastrado.</td></tr>
             <tr *ngFor="let p of produtos" class="hover:bg-slate-50/80 group">
               <td class="p-4 font-medium text-slate-800">{{p.descricao}}</td>
               <td class="p-4 text-slate-500">{{p.sku}}</td>
               <td class="p-4 text-slate-800">R$ {{p.valorVenda}}</td>
               <td class="p-4 text-slate-500 text-sm">{{p.unidade}}</td>
+              <td class="p-4 text-center text-slate-800 font-medium">{{p.estoque ?? 0}}</td>
               <td class="p-4 text-center">
                  <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                    <button (click)="openModal(p)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
@@ -112,9 +120,10 @@
        <div *ngIf="activeTab === 'produtos'" class="space-y-4">
           <div><label class="block text-sm font-medium mb-1">Descrição</label><input type="text" [(ngModel)]="currentProduto.descricao" name="pdesc" required class="input-field"></div>
           <div><label class="block text-sm font-medium mb-1">SKU / Código</label><input type="text" [(ngModel)]="currentProduto.sku" name="psku" required class="input-field"></div>
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-3 gap-4">
               <div><label class="block text-sm font-medium mb-1">Valor Venda (R$)</label><input type="number" step="0.01" [(ngModel)]="currentProduto.valorVenda" name="pvalor" required class="input-field"></div>
-              <div><label class="block text-sm font-medium mb-1">Unidade (Ex: UN, HG)</label><input type="text" [(ngModel)]="currentProduto.unidade" name="punn" required class="input-field"></div>
+              <div><label class="block text-sm font-medium mb-1">Unidade</label><input type="text" [(ngModel)]="currentProduto.unidade" name="punn" required class="input-field"></div>
+              <div><label class="block text-sm font-medium mb-1">Estoque</label><input type="number" [(ngModel)]="currentProduto.estoque" name="pestoque" class="input-field"></div>
           </div>
        </div>
        
@@ -135,5 +144,96 @@
         </button>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- Modal Importação CSV -->
+<div *ngIf="showImportModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all">
+    <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white/95 backdrop-blur z-10">
+      <div>
+        <h3 class="text-xl font-bold text-slate-800">Importar Produtos via CSV</h3>
+        <p class="text-sm text-slate-500 mt-0.5">Selecione um arquivo CSV com os produtos do sistema legado.</p>
+      </div>
+      <button (click)="closeImportModal()" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+
+    <div class="p-6 space-y-5">
+
+      <!-- File Input -->
+      <div class="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-primary-400 transition-colors cursor-pointer relative">
+        <input type="file" accept=".csv" (change)="onFileSelected($event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+        <svg class="w-10 h-10 mx-auto text-slate-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+        <p class="text-slate-600 font-medium">{{ importFileName || 'Clique ou arraste seu arquivo CSV aqui' }}</p>
+        <p class="text-xs text-slate-400 mt-1">Colunas esperadas: PRD_CD_PRODUTO, PRD_DS_PRODUTO, PRD_VL_PRECO, PRD_DS_UNIDADE, PRD_NR_ESTOQUE</p>
+      </div>
+
+      <!-- Erro -->
+      <div *ngIf="importError" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">{{importError}}</div>
+
+      <!-- Modo -->
+      <div *ngIf="importPreview.length > 0" class="flex items-center space-x-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+        <span class="text-sm font-medium text-slate-700">Modo:</span>
+        <label class="flex items-center space-x-2 cursor-pointer">
+          <input type="radio" [(ngModel)]="importMode" name="importMode" value="add" class="text-primary-500">
+          <span class="text-sm text-slate-700">Adicionar aos existentes</span>
+        </label>
+        <label class="flex items-center space-x-2 cursor-pointer">
+          <input type="radio" [(ngModel)]="importMode" name="importMode" value="replace" class="text-red-500">
+          <span class="text-sm text-red-600 font-medium">Substituir todos</span>
+        </label>
+      </div>
+
+      <!-- Preview Table -->
+      <div *ngIf="importPreview.length > 0" class="border border-slate-200 rounded-lg overflow-hidden">
+        <div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+          <span class="text-sm font-semibold text-slate-700">Preview: {{importPreview.length}} produto(s) encontrado(s)</span>
+        </div>
+        <div class="overflow-x-auto max-h-64 overflow-y-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-100 text-slate-600 sticky top-0">
+              <tr>
+                <th class="p-3 font-semibold">Descrição</th>
+                <th class="p-3 font-semibold text-right">Valor (R$)</th>
+                <th class="p-3 font-semibold text-center">Unidade</th>
+                <th class="p-3 font-semibold text-center">Estoque</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr *ngFor="let p of importPreview" class="hover:bg-slate-50">
+                <td class="p-3 font-medium text-slate-800">{{p.descricao}}</td>
+                <td class="p-3 text-right text-slate-600">R$ {{p.valorVenda}}</td>
+                <td class="p-3 text-center text-slate-500">{{p.unidade}}</td>
+                <td class="p-3 text-center text-slate-800">{{p.estoque}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Progresso -->
+      <div *ngIf="importing" class="space-y-2">
+        <div class="flex justify-between text-sm font-medium">
+          <span class="text-slate-600">Processando produtos...</span>
+          <span class="text-primary-600">{{importProgress}}%</span>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
+          <div class="bg-primary-500 h-full transition-all duration-300 ease-out" [style.width.%]="importProgress"></div>
+        </div>
+        <p class="text-xs text-slate-400 text-center italic">Não feche esta janela até concluir.</p>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex justify-end space-x-3 pt-2">
+        <button (click)="closeImportModal()" [disabled]="importing" class="px-5 py-2.5 text-slate-600 bg-slate-100 hover:bg-slate-200 font-medium rounded-lg transition-colors">Cancelar</button>
+        <button (click)="confirmarImportacao()" [disabled]="importing || importPreview.length === 0" class="px-5 py-2.5 btn-primary font-medium flex items-center">
+          <div *ngIf="importing" class="mr-2 h-4 w-4 relative">
+             <div class="absolute inset-0 rounded-full border-2 border-slate-300 opacity-25"></div>
+             <div class="absolute inset-0 rounded-full border-2 border-white border-t-transparent animate-spin"></div>
+          </div>
+          {{ importing ? 'Importando...' : 'Confirmar Importação' }}
+        </button>
+      </div>
+    </div>
   </div>
 </div>
