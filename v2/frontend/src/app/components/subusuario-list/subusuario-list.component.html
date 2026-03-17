@@ -100,7 +100,7 @@
           <label class="block text-sm font-medium text-slate-700 mb-1">Entidade Padrão</label>
           <select [(ngModel)]="currentUsuario.entidadeId" name="entId" class="input-field">
             <option [ngValue]="undefined">Nenhuma (Acesso Geral)</option>
-            <option *ngFor="let e of entidades" [ngValue]="e.id">{{e.descricao}}</option>
+            <option *ngFor="let e of entidades" [ngValue]="e.id">{{e.nome}}</option>
           </select>
         </div>
 

@@ -1,29 +1,83 @@
+nohup: ignoring input
 
-Warning: This is a simple server for use in testing or debugging Angular applications
-locally. It hasn't been reviewed for security issues.
+> frontend@0.0.0 start
+> ng serve --proxy-config src/proxy.conf.json
 
-Binding this server to an open connection can result in compromising your application or
-computer. Using a different host than the one passed to the "--host" flag might result in
-websocket connection issues. You might need to use "--disable-host-check" if that's the
-case.
-    
 Component HMR has been enabled, see https://angular.dev/hmr for more info.
 ❯ Building...
 ✔ Building...
-Initial chunk files | Names         |  Raw size
-main.js             | main          | 453.33 kB | 
-polyfills.js        | polyfills     |  89.77 kB | 
-styles.css          | styles        |  33.03 kB | 
-
-                    | Initial total | 576.13 kB
-
-Application bundle generation complete. [1.214 seconds]
+Application bundle generation failed. [1.237 seconds]
 
 [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
 
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/vendas-config/vendas-config.component.html:105:2:
+[37m      105 │   [32m</div>[37m
+          ╵   [32m~~~~~~[0m
+
+  Error occurs in the template of component VendasConfigComponent.
+
+    src/app/components/vendas-config/vendas-config.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/vendas-config/vendas-config.component.html:106:4:
+[37m      106 │     [32m</div>[37m
+          ╵     [32m~~~~~~[0m
+
+  Error occurs in the template of component VendasConfigComponent.
+
+    src/app/components/vendas-config/vendas-config.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/vendas-config/vendas-config.component.html:107:2:
+[37m      107 │   [32m</div>[37m
+          ╵   [32m~~~~~~[0m
+
+  Error occurs in the template of component VendasConfigComponent.
+
+    src/app/components/vendas-config/vendas-config.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/vendas-config/vendas-config.component.html:108:0:
+[37m      108 │ [32m</div>[37m
+          ╵ [32m~~~~~~[0m
 
   Error occurs in the template of component VendasConfigComponent.
 
@@ -33,261 +87,119 @@ Application bundle generation complete. [1.214 seconds]
 
 
 Watch mode enabled. Watching for file changes...
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.547 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/vendas-config/vendas-config.component.html:105:0:
+[37m      105 │ [32m</div>[37m
+          ╵ [32m~~~~~~[0m
+
+  Error occurs in the template of component VendasConfigComponent.
+
+    src/app/components/vendas-config/vendas-config.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 505.38 kB | 
+polyfills.js        | polyfills     |  89.77 kB | 
+styles.css          | styles        |  33.59 kB | 
+
+                    | Initial total | 628.74 kB
+
+Application bundle generation complete. [0.155 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
 NOTE: Raw file sizes do not reflect development server per-request transformations.
   ➜  Local:   http://localhost:4200/
-  ➜  Network: http://192.168.0.71:4200/
 ❯ Changes detected. Rebuilding...
 ✔ Changes detected. Rebuilding...
 Initial chunk files | Names |  Raw size
-main.js             | main  | 453.43 kB | 
+main.js             | main  | 507.48 kB | 
 
-Application bundle generation complete. [0.460 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.236 seconds]
+Application bundle generation complete. [0.151 seconds]
 
 [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
 
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
 
-  Error occurs in the template of component VendasConfigComponent.
+  Error occurs in the template of component ProdutoListComponent.
 
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
 
-
-[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS1128: Declaration or statement expected.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.ts:298:0:
-[37m      298 │ [32m}[37m
-          ╵ [32m^[0m
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names         |  Raw size
-main.js             | main          | 454.40 kB | 
-polyfills.js        | polyfills     |  89.77 kB | 
-styles.css          | styles        |  33.03 kB | 
-
-                    | Initial total | 577.21 kB
-
-Application bundle generation complete. [0.187 seconds]
 
 [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
 
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
 
-  Error occurs in the template of component VendasConfigComponent.
+  Error occurs in the template of component ProdutoListComponent.
 
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names  |  Raw size
-main.js             | main   | 456.81 kB | 
-styles.css          | styles |  33.41 kB | 
-
-Application bundle generation complete. [0.234 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
 
 
-Stylesheet update sent to client(s).
 Component update sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names |  Raw size
-main.js             | main  | 456.77 kB | 
-
-Application bundle generation complete. [0.267 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-
-No output file changes.
-
-Application bundle generation complete. [0.186 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Application bundle generation failed. [0.102 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 2 arguments, but got 1.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/selecionar-entidade/selecionar-entidade.component.ts:53:21:
-[37m      53 │     this.authService.[32mupdateEntidadeId[37m(entidadeId);
-         ╵                      [32m~~~~~~~~~~~~~~~~[0m
-
-  An argument for 'nome' was not provided.
-
-    src/app/services/auth.service.ts:69:39:
-[37m      69 │   updateEntidadeId(entidadeId: number, [32mnome: string[37m): void {
-         ╵                                        [32m~~~~~~~~~~~~[0m
-
-
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names         |  Raw size
-main.js             | main          | 456.95 kB | 
-polyfills.js        | polyfills     |  89.77 kB | 
-styles.css          | styles        |  33.41 kB | 
-
-                    | Initial total | 580.13 kB
-
-Application bundle generation complete. [0.117 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names |  Raw size
-main.js             | main  | 457.12 kB | 
-
-Application bundle generation complete. [0.086 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Page reload sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names  |  Raw size
-main.js             | main   | 457.77 kB | 
-styles.css          | styles |  33.54 kB | 
-
-Application bundle generation complete. [0.121 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Stylesheet update sent to client(s).
-Component update sent to client(s).
-❯ Changes detected. Rebuilding...
-✔ Changes detected. Rebuilding...
-Initial chunk files | Names  |  Raw size
-main.js             | main   | 501.57 kB | 
-styles.css          | styles |  34.25 kB | 
-
-Application bundle generation complete. [0.170 seconds]
-
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
-
-    src/app/components/vendas-config/vendas-config.component.html:70:71:
-[37m      70 │ ...-4 text-center text-slate-800 font-medium">{{[32mp.estoque ?? 0[37m}}</td>
-         ╵                                                 [32m~~~~~~~~~~~~~~[0m
-
-  Error occurs in the template of component VendasConfigComponent.
-
-    src/app/components/vendas-config/vendas-config.component.ts:13:15:
-[37m      13 │   templateUrl: [32m'./vendas-config.component.html'[37m
-         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
-
-Page reload sent to client(s).

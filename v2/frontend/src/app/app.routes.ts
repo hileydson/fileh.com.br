@@ -12,26 +12,28 @@ import { authGuard } from './guards/auth.guard';
 import { SelecionarEntidadeComponent } from './components/selecionar-entidade/selecionar-entidade.component';
 import { VendasConfigComponent } from './components/vendas-config/vendas-config.component';
 import { SubUsuarioListComponent } from './components/subusuario-list/subusuario-list.component';
+import { ProdutoListComponent } from './components/produto-list/produto-list.component';
 
 export const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'selecionar-entidade', component: SelecionarEntidadeComponent, canActivate: [authGuard] },
-    { 
-        path: '', 
-        component: LayoutComponent, 
-        canActivate: [authGuard],
-        children: [
-            { path: 'clientes', component: ClienteListComponent },
-            { path: 'entidades', component: EntidadeListComponent },
-            { path: 'fornecedores', component: FornecedorListComponent },
-            { path: 'propostas', component: PropostaComercialListComponent },
-            { path: 'contas-pagar', component: ContaPagarListComponent },
-            { path: 'contas-receber', component: ContaReceberListComponent },
-            { path: 'fluxo-caixa', component: FluxoCaixaListComponent },
-            { path: 'vendas-config', component: VendasConfigComponent },
-            { path: 'usuarios', component: SubUsuarioListComponent },
-            { path: '', redirectTo: 'clientes', pathMatch: 'full' }
-        ]
-    },
-    { path: '**', redirectTo: '' }
+  { path: '', redirectTo: 'fluxo-caixa', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'selecionar-entidade', component: SelecionarEntidadeComponent, canActivate: [authGuard] },
+  {
+    path: '',
+    component: LayoutComponent,
+    canActivate: [authGuard],
+    children: [
+      { path: 'fluxo-caixa', component: FluxoCaixaListComponent },
+      { path: 'propostas', component: PropostaComercialListComponent },
+      { path: 'clientes', component: ClienteListComponent },
+      { path: 'fornecedores', component: FornecedorListComponent },
+      { path: 'entidades', component: EntidadeListComponent },
+      { path: 'contas-pagar', component: ContaPagarListComponent },
+      { path: 'contas-receber', component: ContaReceberListComponent },
+      { path: 'usuarios', component: SubUsuarioListComponent },
+      { path: 'produtos', component: ProdutoListComponent },
+      { path: 'vendas-config', component: VendasConfigComponent }
+    ]
+  },
+  { path: '**', redirectTo: '' }
 ];
