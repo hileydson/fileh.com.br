@@ -20,6 +20,26 @@ public class ProdutoController {
         return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Produto>> search(@RequestParam Long entidadeId, @RequestParam String query) {
+        String[] words = query.split("\\s+");
+        org.springframework.data.jpa.domain.Specification<Produto> spec = (root, q, cb) -> 
+            cb.equal(root.get("entidadeId"), entidadeId);
+
+        for (String word : words) {
+            if (word.isEmpty()) continue;
+            final String pattern = "%" + word.toLowerCase() + "%";
+            org.springframework.data.jpa.domain.Specification<Produto> wordSpec = (root, q, cb) -> 
+                cb.or(
+                    cb.like(cb.lower(root.get("descricao")), pattern),
+                    cb.like(cb.lower(root.get("sku")), pattern)
+                );
+            spec = spec.and(wordSpec);
+        }
+
+        return ResponseEntity.ok(repository.findAll(spec));
+    }
+
     @PostMapping
     public ResponseEntity<Produto> create(@RequestBody Produto produto) {
         return ResponseEntity.ok(repository.save(produto));

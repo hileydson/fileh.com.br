@@ -108,3 +108,7 @@ Hibernate:
         fluxo_caixa fc1_0 
     where
         fc1_0.flu_cd_entidade=?
+2026-03-17T17:04:59.722-03:00  INFO 1152707 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:09:59.722-03:00  INFO 1152707 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:14:59.723-03:00  INFO 1152707 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:19:59.727-03:00  INFO 1152707 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

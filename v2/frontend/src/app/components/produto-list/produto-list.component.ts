@@ -18,6 +18,7 @@ export class ProdutoListComponent implements OnInit {
   showModal = false;
   isEditing = false;
   currentProduto: Produto = this.getEmptyProduto();
+  searchTerm: string = '';
 
   // === Importação CSV ===
   showImportModal = false;
@@ -44,6 +45,19 @@ export class ProdutoListComponent implements OnInit {
   loadProdutos(): void {
     this.loading = true;
     this.produtoService.getAllByTenant(this.entidadeId).subscribe(data => {
+        this.produtos = data;
+        this.loading = false;
+    });
+  }
+
+  onSearch(): void {
+    if (!this.searchTerm || this.searchTerm.trim() === '') {
+        this.loadProdutos();
+        return;
+    }
+    
+    this.loading = true;
+    this.produtoService.search(this.entidadeId, this.searchTerm.trim()).subscribe(data => {
         this.produtos = data;
         this.loading = false;
     });

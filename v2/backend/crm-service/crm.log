@@ -92,3 +92,7 @@ nohup: ignoring input
 2026-03-17T16:54:39.242-03:00  INFO 1151718 --- [crm-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CRM-SERVICE/192.168.0.71:crm-service:8082 - registration status: 204
 2026-03-17T16:54:39.257-03:00  INFO 1151718 --- [crm-service] [           main] br.com.fileh.crm.CrmServiceApplication   : Started CrmServiceApplication in 2.015 seconds (process running for 2.225)
 2026-03-17T16:59:39.081-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:04:39.082-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:09:39.082-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:14:39.083-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:19:39.084-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

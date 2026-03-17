@@ -24,6 +24,10 @@ export class ProdutoService {
     return this.http.get<Produto[]>(`${this.apiUrl}/tenant/${entidadeId}`);
   }
 
+  search(entidadeId: number, query: string): Observable<Produto[]> {
+    return this.http.get<Produto[]>(`${this.apiUrl}/search?entidadeId=${entidadeId}&query=${query}`);
+  }
+
   create(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(this.apiUrl, produto);
   }

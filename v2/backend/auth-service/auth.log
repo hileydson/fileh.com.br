@@ -98,3 +98,7 @@ nohup: ignoring input
 2026-03-17T16:54:25.514-03:00  INFO 1151189 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081 - registration status: 204
 2026-03-17T16:54:25.528-03:00  INFO 1151189 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Started AuthServiceApplication in 2.407 seconds (process running for 2.635)
 2026-03-17T16:59:25.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:04:25.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:09:25.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:14:25.349-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:19:25.350-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
