@@ -15,6 +15,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private Long id;
     private Long tenantId; // Usuario ID
+    private Long entidadeId; // Entidade ID binding
     private String username;
     private String email;
 
@@ -23,10 +24,11 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, Long tenantId, String username, String email, String password,
+    public UserDetailsImpl(Long id, Long tenantId, Long entidadeId, String username, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.tenantId = tenantId;
+        this.entidadeId = entidadeId;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -48,6 +50,7 @@ public class UserDetailsImpl implements UserDetails {
         return new UserDetailsImpl(
                 subUsuario.getId(),
                 subUsuario.getUsuario().getId(),
+                subUsuario.getEntidadeId(),
                 subUsuario.getLogin(),
                 subUsuario.getUsuario().getEmail(),
                 subUsuario.getSenha(),
@@ -56,6 +59,7 @@ public class UserDetailsImpl implements UserDetails {
 
     public Long getId() { return id; }
     public Long getTenantId() { return tenantId; }
+    public Long getEntidadeId() { return entidadeId; }
     public String getEmail() { return email; }
 
     @Override

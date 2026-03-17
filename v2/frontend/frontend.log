@@ -1,20 +1,19 @@
-nohup: ignoring input
-
-> frontend@0.0.0 start
-> ng serve --proxy-config src/proxy.conf.json
-
+Warning: Running a server with --disable-host-check is a security risk. See https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a for more information.
+The "disableHostCheck" option will not be used because it is not supported by the "@angular-devkit/build-angular:application" builder.
 Component HMR has been enabled, see https://angular.dev/hmr for more info.
 ❯ Building...
 ✔ Building...
 Initial chunk files | Names         |  Raw size
-main.js             | main          | 323.14 kB | 
+main.js             | main          | 428.14 kB | 
 polyfills.js        | polyfills     |  89.77 kB | 
-styles.css          | styles        |  27.45 kB | 
+styles.css          | styles        |  31.33 kB | 
 
-                    | Initial total | 440.36 kB
+                    | Initial total | 549.25 kB
 
-Application bundle generation complete. [1.083 seconds]
+Application bundle generation complete. [1.319 seconds]
 
 Watch mode enabled. Watching for file changes...
 NOTE: Raw file sizes do not reflect development server per-request transformations.
+3:12:09 PM [vite] (ssr) Re-optimizing dependencies because lockfile has changed
   ➜  Local:   http://localhost:4200/
+  ➜  Network: http://192.168.0.71:4200/

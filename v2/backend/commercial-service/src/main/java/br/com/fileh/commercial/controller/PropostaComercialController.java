@@ -15,9 +15,9 @@ public class PropostaComercialController {
     @Autowired
     private PropostaComercialRepository repository;
 
-    @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<PropostaComercial>> getAllByTenant(@PathVariable Long tenantId) {
-        return ResponseEntity.ok(repository.findByUsuarioId(tenantId));
+    @GetMapping("/tenant/{entidadeId}")
+    public ResponseEntity<List<PropostaComercial>> getAllByTenant(@PathVariable Long entidadeId) {
+        return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 
     @PostMapping
@@ -31,6 +31,7 @@ public class PropostaComercialController {
             proposta.setClienteId(details.getClienteId());
             proposta.setValorDesconto(details.getValorDesconto());
             proposta.setValorFrete(details.getValorFrete());
+            proposta.setValorTotal(details.getValorTotal());
             proposta.setDataCadastro(details.getDataCadastro());
             proposta.setDataPrevista(details.getDataPrevista());
             proposta.setObservacao(details.getObservacao());

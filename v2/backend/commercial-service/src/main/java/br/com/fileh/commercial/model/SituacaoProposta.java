@@ -17,6 +17,9 @@ public class SituacaoProposta {
     @Column(name = "SIP_CD_SITUACAO_PROPOSTA")
     private Long id;
 
+    @Column(name = "SIP_CD_ENTIDADE", nullable = false)
+    private Long entidadeId;
+
     @Column(name = "SIP_DS_SITUACAO_PROPOSTA", nullable = false)
     private String descricao;
 }

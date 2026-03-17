@@ -18,8 +18,8 @@ public class Cliente {
     private Long id;
 
     // Tenant ID
-    @Column(name = "CLI_CD_USUARIO", nullable = false)
-    private Long usuarioId;
+    @Column(name = "CLI_CD_ENTIDADE", nullable = false)
+    private Long entidadeId;
 
     @Column(name = "CLI_NM_CLIENTE", nullable = false)
     private String nome;
@@ -37,7 +37,7 @@ public class Cliente {
     private String telefone;
 
     @Column(name = "CLI_DS_ENTIDADE", nullable = false)
-    private String entidade;
+    private String nomeEntidade; // previously entidade
 
     @Column(name = "CLI_DS_REFERENCIA", nullable = false)
     private String referencia;

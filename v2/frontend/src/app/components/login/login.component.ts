@@ -31,7 +31,12 @@ export class LoginComponent {
     this.authService.login(this.credentials).subscribe({
       next: () => {
         this.loading = false;
-        this.router.navigate(['/clientes']);
+        const ctx = this.authService.getAuthContext();
+        if (ctx && ctx.roles.includes('ROLE_ADMIN') && !ctx.entidadeId) {
+          this.router.navigate(['/selecionar-entidade']);
+        } else {
+          this.router.navigate(['/clientes']);
+        }
       },
       error: err => {
         this.loading = false;

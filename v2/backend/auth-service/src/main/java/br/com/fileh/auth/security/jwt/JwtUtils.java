@@ -32,6 +32,7 @@ public class JwtUtils {
         return Jwts.builder()
                 .subject((userPrincipal.getUsername()))
                 .claim("tenantId", userPrincipal.getTenantId())
+                .claim("entidadeId", userPrincipal.getEntidadeId())
                 .claim("roles", userPrincipal.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList()))

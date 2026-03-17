@@ -15,9 +15,9 @@ public class ContaReceberController {
     @Autowired
     private ContaReceberRepository repository;
 
-    @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<ContaReceber>> getAllByTenant(@PathVariable Long tenantId) {
-        return ResponseEntity.ok(repository.findByUsuarioId(tenantId));
+    @GetMapping("/tenant/{entidadeId}")
+    public ResponseEntity<List<ContaReceber>> getAllByTenant(@PathVariable Long entidadeId) {
+        return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 
     @PostMapping

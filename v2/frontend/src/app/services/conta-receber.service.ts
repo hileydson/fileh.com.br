@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface ContaReceber {
   id?: number;
-  usuarioId?: number;
+  entidadeId?: number;
   descricao: string;
   dataVencimento: string;
   valor: number;
@@ -25,8 +25,8 @@ export class ContaReceberService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByTenant(tenantId: number): Observable<ContaReceber[]> {
-    return this.http.get<ContaReceber[]>(`${this.apiUrl}/tenant/${tenantId}`);
+  getAllByTenant(entidadeId: number): Observable<ContaReceber[]> {
+    return this.http.get<ContaReceber[]>(`${this.apiUrl}/tenant/${entidadeId}`);
   }
 
   create(conta: ContaReceber): Observable<ContaReceber> {

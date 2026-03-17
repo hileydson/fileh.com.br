@@ -20,7 +20,13 @@ export class ContaPagarListComponent implements OnInit {
   isEditing = false;
   currentConta: ContaPagar = this.getEmptyConta();
 
-  tenantId: number = 1;
+  entidadeId: number = 0;
+
+  // Dashboard stats
+  totalPendente: number = 0;
+  totalVencido: number = 0;
+  totalPagoMes: number = 0;
+  totalHoje: number = 0;
 
   constructor(
     private contaPagarService: ContaPagarService,
@@ -28,21 +34,19 @@ export class ContaPagarListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = this.authService.getToken();
-    if (token) {
-        try {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            this.tenantId = payload.tenantId || 1;
-        } catch(e) {}
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeId) {
+        this.entidadeId = ctx.entidadeId;
+        this.loadContas();
     }
-    this.loadContas();
   }
 
   loadContas(): void {
     this.loading = true;
-    this.contaPagarService.getAllByTenant(this.tenantId).subscribe({
+    this.contaPagarService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
         this.contas = data;
+        this.calculateDashboard();
         this.loading = false;
       },
       error: (err) => {
@@ -70,7 +74,7 @@ export class ContaPagarListComponent implements OnInit {
 
   saveConta(): void {
     this.saving = true;
-    this.currentConta.usuarioId = this.tenantId;
+    this.currentConta.entidadeId = this.entidadeId;
 
     if (this.isEditing) {
       this.contaPagarService.update(this.currentConta.id!, this.currentConta).subscribe({
@@ -124,6 +128,46 @@ export class ContaPagarListComponent implements OnInit {
       return `${parts[2]}/${parts[1]}/${parts[0]}`;
     }
     return isoString;
+  }
+
+  calcularSaldoVisual(): number {
+    return 0; // Not used here, just parity
+  }
+
+  calculateDashboard(): void {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayStr = new Date().toISOString().split('T')[0];
+    
+    // reset
+    this.totalPendente = 0;
+    this.totalVencido = 0;
+    this.totalPagoMes = 0;
+    this.totalHoje = 0;
+
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+
+    this.contas.forEach(c => {
+        const val = c.valor || 0;
+        
+        if (c.pago) {
+            // Check if paid this month (approx based on dueDate since we don't have paymentDate)
+            const dueD = new Date(c.dataVencimento);
+            if (dueD.getMonth() === currentMonth && dueD.getFullYear() === currentYear) {
+               this.totalPagoMes += val;
+            }
+        } else {
+            this.totalPendente += val;
+            
+            if (c.dataVencimento < todayStr) {
+                this.totalVencido += val;
+            }
+            if (c.dataVencimento === todayStr) {
+                this.totalHoje += val;
+            }
+        }
+    });
   }
 
   private getEmptyConta(): ContaPagar {

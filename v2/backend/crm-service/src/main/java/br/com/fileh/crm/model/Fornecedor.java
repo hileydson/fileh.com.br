@@ -17,9 +17,8 @@ public class Fornecedor {
     @Column(name = "FOR_CD_FORNECEDOR")
     private Long id;
 
-    // Tenant ID
-    @Column(name = "FOR_CD_USUARIO", nullable = false)
-    private Long usuarioId;
+    @Column(name = "FOR_CD_ENTIDADE", nullable = false)
+    private Long entidadeId;
 
     @Column(name = "FOR_DS_FORNECEDOR", nullable = false)
     private String nome;

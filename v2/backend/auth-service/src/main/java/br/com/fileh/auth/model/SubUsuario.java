@@ -21,6 +21,9 @@ public class SubUsuario {
     @JoinColumn(name = "SBU_CD_USUARIO", nullable = false)
     private Usuario usuario; // The tenant/company this user belongs to
 
+    @Column(name = "SBU_CD_ENTIDADE")
+    private Long entidadeId; // The entity this user is bound to (if not admin)
+
     @Column(name = "SBU_NM_SUBUSUARIO", nullable = false)
     private String nome;
 

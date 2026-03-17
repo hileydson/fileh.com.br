@@ -1,4 +1,4 @@
-package br.com.fileh.auth.security.WebSecurityConfig;
+package br.com.fileh.auth.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

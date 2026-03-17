@@ -20,7 +20,13 @@ export class ContaReceberListComponent implements OnInit {
   isEditing = false;
   currentConta: ContaReceber = this.getEmptyConta();
 
-  tenantId: number = 1;
+  entidadeId: number = 0;
+
+  // Dashboard stats
+  totalPendente: number = 0;
+  totalVencido: number = 0;
+  totalRecebidoMes: number = 0;
+  totalParaReceberHoje: number = 0;
 
   constructor(
     private contaReceberService: ContaReceberService,
@@ -28,21 +34,19 @@ export class ContaReceberListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = this.authService.getToken();
-    if (token) {
-        try {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            this.tenantId = payload.tenantId || 1;
-        } catch(e) {}
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeId) {
+        this.entidadeId = ctx.entidadeId;
+        this.loadContas();
     }
-    this.loadContas();
   }
 
   loadContas(): void {
     this.loading = true;
-    this.contaReceberService.getAllByTenant(this.tenantId).subscribe({
+    this.contaReceberService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
         this.contas = data;
+        this.calculateDashboard();
         this.loading = false;
       },
       error: (err) => {
@@ -70,7 +74,7 @@ export class ContaReceberListComponent implements OnInit {
 
   saveConta(): void {
     this.saving = true;
-    this.currentConta.usuarioId = this.tenantId;
+    this.currentConta.entidadeId = this.entidadeId;
 
     if (this.isEditing) {
       this.contaReceberService.update(this.currentConta.id!, this.currentConta).subscribe({
@@ -124,6 +128,44 @@ export class ContaReceberListComponent implements OnInit {
       return `${parts[2]}/${parts[1]}/${parts[0]}`;
     }
     return isoString;
+  }
+
+  handleRecebidoDateUpdate(): void {}
+
+  calculateDashboard(): void {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayStr = today.toISOString().split('T')[0];
+    
+    // reset
+    this.totalPendente = 0;
+    this.totalVencido = 0;
+    this.totalRecebidoMes = 0;
+    this.totalParaReceberHoje = 0;
+
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+
+    this.contas.forEach(c => {
+        const val = c.valor || 0;
+        
+        if (c.recebido) {
+            // Check if received this month
+            const dueD = new Date(c.dataVencimento);
+            if (dueD.getMonth() === currentMonth && dueD.getFullYear() === currentYear) {
+               this.totalRecebidoMes += val;
+            }
+        } else {
+            this.totalPendente += val;
+            
+            if (c.dataVencimento < todayStr) {
+                this.totalVencido += val;
+            }
+            if (c.dataVencimento === todayStr) {
+                this.totalParaReceberHoje += val;
+            }
+        }
+    });
   }
 
   private getEmptyConta(): ContaReceber {

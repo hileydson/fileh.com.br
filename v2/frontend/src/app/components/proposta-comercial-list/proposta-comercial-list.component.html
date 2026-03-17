@@ -96,8 +96,19 @@
       </button>
     </div>
     
+    <!-- Tabs no Modal -->
+    <div class="flex border-b border-slate-200 px-6 mt-2">
+      <button (click)="activeTab = 'dados'" class="px-4 py-2 border-b-2 text-sm font-medium transition-colors"
+        [class.border-primary-500]="activeTab === 'dados'" [class.text-primary-600]="activeTab === 'dados'"
+        [class.border-transparent]="activeTab !== 'dados'" [class.text-slate-500]="activeTab !== 'dados'">Dados da Proposta</button>
+        
+      <button (click)="activeTab = 'itens'" class="px-4 py-2 border-b-2 text-sm font-medium transition-colors"
+        [class.border-primary-500]="activeTab === 'itens'" [class.text-primary-600]="activeTab === 'itens'"
+        [class.border-transparent]="activeTab !== 'itens'" [class.text-slate-500]="activeTab !== 'itens'">Itens da Proposta</button>
+    </div>
+
     <form (ngSubmit)="saveProposta()" class="p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div *ngIf="activeTab === 'dados'" class="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         <div>
           <label class="block text-sm font-medium text-slate-700 mb-1">Cód. Cliente (ID)</label>
@@ -148,7 +159,67 @@
           <label class="block text-sm font-medium text-slate-700 mb-1">Observações Gerais</label>
           <textarea [(ngModel)]="currentProposta.observacao" name="observacao" rows="3" class="input-field" placeholder="Detalhes adicionais..."></textarea>
         </div>
-        
+      </div>
+
+      <!-- Tab Itens -->
+      <div *ngIf="activeTab === 'itens'" class="space-y-4">
+         <div class="flex items-end space-x-3 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <div class="flex-1">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Produto / Serviço</label>
+              <select [(ngModel)]="novoItemProdutoId" name="novoItemProd" class="input-field">
+                <option [ngValue]="null">Selecione um produto...</option>
+                <option *ngFor="let prod of produtos" [value]="prod.id">{{prod.descricao}} (R$ {{prod.valorVenda}})</option>
+              </select>
+            </div>
+            <div class="w-24">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Qtd.</label>
+              <input type="number" [(ngModel)]="novoItemQuantidade" name="novoItemQtd" min="1" class="input-field text-center">
+            </div>
+            <button type="button" (click)="adicionarItem()" [disabled]="!novoItemProdutoId" class="px-4 py-2.5 bg-blue-100 text-blue-700 hover:bg-blue-200 font-medium rounded-lg transition-colors flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              Adicionar
+            </button>
+         </div>
+
+         <div class="border border-slate-200 rounded-lg overflow-hidden shrink-0 mt-4">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-slate-100 text-slate-600">
+                <tr>
+                  <th class="p-3 font-semibold">Descrição</th>
+                  <th class="p-3 font-semibold text-center">Un.</th>
+                  <th class="p-3 font-semibold text-right">Valor Unit.</th>
+                  <th class="p-3 font-semibold text-center">Qtd.</th>
+                  <th class="p-3 font-semibold text-right">Subtotal</th>
+                  <th class="p-3 font-semibold text-center w-16">Ação</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr *ngIf="itens.length === 0">
+                  <td colspan="6" class="p-6 text-center text-slate-400">Nenhum item adicionado à proposta.</td>
+                </tr>
+                <tr *ngFor="let it of itens; let i = index" class="hover:bg-slate-50">
+                  <td class="p-3 font-medium">{{it.descricao}}</td>
+                  <td class="p-3 text-center text-slate-500">{{it.unidade}}</td>
+                  <td class="p-3 text-right text-slate-600">R$ {{it.valor | number:'1.2-2'}}</td>
+                  <td class="p-3 text-center text-slate-800 font-medium">{{it.quantidade}}</td>
+                  <td class="p-3 text-right font-medium text-primary-700">R$ {{(it.valor * it.quantidade) | number:'1.2-2'}}</td>
+                  <td class="p-3 text-center">
+                    <button type="button" (click)="removerItem(i)" class="text-red-400 hover:text-red-600 p-1"><svg class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot class="bg-slate-50 border-t border-slate-200">
+                <tr>
+                   <td colspan="4" class="p-3 text-right font-bold text-slate-700">Total Descontos / Frete:</td>
+                   <td colspan="2" class="p-3 font-medium text-slate-600">R$ {{(currentProposta.valorFrete - currentProposta.valorDesconto) | number:'1.2-2'}}</td>
+                </tr>
+                <tr>
+                   <td colspan="4" class="p-3 text-right font-bold text-slate-800">VALOR TOTAL:</td>
+                   <td colspan="2" class="p-3 font-bold text-lg text-primary-700">R$ {{currentProposta.valorTotal | number:'1.2-2'}}</td>
+                </tr>
+              </tfoot>
+            </table>
+         </div>
       </div>
 
       <div class="mt-8 flex justify-end space-x-3">

@@ -15,9 +15,9 @@ public class FornecedorController {
     @Autowired
     private FornecedorRepository fornecedorRepository;
 
-    @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<Fornecedor>> getAllFornecedoresByTenant(@PathVariable Long tenantId) {
-        return ResponseEntity.ok(fornecedorRepository.findByUsuarioId(tenantId));
+    @GetMapping("/tenant/{entidadeId}")
+    public ResponseEntity<List<Fornecedor>> getAllFornecedoresByTenant(@PathVariable Long entidadeId) {
+        return ResponseEntity.ok(fornecedorRepository.findByEntidadeId(entidadeId));
     }
 
     @PostMapping

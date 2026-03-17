@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FluxoCaixaService, FluxoCaixa } from '../../services/fluxo-caixa.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-fluxo-caixa-list',
@@ -19,15 +20,20 @@ export class FluxoCaixaListComponent implements OnInit {
   isEditing = false;
   currentRegistro: FluxoCaixa = this.getEmptyRegistro();
 
-  // MOCK: Assuming a default entity ID of 1 for now (usually tied to the User/Tenant context)
-  entidadeId: number = 1;
+  // Context ID fetched on init
+  entidadeId: number = 0;
 
   constructor(
-    private fluxoCaixaService: FluxoCaixaService
+    private fluxoCaixaService: FluxoCaixaService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.loadRegistros();
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeId) {
+        this.entidadeId = ctx.entidadeId;
+        this.loadRegistros();
+    }
   }
 
   loadRegistros(): void {

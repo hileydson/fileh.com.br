@@ -19,8 +19,8 @@ public class ContaPagar {
     @Column(name = "COP_CD_CONTA_PAGAR")
     private Long id;
 
-    @Column(name = "COP_CD_USUARIO", nullable = false)
-    private Long usuarioId;
+    @Column(name = "COP_CD_ENTIDADE", nullable = false)
+    private Long entidadeId;
 
     @Column(name = "COP_DS_CONTA_PAGAR", nullable = false)
     private String descricao;

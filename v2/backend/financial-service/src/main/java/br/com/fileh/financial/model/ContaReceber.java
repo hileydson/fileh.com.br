@@ -19,8 +19,8 @@ public class ContaReceber {
     @Column(name = "COR_CD_CONTA_RECEBER")
     private Long id;
 
-    @Column(name = "COR_CD_USUARIO", nullable = false)
-    private Long usuarioId;
+    @Column(name = "COR_CD_ENTIDADE", nullable = false)
+    private Long entidadeId;
 
     @Column(name = "COR_DS_CONTA_RECEBER", nullable = false)
     private String descricao;

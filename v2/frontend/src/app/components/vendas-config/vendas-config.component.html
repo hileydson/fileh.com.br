@@ -1,0 +1,139 @@
+<div class="space-y-6">
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+    <div>
+      <h2 class="text-2xl font-bold text-slate-800">Configurações de Vendas</h2>
+      <p class="text-slate-500 text-sm mt-1">Gerencie produtos, categorias, faturamento e opções do funil de propostas.</p>
+    </div>
+    <button (click)="openModal()" class="mt-4 sm:mt-0 btn-primary flex items-center">
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+      Adicionar Novo(a)
+    </button>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="flex border-b border-slate-200">
+    <button (click)="switchTab('produtos')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors"
+      [class.border-primary-500]="activeTab === 'produtos'" [class.text-primary-600]="activeTab === 'produtos'"
+      [class.border-transparent]="activeTab !== 'produtos'" [class.text-slate-500]="activeTab !== 'produtos'">Produtos / Serviços</button>
+      
+    <button (click)="switchTab('situacoes')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors"
+      [class.border-primary-500]="activeTab === 'situacoes'" [class.text-primary-600]="activeTab === 'situacoes'"
+      [class.border-transparent]="activeTab !== 'situacoes'" [class.text-slate-500]="activeTab !== 'situacoes'">Situações da Proposta</button>
+
+    <button (click)="switchTab('formas')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors"
+      [class.border-primary-500]="activeTab === 'formas'" [class.text-primary-600]="activeTab === 'formas'"
+      [class.border-transparent]="activeTab !== 'formas'" [class.text-slate-500]="activeTab !== 'formas'">Formas de Pagamento</button>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
+          <tr *ngIf="activeTab === 'produtos'">
+             <th class="p-4 font-semibold">Descrição do Produto</th>
+             <th class="p-4 font-semibold">SKU / Código</th>
+             <th class="p-4 font-semibold">Valor (R$)</th>
+             <th class="p-4 font-semibold">Unidade</th>
+             <th class="p-4 font-semibold text-center w-32">Ações</th>
+          </tr>
+          <tr *ngIf="activeTab === 'situacoes' || activeTab === 'formas'">
+             <th class="p-4 font-semibold">Descrição</th>
+             <th class="p-4 font-semibold text-center w-32">Ações</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr *ngIf="loading">
+             <td colspan="5" class="p-8 text-center text-slate-500">
+              <div class="flex justify-center items-center">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>Carregando...
+              </div>
+             </td>
+          </tr>
+          
+          <ng-container *ngIf="!loading && activeTab === 'produtos'">
+            <tr *ngIf="produtos.length === 0"><td colspan="5" class="p-8 text-center text-slate-500">Nenhum produto cadastrado.</td></tr>
+            <tr *ngFor="let p of produtos" class="hover:bg-slate-50/80 group">
+              <td class="p-4 font-medium text-slate-800">{{p.descricao}}</td>
+              <td class="p-4 text-slate-500">{{p.sku}}</td>
+              <td class="p-4 text-slate-800">R$ {{p.valorVenda}}</td>
+              <td class="p-4 text-slate-500 text-sm">{{p.unidade}}</td>
+              <td class="p-4 text-center">
+                 <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <button (click)="openModal(p)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
+                   <button (click)="deleteItem(p.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                 </div>
+              </td>
+            </tr>
+          </ng-container>
+
+          <ng-container *ngIf="!loading && activeTab === 'situacoes'">
+            <tr *ngIf="situacoes.length === 0"><td colspan="2" class="p-8 text-center text-slate-500">Nenhuma situação cadastrada.</td></tr>
+            <tr *ngFor="let s of situacoes" class="hover:bg-slate-50/80 group">
+              <td class="p-4 font-medium text-slate-800"><span class="px-3 py-1 bg-slate-100 rounded-full text-sm border">{{s.descricao}}</span></td>
+              <td class="p-4 text-center">
+                 <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <button (click)="openModal(s)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
+                   <button (click)="deleteItem(s.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                 </div>
+              </td>
+            </tr>
+          </ng-container>
+
+          <ng-container *ngIf="!loading && activeTab === 'formas'">
+            <tr *ngIf="formas.length === 0"><td colspan="2" class="p-8 text-center text-slate-500">Nenhuma forma de pagamento cadastrada.</td></tr>
+            <tr *ngFor="let f of formas" class="hover:bg-slate-50/80 group">
+              <td class="p-4 font-medium text-slate-800">{{f.descricao}}</td>
+              <td class="p-4 text-center">
+                 <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <button (click)="openModal(f)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
+                   <button (click)="deleteItem(f.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                 </div>
+              </td>
+            </tr>
+          </ng-container>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all">
+    <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+      <h3 class="text-xl font-bold text-slate-800">{{ isEditing ? 'Editar' : 'Novo' }}</h3>
+      <button (click)="closeModal()" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+    <form (ngSubmit)="saveItem()" class="p-6">
+       <!-- Tab Produtos -->
+       <div *ngIf="activeTab === 'produtos'" class="space-y-4">
+          <div><label class="block text-sm font-medium mb-1">Descrição</label><input type="text" [(ngModel)]="currentProduto.descricao" name="pdesc" required class="input-field"></div>
+          <div><label class="block text-sm font-medium mb-1">SKU / Código</label><input type="text" [(ngModel)]="currentProduto.sku" name="psku" required class="input-field"></div>
+          <div class="grid grid-cols-2 gap-4">
+              <div><label class="block text-sm font-medium mb-1">Valor Venda (R$)</label><input type="number" step="0.01" [(ngModel)]="currentProduto.valorVenda" name="pvalor" required class="input-field"></div>
+              <div><label class="block text-sm font-medium mb-1">Unidade (Ex: UN, HG)</label><input type="text" [(ngModel)]="currentProduto.unidade" name="punn" required class="input-field"></div>
+          </div>
+       </div>
+       
+       <!-- Tab Situação / Forma (ambos só usam descricao) -->
+       <div *ngIf="activeTab === 'situacoes'" class="space-y-4">
+          <div><label class="block text-sm font-medium mb-1">Descrição</label><input type="text" [(ngModel)]="currentSituacao.descricao" name="sdesc" required class="input-field"></div>
+       </div>
+
+       <div *ngIf="activeTab === 'formas'" class="space-y-4">
+          <div><label class="block text-sm font-medium mb-1">Descrição (Forma Pag.)</label><input type="text" [(ngModel)]="currentForma.descricao" name="fdesc" required class="input-field"></div>
+       </div>
+
+      <div class="mt-8 flex justify-end space-x-3">
+        <button type="button" (click)="closeModal()" class="px-5 py-2.5 text-slate-600 bg-slate-100 hover:bg-slate-200 font-medium rounded-lg">Cancelar</button>
+        <button type="submit" [disabled]="saving" class="px-5 py-2.5 btn-primary font-medium flex items-center">
+          <svg *ngIf="saving" class="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

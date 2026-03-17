@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface Fornecedor {
   id?: number;
-  usuarioId?: number;
+  entidadeId?: number;
   nome: string;
   cnpj?: string;
   logradouro?: string;
@@ -24,8 +24,8 @@ export class FornecedorService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByTenant(tenantId: number): Observable<Fornecedor[]> {
-    return this.http.get<Fornecedor[]>(`${this.apiUrl}/tenant/${tenantId}`);
+  getAllByTenant(entidadeId: number): Observable<Fornecedor[]> {
+    return this.http.get<Fornecedor[]>(`${this.apiUrl}/tenant/${entidadeId}`);
   }
 
   create(fornecedor: Fornecedor): Observable<Fornecedor> {

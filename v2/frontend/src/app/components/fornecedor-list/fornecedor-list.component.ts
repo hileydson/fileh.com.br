@@ -20,7 +20,7 @@ export class FornecedorListComponent implements OnInit {
   isEditing = false;
   currentFornecedor: Fornecedor = this.getEmptyFornecedor();
 
-  tenantId: number = 1;
+  entidadeId: number = 0;
 
   constructor(
     private fornecedorService: FornecedorService,
@@ -28,19 +28,16 @@ export class FornecedorListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = this.authService.getToken();
-    if (token) {
-        try {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            this.tenantId = payload.tenantId || 1;
-        } catch(e) {}
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeId) {
+        this.entidadeId = ctx.entidadeId;
+        this.loadFornecedores();
     }
-    this.loadFornecedores();
   }
 
   loadFornecedores(): void {
     this.loading = true;
-    this.fornecedorService.getAllByTenant(this.tenantId).subscribe({
+    this.fornecedorService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
         this.fornecedores = data;
         this.loading = false;
@@ -70,7 +67,7 @@ export class FornecedorListComponent implements OnInit {
 
   saveFornecedor(): void {
     this.saving = true;
-    this.currentFornecedor.usuarioId = this.tenantId;
+    this.currentFornecedor.entidadeId = this.entidadeId;
 
     if (this.isEditing) {
       this.fornecedorService.update(this.currentFornecedor.id!, this.currentFornecedor).subscribe({

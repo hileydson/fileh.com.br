@@ -1,0 +1,39 @@
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Selecione a Entidade
+    </h2>
+    <p class="mt-2 text-center text-sm text-gray-600">
+      Como Administrador, escolha em qual contexto de entidade você quer operar.
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div *ngIf="loading" class="flex justify-center my-4">
+        <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+
+      <div *ngIf="errorMessage" class="rounded-md bg-red-50 p-4 mb-4 text-sm text-red-700">
+        {{ errorMessage }}
+      </div>
+
+      <ul *ngIf="!loading && entidades.length > 0" class="divide-y divide-gray-200">
+        <li *ngFor="let entidade of entidades" class="py-4 flex hover:bg-gray-50 cursor-pointer rounded-md transition duration-150 ease-in-out px-4" (click)="selecionarEntidade(entidade.id)">
+            <div class="ml-3 flex flex-col">
+              <span class="text-sm font-medium text-gray-900">{{ entidade.nome }}</span>
+              <span class="text-sm text-gray-500 block">ID do Sistema: #{{ entidade.id }}</span>
+            </div>
+            <div class="ml-auto my-auto text-indigo-600">
+               <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+               </svg>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 
 export interface PropostaComercial {
   id?: number;
-  usuarioId?: number;
+  entidadeId?: number;
   clienteId?: number;
   valorDesconto: number;
   valorFrete: number;
+  valorTotal: number;
   dataCadastro?: string;
   dataPrevista?: string;
   observacao?: string;
@@ -24,8 +25,8 @@ export class PropostaComercialService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByTenant(tenantId: number): Observable<PropostaComercial[]> {
-    return this.http.get<PropostaComercial[]>(`${this.apiUrl}/tenant/${tenantId}`);
+  getAllByTenant(entidadeId: number): Observable<PropostaComercial[]> {
+    return this.http.get<PropostaComercial[]>(`${this.apiUrl}/tenant/${entidadeId}`);
   }
 
   create(proposta: PropostaComercial): Observable<PropostaComercial> {

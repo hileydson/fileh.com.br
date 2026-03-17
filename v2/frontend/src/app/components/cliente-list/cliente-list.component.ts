@@ -20,7 +20,7 @@ export class ClienteListComponent implements OnInit {
   isEditing = false;
   currentCliente: Cliente = this.getEmptyCliente();
 
-  tenantId: number = 1; // Defaulting to 1 for MVP. In reality, decode from JWT token.
+  entidadeId: number = 0;
 
   constructor(
     private clienteService: ClienteService,
@@ -28,20 +28,16 @@ export class ClienteListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Extract tenant ID from JWT
-    const token = this.authService.getToken();
-    if (token) {
-        try {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            this.tenantId = payload.tenantId || 1;
-        } catch(e) {}
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeId) {
+      this.entidadeId = ctx.entidadeId;
+      this.loadClientes();
     }
-    this.loadClientes();
   }
 
   loadClientes(): void {
     this.loading = true;
-    this.clienteService.getAllByTenant(this.tenantId).subscribe({
+    this.clienteService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
         this.clientes = data;
         this.loading = false;
@@ -71,7 +67,7 @@ export class ClienteListComponent implements OnInit {
 
   saveCliente(): void {
     this.saving = true;
-    this.currentCliente.usuarioId = this.tenantId; // Ensure tenant ID is set
+    this.currentCliente.entidadeId = this.entidadeId; // Ensure entity ID is set
 
     if (this.isEditing) {
       this.clienteService.update(this.currentCliente.id!, this.currentCliente).subscribe({
@@ -117,7 +113,7 @@ export class ClienteListComponent implements OnInit {
       bairro: '',
       uf: '',
       telefone: '',
-      entidade: 'N/A',
+      nomeEntidade: 'N/A',
       referencia: '',
       cpf: ''
     };

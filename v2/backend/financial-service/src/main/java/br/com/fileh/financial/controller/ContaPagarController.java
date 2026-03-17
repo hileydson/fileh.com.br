@@ -15,9 +15,9 @@ public class ContaPagarController {
     @Autowired
     private ContaPagarRepository repository;
 
-    @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<ContaPagar>> getAllByTenant(@PathVariable Long tenantId) {
-        return ResponseEntity.ok(repository.findByUsuarioId(tenantId));
+    @GetMapping("/tenant/{entidadeId}")
+    public ResponseEntity<List<ContaPagar>> getAllByTenant(@PathVariable Long entidadeId) {
+        return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 
     @PostMapping

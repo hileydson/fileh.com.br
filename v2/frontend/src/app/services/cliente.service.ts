@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 
 export interface Cliente {
   id?: number;
-  usuarioId?: number;
+  entidadeId?: number;
   nome: string;
   logradouro: string;
   bairro: string;
   uf: string;
   telefone: string;
-  entidade: string;
+  nomeEntidade: string;
   referencia: string;
   cpf: string;
 }
@@ -23,8 +23,8 @@ export class ClienteService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByTenant(tenantId: number): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(`${this.apiUrl}/tenant/${tenantId}`);
+  getAllByTenant(entidadeId: number): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiUrl}/tenant/${entidadeId}`);
   }
 
   create(cliente: Cliente): Observable<Cliente> {

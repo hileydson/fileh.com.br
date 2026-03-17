@@ -15,9 +15,9 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<Cliente>> getAllClientesByTenant(@PathVariable Long tenantId) {
-        return ResponseEntity.ok(clienteRepository.findByUsuarioId(tenantId));
+    @GetMapping("/tenant/{entidadeId}")
+    public ResponseEntity<List<Cliente>> getAllClientesByTenant(@PathVariable Long entidadeId) {
+        return ResponseEntity.ok(clienteRepository.findByEntidadeId(entidadeId));
     }
 
     @PostMapping

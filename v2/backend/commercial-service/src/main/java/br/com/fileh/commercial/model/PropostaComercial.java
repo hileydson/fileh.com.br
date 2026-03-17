@@ -19,9 +19,9 @@ public class PropostaComercial {
     @Column(name = "PRC_CD_PROPOSTA_COMERCIAL")
     private Long id;
 
-    // Tenant ID
-    @Column(name = "PRC_CD_USUARIO", nullable = false)
-    private Long usuarioId;
+    // Entity/Branch ID
+    @Column(name = "PRC_CD_ENTIDADE", nullable = false)
+    private Long entidadeId;
 
     @Column(name = "PRC_CD_CLIENTE")
     private Long clienteId;
@@ -31,6 +31,9 @@ public class PropostaComercial {
 
     @Column(name = "PRC_VL_FRETE", nullable = false)
     private BigDecimal valorFrete;
+
+    @Column(name = "PRC_VL_TOTAL", nullable = false)
+    private BigDecimal valorTotal = BigDecimal.ZERO;
 
     @Column(name = "PRC_DT_CADASTRO")
     private LocalDate dataCadastro;

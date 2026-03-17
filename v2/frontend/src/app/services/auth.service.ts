@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, tap, Observable } from 'rxjs';
 
+export interface AuthContext {
+  id: number;
+  tenantId: number;
+  entidadeId: number | null;
+  username: string;
+  email: string;
+  roles: string[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +25,17 @@ export class AuthService {
       tap((res: any) => {
         if (res && res.token) {
           localStorage.setItem('jwt_token', res.token);
+          
+          const authContext: AuthContext = {
+            id: res.id,
+            tenantId: res.tenantId,
+            entidadeId: res.entidadeId !== undefined ? res.entidadeId : null,
+            username: res.username,
+            email: res.email,
+            roles: res.roles || []
+          };
+          localStorage.setItem('auth_context', JSON.stringify(authContext));
+          
           this.loggedIn.next(true);
         }
       })
@@ -24,6 +44,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('jwt_token');
+    localStorage.removeItem('auth_context');
     this.loggedIn.next(false);
   }
 
@@ -37,5 +58,18 @@ export class AuthService {
 
   private hasToken(): boolean {
     return !!localStorage.getItem('jwt_token');
+  }
+
+  getAuthContext(): AuthContext | null {
+    const ctx = localStorage.getItem('auth_context');
+    return ctx ? JSON.parse(ctx) : null;
+  }
+
+  updateEntidadeId(entidadeId: number): void {
+    const ctx = this.getAuthContext();
+    if (ctx) {
+      ctx.entidadeId = entidadeId;
+      localStorage.setItem('auth_context', JSON.stringify(ctx));
+    }
   }
 }

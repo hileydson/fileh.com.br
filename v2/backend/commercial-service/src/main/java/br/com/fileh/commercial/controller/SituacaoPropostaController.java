@@ -20,6 +20,11 @@ public class SituacaoPropostaController {
         return ResponseEntity.ok(repository.findAll());
     }
 
+    @GetMapping("/tenant/{entidadeId}")
+    public ResponseEntity<List<SituacaoProposta>> getAllByTenant(@PathVariable Long entidadeId) {
+        return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
+    }
+
     @PostMapping
     public ResponseEntity<SituacaoProposta> create(@RequestBody SituacaoProposta situacao) {
         return ResponseEntity.ok(repository.save(situacao));

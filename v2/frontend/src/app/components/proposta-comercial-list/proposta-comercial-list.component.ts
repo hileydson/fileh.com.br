@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PropostaComercialService, PropostaComercial } from '../../services/proposta-comercial.service';
+import { ItemPropostaService, ItemProposta } from '../../services/item-proposta.service';
+import { ProdutoService, Produto } from '../../services/produto.service';
 import { AuthService } from '../../services/auth.service';
+import { Observable, forkJoin, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-proposta-comercial-list',
@@ -20,30 +24,41 @@ export class PropostaComercialListComponent implements OnInit {
   isEditing = false;
   currentProposta: PropostaComercial = this.getEmptyProposta();
 
-  tenantId: number = 1;
+  entidadeId: number = 0;
+
+  // Items and Products
+  activeTab: 'dados' | 'itens' = 'dados';
+  produtos: Produto[] = [];
+  itens: ItemProposta[] = [];
+  deletedItens: number[] = [];
+  
+  // New Item Form
+  novoItemProdutoId: number | null = null;
+  novoItemQuantidade: number = 1;
 
   constructor(
     private propostaService: PropostaComercialService,
+    private itemService: ItemPropostaService,
+    private produtoService: ProdutoService,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    const token = this.authService.getToken();
-    if (token) {
-        try {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            this.tenantId = payload.tenantId || 1;
-        } catch(e) {}
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.entidadeId) {
+        this.entidadeId = ctx.entidadeId;
+        this.loadPropostas();
     }
-    this.loadPropostas();
   }
 
   loadPropostas(): void {
     this.loading = true;
-    this.propostaService.getAllByTenant(this.tenantId).subscribe({
+    this.propostaService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
         this.propostas = data;
         this.loading = false;
+        // preload products
+        this.produtoService.getAllByTenant(this.entidadeId).subscribe(prods => this.produtos = prods);
       },
       error: (err) => {
         console.error('Erro ao buscar propostas', err);
@@ -53,9 +68,18 @@ export class PropostaComercialListComponent implements OnInit {
   }
 
   openModal(proposta?: PropostaComercial): void {
+    this.activeTab = 'dados';
+    this.itens = [];
+    this.deletedItens = [];
+    this.novoItemProdutoId = null;
+    this.novoItemQuantidade = 1;
+
     if (proposta) {
       this.isEditing = true;
       this.currentProposta = { ...proposta };
+      this.itemService.getAllByProposta(proposta.id!).subscribe(res => {
+          this.itens = res;
+      });
     } else {
       this.isEditing = false;
       this.currentProposta = this.getEmptyProposta();
@@ -68,16 +92,56 @@ export class PropostaComercialListComponent implements OnInit {
     this.currentProposta = this.getEmptyProposta();
   }
 
+  // --- Itens Logic ---
+  
+  adicionarItem(): void {
+    if (!this.novoItemProdutoId) return;
+    const prod = this.produtos.find(p => p.id == this.novoItemProdutoId);
+    if (!prod) return;
+
+    this.itens.push({
+        propostaId: this.currentProposta.id || 0,
+        descricao: prod.descricao,
+        valor: prod.valorVenda,
+        quantidade: this.novoItemQuantidade,
+        valorDesconto: 0,
+        unidade: prod.unidade || 'UN'
+    });
+
+    this.novoItemProdutoId = null;
+    this.novoItemQuantidade = 1;
+    this.calcularTotais();
+  }
+
+  removerItem(index: number): void {
+    const item = this.itens[index];
+    if (item.id) {
+       this.deletedItens.push(item.id);
+    }
+    this.itens.splice(index, 1);
+    this.calcularTotais();
+  }
+
+  calcularTotais(): void {
+     let totalItens = 0;
+     for (let it of this.itens) {
+         totalItens += ((it.valor * it.quantidade) - (it.valorDesconto || 0));
+     }
+     const frete = this.currentProposta.valorFrete || 0;
+     const desc = this.currentProposta.valorDesconto || 0;
+     this.currentProposta.valorTotal = totalItens + frete - desc;
+  }
+
+  // --- Save Logic ---
+
   saveProposta(): void {
     this.saving = true;
-    this.currentProposta.usuarioId = this.tenantId;
+    this.currentProposta.entidadeId = this.entidadeId;
 
     if (this.isEditing) {
       this.propostaService.update(this.currentProposta.id!, this.currentProposta).subscribe({
-        next: () => {
-          this.loadPropostas();
-          this.closeModal();
-          this.saving = false;
+        next: (savedProposta) => {
+          this.saveItemsEConcluir(savedProposta.id!);
         },
         error: (err) => {
           console.error('Erro ao atualizar', err);
@@ -86,10 +150,8 @@ export class PropostaComercialListComponent implements OnInit {
       });
     } else {
       this.propostaService.create(this.currentProposta).subscribe({
-        next: () => {
-          this.loadPropostas();
-          this.closeModal();
-          this.saving = false;
+        next: (savedProposta) => {
+          this.saveItemsEConcluir(savedProposta.id!);
         },
         error: (err) => {
           console.error('Erro ao criar', err);
@@ -97,6 +159,38 @@ export class PropostaComercialListComponent implements OnInit {
         }
       });
     }
+  }
+
+  private saveItemsEConcluir(propostaId: number): void {
+     const operations: Observable<any>[] = [];
+     
+     // 1. Deletions
+     for (let delId of this.deletedItens) {
+         operations.push(this.itemService.delete(delId).pipe(catchError(() => of(null))));
+     }
+
+     // 2. Inserts / Updates
+     for (let item of this.itens) {
+         item.propostaId = propostaId; // crucial for new proposals
+         if (item.id) {
+             operations.push(this.itemService.update(item.id, item).pipe(catchError(() => of(null))));
+         } else {
+             operations.push(this.itemService.create(item).pipe(catchError(() => of(null))));
+         }
+     }
+
+     if (operations.length === 0) {
+         this.loadPropostas();
+         this.closeModal();
+         this.saving = false;
+         return;
+     }
+
+     forkJoin(operations).subscribe(() => {
+         this.loadPropostas();
+         this.closeModal();
+         this.saving = false;
+     });
   }
 
   deleteProposta(id?: number): void {
@@ -123,6 +217,7 @@ export class PropostaComercialListComponent implements OnInit {
     return {
       valorDesconto: 0,
       valorFrete: 0,
+      valorTotal: 0,
       situacao: 'EM COTAÇÃO', // Defaulting based on assumed workflow
       dataCadastro: today
     };
