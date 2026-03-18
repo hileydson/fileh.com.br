@@ -20,8 +20,12 @@ export class FluxoCaixaService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByEntidade(entidadeId: number): Observable<FluxoCaixa[]> {
-    return this.http.get<FluxoCaixa[]>(`${this.apiUrl}/entidade/${entidadeId}`);
+  getAllByEntidade(entidadeId: number, date?: string): Observable<FluxoCaixa[]> {
+    let url = `${this.apiUrl}/entidade/${entidadeId}`;
+    if (date) {
+      url += `?date=${date}`;
+    }
+    return this.http.get<FluxoCaixa[]>(url);
   }
 
   create(fluxo: FluxoCaixa): Observable<FluxoCaixa> {

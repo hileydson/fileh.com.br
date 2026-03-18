@@ -22,4 +22,7 @@ public class FormaPagamento {
 
     @Column(name = "FGP_DS_FORMA_PAGAMENTO", nullable = false)
     private String descricao;
+
+    @Column(name = "FGP_TP_FORMA_PAGAMENTO")
+    private String tipo;
 }

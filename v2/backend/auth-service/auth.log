@@ -102,3 +102,179 @@ nohup: ignoring input
 2026-03-17T17:09:25.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-17T17:14:25.349-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-17T17:19:25.350-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:24:25.351-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:29:25.351-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:34:25.352-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:39:25.353-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:44:25.354-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:49:25.355-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:54:25.356-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:59:25.356-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:04:25.357-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:09:25.358-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:14:25.359-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:19:25.360-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:24:25.360-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:29:25.361-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:34:25.362-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:39:25.363-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:44:25.364-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:49:25.364-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:54:25.365-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:59:25.366-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:04:25.366-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:09:25.367-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:14:25.368-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:19:25.368-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:24:25.369-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:29:25.372-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:34:25.373-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:39:25.374-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:44:25.374-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:49:25.375-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:54:25.378-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:59:25.382-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:04:25.382-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:09:25.383-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:14:25.384-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:19:25.385-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:24:25.385-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:29:25.385-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:34:25.386-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:39:25.386-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:44:25.387-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:49:25.388-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:54:25.389-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:59:25.389-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:04:25.390-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:09:25.390-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:14:25.391-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:19:25.392-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:24:25.393-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:29:25.393-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:34:25.394-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:39:25.397-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:44:25.400-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:49:25.403-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:54:25.404-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:59:25.404-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:04:25.405-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:09:25.405-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:14:25.406-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:19:25.406-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:24:25.407-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:29:25.408-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:34:25.408-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:39:25.409-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:30:44.263-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:35:44.263-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:40:44.264-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:45:44.265-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:50:44.265-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:55:44.266-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:00:44.267-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:05:45.313-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:10:45.314-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:15:45.314-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:20:45.315-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:25:45.316-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:30:45.316-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:35:45.317-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:40:45.318-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:45:45.319-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:50:45.320-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:55:45.321-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:00:45.322-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:02:58.895-03:00  INFO 1151189 --- [auth-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-18T10:02:58.896-03:00  INFO 1151189 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-18T10:02:58.897-03:00  INFO 1151189 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_cd_usuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-18T10:05:45.323-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:10:45.323-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:15:45.324-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:20:45.328-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:25:45.329-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:30:45.330-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:35:45.330-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:40:45.331-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:45:45.334-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:50:45.335-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:55:45.335-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:00:45.339-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:05:45.339-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:10:45.340-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:15:45.344-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:20:45.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

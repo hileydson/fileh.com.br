@@ -15,7 +15,7 @@ import { SubUsuarioListComponent } from './components/subusuario-list/subusuario
 import { ProdutoListComponent } from './components/produto-list/produto-list.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'fluxo-caixa', pathMatch: 'full' },
+  { path: '', redirectTo: 'produtos', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'selecionar-entidade', component: SelecionarEntidadeComponent, canActivate: [authGuard] },
   {

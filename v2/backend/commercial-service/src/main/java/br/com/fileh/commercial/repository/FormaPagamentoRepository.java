@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface FormaPagamentoRepository extends JpaRepository<FormaPagamento, Long> {
     List<FormaPagamento> findByEntidadeId(Long entidadeId);
+    List<FormaPagamento> findByEntidadeIdAndTipo(Long entidadeId, String tipo);
 }

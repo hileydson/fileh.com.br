@@ -16,7 +16,10 @@ public class FormaPagamentoController {
     private FormaPagamentoRepository repository;
 
     @GetMapping("/tenant/{entidadeId}")
-    public ResponseEntity<List<FormaPagamento>> getAllByTenant(@PathVariable Long entidadeId) {
+    public ResponseEntity<List<FormaPagamento>> getAllByTenant(@PathVariable Long entidadeId, @RequestParam(required = false) String tipo) {
+        if (tipo != null && !tipo.isEmpty()) {
+            return ResponseEntity.ok(repository.findByEntidadeIdAndTipo(entidadeId, tipo));
+        }
         return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 
@@ -29,6 +32,7 @@ public class FormaPagamentoController {
     public ResponseEntity<FormaPagamento> update(@PathVariable Long id, @RequestBody FormaPagamento details) {
         return repository.findById(id).map(formaPagamento -> {
             formaPagamento.setDescricao(details.getDescricao());
+            formaPagamento.setTipo(details.getTipo());
             return ResponseEntity.ok(repository.save(formaPagamento));
         }).orElse(ResponseEntity.notFound().build());
     }

@@ -305,3 +305,971 @@ Application bundle generation complete. [0.159 seconds]
 
 
 Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 508.53 kB | 
+
+Application bundle generation complete. [0.213 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 508.61 kB | 
+
+Application bundle generation complete. [0.086 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 510.03 kB | 
+
+Application bundle generation complete. [0.163 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names  |  Raw size
+main.js             | main   | 521.21 kB | 
+styles.css          | styles |  34.84 kB | 
+
+Application bundle generation complete. [0.151 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Stylesheet update sent to client(s).
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.18 kB | 
+
+Application bundle generation complete. [0.180 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.48 kB | 
+
+Application bundle generation complete. [0.203 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.48 kB | 
+
+Application bundle generation complete. [0.155 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.54 kB | 
+
+Application bundle generation complete. [0.188 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.48 kB | 
+
+Application bundle generation complete. [0.150 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.52 kB | 
+
+Application bundle generation complete. [0.191 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 520.95 kB | 
+
+Application bundle generation complete. [0.155 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.21 kB | 
+
+Application bundle generation complete. [0.195 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.29 kB | 
+
+Application bundle generation complete. [0.179 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 521.32 kB | 
+
+Application bundle generation complete. [0.125 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 523.36 kB | 
+
+Application bundle generation complete. [0.142 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 523.88 kB | 
+
+Application bundle generation complete. [0.178 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 524.51 kB | 
+
+Application bundle generation complete. [0.158 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 524.51 kB | 
+
+Application bundle generation complete. [0.224 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 524.51 kB | 
+
+Application bundle generation complete. [0.120 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 524.46 kB | 
+
+Application bundle generation complete. [0.157 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 524.50 kB | 
+
+Application bundle generation complete. [0.162 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names |  Raw size
+main.js             | main  | 524.53 kB | 
+
+Application bundle generation complete. [0.156 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.213 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG9: Property 'currentValue' does not exist on type 'FluxoCaixaListComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.html:35:66:
+[37m      35 │ ... step="0.01" [(ngModel)]="[32mcurrentValue[37m" (ngModelChange)="onValu...
+         ╵                              [32m~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component FluxoCaixaListComponent.
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.ts:12:15:
+[37m      12 │   templateUrl: [32m'./fluxo-caixa-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG9: Property 'currentValue' does not exist on type 'FluxoCaixaListComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.html:35:66:
+[37m      35 │ ... step="0.01" [(ngModel)]="[32mcurrentValue[37m" (ngModelChange)="onValu...
+         ╵                              [32m~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component FluxoCaixaListComponent.
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.ts:12:15:
+[37m      12 │   templateUrl: [32m'./fluxo-caixa-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG1: Property 'onValueChange' does not exist on type 'FluxoCaixaListComponent'. Did you mean 'onDateChange'?[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.html:35:97:
+[37m      35 │ ...tValue" (ngModelChange)="[32monValueChange[37m($event)" name="valor" re...
+         ╵                             [32m~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component FluxoCaixaListComponent.
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.ts:12:15:
+[37m      12 │   templateUrl: [32m'./fluxo-caixa-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 524.57 kB | 
+polyfills.js        | polyfills     |  89.77 kB | 
+styles.css          | styles        |  34.84 kB | 
+
+                    | Initial total | 649.18 kB
+
+Application bundle generation complete. [0.191 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.187 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'manualTypeSelection' does not exist on type 'FluxoCaixaListComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/fluxo-caixa-list/fluxo-caixa-list.component.ts:133:19:
+[37m      133 │           if (this.[32mmanualTypeSelection[37m) {
+          ╵                    [32m~~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 524.72 kB | 
+polyfills.js        | polyfills     |  89.77 kB | 
+styles.css          | styles        |  34.84 kB | 
+
+                    | Initial total | 649.34 kB
+
+Application bundle generation complete. [0.164 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names  |  Raw size
+main.js             | main   | 525.36 kB | 
+styles.css          | styles |  35.05 kB | 
+
+Application bundle generation complete. [0.189 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:31:
+[37m      57 │ ...         <span [class]="([32mp.estoque ?? 0[37m) > 0 ? 'text-slate-800'...
+         ╵                             [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/produto-list/produto-list.component.html:57:100:
+[37m      57 │ ...t-slate-800' : 'text-red-500 font-bold'">{{[32mp.estoque ?? 0[37m}}</span>
+         ╵                                               [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component ProdutoListComponent.
+
+    src/app/components/produto-list/produto-list.component.ts:11:15:
+[37m      11 │   templateUrl: [32m'./produto-list.component.html'[37m
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Stylesheet update sent to client(s).
+Component update sent to client(s).

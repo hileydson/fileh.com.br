@@ -26,7 +26,7 @@ export class VendasConfigComponent implements OnInit {
 
   // Formas de Pagamento
   formas: FormaPagamento[] = [];
-  currentForma: FormaPagamento = { descricao: '' };
+  currentForma: FormaPagamento = { descricao: '', tipo: 'CX' };
 
   isEditing = false;
 
@@ -69,7 +69,7 @@ export class VendasConfigComponent implements OnInit {
       if (this.activeTab === 'situacoes') {
           this.currentSituacao = item ? { ...item } : { descricao: '' };
       } else if (this.activeTab === 'formas') {
-          this.currentForma = item ? { ...item } : { descricao: '' };
+          this.currentForma = item ? { ...item } : { descricao: '', tipo: 'CX' };
       }
       this.showModal = true;
   }

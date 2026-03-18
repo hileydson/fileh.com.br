@@ -36,23 +36,23 @@ nohup: ignoring input
 
  :: Spring Boot ::                (v4.0.3)
 
-2026-03-17T17:17:32.166-03:00  INFO 1172619 --- [commercial-service] [           main] b.c.f.c.CommercialServiceApplication     : Starting CommercialServiceApplication using Java 21.0.10 with PID 1172619 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/commercial-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/commercial-service)
-2026-03-17T17:17:32.167-03:00  INFO 1172619 --- [commercial-service] [           main] b.c.f.c.CommercialServiceApplication     : No active profile set, falling back to 1 default profile: "default"
-2026-03-17T17:17:32.420-03:00  INFO 1172619 --- [commercial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-17T17:17:32.472-03:00  INFO 1172619 --- [commercial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
-2026-03-17T17:17:32.533-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cc2a0ed5-634d-3ad9-9d22-3a857457fa91
-2026-03-17T17:17:32.668-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
-2026-03-17T17:17:32.673-03:00  INFO 1172619 --- [commercial-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-17T17:17:32.673-03:00  INFO 1172619 --- [commercial-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-03-17T17:17:32.694-03:00  INFO 1172619 --- [commercial-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 511 ms
-2026-03-17T17:17:32.757-03:00  INFO 1172619 --- [commercial-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-17T17:17:32.772-03:00  INFO 1172619 --- [commercial-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
-2026-03-17T17:17:32.922-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-17T17:17:32.934-03:00  INFO 1172619 --- [commercial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-17T17:17:32.997-03:00  INFO 1172619 --- [commercial-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2447940d
-2026-03-17T17:17:32.997-03:00  INFO 1172619 --- [commercial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-17T17:17:33.018-03:00  WARN 1172619 --- [commercial-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-17T17:17:33.025-03:00  INFO 1172619 --- [commercial-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-03-18T10:48:37.457-03:00  INFO 1576537 --- [commercial-service] [           main] b.c.f.c.CommercialServiceApplication     : Starting CommercialServiceApplication using Java 21.0.10 with PID 1576537 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/commercial-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/commercial-service)
+2026-03-18T10:48:37.458-03:00  INFO 1576537 --- [commercial-service] [           main] b.c.f.c.CommercialServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-03-18T10:48:37.713-03:00  INFO 1576537 --- [commercial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-18T10:48:37.775-03:00  INFO 1576537 --- [commercial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 5 JPA repository interfaces.
+2026-03-18T10:48:37.837-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cc2a0ed5-634d-3ad9-9d22-3a857457fa91
+2026-03-18T10:48:37.980-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-03-18T10:48:37.986-03:00  INFO 1576537 --- [commercial-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-18T10:48:37.986-03:00  INFO 1576537 --- [commercial-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-18T10:48:38.008-03:00  INFO 1576537 --- [commercial-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 533 ms
+2026-03-18T10:48:38.074-03:00  INFO 1576537 --- [commercial-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-18T10:48:38.094-03:00  INFO 1576537 --- [commercial-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-18T10:48:38.265-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-18T10:48:38.280-03:00  INFO 1576537 --- [commercial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-18T10:48:38.350-03:00  INFO 1576537 --- [commercial-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48b09105
+2026-03-18T10:48:38.351-03:00  INFO 1576537 --- [commercial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-18T10:48:38.373-03:00  WARN 1576537 --- [commercial-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-18T10:48:38.380-03:00  INFO 1576537 --- [commercial-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -64,432 +64,380 @@ nohup: ignoring input
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-03-17T17:17:33.356-03:00  INFO 1172619 --- [commercial-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-17T17:17:33.380-03:00  INFO 1172619 --- [commercial-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-17T17:17:33.413-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-17T17:17:33.522-03:00  WARN 1172619 --- [commercial-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-17T17:17:33.771-03:00  INFO 1172619 --- [commercial-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
-2026-03-17T17:17:33.785-03:00  WARN 1172619 --- [commercial-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-17T17:17:33.794-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-03-17T17:17:33.805-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-03-17T17:17:33.806-03:00  INFO 1172619 --- [commercial-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-03-17T17:17:33.809-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-17T17:17:33.973-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-17T17:17:33.975-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-03-17T17:17:33.976-03:00  INFO 1172619 --- [commercial-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-17T17:17:33.977-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773778653976 with initial instances count: 5
-2026-03-17T17:17:33.979-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application COMMERCIAL-SERVICE with eureka with status UP
-2026-03-17T17:17:33.979-03:00  INFO 1172619 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773778653979, current=UP, previous=STARTING]
-2026-03-17T17:17:33.980-03:00  INFO 1172619 --- [commercial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_COMMERCIAL-SERVICE/192.168.0.71:commercial-service:8083: registering service...
-2026-03-17T17:17:33.987-03:00  INFO 1172619 --- [commercial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/'
-2026-03-17T17:17:33.988-03:00  INFO 1172619 --- [commercial-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
-2026-03-17T17:17:34.003-03:00  INFO 1172619 --- [commercial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_COMMERCIAL-SERVICE/192.168.0.71:commercial-service:8083 - registration status: 204
-2026-03-17T17:17:34.015-03:00  INFO 1172619 --- [commercial-service] [           main] b.c.f.c.CommercialServiceApplication     : Started CommercialServiceApplication in 2.051 seconds (process running for 2.264)
-2026-03-17T17:21:16.089-03:00  INFO 1172619 --- [commercial-service] [nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-17T17:21:16.089-03:00  INFO 1172619 --- [commercial-service] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-17T17:21:16.090-03:00  INFO 1172619 --- [commercial-service] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-18T10:48:38.723-03:00  INFO 1576537 --- [commercial-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table forma_pagamento 
+       add column fgp_tp_forma_pagamento varchar(255)
+2026-03-18T11:02:36.662-03:00  INFO 1576537 --- [commercial-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-18T11:02:36.703-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-18T11:02:36.832-03:00  WARN 1576537 --- [commercial-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-18T11:02:37.091-03:00  INFO 1576537 --- [commercial-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-03-18T11:02:37.106-03:00  WARN 1576537 --- [commercial-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-18T11:02:37.117-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-03-18T11:02:37.128-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-03-18T11:02:37.130-03:00  INFO 1576537 --- [commercial-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:02:37.133-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-18T11:02:37.134-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-18T11:02:37.134-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-18T11:02:37.134-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-18T11:02:37.134-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-18T11:02:37.134-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-03-18T11:02:37.134-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-18T11:02:37.308-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-18T11:02:37.310-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-03-18T11:02:37.310-03:00  INFO 1576537 --- [commercial-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-18T11:02:37.314-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773842557311 with initial instances count: 5
+2026-03-18T11:02:37.316-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application COMMERCIAL-SERVICE with eureka with status UP
+2026-03-18T11:02:37.316-03:00  INFO 1576537 --- [commercial-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773842557316, current=UP, previous=STARTING]
+2026-03-18T11:02:37.317-03:00  INFO 1576537 --- [commercial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_COMMERCIAL-SERVICE/192.168.0.71:commercial-service:8083: registering service...
+2026-03-18T11:02:37.328-03:00  INFO 1576537 --- [commercial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/'
+2026-03-18T11:02:37.328-03:00  INFO 1576537 --- [commercial-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2026-03-18T11:02:37.336-03:00  INFO 1576537 --- [commercial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_COMMERCIAL-SERVICE/192.168.0.71:commercial-service:8083 - registration status: 204
+2026-03-18T11:02:37.352-03:00  INFO 1576537 --- [commercial-service] [           main] b.c.f.c.CommercialServiceApplication     : Started CommercialServiceApplication in 840.113 seconds (process running for 840.344)
+2026-03-18T11:04:10.847-03:00  INFO 1576537 --- [commercial-service] [nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-18T11:04:10.847-03:00  INFO 1576537 --- [commercial-service] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-18T11:04:10.848-03:00  INFO 1576537 --- [commercial-service] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    insert 
+    into
+        forma_pagamento
+        (fgp_ds_forma_pagamento, fgp_cd_entidade, fgp_tp_forma_pagamento) 
+    values
+        (?, ?, ?)
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=?
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    insert 
+    into
+        forma_pagamento
+        (fgp_ds_forma_pagamento, fgp_cd_entidade, fgp_tp_forma_pagamento) 
+    values
+        (?, ?, ?)
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
     from
-        produto p1_0 
+        situacao_proposta sp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        sp1_0.sip_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
     from
-        produto p1_0 
+        situacao_proposta sp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        sp1_0.sip_cd_entidade=?
+2026-03-18T11:07:37.135-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
     from
-        produto p1_0 
+        situacao_proposta sp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        sp1_0.sip_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        count(*) 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=?
+        fp1_0.fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
+Hibernate: 
+    delete 
+    from
+        forma_pagamento 
+    where
+        fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        count(*) 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
+Hibernate: 
+    delete 
+    from
+        forma_pagamento 
+    where
+        fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    insert 
+    into
+        forma_pagamento
+        (fgp_ds_forma_pagamento, fgp_cd_entidade, fgp_tp_forma_pagamento) 
+    values
+        (?, ?, ?)
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
     from
-        produto p1_0 
+        situacao_proposta sp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        sp1_0.sip_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    insert 
+    into
+        forma_pagamento
+        (fgp_ds_forma_pagamento, fgp_cd_entidade, fgp_tp_forma_pagamento) 
+    values
+        (?, ?, ?)
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
+2026-03-18T11:12:37.136-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        count(*) 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
+Hibernate: 
+    delete 
+    from
+        forma_pagamento 
+    where
+        fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        ) 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        count(*) 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        ) 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        ) 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_forma_pagamento=?
+Hibernate: 
+    delete 
+    from
+        forma_pagamento 
+    where
+        fgp_cd_forma_pagamento=?
 Hibernate: 
     select
-        p1_0.pro_cd_produto,
-        p1_0.pro_ds_produto,
-        p1_0.pro_cd_entidade,
-        p1_0.pro_nr_estoque,
-        p1_0.pro_cd_sku,
-        p1_0.pro_ds_unidade,
-        p1_0.pro_vl_venda 
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
     from
-        produto p1_0 
+        forma_pagamento fp1_0 
     where
-        p1_0.pro_cd_entidade=? 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        ) 
-        and (
-            lower(p1_0.pro_ds_produto) like ? escape '' 
-            or lower(p1_0.pro_cd_sku) like ? escape ''
-        )
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    select
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
+    from
+        situacao_proposta sp1_0 
+    where
+        sp1_0.sip_cd_entidade=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?
+2026-03-18T11:17:37.138-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?
+2026-03-18T11:22:37.139-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?

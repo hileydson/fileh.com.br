@@ -16,7 +16,13 @@ public class FluxoCaixaController {
     private FluxoCaixaRepository repository;
 
     @GetMapping("/entidade/{entidadeId}")
-    public ResponseEntity<List<FluxoCaixa>> getAllByEntidade(@PathVariable Long entidadeId) {
+    public ResponseEntity<List<FluxoCaixa>> getAllByEntidade(
+            @PathVariable Long entidadeId,
+            @RequestParam(required = false) String date) {
+        if (date != null && !date.isEmpty()) {
+            java.time.LocalDate localDate = java.time.LocalDate.parse(date);
+            return ResponseEntity.ok(repository.findByEntidadeIdAndDataCadastro(entidadeId, localDate));
+        }
         return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 

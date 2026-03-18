@@ -6,6 +6,7 @@ export interface FormaPagamento {
   id?: number;
   entidadeId?: number;
   descricao: string;
+  tipo?: string;
 }
 
 @Injectable({
@@ -16,8 +17,12 @@ export class FormaPagamentoService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByTenant(entidadeId: number): Observable<FormaPagamento[]> {
-    return this.http.get<FormaPagamento[]>(`${this.apiUrl}/tenant/${entidadeId}`);
+  getAllByTenant(entidadeId: number, tipo?: string): Observable<FormaPagamento[]> {
+    let url = `${this.apiUrl}/tenant/${entidadeId}`;
+    if (tipo) {
+      url += `?tipo=${tipo}`;
+    }
+    return this.http.get<FormaPagamento[]>(url);
   }
 
   create(forma: FormaPagamento): Observable<FormaPagamento> {

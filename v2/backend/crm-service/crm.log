@@ -96,3 +96,140 @@ nohup: ignoring input
 2026-03-17T17:09:39.082-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-17T17:14:39.083-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-17T17:19:39.084-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:24:39.084-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:29:39.085-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:34:39.086-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:39:39.086-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:44:39.087-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:49:39.088-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:54:39.089-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T17:59:39.092-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:04:39.093-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:09:39.094-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:14:39.095-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:19:39.096-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:24:39.099-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:29:39.100-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:34:39.100-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:39:39.103-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:44:39.104-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:49:39.105-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:54:39.105-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T18:59:39.106-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:04:39.107-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:09:39.107-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:14:39.108-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:19:39.109-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:24:39.109-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:29:39.113-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:34:39.113-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:39:39.114-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:44:39.115-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:49:39.116-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:54:39.120-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T19:59:39.124-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:04:39.124-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:09:39.125-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:14:39.126-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:19:39.126-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:24:39.127-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:29:39.128-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:34:39.129-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:39:39.129-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:44:39.130-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:49:39.131-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:54:39.132-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T20:59:39.133-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:04:39.133-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:09:39.134-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:14:39.135-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:19:39.135-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:24:39.136-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:29:39.137-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:34:39.138-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:39:39.138-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:44:39.139-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:49:39.140-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:54:39.141-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T21:59:39.141-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:04:39.142-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:09:39.142-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:14:39.143-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:19:39.144-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:24:39.145-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:29:39.146-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:34:39.146-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-17T22:39:39.147-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:30:58.001-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:35:58.001-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:40:58.002-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:45:58.003-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:50:58.003-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T08:55:58.004-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:00:58.005-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:05:59.052-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:10:59.053-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:15:59.054-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:20:59.054-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:25:59.055-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:30:59.056-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:35:59.056-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:40:59.057-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:45:59.057-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:50:59.058-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T09:55:59.059-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:00:59.060-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:02:58.890-03:00  INFO 1151718 --- [crm-service] [nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-18T10:02:58.890-03:00  INFO 1151718 --- [crm-service] [nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-18T10:02:58.891-03:00  INFO 1151718 --- [crm-service] [nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+Hibernate: 
+    select
+        f1_0.for_cd_fornecedor,
+        f1_0.for_ds_bairro,
+        f1_0.for_nr_cep,
+        f1_0.for_ds_cidade,
+        f1_0.for_nr_cnpj,
+        f1_0.for_ds_contato,
+        f1_0.for_cd_entidade,
+        f1_0.for_nr_insc_estadual,
+        f1_0.for_nr_insc_municipal,
+        f1_0.for_ds_logradouro,
+        f1_0.for_ds_fornecedor 
+    from
+        fornecedor f1_0 
+    where
+        f1_0.for_cd_entidade=?
+2026-03-18T10:05:59.063-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:10:59.063-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:15:59.064-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:20:59.065-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:25:59.065-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:30:59.066-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:35:59.067-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:40:59.067-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:45:59.068-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:50:59.069-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T10:55:59.070-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:00:59.073-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:05:59.076-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:10:59.077-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:15:59.080-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:20:59.083-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
