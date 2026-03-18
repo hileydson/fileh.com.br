@@ -115,3 +115,93 @@ Hibernate:
     where
         p1_0.pro_cd_entidade=?
 2026-03-18T12:51:41.036-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T12:56:41.037-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:01:41.041-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:06:41.044-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:11:41.045-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:16:41.046-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:21:41.047-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:26:41.048-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:31:41.049-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:36:41.049-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:41:41.050-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:46:41.051-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:51:41.052-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:56:41.053-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-18T14:01:41.054-03:00  INFO 1667511 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?

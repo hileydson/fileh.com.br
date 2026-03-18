@@ -99,3 +99,52 @@
 2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
 2026-03-18T12:47:16.209-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
 2026-03-18T12:51:46.063-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T12:52:25.735-03:00  INFO 1667860 --- [financial-service] [nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-18T12:52:25.735-03:00  INFO 1667860 --- [financial-service] [nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-18T12:52:25.736-03:00  INFO 1667860 --- [financial-service] [nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    select
+        cp1_0.cop_cd_conta_pagar,
+        cp1_0.cop_dt_cadastro,
+        cp1_0.cop_dt_vencimento,
+        cp1_0.cop_ds_conta_pagar,
+        cp1_0.cop_cd_entidade,
+        cp1_0.cop_ds_fornecedor,
+        cp1_0.cop_nr_documento,
+        cp1_0.cop_nr_parcela,
+        cp1_0.cop_fl_pago,
+        cp1_0.cop_fl_parcelado,
+        cp1_0.cop_ds_tipo_conta,
+        cp1_0.cop_vl_conta_pagar 
+    from
+        conta_pagar cp1_0 
+    where
+        cp1_0.cop_cd_entidade=?
+2026-03-18T12:56:46.066-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:01:46.069-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:06:46.070-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:11:46.071-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:16:46.072-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:21:46.073-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:26:46.074-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:31:46.075-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:36:46.077-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:41:46.078-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:46:46.079-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:51:46.079-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:56:46.080-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T14:01:46.081-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        fc1_0.flu_cd_fluxo_caixa,
+        fc1_0.flu_dt_cadastro,
+        fc1_0.flu_ds_fluxo_caixa,
+        fc1_0.flu_cd_entidade,
+        fc1_0.flu_ds_forma_pagamento,
+        fc1_0.flu_fl_tipo,
+        fc1_0.flu_vl_fluxo_caixa 
+    from
+        fluxo_caixa fc1_0 
+    where
+        fc1_0.flu_cd_entidade=? 
+        and fc1_0.flu_dt_cadastro=?

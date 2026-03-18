@@ -9,6 +9,7 @@ import { ContaPagarListComponent } from './components/conta-pagar-list/conta-pag
 import { ContaReceberListComponent } from './components/conta-receber-list/conta-receber-list.component';
 import { FluxoCaixaListComponent } from './components/fluxo-caixa-list/fluxo-caixa-list.component';
 import { authGuard } from './guards/auth.guard';
+import { adminGuard } from './guards/admin.guard';
 import { SelecionarEntidadeComponent } from './components/selecionar-entidade/selecionar-entidade.component';
 import { VendasConfigComponent } from './components/vendas-config/vendas-config.component';
 import { SubUsuarioListComponent } from './components/subusuario-list/subusuario-list.component';
@@ -26,13 +27,13 @@ export const routes: Routes = [
       { path: 'fluxo-caixa', component: FluxoCaixaListComponent },
       { path: 'propostas', component: PropostaComercialListComponent },
       { path: 'clientes', component: ClienteListComponent },
-      { path: 'fornecedores', component: FornecedorListComponent },
-      { path: 'entidades', component: EntidadeListComponent },
-      { path: 'contas-pagar', component: ContaPagarListComponent },
-      { path: 'contas-receber', component: ContaReceberListComponent },
-      { path: 'usuarios', component: SubUsuarioListComponent },
+      { path: 'fornecedores', component: FornecedorListComponent, canActivate: [adminGuard] },
+      { path: 'entidades', component: EntidadeListComponent, canActivate: [adminGuard] },
+      { path: 'contas-pagar', component: ContaPagarListComponent, canActivate: [adminGuard] },
+      { path: 'contas-receber', component: ContaReceberListComponent, canActivate: [adminGuard] },
+      { path: 'usuarios', component: SubUsuarioListComponent, canActivate: [adminGuard] },
       { path: 'produtos', component: ProdutoListComponent },
-      { path: 'vendas-config', component: VendasConfigComponent }
+      { path: 'vendas-config', component: VendasConfigComponent, canActivate: [adminGuard] }
     ]
   },
   { path: '**', redirectTo: '' }

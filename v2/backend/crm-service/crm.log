@@ -336,3 +336,78 @@ Hibernate:
     where
         e1_0.ent_cd_usuario=? 
         and lower(e1_0.ent_nm_entidade) like ? escape ''
+Hibernate: 
+    select
+        f1_0.for_cd_fornecedor,
+        f1_0.for_ds_bairro,
+        f1_0.for_nr_cep,
+        f1_0.for_ds_cidade,
+        f1_0.for_nr_cnpj,
+        f1_0.for_ds_contato,
+        f1_0.for_cd_entidade,
+        f1_0.for_nr_insc_estadual,
+        f1_0.for_nr_insc_municipal,
+        f1_0.for_ds_logradouro,
+        f1_0.for_ds_fornecedor 
+    from
+        fornecedor f1_0 
+    where
+        f1_0.for_cd_entidade=?
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+Hibernate: 
+    select
+        f1_0.for_cd_fornecedor,
+        f1_0.for_ds_bairro,
+        f1_0.for_nr_cep,
+        f1_0.for_ds_cidade,
+        f1_0.for_nr_cnpj,
+        f1_0.for_ds_contato,
+        f1_0.for_cd_entidade,
+        f1_0.for_nr_insc_estadual,
+        f1_0.for_nr_insc_municipal,
+        f1_0.for_ds_logradouro,
+        f1_0.for_ds_fornecedor 
+    from
+        fornecedor f1_0 
+    where
+        f1_0.for_cd_entidade=?
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+2026-03-18T12:56:36.004-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:01:36.005-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:06:36.005-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:11:36.006-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:16:36.010-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:21:36.011-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:26:36.012-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:31:36.013-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:36:36.014-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:41:36.014-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:46:36.015-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:51:36.016-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:56:36.016-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T14:01:36.017-03:00  INFO 1667165 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?

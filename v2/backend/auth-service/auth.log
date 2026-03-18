@@ -216,3 +216,55 @@ Hibernate:
     where
         u1_0.usu_cd_usuario=?
 2026-03-18T12:51:31.509-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T12:56:31.511-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:01:31.516-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:06:31.519-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:11:31.519-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:16:31.522-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:21:31.523-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:26:31.523-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:31:31.524-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:36:31.525-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:41:31.526-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:46:31.527-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:51:31.527-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T13:56:31.528-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T14:01:31.529-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+USUARIO: adm SENHA:adm
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?

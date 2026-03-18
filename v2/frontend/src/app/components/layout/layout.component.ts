@@ -13,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class LayoutComponent {
   entidadeNome: string = 'Painel Administrativo';
   username: string = '';
+  isAdmin: boolean = false;
   
   constructor(private authService: AuthService, private router: Router) {
     const ctx = this.authService.getAuthContext();
@@ -21,6 +22,7 @@ export class LayoutComponent {
         this.entidadeNome = ctx.entidadeNome;
       }
       this.username = ctx.username || '';
+      this.isAdmin = ctx.roles && ctx.roles.includes('ROLE_ADMIN');
     }
   }
 
