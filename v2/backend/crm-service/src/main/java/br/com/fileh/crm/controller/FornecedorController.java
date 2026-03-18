@@ -20,6 +20,26 @@ public class FornecedorController {
         return ResponseEntity.ok(fornecedorRepository.findByEntidadeId(entidadeId));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Fornecedor>> searchFornecedores(@RequestParam Long entidadeId, @RequestParam String query) {
+        String[] words = query.split("\\s+");
+        org.springframework.data.jpa.domain.Specification<Fornecedor> spec = (root, q, cb) -> 
+            cb.equal(root.get("entidadeId"), entidadeId);
+
+        for (String word : words) {
+            if (word.isEmpty()) continue;
+            final String pattern = "%" + word.toLowerCase() + "%";
+            org.springframework.data.jpa.domain.Specification<Fornecedor> wordSpec = (root, q, cb) -> 
+                cb.or(
+                    cb.like(cb.lower(root.get("nome")), pattern),
+                    cb.like(cb.lower(root.get("cnpj")), pattern)
+                );
+            spec = spec.and(wordSpec);
+        }
+
+        return ResponseEntity.ok(fornecedorRepository.findAll(spec));
+    }
+
     @PostMapping
     public ResponseEntity<Fornecedor> createFornecedor(@RequestBody Fornecedor fornecedor) {
         return ResponseEntity.ok(fornecedorRepository.save(fornecedor));

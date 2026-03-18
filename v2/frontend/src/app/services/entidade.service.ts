@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Entidade {
@@ -18,6 +18,13 @@ export class EntidadeService {
 
   getAllByTenant(tenantId: number): Observable<Entidade[]> {
     return this.http.get<Entidade[]>(`${this.apiUrl}/tenant/${tenantId}`);
+  }
+
+  search(tenantId: number, query: string): Observable<Entidade[]> {
+    const params = new HttpParams()
+      .set('tenantId', tenantId.toString())
+      .set('query', query);
+    return this.http.get<Entidade[]>(`${this.apiUrl}/search`, { params });
   }
 
   create(entidade: Entidade): Observable<Entidade> {

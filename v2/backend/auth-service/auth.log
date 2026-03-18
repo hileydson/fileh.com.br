@@ -1,4 +1,3 @@
-nohup: ignoring input
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ---------------------< br.com.fileh:auth-service >----------------------
@@ -13,17 +12,13 @@ nohup: ignoring input
 [INFO] Copying 0 resource from src/main/resources to target/classes
 [INFO] 
 [INFO] --- compiler:3.14.1:compile (default-compile) @ auth-service ---
-[INFO] Recompiling the module because of added or removed source files.
-[INFO] Compiling 15 source files with javac [debug parameters release 21] to target/classes
-[INFO] /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/src/main/java/br/com/fileh/auth/security/SecurityConfig.java: /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/src/main/java/br/com/fileh/auth/security/SecurityConfig.java uses or overrides a deprecated API.
-[INFO] /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/src/main/java/br/com/fileh/auth/security/SecurityConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] Nothing to compile - all classes are up to date.
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ auth-service ---
 [INFO] skip non existing resourceDirectory /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/src/test/resources
 [INFO] 
 [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ auth-service ---
-[INFO] Recompiling the module because of changed dependency.
-[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/test-classes
+[INFO] Nothing to compile - all classes are up to date.
 [INFO] 
 [INFO] <<< spring-boot:4.0.3:run (default-cli) < test-compile @ auth-service <<<
 [INFO] 
@@ -40,23 +35,23 @@ nohup: ignoring input
 
  :: Spring Boot ::                (v4.0.3)
 
-2026-03-17T16:54:23.314-03:00  INFO 1151189 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Starting AuthServiceApplication using Java 21.0.10 with PID 1151189 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service)
-2026-03-17T16:54:23.316-03:00  INFO 1151189 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-03-17T16:54:23.623-03:00  INFO 1151189 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-17T16:54:23.678-03:00  INFO 1151189 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
-2026-03-17T16:54:23.778-03:00  INFO 1151189 --- [auth-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6961d788-7fd0-37fd-b424-713dd1038293
-2026-03-17T16:54:23.940-03:00  INFO 1151189 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
-2026-03-17T16:54:23.946-03:00  INFO 1151189 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-17T16:54:23.946-03:00  INFO 1151189 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-03-17T16:54:23.965-03:00  INFO 1151189 --- [auth-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 633 ms
-2026-03-17T16:54:24.034-03:00  INFO 1151189 --- [auth-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-17T16:54:24.068-03:00  INFO 1151189 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
-2026-03-17T16:54:24.235-03:00  INFO 1151189 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-17T16:54:24.249-03:00  INFO 1151189 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-17T16:54:24.318-03:00  INFO 1151189 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@178ba69f
-2026-03-17T16:54:24.319-03:00  INFO 1151189 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-17T16:54:24.341-03:00  WARN 1151189 --- [auth-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-17T16:54:24.349-03:00  INFO 1151189 --- [auth-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-03-18T12:46:29.511-03:00  INFO 1666834 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Starting AuthServiceApplication using Java 21.0.10 with PID 1666834 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service)
+2026-03-18T12:46:29.512-03:00  INFO 1666834 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-03-18T12:46:29.800-03:00  INFO 1666834 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-18T12:46:29.852-03:00  INFO 1666834 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2026-03-18T12:46:29.954-03:00  INFO 1666834 --- [auth-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6961d788-7fd0-37fd-b424-713dd1038293
+2026-03-18T12:46:30.112-03:00  INFO 1666834 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-03-18T12:46:30.119-03:00  INFO 1666834 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-18T12:46:30.120-03:00  INFO 1666834 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-18T12:46:30.152-03:00  INFO 1666834 --- [auth-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 622 ms
+2026-03-18T12:46:30.227-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-18T12:46:30.262-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-18T12:46:30.434-03:00  INFO 1666834 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-18T12:46:30.449-03:00  INFO 1666834 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-18T12:46:30.518-03:00  INFO 1666834 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@178ba69f
+2026-03-18T12:46:30.519-03:00  INFO 1666834 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-18T12:46:30.540-03:00  WARN 1666834 --- [auth-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-18T12:46:30.547-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -68,595 +63,46 @@ nohup: ignoring input
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-03-17T16:54:24.730-03:00  INFO 1151189 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-17T16:54:24.770-03:00  INFO 1151189 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-17T16:54:24.812-03:00  INFO 1151189 --- [auth-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-17T16:54:24.947-03:00  INFO 1151189 --- [auth-service] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-03-17T16:54:24.948-03:00  WARN 1151189 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-03-17T16:54:24.972-03:00  WARN 1151189 --- [auth-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-17T16:54:25.304-03:00  INFO 1151189 --- [auth-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
-2026-03-17T16:54:25.321-03:00  WARN 1151189 --- [auth-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-17T16:54:25.332-03:00  INFO 1151189 --- [auth-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-03-17T16:54:25.341-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-03-17T16:54:25.343-03:00  INFO 1151189 --- [auth-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-03-17T16:54:25.346-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-17T16:54:25.491-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-17T16:54:25.492-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-03-17T16:54:25.493-03:00  INFO 1151189 --- [auth-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-17T16:54:25.493-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773777265493 with initial instances count: 1
-2026-03-17T16:54:25.496-03:00  INFO 1151189 --- [auth-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH-SERVICE with eureka with status UP
-2026-03-17T16:54:25.496-03:00  INFO 1151189 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773777265496, current=UP, previous=STARTING]
-2026-03-17T16:54:25.496-03:00  INFO 1151189 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081: registering service...
-2026-03-17T16:54:25.502-03:00  INFO 1151189 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
-2026-03-17T16:54:25.502-03:00  INFO 1151189 --- [auth-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
-2026-03-17T16:54:25.514-03:00  INFO 1151189 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081 - registration status: 204
-2026-03-17T16:54:25.528-03:00  INFO 1151189 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Started AuthServiceApplication in 2.407 seconds (process running for 2.635)
-2026-03-17T16:59:25.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:04:25.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:09:25.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:14:25.349-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:19:25.350-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:24:25.351-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:29:25.351-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:34:25.352-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:39:25.353-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:44:25.354-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:49:25.355-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:54:25.356-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:59:25.356-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:04:25.357-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:09:25.358-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:14:25.359-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:19:25.360-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:24:25.360-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:29:25.361-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:34:25.362-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:39:25.363-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:44:25.364-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:49:25.364-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:54:25.365-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:59:25.366-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:04:25.366-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:09:25.367-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:14:25.368-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:19:25.368-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:24:25.369-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:29:25.372-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:34:25.373-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:39:25.374-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:44:25.374-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:49:25.375-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:54:25.378-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:59:25.382-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:04:25.382-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:09:25.383-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:14:25.384-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:19:25.385-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:24:25.385-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:29:25.385-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:34:25.386-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:39:25.386-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:44:25.387-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:49:25.388-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:54:25.389-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:59:25.389-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:04:25.390-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:09:25.390-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:14:25.391-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:19:25.392-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:24:25.393-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:29:25.393-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:34:25.394-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:39:25.397-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:44:25.400-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:49:25.403-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:54:25.404-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:59:25.404-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:04:25.405-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:09:25.405-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:14:25.406-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:19:25.406-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:24:25.407-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:29:25.408-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:34:25.408-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:39:25.409-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:30:44.263-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:35:44.263-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:40:44.264-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:45:44.265-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:50:44.265-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:55:44.266-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:00:44.267-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:05:45.313-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:10:45.314-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:15:45.314-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:20:45.315-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:25:45.316-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:30:45.316-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:35:45.317-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:40:45.318-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:45:45.319-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:50:45.320-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:55:45.321-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:00:45.322-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:02:58.895-03:00  INFO 1151189 --- [auth-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-18T10:02:58.896-03:00  INFO 1151189 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-18T10:02:58.897-03:00  INFO 1151189 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_cd_usuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-2026-03-18T10:05:45.323-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:10:45.323-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:15:45.324-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:20:45.328-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:25:45.329-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:30:45.330-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:35:45.330-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:40:45.331-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:45:45.334-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:50:45.335-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:55:45.335-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:00:45.339-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:05:45.339-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:10:45.340-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:15:45.344-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:20:45.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:25:45.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:30:45.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_cd_usuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-2026-03-18T11:35:45.349-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_cd_subusuario=?
-Hibernate: 
-    update
-        subusuario 
-    set
-        sbu_cd_entidade=?,
-        sbu_fl_adm=?,
-        sbu_ds_login=?,
-        sbu_fl_modulo_caixa=?,
-        sbu_fl_modulo_cliente=?,
-        sbu_fl_modulo_financeiro=?,
-        sbu_fl_modulo_venda=?,
-        sbu_ds_msg_footer=?,
-        sbu_nm_subusuario=?,
-        sbu_sh_subusuario=?,
-        sbu_cd_usuario=? 
-    where
-        sbu_cd_subusuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_cd_usuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    insert 
-    into
-        subusuario
-        (sbu_cd_entidade, sbu_fl_adm, sbu_ds_login, sbu_fl_modulo_caixa, sbu_fl_modulo_cliente, sbu_fl_modulo_financeiro, sbu_fl_modulo_venda, sbu_ds_msg_footer, sbu_nm_subusuario, sbu_sh_subusuario, sbu_cd_usuario) 
-    values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_cd_usuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
+2026-03-18T12:46:30.913-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-18T12:46:30.946-03:00  INFO 1666834 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-18T12:46:30.984-03:00  INFO 1666834 --- [auth-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-18T12:46:31.131-03:00  INFO 1666834 --- [auth-service] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-03-18T12:46:31.131-03:00  WARN 1666834 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-03-18T12:46:31.156-03:00  WARN 1666834 --- [auth-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-18T12:46:31.467-03:00  INFO 1666834 --- [auth-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-03-18T12:46:31.484-03:00  WARN 1666834 --- [auth-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-18T12:46:31.494-03:00  INFO 1666834 --- [auth-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-03-18T12:46:31.504-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-03-18T12:46:31.505-03:00  INFO 1666834 --- [auth-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-18T12:46:31.707-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-18T12:46:31.708-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-03-18T12:46:31.709-03:00  INFO 1666834 --- [auth-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-18T12:46:31.710-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773848791709 with initial instances count: 0
+2026-03-18T12:46:31.712-03:00  INFO 1666834 --- [auth-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH-SERVICE with eureka with status UP
+2026-03-18T12:46:31.712-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773848791712, current=UP, previous=STARTING]
+2026-03-18T12:46:31.713-03:00  INFO 1666834 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081: registering service...
+2026-03-18T12:46:31.718-03:00  INFO 1666834 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-03-18T12:46:31.719-03:00  INFO 1666834 --- [auth-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2026-03-18T12:46:31.742-03:00  INFO 1666834 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Started AuthServiceApplication in 2.418 seconds (process running for 2.634)
+2026-03-18T12:46:31.770-03:00  INFO 1666834 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081 - registration status: 204
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-18T12:47:01.723-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-18T12:50:37.550-03:00  INFO 1666834 --- [auth-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-18T12:50:37.550-03:00  INFO 1666834 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-18T12:50:37.551-03:00  INFO 1666834 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 USUARIO: jobin SENHA:jobin
 Hibernate: 
     select
@@ -695,4 +141,78 @@ Hibernate:
         usuario u1_0 
     where
         u1_0.usu_cd_usuario=?
-2026-03-18T11:40:45.351-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_cd_usuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-18T12:51:31.509-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

@@ -20,6 +20,23 @@ public class EntidadeController {
         return ResponseEntity.ok(entidadeRepository.findByUsuarioId(tenantId));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Entidade>> searchEntidades(@RequestParam Long tenantId, @RequestParam String query) {
+        String[] words = query.split("\\s+");
+        org.springframework.data.jpa.domain.Specification<Entidade> spec = (root, q, cb) -> 
+            cb.equal(root.get("usuarioId"), tenantId);
+
+        for (String word : words) {
+            if (word.isEmpty()) continue;
+            final String pattern = "%" + word.toLowerCase() + "%";
+            org.springframework.data.jpa.domain.Specification<Entidade> wordSpec = (root, q, cb) -> 
+                cb.like(cb.lower(root.get("nome")), pattern);
+            spec = spec.and(wordSpec);
+        }
+
+        return ResponseEntity.ok(entidadeRepository.findAll(spec));
+    }
+
     @PostMapping
     public ResponseEntity<Entidade> createEntidade(@RequestBody Entidade entidade) {
         return ResponseEntity.ok(entidadeRepository.save(entidade));

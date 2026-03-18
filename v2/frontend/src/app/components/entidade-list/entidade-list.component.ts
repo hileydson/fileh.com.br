@@ -19,6 +19,7 @@ export class EntidadeListComponent implements OnInit {
   showModal = false;
   isEditing = false;
   currentEntidade: Entidade = this.getEmptyEntidade();
+  searchTerm: string = '';
 
   tenantId: number = 1;
 
@@ -47,6 +48,25 @@ export class EntidadeListComponent implements OnInit {
       },
       error: (err) => {
         console.error('Erro ao buscar entidades', err);
+        this.loading = false;
+      }
+    });
+  }
+
+  onSearch(): void {
+    if (!this.searchTerm || this.searchTerm.trim() === '') {
+      this.loadEntidades();
+      return;
+    }
+
+    this.loading = true;
+    this.entidadeService.search(this.tenantId, this.searchTerm.trim()).subscribe({
+      next: (data) => {
+        this.entidades = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erro na pesquisa', err);
         this.loading = false;
       }
     });

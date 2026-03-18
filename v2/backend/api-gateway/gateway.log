@@ -1,4 +1,3 @@
-nohup: ignoring input
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ----------------------< br.com.fileh:api-gateway >----------------------
@@ -36,450 +35,57 @@ nohup: ignoring input
 
  :: Spring Boot ::                (v3.3.4)
 
-2026-03-17T16:53:42.040-03:00  INFO 1150356 --- [api-gateway] [           main] b.c.fileh.gateway.ApiGatewayApplication  : Starting ApiGatewayApplication using Java 21.0.10 with PID 1150356 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/api-gateway/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/api-gateway)
-2026-03-17T16:53:42.041-03:00  INFO 1150356 --- [api-gateway] [           main] b.c.fileh.gateway.ApiGatewayApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-03-17T16:53:42.358-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d4dfcad3-6ffb-3f27-b6ef-a7a95b520e49
-2026-03-17T16:53:42.385-03:00  WARN 1150356 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2026-03-17T16:53:42.386-03:00  WARN 1150356 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2026-03-17T16:53:42.387-03:00  WARN 1150356 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2026-03-17T16:53:42.387-03:00  WARN 1150356 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2026-03-17T16:53:42.387-03:00  WARN 1150356 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2026-03-17T16:53:42.719-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
-2026-03-17T16:53:42.719-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
-2026-03-17T16:53:42.720-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
-2026-03-17T16:53:42.855-03:00  INFO 1150356 --- [api-gateway] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2026-03-17T16:53:42.892-03:00  WARN 1150356 --- [api-gateway] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-17T16:53:42.907-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-03-17T16:53:42.916-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-03-17T16:53:42.918-03:00  INFO 1150356 --- [api-gateway] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-03-17T16:53:42.921-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-17T16:53:43.150-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-17T16:53:43.151-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-03-17T16:53:43.151-03:00  INFO 1150356 --- [api-gateway] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-17T16:53:43.153-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773777223152 with initial instances count: 0
-2026-03-17T16:53:43.154-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application API-GATEWAY with eureka with status UP
-2026-03-17T16:53:43.154-03:00  INFO 1150356 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773777223154, current=UP, previous=STARTING]
-2026-03-17T16:53:43.155-03:00  INFO 1150356 --- [api-gateway] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/192.168.0.71:api-gateway:8080: registering service...
-2026-03-17T16:53:43.213-03:00  INFO 1150356 --- [api-gateway] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/192.168.0.71:api-gateway:8080 - registration status: 204
-2026-03-17T16:53:43.220-03:00  INFO 1150356 --- [api-gateway] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2026-03-17T16:53:43.221-03:00  INFO 1150356 --- [api-gateway] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
-2026-03-17T16:53:43.278-03:00  INFO 1150356 --- [api-gateway] [           main] b.c.fileh.gateway.ApiGatewayApplication  : Started ApiGatewayApplication in 1.457 seconds (process running for 1.617)
-2026-03-17T16:54:13.151-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-17T16:54:13.152-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-17T16:54:13.152-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-17T16:54:13.152-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-17T16:54:13.152-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-17T16:54:13.152-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2026-03-17T16:54:13.152-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-17T16:54:13.164-03:00  INFO 1150356 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-17T16:58:42.922-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:03:42.923-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:08:42.925-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:13:42.926-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:14:38.661-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-11] a.w.r.e.AbstractErrorWebExceptionHandler : [3d3b3a0b-10]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=c"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=c" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:14:39.390-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-12] a.w.r.e.AbstractErrorWebExceptionHandler : [3acebc9b-11]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=ci"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=ci" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:14:39.392-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-15] a.w.r.e.AbstractErrorWebExceptionHandler : [0d064e1c-13]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=cimen"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=cimen" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:14:39.395-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-13] a.w.r.e.AbstractErrorWebExceptionHandler : [6d1b2368-12]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=cim"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=cim" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:14:39.397-03:00 ERROR 1150356 --- [api-gateway] [or-http-epoll-1] a.w.r.e.AbstractErrorWebExceptionHandler : [db75d1c3-15]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=cimento"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=cimento" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:14:39.398-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-14] a.w.r.e.AbstractErrorWebExceptionHandler : [1801206b-14]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=cime"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=cime" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:14:39.397-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-16] a.w.r.e.AbstractErrorWebExceptionHandler : [850a6adf-16]  500 Server Error for HTTP GET "/api/produtos/search?entidadeId=1&query=ciment"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/search?entidadeId=1&query=ciment" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-17T17:18:42.926-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:23:42.927-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:28:42.930-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:33:42.933-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:38:42.934-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:43:42.935-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:48:42.936-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:53:42.937-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T17:58:42.940-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:03:42.941-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:08:42.942-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:13:42.942-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:18:42.943-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:23:42.946-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:28:42.947-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:33:42.948-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:38:42.951-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:43:42.952-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:48:42.952-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:53:42.953-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T18:58:42.954-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:03:42.954-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:08:42.955-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:13:42.956-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:18:42.957-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:23:42.957-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:28:42.985-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:33:42.986-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:38:42.987-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:43:42.987-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:48:42.988-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:53:42.991-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T19:58:43.019-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:03:43.020-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:08:43.021-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:13:43.021-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:18:43.022-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:23:43.023-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:28:43.023-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:33:43.024-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:38:43.025-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:43:43.025-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:48:43.026-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:53:43.027-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T20:58:43.028-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:03:43.028-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:08:43.029-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:13:43.030-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:18:43.031-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:23:43.032-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:28:43.032-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:33:43.033-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:38:43.036-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:43:43.039-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:48:43.042-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:53:43.043-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T21:58:43.043-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:03:43.044-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:08:43.044-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:13:43.045-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:18:43.046-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:23:43.047-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:28:43.047-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:33:43.048-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-17T22:38:43.048-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:30:01.903-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:35:01.903-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:40:01.904-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:45:01.905-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:50:01.905-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T08:55:01.906-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:00:01.906-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:05:02.953-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:10:02.962-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:15:02.963-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:20:02.963-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:25:02.964-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:30:02.965-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:35:02.965-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:40:02.966-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:45:02.966-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:50:02.967-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T09:55:02.968-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:00:02.968-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:05:02.969-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:10:02.969-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:15:02.970-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:20:02.973-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:25:02.974-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:30:02.975-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:35:02.975-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:40:02.976-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:45:02.979-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:48:42.193-03:00 ERROR 1150356 --- [api-gateway] [or-http-epoll-9] a.w.r.e.AbstractErrorWebExceptionHandler : [1953deed-184]  500 Server Error for HTTP GET "/api/situacoes-proposta/tenant/1"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/situacoes-proposta/tenant/1" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-18T10:50:02.980-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T10:55:02.980-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:00:02.981-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:01:36.396-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-10] a.w.r.e.AbstractErrorWebExceptionHandler : [52b6aa12-185]  500 Server Error for HTTP GET "/api/situacoes-proposta/tenant/1"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/situacoes-proposta/tenant/1" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-18T11:01:39.312-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-11] a.w.r.e.AbstractErrorWebExceptionHandler : [49c57aa4-186]  500 Server Error for HTTP GET "/api/produtos/tenant/1"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/produtos/tenant/1" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-18T11:01:42.621-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-12] a.w.r.e.AbstractErrorWebExceptionHandler : [4d9eea7e-187]  500 Server Error for HTTP GET "/api/formas-pagamento/tenant/1?tipo=FC"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/formas-pagamento/tenant/1?tipo=FC" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-18T11:01:58.646-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-14] a.w.r.e.AbstractErrorWebExceptionHandler : [550b4c67-189]  500 Server Error for HTTP GET "/api/situacoes-proposta/tenant/1"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/situacoes-proposta/tenant/1" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-18T11:01:59.501-03:00 ERROR 1150356 --- [api-gateway] [r-http-epoll-15] a.w.r.e.AbstractErrorWebExceptionHandler : [1474d852-190]  500 Server Error for HTTP GET "/api/formas-pagamento/tenant/1"
-
-io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8083
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/api/formas-pagamento/tenant/1" [ExceptionHandlingWebHandler]
-Original Stack Trace:
-Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.113.Final.jar:4.1.113.Final]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-03-18T11:05:02.981-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:10:02.982-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:15:02.982-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:20:02.985-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:25:02.987-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:30:02.988-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:35:02.989-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T11:40:02.990-03:00  INFO 1150356 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T12:46:49.529-03:00  INFO 1668214 --- [api-gateway] [           main] b.c.fileh.gateway.ApiGatewayApplication  : Starting ApiGatewayApplication using Java 21.0.10 with PID 1668214 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/api-gateway/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/api-gateway)
+2026-03-18T12:46:49.531-03:00  INFO 1668214 --- [api-gateway] [           main] b.c.fileh.gateway.ApiGatewayApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-03-18T12:46:49.854-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d4dfcad3-6ffb-3f27-b6ef-a7a95b520e49
+2026-03-18T12:46:49.879-03:00  WARN 1668214 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-03-18T12:46:49.880-03:00  WARN 1668214 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-03-18T12:46:49.881-03:00  WARN 1668214 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-03-18T12:46:49.881-03:00  WARN 1668214 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-03-18T12:46:49.882-03:00  WARN 1668214 --- [api-gateway] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-03-18T12:46:50.190-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-03-18T12:46:50.310-03:00  INFO 1668214 --- [api-gateway] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-03-18T12:46:50.339-03:00  WARN 1668214 --- [api-gateway] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-18T12:46:50.352-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-03-18T12:46:50.364-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-03-18T12:46:50.366-03:00  INFO 1668214 --- [api-gateway] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T12:46:50.369-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-18T12:46:50.370-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-18T12:46:50.370-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-18T12:46:50.370-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-18T12:46:50.370-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-18T12:46:50.370-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-03-18T12:46:50.370-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-18T12:46:50.520-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-18T12:46:50.520-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-03-18T12:46:50.521-03:00  INFO 1668214 --- [api-gateway] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-18T12:46:50.522-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773848810521 with initial instances count: 0
+2026-03-18T12:46:50.524-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application API-GATEWAY with eureka with status UP
+2026-03-18T12:46:50.524-03:00  INFO 1668214 --- [api-gateway] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773848810524, current=UP, previous=STARTING]
+2026-03-18T12:46:50.525-03:00  INFO 1668214 --- [api-gateway] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/192.168.0.71:api-gateway:8080: registering service...
+2026-03-18T12:46:50.543-03:00  INFO 1668214 --- [api-gateway] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/192.168.0.71:api-gateway:8080 - registration status: 204
+2026-03-18T12:46:50.603-03:00  INFO 1668214 --- [api-gateway] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2026-03-18T12:46:50.603-03:00  INFO 1668214 --- [api-gateway] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2026-03-18T12:46:50.647-03:00  INFO 1668214 --- [api-gateway] [           main] b.c.fileh.gateway.ApiGatewayApplication  : Started ApiGatewayApplication in 1.321 seconds (process running for 1.458)
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-03-18T12:47:20.521-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-18T12:47:20.537-03:00  INFO 1668214 --- [api-gateway] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-18T12:51:50.372-03:00  INFO 1668214 --- [api-gateway] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

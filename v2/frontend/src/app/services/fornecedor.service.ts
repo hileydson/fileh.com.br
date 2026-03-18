@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Fornecedor {
@@ -26,6 +26,13 @@ export class FornecedorService {
 
   getAllByTenant(entidadeId: number): Observable<Fornecedor[]> {
     return this.http.get<Fornecedor[]>(`${this.apiUrl}/tenant/${entidadeId}`);
+  }
+
+  search(entidadeId: number, query: string): Observable<Fornecedor[]> {
+    const params = new HttpParams()
+      .set('entidadeId', entidadeId.toString())
+      .set('query', query);
+    return this.http.get<Fornecedor[]>(`${this.apiUrl}/search`, { params });
   }
 
   create(fornecedor: Fornecedor): Observable<Fornecedor> {

@@ -15,10 +15,10 @@ export class FornecedorListComponent implements OnInit {
   fornecedores: Fornecedor[] = [];
   loading = true;
   saving = false;
-  
   showModal = false;
   isEditing = false;
   currentFornecedor: Fornecedor = this.getEmptyFornecedor();
+  searchTerm: string = '';
 
   entidadeId: number = 0;
 
@@ -44,6 +44,25 @@ export class FornecedorListComponent implements OnInit {
       },
       error: (err) => {
         console.error('Erro ao buscar fornecedores', err);
+        this.loading = false;
+      }
+    });
+  }
+
+  onSearch(): void {
+    if (!this.searchTerm || this.searchTerm.trim() === '') {
+      this.loadFornecedores();
+      return;
+    }
+
+    this.loading = true;
+    this.fornecedorService.search(this.entidadeId, this.searchTerm.trim()).subscribe({
+      next: (data) => {
+        this.fornecedores = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erro na pesquisa', err);
         this.loading = false;
       }
     });
