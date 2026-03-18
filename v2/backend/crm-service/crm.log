@@ -233,3 +233,49 @@ Hibernate:
 2026-03-18T11:10:59.077-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-18T11:15:59.080-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-18T11:20:59.083-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:25:59.084-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:30:59.085-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        e1_0.ent_cd_entidade,
+        e1_0.ent_nm_entidade,
+        e1_0.ent_cd_usuario 
+    from
+        entidade e1_0 
+    where
+        e1_0.ent_cd_usuario=?
+2026-03-18T11:35:59.086-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        c1_0.cli_cd_cliente,
+        c1_0.cli_ds_bairro,
+        c1_0.cli_nr_cpf,
+        c1_0.cli_cd_entidade,
+        c1_0.cli_ds_logradouro,
+        c1_0.cli_nm_cliente,
+        c1_0.cli_ds_entidade,
+        c1_0.cli_ds_referencia,
+        c1_0.cli_nr_tel,
+        c1_0.cli_ds_uf 
+    from
+        cliente c1_0 
+    where
+        c1_0.cli_cd_entidade=?
+2026-03-18T11:40:59.087-03:00  INFO 1151718 --- [crm-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        f1_0.for_cd_fornecedor,
+        f1_0.for_ds_bairro,
+        f1_0.for_nr_cep,
+        f1_0.for_ds_cidade,
+        f1_0.for_nr_cnpj,
+        f1_0.for_ds_contato,
+        f1_0.for_cd_entidade,
+        f1_0.for_nr_insc_estadual,
+        f1_0.for_nr_insc_municipal,
+        f1_0.for_ds_logradouro,
+        f1_0.for_ds_fornecedor 
+    from
+        fornecedor f1_0 
+    where
+        f1_0.for_cd_entidade=?

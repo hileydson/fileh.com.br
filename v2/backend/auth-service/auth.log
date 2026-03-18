@@ -278,3 +278,421 @@ Hibernate:
 2026-03-18T11:10:45.340-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-18T11:15:45.344-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2026-03-18T11:20:45.347-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:25:45.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:30:45.348-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_cd_usuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-18T11:35:45.349-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_cd_subusuario=?
+Hibernate: 
+    update
+        subusuario 
+    set
+        sbu_cd_entidade=?,
+        sbu_fl_adm=?,
+        sbu_ds_login=?,
+        sbu_fl_modulo_caixa=?,
+        sbu_fl_modulo_cliente=?,
+        sbu_fl_modulo_financeiro=?,
+        sbu_fl_modulo_venda=?,
+        sbu_ds_msg_footer=?,
+        sbu_nm_subusuario=?,
+        sbu_sh_subusuario=?,
+        sbu_cd_usuario=? 
+    where
+        sbu_cd_subusuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_cd_usuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    insert 
+    into
+        subusuario
+        (sbu_cd_entidade, sbu_fl_adm, sbu_ds_login, sbu_fl_modulo_caixa, sbu_fl_modulo_cliente, sbu_fl_modulo_financeiro, sbu_fl_modulo_venda, sbu_ds_msg_footer, sbu_nm_subusuario, sbu_sh_subusuario, sbu_cd_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_cd_usuario=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+USUARIO: jobin SENHA:jobin
+Hibernate: 
+    select
+        su1_0.sbu_cd_subusuario,
+        su1_0.sbu_cd_entidade,
+        su1_0.sbu_fl_adm,
+        su1_0.sbu_ds_login,
+        su1_0.sbu_fl_modulo_caixa,
+        su1_0.sbu_fl_modulo_cliente,
+        su1_0.sbu_fl_modulo_financeiro,
+        su1_0.sbu_fl_modulo_venda,
+        su1_0.sbu_ds_msg_footer,
+        su1_0.sbu_nm_subusuario,
+        su1_0.sbu_sh_subusuario,
+        su1_0.sbu_cd_usuario 
+    from
+        subusuario su1_0 
+    where
+        su1_0.sbu_ds_login=?
+Hibernate: 
+    select
+        u1_0.usu_cd_usuario,
+        u1_0.usu_ds_bairro,
+        u1_0.usu_ds_cidade,
+        u1_0.usu_nr_cnpj,
+        u1_0.usu_ds_email,
+        u1_0.usu_ds_fantasia,
+        u1_0.usu_ds_logradouro,
+        u1_0.usu_nm_usuario,
+        u1_0.usu_ds_numero,
+        u1_0.usu_cd_plano,
+        u1_0.usu_ds_subdominio,
+        u1_0.usu_ds_tel,
+        u1_0.usu_ds_uf 
+    from
+        usuario u1_0 
+    where
+        u1_0.usu_cd_usuario=?
+2026-03-18T11:40:45.351-03:00  INFO 1151189 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

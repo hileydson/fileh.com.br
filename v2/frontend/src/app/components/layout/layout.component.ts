@@ -12,11 +12,15 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LayoutComponent {
   entidadeNome: string = 'Painel Administrativo';
-
+  username: string = '';
+  
   constructor(private authService: AuthService, private router: Router) {
     const ctx = this.authService.getAuthContext();
-    if (ctx && ctx.entidadeNome) {
-      this.entidadeNome = ctx.entidadeNome;
+    if (ctx) {
+      if (ctx.entidadeNome) {
+        this.entidadeNome = ctx.entidadeNome;
+      }
+      this.username = ctx.username || '';
     }
   }
 

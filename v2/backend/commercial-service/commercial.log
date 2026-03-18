@@ -441,3 +441,516 @@ Hibernate:
     where
         fp1_0.fgp_cd_entidade=? 
         and fp1_0.fgp_tp_forma_pagamento=?
+Hibernate: 
+    select
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
+    from
+        situacao_proposta sp1_0 
+    where
+        sp1_0.sip_cd_entidade=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+2026-03-18T11:27:37.140-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:32:37.141-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        fp1_0.fgp_cd_forma_pagamento,
+        fp1_0.fgp_ds_forma_pagamento,
+        fp1_0.fgp_cd_entidade,
+        fp1_0.fgp_tp_forma_pagamento 
+    from
+        forma_pagamento fp1_0 
+    where
+        fp1_0.fgp_cd_entidade=? 
+        and fp1_0.fgp_tp_forma_pagamento=?
+2026-03-18T11:37:37.141-03:00  INFO 1576537 --- [commercial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        ) 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        ) 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        ) 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        ) 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=? 
+        and (
+            lower(p1_0.pro_ds_produto) like ? escape '' 
+            or lower(p1_0.pro_cd_sku) like ? escape ''
+        )
+Hibernate: 
+    select
+        sp1_0.sip_cd_situacao_proposta,
+        sp1_0.sip_ds_situacao_proposta,
+        sp1_0.sip_cd_entidade 
+    from
+        situacao_proposta sp1_0 
+    where
+        sp1_0.sip_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        pc1_0.prc_cd_proposta_comercial,
+        pc1_0.prc_nm_atendente,
+        pc1_0.prc_cd_cliente,
+        pc1_0.prc_dt_cadastro,
+        pc1_0.prc_dt_prevista,
+        pc1_0.prc_cd_entidade,
+        pc1_0.prc_ds_forma_pagamento,
+        pc1_0.prc_ds_obs,
+        pc1_0.prc_ds_situacao,
+        pc1_0.prc_vl_desconto,
+        pc1_0.prc_vl_frete,
+        pc1_0.prc_vl_total 
+    from
+        proposta_comercial pc1_0 
+    where
+        pc1_0.prc_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?
+Hibernate: 
+    select
+        p1_0.pro_cd_produto,
+        p1_0.pro_ds_produto,
+        p1_0.pro_cd_entidade,
+        p1_0.pro_nr_estoque,
+        p1_0.pro_cd_sku,
+        p1_0.pro_ds_unidade,
+        p1_0.pro_vl_venda 
+    from
+        produto p1_0 
+    where
+        p1_0.pro_cd_entidade=?

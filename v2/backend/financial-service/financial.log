@@ -2037,3 +2037,21 @@ Hibernate:
     where
         fc1_0.flu_cd_entidade=? 
         and fc1_0.flu_dt_cadastro=?
+2026-03-18T11:26:32.534-03:00  INFO 1539991 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:31:32.534-03:00  INFO 1539991 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-18T11:36:32.535-03:00  INFO 1539991 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: 
+    select
+        fc1_0.flu_cd_fluxo_caixa,
+        fc1_0.flu_dt_cadastro,
+        fc1_0.flu_ds_fluxo_caixa,
+        fc1_0.flu_cd_entidade,
+        fc1_0.flu_ds_forma_pagamento,
+        fc1_0.flu_fl_tipo,
+        fc1_0.flu_vl_fluxo_caixa 
+    from
+        fluxo_caixa fc1_0 
+    where
+        fc1_0.flu_cd_entidade=? 
+        and fc1_0.flu_dt_cadastro=?
+2026-03-18T11:41:32.535-03:00  INFO 1539991 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
