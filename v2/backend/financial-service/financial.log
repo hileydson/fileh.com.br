@@ -1,3 +1,4 @@
+nohup: ignoring input
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] -------------------< br.com.fileh:financial-service >-------------------
@@ -35,23 +36,23 @@
 
  :: Spring Boot ::                (v4.0.3)
 
-2026-03-18T12:46:44.462-03:00  INFO 1667860 --- [financial-service] [           main] b.c.f.f.FinancialServiceApplication      : Starting FinancialServiceApplication using Java 21.0.10 with PID 1667860 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/financial-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/financial-service)
-2026-03-18T12:46:44.463-03:00  INFO 1667860 --- [financial-service] [           main] b.c.f.f.FinancialServiceApplication      : No active profile set, falling back to 1 default profile: "default"
-2026-03-18T12:46:44.726-03:00  INFO 1667860 --- [financial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-18T12:46:44.780-03:00  INFO 1667860 --- [financial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 3 JPA repository interfaces.
-2026-03-18T12:46:44.842-03:00  INFO 1667860 --- [financial-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e628f22e-54a9-326f-a157-c6fbc809ba67
-2026-03-18T12:46:44.974-03:00  INFO 1667860 --- [financial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
-2026-03-18T12:46:44.980-03:00  INFO 1667860 --- [financial-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-18T12:46:44.980-03:00  INFO 1667860 --- [financial-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-03-18T12:46:45.000-03:00  INFO 1667860 --- [financial-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 519 ms
-2026-03-18T12:46:45.062-03:00  INFO 1667860 --- [financial-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-18T12:46:45.077-03:00  INFO 1667860 --- [financial-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
-2026-03-18T12:46:45.233-03:00  INFO 1667860 --- [financial-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-18T12:46:45.245-03:00  INFO 1667860 --- [financial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-18T12:46:45.307-03:00  INFO 1667860 --- [financial-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4738131e
-2026-03-18T12:46:45.307-03:00  INFO 1667860 --- [financial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-18T12:46:45.328-03:00  WARN 1667860 --- [financial-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-18T12:46:45.339-03:00  INFO 1667860 --- [financial-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-03-19T14:51:50.734-03:00  INFO 2241806 --- [financial-service] [           main] b.c.f.f.FinancialServiceApplication      : Starting FinancialServiceApplication using Java 21.0.10 with PID 2241806 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/financial-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/financial-service)
+2026-03-19T14:51:50.736-03:00  INFO 2241806 --- [financial-service] [           main] b.c.f.f.FinancialServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-03-19T14:51:50.973-03:00  INFO 2241806 --- [financial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-19T14:51:51.025-03:00  INFO 2241806 --- [financial-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2026-03-19T14:51:51.083-03:00  INFO 2241806 --- [financial-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e628f22e-54a9-326f-a157-c6fbc809ba67
+2026-03-19T14:51:51.214-03:00  INFO 2241806 --- [financial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
+2026-03-19T14:51:51.220-03:00  INFO 2241806 --- [financial-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-19T14:51:51.220-03:00  INFO 2241806 --- [financial-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-19T14:51:51.238-03:00  INFO 2241806 --- [financial-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 485 ms
+2026-03-19T14:51:51.304-03:00  INFO 2241806 --- [financial-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-19T14:51:51.328-03:00  INFO 2241806 --- [financial-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-19T14:51:51.473-03:00  INFO 2241806 --- [financial-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-19T14:51:51.485-03:00  INFO 2241806 --- [financial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-19T14:51:51.552-03:00  INFO 2241806 --- [financial-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4738131e
+2026-03-19T14:51:51.552-03:00  INFO 2241806 --- [financial-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-19T14:51:51.572-03:00  WARN 2241806 --- [financial-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-19T14:51:51.579-03:00  INFO 2241806 --- [financial-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -63,88 +64,44 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-03-18T12:46:45.643-03:00  INFO 1667860 --- [financial-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-18T12:46:45.670-03:00  INFO 1667860 --- [financial-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-18T12:46:45.702-03:00  INFO 1667860 --- [financial-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-18T12:46:45.798-03:00  WARN 1667860 --- [financial-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-18T12:46:46.023-03:00  INFO 1667860 --- [financial-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
-2026-03-18T12:46:46.039-03:00  WARN 1667860 --- [financial-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-18T12:46:46.049-03:00  INFO 1667860 --- [financial-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-03-18T12:46:46.058-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-03-18T12:46:46.059-03:00  INFO 1667860 --- [financial-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-03-18T12:46:46.062-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-18T12:46:46.194-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-18T12:46:46.195-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-03-18T12:46:46.196-03:00  INFO 1667860 --- [financial-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-18T12:46:46.196-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773848806196 with initial instances count: 0
-2026-03-18T12:46:46.198-03:00  INFO 1667860 --- [financial-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application FINANCIAL-SERVICE with eureka with status UP
-2026-03-18T12:46:46.198-03:00  INFO 1667860 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773848806198, current=UP, previous=STARTING]
-2026-03-18T12:46:46.199-03:00  INFO 1667860 --- [financial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FINANCIAL-SERVICE/192.168.0.71:financial-service:8084: registering service...
-2026-03-18T12:46:46.204-03:00  INFO 1667860 --- [financial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/'
-2026-03-18T12:46:46.205-03:00  INFO 1667860 --- [financial-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8084
-2026-03-18T12:46:46.217-03:00  INFO 1667860 --- [financial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FINANCIAL-SERVICE/192.168.0.71:financial-service:8084 - registration status: 204
-2026-03-18T12:46:46.224-03:00  INFO 1667860 --- [financial-service] [           main] b.c.f.f.FinancialServiceApplication      : Started FinancialServiceApplication in 1.953 seconds (process running for 2.17)
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2026-03-18T12:47:16.196-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-18T12:47:16.209-03:00  INFO 1667860 --- [financial-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-18T12:51:46.063-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T12:52:25.735-03:00  INFO 1667860 --- [financial-service] [nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-18T12:52:25.735-03:00  INFO 1667860 --- [financial-service] [nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-18T12:52:25.736-03:00  INFO 1667860 --- [financial-service] [nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-Hibernate: 
-    select
-        cp1_0.cop_cd_conta_pagar,
-        cp1_0.cop_dt_cadastro,
-        cp1_0.cop_dt_vencimento,
-        cp1_0.cop_ds_conta_pagar,
-        cp1_0.cop_cd_entidade,
-        cp1_0.cop_ds_fornecedor,
-        cp1_0.cop_nr_documento,
-        cp1_0.cop_nr_parcela,
-        cp1_0.cop_fl_pago,
-        cp1_0.cop_fl_parcelado,
-        cp1_0.cop_ds_tipo_conta,
-        cp1_0.cop_vl_conta_pagar 
-    from
-        conta_pagar cp1_0 
-    where
-        cp1_0.cop_cd_entidade=?
-2026-03-18T12:56:46.066-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:01:46.069-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:06:46.070-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:11:46.071-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:16:46.072-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:21:46.073-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:26:46.074-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:31:46.075-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:36:46.077-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:41:46.078-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:46:46.079-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:51:46.079-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:56:46.080-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T14:01:46.081-03:00  INFO 1667860 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-Hibernate: 
-    select
-        fc1_0.flu_cd_fluxo_caixa,
-        fc1_0.flu_dt_cadastro,
-        fc1_0.flu_ds_fluxo_caixa,
-        fc1_0.flu_cd_entidade,
-        fc1_0.flu_ds_forma_pagamento,
-        fc1_0.flu_fl_tipo,
-        fc1_0.flu_vl_fluxo_caixa 
-    from
-        fluxo_caixa fc1_0 
-    where
-        fc1_0.flu_cd_entidade=? 
-        and fc1_0.flu_dt_cadastro=?
+2026-03-19T14:51:51.893-03:00  INFO 2241806 --- [financial-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-19T14:51:51.921-03:00  INFO 2241806 --- [financial-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-19T14:51:51.952-03:00  INFO 2241806 --- [financial-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-19T14:51:52.034-03:00  WARN 2241806 --- [financial-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-19T14:51:52.235-03:00  INFO 2241806 --- [financial-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-03-19T14:51:52.251-03:00  WARN 2241806 --- [financial-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-19T14:51:52.263-03:00  INFO 2241806 --- [financial-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-03-19T14:51:52.277-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-03-19T14:51:52.279-03:00  INFO 2241806 --- [financial-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-03-19T14:51:52.282-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-19T14:51:52.424-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-19T14:51:52.425-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-03-19T14:51:52.426-03:00  INFO 2241806 --- [financial-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-19T14:51:52.427-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773942712426 with initial instances count: 3
+2026-03-19T14:51:52.428-03:00  INFO 2241806 --- [financial-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application FINANCIAL-SERVICE with eureka with status UP
+2026-03-19T14:51:52.428-03:00  INFO 2241806 --- [financial-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773942712428, current=UP, previous=STARTING]
+2026-03-19T14:51:52.429-03:00  INFO 2241806 --- [financial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FINANCIAL-SERVICE/192.168.15.45:financial-service:8084: registering service...
+2026-03-19T14:51:52.436-03:00  INFO 2241806 --- [financial-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/'
+2026-03-19T14:51:52.436-03:00  INFO 2241806 --- [financial-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8084
+2026-03-19T14:51:52.442-03:00  INFO 2241806 --- [financial-service] [           main] b.c.f.f.FinancialServiceApplication      : Started FinancialServiceApplication in 1.874 seconds (process running for 2.087)
+2026-03-19T14:51:52.451-03:00  INFO 2241806 --- [financial-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FINANCIAL-SERVICE/192.168.15.45:financial-service:8084 - registration status: 204
+2026-03-19T14:56:52.283-03:00  INFO 2241806 --- [financial-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:31 min
+[INFO] Finished at: 2026-03-19T14:57:20-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.3:run (default-cli) on project financial-service: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

@@ -13,8 +13,19 @@ export const authGuard: CanActivateFn = (route, state) => {
          router.navigate(['/selecionar-entidade']);
          return false;
       }
-    } else if (state.url === '/selecionar-entidade') {
-        router.navigate(['/clientes']);
+    } else if (state.url === '/selecionar-entidade' || state.url === '/') {
+        // Redirection based on roles
+        if (ctx?.roles.includes('ROLE_ADMIN')) {
+          router.navigate(['/dashboard']);
+        } else if (ctx?.roles.includes('ROLE_VENDAS')) {
+          router.navigate(['/produtos']);
+        } else if (ctx?.roles.includes('ROLE_FLUXO_CAIXA')) {
+          router.navigate(['/fluxo-caixa']);
+        } else {
+          // No access? Logout or error
+          authService.logout();
+          router.navigate(['/login']);
+        }
         return false;
     }
     return true;

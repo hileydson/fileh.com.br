@@ -119,10 +119,8 @@ export class SubUsuarioListComponent implements OnInit {
       nome: '',
       login: '',
       senha: '',
-      moduloFinanceiro: false,
       moduloVenda: false,
       isAdm: false,
-      moduloCliente: false,
       moduloCaixa: false,
       entidadeId: undefined
     };

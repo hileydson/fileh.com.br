@@ -54,7 +54,7 @@
             <td class="p-4 text-slate-800 font-medium">R$ {{p.valorVenda}}</td>
             <td class="p-4 text-slate-500 text-sm text-center">{{p.unidade}}</td>
             <td class="p-4 text-center">
-               <span [class]="(p.estoque ?? 0) > 0 ? 'text-slate-800' : 'text-red-500 font-bold'">{{p.estoque ?? 0}}</span>
+               <span [class]="p.estoque > 0 ? 'text-slate-800' : 'text-red-500 font-bold'">{{p.estoque}}</span>
             </td>
             <td class="p-4 text-center">
                <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">

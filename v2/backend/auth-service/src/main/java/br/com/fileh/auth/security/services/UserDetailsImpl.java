@@ -41,10 +41,8 @@ public class UserDetailsImpl implements UserDetails {
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         } else {
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            if (Boolean.TRUE.equals(subUsuario.getModuloFinanceiro())) authorities.add(new SimpleGrantedAuthority("MOD_FINANCEIRO"));
-            if (Boolean.TRUE.equals(subUsuario.getModuloVenda())) authorities.add(new SimpleGrantedAuthority("MOD_VENDA"));
-            if (Boolean.TRUE.equals(subUsuario.getModuloCliente())) authorities.add(new SimpleGrantedAuthority("MOD_CLIENTE"));
-            if (Boolean.TRUE.equals(subUsuario.getModuloCaixa())) authorities.add(new SimpleGrantedAuthority("MOD_CAIXA"));
+            if (Boolean.TRUE.equals(subUsuario.getModuloVenda())) authorities.add(new SimpleGrantedAuthority("ROLE_VENDAS"));
+            if (Boolean.TRUE.equals(subUsuario.getModuloCaixa())) authorities.add(new SimpleGrantedAuthority("ROLE_FLUXO_CAIXA"));
         }
 
         return new UserDetailsImpl(

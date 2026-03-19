@@ -1,3 +1,4 @@
+nohup: ignoring input
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ---------------------< br.com.fileh:auth-service >----------------------
@@ -35,23 +36,23 @@
 
  :: Spring Boot ::                (v4.0.3)
 
-2026-03-18T12:46:29.511-03:00  INFO 1666834 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Starting AuthServiceApplication using Java 21.0.10 with PID 1666834 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service)
-2026-03-18T12:46:29.512-03:00  INFO 1666834 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-03-18T12:46:29.800-03:00  INFO 1666834 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-18T12:46:29.852-03:00  INFO 1666834 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
-2026-03-18T12:46:29.954-03:00  INFO 1666834 --- [auth-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6961d788-7fd0-37fd-b424-713dd1038293
-2026-03-18T12:46:30.112-03:00  INFO 1666834 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
-2026-03-18T12:46:30.119-03:00  INFO 1666834 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-18T12:46:30.120-03:00  INFO 1666834 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-03-18T12:46:30.152-03:00  INFO 1666834 --- [auth-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 622 ms
-2026-03-18T12:46:30.227-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-18T12:46:30.262-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
-2026-03-18T12:46:30.434-03:00  INFO 1666834 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-18T12:46:30.449-03:00  INFO 1666834 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-18T12:46:30.518-03:00  INFO 1666834 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@178ba69f
-2026-03-18T12:46:30.519-03:00  INFO 1666834 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-18T12:46:30.540-03:00  WARN 1666834 --- [auth-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-18T12:46:30.547-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-03-19T14:41:21.588-03:00  INFO 2239659 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Starting AuthServiceApplication using Java 21.0.10 with PID 2239659 (/home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service/target/classes started by dev in /home/dev/Documents/Development/Java Developer/fileh_systems/fileh.com.br/v2/backend/auth-service)
+2026-03-19T14:41:21.589-03:00  INFO 2239659 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-03-19T14:41:21.858-03:00  INFO 2239659 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-19T14:41:21.906-03:00  INFO 2239659 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
+2026-03-19T14:41:21.997-03:00  INFO 2239659 --- [auth-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6961d788-7fd0-37fd-b424-713dd1038293
+2026-03-19T14:41:22.155-03:00  INFO 2239659 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-03-19T14:41:22.161-03:00  INFO 2239659 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-19T14:41:22.161-03:00  INFO 2239659 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-19T14:41:22.180-03:00  INFO 2239659 --- [auth-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 576 ms
+2026-03-19T14:41:22.240-03:00  INFO 2239659 --- [auth-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-19T14:41:22.260-03:00  INFO 2239659 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-19T14:41:22.505-03:00  INFO 2239659 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-19T14:41:22.525-03:00  INFO 2239659 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-19T14:41:22.588-03:00  INFO 2239659 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@178ba69f
+2026-03-19T14:41:22.588-03:00  INFO 2239659 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-19T14:41:22.611-03:00  WARN 2239659 --- [auth-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-19T14:41:22.617-03:00  INFO 2239659 --- [auth-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -63,208 +64,56 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-03-18T12:46:30.913-03:00  INFO 1666834 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-18T12:46:30.946-03:00  INFO 1666834 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-18T12:46:30.984-03:00  INFO 1666834 --- [auth-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-18T12:46:31.131-03:00  INFO 1666834 --- [auth-service] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-03-18T12:46:31.131-03:00  WARN 1666834 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-03-18T12:46:31.156-03:00  WARN 1666834 --- [auth-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-18T12:46:31.467-03:00  INFO 1666834 --- [auth-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
-2026-03-18T12:46:31.484-03:00  WARN 1666834 --- [auth-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-18T12:46:31.494-03:00  INFO 1666834 --- [auth-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-03-18T12:46:31.504-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-03-18T12:46:31.505-03:00  INFO 1666834 --- [auth-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-03-18T12:46:31.508-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-18T12:46:31.707-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-18T12:46:31.708-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-03-18T12:46:31.709-03:00  INFO 1666834 --- [auth-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-18T12:46:31.710-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773848791709 with initial instances count: 0
-2026-03-18T12:46:31.712-03:00  INFO 1666834 --- [auth-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH-SERVICE with eureka with status UP
-2026-03-18T12:46:31.712-03:00  INFO 1666834 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773848791712, current=UP, previous=STARTING]
-2026-03-18T12:46:31.713-03:00  INFO 1666834 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081: registering service...
-2026-03-18T12:46:31.718-03:00  INFO 1666834 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
-2026-03-18T12:46:31.719-03:00  INFO 1666834 --- [auth-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
-2026-03-18T12:46:31.742-03:00  INFO 1666834 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Started AuthServiceApplication in 2.418 seconds (process running for 2.634)
-2026-03-18T12:46:31.770-03:00  INFO 1666834 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.0.71:auth-service:8081 - registration status: 204
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2026-03-18T12:47:01.709-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-03-18T12:47:01.723-03:00  INFO 1666834 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-03-18T12:50:37.550-03:00  INFO 1666834 --- [auth-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-18T12:50:37.550-03:00  INFO 1666834 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-18T12:50:37.551-03:00  INFO 1666834 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-USUARIO: jobin SENHA:jobin
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_cd_usuario=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
-2026-03-18T12:51:31.509-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T12:56:31.511-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:01:31.516-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:06:31.519-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:11:31.519-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:16:31.522-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:21:31.523-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:26:31.523-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:31:31.524-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:36:31.525-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:41:31.526-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:46:31.527-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:51:31.527-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T13:56:31.528-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-03-18T14:01:31.529-03:00  INFO 1666834 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-USUARIO: adm SENHA:adm
-Hibernate: 
-    select
-        su1_0.sbu_cd_subusuario,
-        su1_0.sbu_cd_entidade,
-        su1_0.sbu_fl_adm,
-        su1_0.sbu_ds_login,
-        su1_0.sbu_fl_modulo_caixa,
-        su1_0.sbu_fl_modulo_cliente,
-        su1_0.sbu_fl_modulo_financeiro,
-        su1_0.sbu_fl_modulo_venda,
-        su1_0.sbu_ds_msg_footer,
-        su1_0.sbu_nm_subusuario,
-        su1_0.sbu_sh_subusuario,
-        su1_0.sbu_cd_usuario 
-    from
-        subusuario su1_0 
-    where
-        su1_0.sbu_ds_login=?
-Hibernate: 
-    select
-        u1_0.usu_cd_usuario,
-        u1_0.usu_ds_bairro,
-        u1_0.usu_ds_cidade,
-        u1_0.usu_nr_cnpj,
-        u1_0.usu_ds_email,
-        u1_0.usu_ds_fantasia,
-        u1_0.usu_ds_logradouro,
-        u1_0.usu_nm_usuario,
-        u1_0.usu_ds_numero,
-        u1_0.usu_cd_plano,
-        u1_0.usu_ds_subdominio,
-        u1_0.usu_ds_tel,
-        u1_0.usu_ds_uf 
-    from
-        usuario u1_0 
-    where
-        u1_0.usu_cd_usuario=?
+2026-03-19T14:41:22.977-03:00  INFO 2239659 --- [auth-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-19T14:41:23.018-03:00  INFO 2239659 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-19T14:41:23.047-03:00  INFO 2239659 --- [auth-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-19T14:41:23.184-03:00  INFO 2239659 --- [auth-service] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-03-19T14:41:23.184-03:00  WARN 2239659 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-03-19T14:41:23.210-03:00  WARN 2239659 --- [auth-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-19T14:41:23.492-03:00  INFO 2239659 --- [auth-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-03-19T14:41:23.511-03:00  WARN 2239659 --- [auth-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-19T14:41:23.521-03:00  INFO 2239659 --- [auth-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-03-19T14:41:23.530-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-03-19T14:41:23.531-03:00  INFO 2239659 --- [auth-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-03-19T14:41:23.534-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-19T14:41:23.716-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-19T14:41:23.717-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-03-19T14:41:23.718-03:00  INFO 2239659 --- [auth-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-19T14:41:23.719-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1773942083718 with initial instances count: 0
+2026-03-19T14:41:23.721-03:00  INFO 2239659 --- [auth-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH-SERVICE with eureka with status UP
+2026-03-19T14:41:23.721-03:00  INFO 2239659 --- [auth-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1773942083721, current=UP, previous=STARTING]
+2026-03-19T14:41:23.722-03:00  INFO 2239659 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.15.45:auth-service:8081: registering service...
+2026-03-19T14:41:23.727-03:00  INFO 2239659 --- [auth-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-03-19T14:41:23.728-03:00  INFO 2239659 --- [auth-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2026-03-19T14:41:23.734-03:00  INFO 2239659 --- [auth-service] [           main] b.com.fileh.auth.AuthServiceApplication  : Started AuthServiceApplication in 2.309 seconds (process running for 2.539)
+2026-03-19T14:41:23.777-03:00  INFO 2239659 --- [auth-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/192.168.15.45:auth-service:8081 - registration status: 204
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-03-19T14:41:53.718-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-03-19T14:41:53.731-03:00  INFO 2239659 --- [auth-service] [reshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-03-19T14:46:23.536-03:00  INFO 2239659 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-19T14:51:23.537-03:00  INFO 2239659 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-03-19T14:56:23.537-03:00  INFO 2239659 --- [auth-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16:00 min
+[INFO] Finished at: 2026-03-19T14:57:20-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.3:run (default-cli) on project auth-service: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

@@ -14,6 +14,8 @@ export class LayoutComponent {
   entidadeNome: string = 'Painel Administrativo';
   username: string = '';
   isAdmin: boolean = false;
+  isVendas: boolean = false;
+  isFluxoCaixa: boolean = false;
   
   constructor(private authService: AuthService, private router: Router) {
     const ctx = this.authService.getAuthContext();
@@ -23,6 +25,8 @@ export class LayoutComponent {
       }
       this.username = ctx.username || '';
       this.isAdmin = ctx.roles && ctx.roles.includes('ROLE_ADMIN');
+      this.isVendas = ctx.roles && (ctx.roles.includes('ROLE_ADMIN') || ctx.roles.includes('ROLE_VENDAS'));
+      this.isFluxoCaixa = ctx.roles && (ctx.roles.includes('ROLE_ADMIN') || ctx.roles.includes('ROLE_FLUXO_CAIXA'));
     }
   }
 

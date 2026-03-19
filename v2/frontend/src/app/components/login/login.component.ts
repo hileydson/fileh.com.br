@@ -18,7 +18,7 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/clientes']);
+      this.router.navigate(['/']);
     }
   }
 
@@ -31,12 +31,7 @@ export class LoginComponent {
     this.authService.login(this.credentials).subscribe({
       next: () => {
         this.loading = false;
-        const ctx = this.authService.getAuthContext();
-        if (ctx && ctx.roles.includes('ROLE_ADMIN') && !ctx.entidadeId) {
-          this.router.navigate(['/selecionar-entidade']);
-        } else {
-          this.router.navigate(['/clientes']);
-        }
+        this.router.navigate(['/']);
       },
       error: err => {
         this.loading = false;

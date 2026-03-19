@@ -9,10 +9,8 @@ export interface SubUsuario {
   nome: string;
   login: string;
   senha?: string;
-  moduloFinanceiro: boolean;
   moduloVenda: boolean;
   isAdm: boolean;
-  moduloCliente: boolean;
   moduloCaixa: boolean;
   msgFooter?: string;
 }

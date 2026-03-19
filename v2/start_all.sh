@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "Iniciando todos os serviços do Fileh Systems V2..."
+export MAVEN_OPTS="-Xmx256m"
+echo "Iniciando todos os serviços do Fileh Systems V2 com limite de memória (256MB cada)..."
 
 cd "backend/eureka-server"
 ./mvnw spring-boot:run > eureka.log 2>&1 &

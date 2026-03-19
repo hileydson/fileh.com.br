@@ -10,13 +10,15 @@ import { ContaReceberListComponent } from './components/conta-receber-list/conta
 import { FluxoCaixaListComponent } from './components/fluxo-caixa-list/fluxo-caixa-list.component';
 import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
+import { vendasGuard } from './guards/vendas.guard';
+import { fluxoCaixaGuard } from './guards/fluxo-caixa.guard';
 import { SelecionarEntidadeComponent } from './components/selecionar-entidade/selecionar-entidade.component';
 import { VendasConfigComponent } from './components/vendas-config/vendas-config.component';
 import { SubUsuarioListComponent } from './components/subusuario-list/subusuario-list.component';
 import { ProdutoListComponent } from './components/produto-list/produto-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'produtos', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'selecionar-entidade', component: SelecionarEntidadeComponent, canActivate: [authGuard] },
   {
@@ -24,15 +26,16 @@ export const routes: Routes = [
     component: LayoutComponent,
     canActivate: [authGuard],
     children: [
-      { path: 'fluxo-caixa', component: FluxoCaixaListComponent },
-      { path: 'propostas', component: PropostaComercialListComponent },
-      { path: 'clientes', component: ClienteListComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [adminGuard] },
+      { path: 'fluxo-caixa', component: FluxoCaixaListComponent, canActivate: [fluxoCaixaGuard] },
+      { path: 'propostas', component: PropostaComercialListComponent, canActivate: [vendasGuard] },
+      { path: 'clientes', component: ClienteListComponent, canActivate: [vendasGuard] },
       { path: 'fornecedores', component: FornecedorListComponent, canActivate: [adminGuard] },
       { path: 'entidades', component: EntidadeListComponent, canActivate: [adminGuard] },
       { path: 'contas-pagar', component: ContaPagarListComponent, canActivate: [adminGuard] },
       { path: 'contas-receber', component: ContaReceberListComponent, canActivate: [adminGuard] },
       { path: 'usuarios', component: SubUsuarioListComponent, canActivate: [adminGuard] },
-      { path: 'produtos', component: ProdutoListComponent },
+      { path: 'produtos', component: ProdutoListComponent, canActivate: [vendasGuard] },
       { path: 'vendas-config', component: VendasConfigComponent, canActivate: [adminGuard] }
     ]
   },
