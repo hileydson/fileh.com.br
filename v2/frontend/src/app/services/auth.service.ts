@@ -8,6 +8,7 @@ export interface AuthContext {
   entidadeId: number | null;
   entidadeNome?: string | null;
   username: string;
+  nome: string;
   email: string;
   roles: string[];
 }
@@ -32,6 +33,7 @@ export class AuthService {
             tenantId: res.tenantId,
             entidadeId: res.entidadeId !== undefined ? res.entidadeId : null,
             username: res.username,
+            nome: res.name,
             email: res.email,
             roles: res.roles || []
           };

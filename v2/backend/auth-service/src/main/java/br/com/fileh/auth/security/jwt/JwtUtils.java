@@ -33,6 +33,7 @@ public class JwtUtils {
                 .subject((userPrincipal.getUsername()))
                 .claim("tenantId", userPrincipal.getTenantId())
                 .claim("entidadeId", userPrincipal.getEntidadeId())
+                .claim("name", userPrincipal.getName())
                 .claim("roles", userPrincipal.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList()))

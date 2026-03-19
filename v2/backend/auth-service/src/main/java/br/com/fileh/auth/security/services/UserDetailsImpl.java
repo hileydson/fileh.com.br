@@ -17,6 +17,7 @@ public class UserDetailsImpl implements UserDetails {
     private Long tenantId; // Usuario ID
     private Long entidadeId; // Entidade ID binding
     private String username;
+    private String name;
     private String email;
 
     @JsonIgnore
@@ -24,12 +25,13 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, Long tenantId, Long entidadeId, String username, String email, String password,
+    public UserDetailsImpl(Long id, Long tenantId, Long entidadeId, String username, String name, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.tenantId = tenantId;
         this.entidadeId = entidadeId;
         this.username = username;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -59,6 +61,7 @@ public class UserDetailsImpl implements UserDetails {
                 tenantId,
                 subUsuario.getEntidadeId(),
                 subUsuario.getLogin(),
+                subUsuario.getNome(),
                 email,
                 subUsuario.getSenha(),
                 authorities);
@@ -67,6 +70,7 @@ public class UserDetailsImpl implements UserDetails {
     public Long getId() { return id; }
     public Long getTenantId() { return tenantId; }
     public Long getEntidadeId() { return entidadeId; }
+    public String getName() { return name; }
     public String getEmail() { return email; }
 
     @Override

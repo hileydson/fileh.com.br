@@ -13,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class LayoutComponent {
   entidadeNome: string = 'Painel Administrativo';
   username: string = '';
+  nome: string = '';
   isAdmin: boolean = false;
   isVendas: boolean = false;
   isFluxoCaixa: boolean = false;
@@ -24,6 +25,7 @@ export class LayoutComponent {
         this.entidadeNome = ctx.entidadeNome;
       }
       this.username = ctx.username || '';
+      this.nome = ctx.nome || '';
       this.isAdmin = ctx.roles && ctx.roles.includes('ROLE_ADMIN');
       this.isVendas = ctx.roles && (ctx.roles.includes('ROLE_ADMIN') || ctx.roles.includes('ROLE_VENDAS'));
       this.isFluxoCaixa = ctx.roles && (ctx.roles.includes('ROLE_ADMIN') || ctx.roles.includes('ROLE_FLUXO_CAIXA'));

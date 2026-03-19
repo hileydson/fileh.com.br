@@ -9,15 +9,17 @@ public class JwtResponse {
     private Long tenantId;
     private Long entidadeId;
     private String username;
+    private String name;
     private String email;
     private List<String> roles;
 
-    public JwtResponse(String accessToken, Long id, Long tenantId, Long entidadeId, String username, String email, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, Long tenantId, Long entidadeId, String username, String name, String email, List<String> roles) {
         this.token = accessToken;
         this.id = id;
         this.tenantId = tenantId;
         this.entidadeId = entidadeId;
         this.username = username;
+        this.name = name;
         this.email = email;
         this.roles = roles;
     }
@@ -29,6 +31,7 @@ public class JwtResponse {
     public Long getTenantId() { return tenantId; }
     public Long getEntidadeId() { return entidadeId; }
     public String getUsername() { return username; }
+    public String getName() { return name; }
     public String getEmail() { return email; }
     public List<String> getRoles() { return roles; }
 }

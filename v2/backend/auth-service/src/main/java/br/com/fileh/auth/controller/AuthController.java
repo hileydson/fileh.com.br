@@ -46,6 +46,7 @@ public class AuthController {
                 userDetails.getTenantId(),
                 userDetails.getEntidadeId(),
                 userDetails.getUsername(),
+                userDetails.getName(),
                 userDetails.getEmail(),
                 roles));
     }
