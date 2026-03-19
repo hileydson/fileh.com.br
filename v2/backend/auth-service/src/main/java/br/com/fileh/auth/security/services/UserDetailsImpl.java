@@ -41,16 +41,25 @@ public class UserDetailsImpl implements UserDetails {
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         } else {
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            if (Boolean.TRUE.equals(subUsuario.getModuloVenda())) authorities.add(new SimpleGrantedAuthority("ROLE_VENDAS"));
-            if (Boolean.TRUE.equals(subUsuario.getModuloCaixa())) authorities.add(new SimpleGrantedAuthority("ROLE_FLUXO_CAIXA"));
+            if (Boolean.TRUE.equals(subUsuario.getModuloVenda())) 
+                authorities.add(new SimpleGrantedAuthority("ROLE_VENDAS"));
+            if (Boolean.TRUE.equals(subUsuario.getModuloCaixa())) 
+                authorities.add(new SimpleGrantedAuthority("ROLE_FLUXO_CAIXA"));
+        }
+
+        Long tenantId = null;
+        String email = null;
+        if (subUsuario.getUsuario() != null) {
+            tenantId = subUsuario.getUsuario().getId();
+            email = subUsuario.getUsuario().getEmail();
         }
 
         return new UserDetailsImpl(
                 subUsuario.getId(),
-                subUsuario.getUsuario().getId(),
+                tenantId,
                 subUsuario.getEntidadeId(),
                 subUsuario.getLogin(),
-                subUsuario.getUsuario().getEmail(),
+                email,
                 subUsuario.getSenha(),
                 authorities);
     }

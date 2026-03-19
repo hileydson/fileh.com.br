@@ -1,5 +1,5 @@
 #!/bin/bash
-export MAVEN_OPTS="-Xmx256m"
+export MAVEN_OPTS="-Xmx512m"
 echo "Iniciando todos os serviços do Fileh Systems V2 com limite de memória (256MB cada)..."
 
 cd "backend/eureka-server"
