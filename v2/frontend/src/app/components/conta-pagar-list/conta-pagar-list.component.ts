@@ -43,6 +43,12 @@ export class ContaPagarListComponent implements OnInit {
     numeroDocumento: ''
   };
 
+  // Pagination
+  contasPaginadas: ContaPagar[] = [];
+  currentPage = 1;
+  pageSize = 20;
+  pageSizeOptions = [20, 50, 100];
+
   // Parcelamento
   isParcelado = false;
   totalParcelas = 1;
@@ -61,6 +67,7 @@ export class ContaPagarListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initializeFilters();
     const ctx = this.authService.getAuthContext();
     if (ctx && ctx.entidadeId) {
         this.entidadeId = ctx.entidadeId;
@@ -118,8 +125,30 @@ export class ContaPagarListComponent implements OnInit {
 
       return matchStatus && matchTipo && matchSearch && matchStart && matchEnd;
     });
-    this.calculateDashboard(); // Recalculate dashboard based on filtered (or all) accounts
-    this.selectedIds.clear(); // Clear selection on filter change
+    this.calculateDashboard();
+    this.updatePagination();
+    this.selectedIds.clear();
+  }
+
+  updatePagination(): void {
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    this.contasPaginadas = this.contasFiltradas.slice(start, end);
+  }
+
+  changePage(page: number): void {
+    this.currentPage = page;
+    this.updatePagination();
+  }
+
+  changePageSize(size: number): void {
+    this.pageSize = size;
+    this.currentPage = 1;
+    this.updatePagination();
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.contasFiltradas.length / this.pageSize) || 1;
   }
 
   // Selection Logic
@@ -281,6 +310,26 @@ export class ContaPagarListComponent implements OnInit {
     return isoString;
   }
 
+  formatarValor(event: any): void {
+    let value = event.target.value;
+    value = value.replace(/\D/g, '');
+    if (value === '') {
+      this.currentConta.valor = 0;
+      return;
+    }
+    const numericValue = parseInt(value, 10) / 100;
+    this.currentConta.valor = numericValue;
+    event.target.value = this.getValorFormatado(numericValue);
+  }
+
+  getValorFormatado(valor: number): string {
+    return new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(valor);
+  }
+
+
   calcularSaldoVisual(): number {
     return 0; // Not used here, just parity
   }
@@ -299,15 +348,11 @@ export class ContaPagarListComponent implements OnInit {
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
 
-    this.contas.forEach(c => {
+    this.contasFiltradas.forEach(c => {
         const val = c.valor || 0;
         
         if (c.pago) {
-            // Check if paid this month (approx based on dueDate since we don't have paymentDate)
-            const dueD = new Date(c.dataVencimento);
-            if (dueD.getMonth() === currentMonth && dueD.getFullYear() === currentYear) {
-               this.totalPagoMes += val;
-            }
+            this.totalPagoMes += val;
         } else {
             this.totalPendente += val;
             
@@ -319,6 +364,16 @@ export class ContaPagarListComponent implements OnInit {
             }
         }
     });
+  }
+
+  private initializeFilters(): void {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    
+    this.filtros.dataInicio = `${year}-${month}-01`;
+    this.filtros.dataFim = `${year}-${month}-${day}`;
   }
 
   private getEmptyConta(): ContaPagar {

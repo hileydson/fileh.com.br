@@ -43,6 +43,12 @@ export class ContaReceberListComponent implements OnInit {
     numeroDocumento: ''
   };
 
+  // Pagination
+  contasPaginadas: ContaReceber[] = [];
+  currentPage = 1;
+  pageSize = 20;
+  pageSizeOptions = [20, 50, 100];
+
   // Parcelamento
   isParcelado = false;
   totalParcelas = 1;
@@ -61,6 +67,7 @@ export class ContaReceberListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initializeFilters();
     const ctx = this.authService.getAuthContext();
     if (ctx && ctx.entidadeId) {
         this.entidadeId = ctx.entidadeId;
@@ -101,7 +108,7 @@ export class ContaReceberListComponent implements OnInit {
   // Selection Logic
   toggleSelectAll(event: any): void {
     if (event.target.checked) {
-      this.contas.forEach(c => {
+      this.contasFiltradas.forEach(c => {
         if (c.id) this.selectedIds.add(c.id);
       });
     } else {
@@ -119,7 +126,7 @@ export class ContaReceberListComponent implements OnInit {
   }
 
   isAllSelected(): boolean {
-    return this.contas.length > 0 && this.selectedIds.size === this.contas.length;
+    return this.contasFiltradas.length > 0 && this.selectedIds.size === this.contasFiltradas.length;
   }
 
   bulkUpdateStatus(recebido: boolean): void {
@@ -163,7 +170,29 @@ export class ContaReceberListComponent implements OnInit {
       return matchStatus && matchTipo && matchSearch && matchStart && matchEnd;
     });
     this.calculateDashboard();
+    this.updatePagination();
     this.selectedIds.clear();
+  }
+
+  updatePagination(): void {
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    this.contasPaginadas = this.contasFiltradas.slice(start, end);
+  }
+
+  changePage(page: number): void {
+    this.currentPage = page;
+    this.updatePagination();
+  }
+
+  changePageSize(size: number): void {
+    this.pageSize = size;
+    this.currentPage = 1;
+    this.updatePagination();
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.contasFiltradas.length / this.pageSize) || 1;
   }
 
   // Fornecedor Search (Using Fornecedor table as requested)
@@ -275,6 +304,26 @@ export class ContaReceberListComponent implements OnInit {
     return isoString;
   }
 
+  formatarValor(event: any): void {
+    let value = event.target.value;
+    value = value.replace(/\D/g, '');
+    if (value === '') {
+      this.currentConta.valor = 0;
+      return;
+    }
+    const numericValue = parseInt(value, 10) / 100;
+    this.currentConta.valor = numericValue;
+    event.target.value = this.getValorFormatado(numericValue);
+  }
+
+  getValorFormatado(valor: number): string {
+    return new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(valor);
+  }
+
+
   handleRecebidoDateUpdate(): void {}
 
   calculateDashboard(): void {
@@ -291,15 +340,11 @@ export class ContaReceberListComponent implements OnInit {
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
 
-    this.contas.forEach(c => {
+    this.contasFiltradas.forEach(c => {
         const val = c.valor || 0;
         
         if (c.recebido) {
-            // Check if received this month
-            const dueD = new Date(c.dataVencimento);
-            if (dueD.getMonth() === currentMonth && dueD.getFullYear() === currentYear) {
-               this.totalRecebidoMes += val;
-            }
+            this.totalRecebidoMes += val;
         } else {
             this.totalPendente += val;
             
@@ -311,6 +356,16 @@ export class ContaReceberListComponent implements OnInit {
             }
         }
     });
+  }
+
+  private initializeFilters(): void {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    
+    this.filtros.dataInicio = `${year}-${month}-01`;
+    this.filtros.dataFim = `${year}-${month}-${day}`;
   }
 
   private getEmptyConta(): ContaReceber {

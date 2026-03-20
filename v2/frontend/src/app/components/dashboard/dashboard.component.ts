@@ -6,10 +6,12 @@ import { ContaReceberService, ContaReceber } from '../../services/conta-receber.
 import { AuthService } from '../../services/auth.service';
 import { forkJoin } from 'rxjs';
 
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -18,6 +20,26 @@ export class DashboardComponent implements OnInit {
   entidadeId: number | null = null;
   entidadeNome: string = 'Sua Empresa';
   currentDate = new Date();
+  
+  selectedMonth: number;
+  selectedYear: number;
+  months = [
+    { value: 0, label: 'Janeiro' },
+    { value: 1, label: 'Fevereiro' },
+    { value: 2, label: 'Março' },
+    { value: 3, label: 'Abril' },
+    { value: 4, label: 'Maio' },
+    { value: 5, label: 'Junho' },
+    { value: 6, label: 'Julho' },
+    { value: 7, label: 'Agosto' },
+    { value: 8, label: 'Setembro' },
+    { value: 9, label: 'Outubro' },
+    { value: 10, label: 'Novembro' },
+    { value: 11, label: 'Dezembro' }
+  ];
+  years: number[] = [];
+
+  rawData: { fluxo: FluxoCaixa[], pagar: ContaPagar[], receber: ContaReceber[] } | null = null;
 
   // Totals
   fluxoEntradas = 0;
@@ -37,7 +59,18 @@ export class DashboardComponent implements OnInit {
     private pagarService: ContaPagarService,
     private receberService: ContaReceberService,
     private authService: AuthService
-  ) {}
+  ) {
+    const now = new Date();
+    this.selectedMonth = now.getMonth();
+    this.selectedYear = now.getFullYear();
+    
+    // Generate years from 2024 to now+1
+    const startYear = 2024;
+    const endYear = now.getFullYear() + 1;
+    for (let y = startYear; y <= endYear; y++) {
+      this.years.push(y);
+    }
+  }
 
   ngOnInit(): void {
     const ctx = this.authService.getAuthContext();
@@ -63,7 +96,8 @@ export class DashboardComponent implements OnInit {
       receber: this.receberService.getAllByTenant(this.entidadeId)
     }).subscribe({
       next: (data) => {
-        this.calculateTotals(data.fluxo, data.pagar, data.receber);
+        this.rawData = data;
+        this.calculateTotals();
         this.loading = false;
       },
       error: (err) => {
@@ -73,10 +107,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  calculateTotals(fluxo: FluxoCaixa[], pagar: ContaPagar[], receber: ContaReceber[]): void {
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
+  onPeriodChange(): void {
+    this.calculateTotals();
+  }
+
+  calculateTotals(): void {
+    if (!this.rawData) return;
+    const { fluxo, pagar, receber } = this.rawData;
+    
+    const targetMonth = this.selectedMonth;
+    const targetYear = this.selectedYear;
 
     // Reset totals
     this.fluxoEntradas = 0;
@@ -84,10 +124,28 @@ export class DashboardComponent implements OnInit {
     this.contasPagarTotal = 0;
     this.contasReceberTotal = 0;
 
-    // Filter and Sum Fluxo de Caixa (current month)
+    const parseDateStr = (dateStr: any) => {
+      if (!dateStr || typeof dateStr !== 'string') return { y: -1, m: -1 };
+      const parts = dateStr.includes('-') ? dateStr.split('-') : dateStr.split('/');
+      if (parts.length < 2) return { y: -1, m: -1 };
+      
+      let y, m;
+      if (parts[0].length === 4) {
+        // YYYY-MM-DD
+        y = parseInt(parts[0], 10);
+        m = parseInt(parts[1], 10) - 1;
+      } else {
+        // DD/MM/YYYY
+        y = parseInt(parts[2], 10);
+        m = parseInt(parts[1], 10) - 1;
+      }
+      return { y, m };
+    };
+
+    // Filter and Sum Fluxo de Caixa
     fluxo.forEach(item => {
-      const date = new Date(item.dataCadastro);
-      if (date.getMonth() === currentMonth && date.getFullYear() === currentYear) {
+      const { y, m } = parseDateStr(item.dataCadastro);
+      if (m == targetMonth && y == targetYear) {
         if (item.tipo === 'E') {
           this.fluxoEntradas += item.valor;
         } else if (item.tipo === 'S') {
@@ -97,18 +155,18 @@ export class DashboardComponent implements OnInit {
     });
     this.fluxoSaldo = this.fluxoEntradas - this.fluxoSaidas;
 
-    // Filter and Sum Contas a Pagar (current month)
+    // Filter and Sum Contas a Pagar
     pagar.forEach(item => {
-      const date = new Date(item.dataVencimento);
-      if (date.getMonth() === currentMonth && date.getFullYear() === currentYear) {
+      const { y, m } = parseDateStr(item.dataVencimento);
+      if (m == targetMonth && y == targetYear) {
         this.contasPagarTotal += item.valor;
       }
     });
 
-    // Filter and Sum Contas a Receber (current month)
+    // Filter and Sum Contas a Receber
     receber.forEach(item => {
-      const date = new Date(item.dataVencimento);
-      if (date.getMonth() === currentMonth && date.getFullYear() === currentYear) {
+      const { y, m } = parseDateStr(item.dataVencimento);
+      if (m == targetMonth && y == targetYear) {
         this.contasReceberTotal += item.valor;
       }
     });
