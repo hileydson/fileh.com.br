@@ -38,6 +38,10 @@ export class PropostaComercialListComponent implements OnInit {
   // New Item Form
   novoItemProdutoId: number | null = null;
   novoItemQuantidade: number = 1;
+  produtoBusca = '';
+  produtosFiltrados: Produto[] = [];
+  showProdutoResults = false;
+  produtoValido = false;
 
   // Filters and Pagination
   filtros = {
@@ -62,12 +66,13 @@ export class PropostaComercialListComponent implements OnInit {
     private situacaoService: SituacaoPropostaService,
     private formaPagamentoService: FormaPagamentoService,
     public authService: AuthService
-  ) {}
+  ) {
+    const ctx = this.authService.getAuthContext();
+    this.entidadeId = ctx?.entidadeId || 0;
+  }
 
   ngOnInit(): void {
-    const ctx = this.authService.getAuthContext();
-    if (ctx && ctx.entidadeId) {
-        this.entidadeId = ctx.entidadeId;
+    if (this.entidadeId !== undefined) {
         this.loadPropostas();
     }
   }
@@ -115,6 +120,10 @@ export class PropostaComercialListComponent implements OnInit {
       this.currentProposta = this.getEmptyProposta();
     }
     this.showModal = true;
+    this.produtoBusca = '';
+    this.produtosFiltrados = [];
+    this.showProdutoResults = false;
+    this.produtoValido = false;
   }
 
   closeModal(): void {
@@ -124,9 +133,31 @@ export class PropostaComercialListComponent implements OnInit {
 
   // --- Itens Logic ---
   
+  buscarProdutos(term: string): void {
+    if (!term || term.length < 2) {
+      this.produtosFiltrados = [];
+      this.showProdutoResults = false;
+      return;
+    }
+    this.produtoService.search(this.entidadeId, term).subscribe(data => {
+      this.produtosFiltrados = data;
+      this.showProdutoResults = true;
+    });
+  }
+
+  selecionarProduto(p: Produto): void {
+    this.produtoBusca = p.descricao;
+    this.novoItemProdutoId = p.id!;
+    this.produtoValido = true;
+    this.showProdutoResults = false;
+  }
+
   adicionarItem(): void {
-    if (!this.novoItemProdutoId) return;
-    const prod = this.produtos.find(p => p.id == this.novoItemProdutoId);
+    if (!this.produtoValido || !this.novoItemProdutoId) {
+      alert('Por favor, selecione um produto válido da lista de sugestões.');
+      return;
+    }
+    const prod = this.produtosFiltrados.find(p => p.id == this.novoItemProdutoId);
     if (!prod) return;
 
     this.itens.push({
@@ -140,6 +171,8 @@ export class PropostaComercialListComponent implements OnInit {
 
     this.novoItemProdutoId = null;
     this.novoItemQuantidade = 1;
+    this.produtoBusca = '';
+    this.produtoValido = false;
     this.calcularTotais();
   }
 

@@ -43,8 +43,8 @@ export class VendasConfigComponent implements OnInit {
 
   ngOnInit(): void {
     const ctx = this.authService.getAuthContext();
-    if (ctx && ctx.entidadeId) {
-        this.entidadeId = ctx.entidadeId;
+    if (ctx) {
+        this.entidadeId = ctx.entidadeId || 0;
         this.loadData();
     }
   }
