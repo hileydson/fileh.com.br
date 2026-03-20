@@ -89,18 +89,119 @@
   <main class="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50">
     <header class="h-20 bg-white shadow-sm border-b border-slate-200 flex items-center justify-between px-8 z-10 shrink-0">
       <h1 class="text-2xl font-bold text-slate-800 tracking-tight">{{ entidadeNome }}</h1>
-      <div class="flex items-center space-x-3">
-        <span class="text-sm font-semibold text-slate-600 hidden sm:block">{{ nome }}</span>
-        <div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center border-2 border-primary-100 text-primary-700 font-bold shadow-inner uppercase">
-           {{ (nome || username).substring(0, 1) }}
+      <div class="flex items-center space-x-4">
+        <!-- Security Warning for Default Password -->
+        <div *ngIf="isDefaultPassword" class="hidden lg:flex items-center bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-full text-xs font-semibold animate-pulse cursor-pointer hover:bg-amber-100 transition-colors" (click)="openPasswordModal()">
+          <svg class="w-4 h-4 mr-2 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 17c-.77 1.333.192 3 1.732 3z"></path></svg>
+          Segurança: Altere sua senha padrão!
+        </div>
+
+        <div class="relative">
+          <button (click)="toggleUserMenu()" class="flex items-center space-x-3 hover:bg-slate-50 p-2 rounded-xl transition-all border border-transparent hover:border-slate-100">
+            <span class="text-sm font-semibold text-slate-700 hidden sm:block">{{ nome }}</span>
+            <div class="h-10 w-10 rounded-full bg-primary-50 flex items-center justify-center border-2 border-primary-100 text-primary-700 font-bold shadow-inner uppercase">
+               {{ (nome || username).substring(0, 1) }}
+            </div>
+          </button>
+
+          <!-- User Dropdown Menu -->
+          <div *ngIf="showUserMenu" class="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-slate-100 py-2 z-50 animate-in fade-in zoom-in duration-200">
+            <div class="px-4 py-3 border-b border-slate-50 mb-1">
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Acesso Logado</p>
+              <p class="text-sm font-bold text-slate-800 truncate">{{ username }}</p>
+            </div>
+            
+            <button (click)="openProfileModal()" class="w-full text-left px-4 py-2.5 text-sm text-slate-600 hover:bg-primary-50 hover:text-primary-700 flex items-center transition-colors">
+              <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+              Meus Dados / Perfil
+            </button>
+            
+            <button (click)="openPasswordModal()" class="w-full text-left px-4 py-2.5 text-sm text-slate-600 hover:bg-primary-50 hover:text-primary-700 flex items-center transition-colors">
+              <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+              Alterar Senha
+            </button>
+
+            <div class="border-t border-slate-50 mt-1 pt-1">
+              <button (click)="logout()" class="w-full text-left px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 flex items-center transition-colors font-medium">
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                Sair do Sistema
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>
     
-    <div class="flex-1 overflow-auto p-4 md:p-8">
+    <div class="flex-1 overflow-auto p-4 md:p-8 relative">
+      <!-- Floating Security Warning for Mobile/Standard -->
+      <div *ngIf="isDefaultPassword" class="mb-4 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm flex items-center justify-between animate-in slide-in-from-top duration-300 lg:hidden">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 text-amber-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 17c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <span class="text-sm font-medium text-amber-800">Sua conta está usando uma senha padrão insegura.</span>
+        </div>
+        <button (click)="openPasswordModal()" class="text-xs font-bold bg-amber-200 text-amber-900 px-3 py-1 rounded-full uppercase tracking-tight hover:bg-amber-300">Alterar agora</button>
+      </div>
+
       <div class="max-w-7xl mx-auto">
         <router-outlet></router-outlet>
       </div>
     </div>
   </main>
+</div>
+
+<!-- Profile Modal -->
+<div *ngIf="showProfileModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full transform transition-all animate-in zoom-in duration-200">
+    <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+      <h3 class="text-xl font-bold text-slate-800">Meus Dados / Perfil</h3>
+      <button (click)="showProfileModal = false" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+    <div class="p-6 space-y-4">
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-1">Nome Completo</label>
+        <input type="text" [(ngModel)]="profileData.nome" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all outline-none">
+      </div>
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-1">Mensagem para Propostas (Footer)</label>
+        <textarea [(ngModel)]="profileData.msgFooter" placeholder="Ex: Agradecemos a preferência! Orçamento válido por 10 dias." rows="4" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all outline-none resize-none"></textarea>
+      </div>
+    </div>
+    <div class="px-6 py-4 bg-slate-50 rounded-b-2xl border-t border-slate-100 flex justify-end space-x-3">
+      <button (click)="showProfileModal = false" class="px-4 py-2 text-slate-600 font-bold hover:text-slate-800 transition-colors">Cancelar</button>
+      <button (click)="saveProfile()" [disabled]="saving" class="px-6 py-2 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 shadow-lg shadow-primary-600/20 flex items-center">
+        <svg *ngIf="saving" class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        {{ saving ? 'Salvando...' : 'Salvar Alterações' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Password Modal -->
+<div *ngIf="showPasswordModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full transform transition-all animate-in zoom-in duration-200">
+    <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+      <h3 class="text-xl font-bold text-slate-800">Alterar Senha</h3>
+      <button (click)="showPasswordModal = false" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+    <div class="p-6 space-y-4">
+      <div *ngIf="isDefaultPassword" class="p-3 bg-amber-50 rounded-lg border border-amber-100">
+         <p class="text-xs text-amber-700 font-medium leading-relaxed">Sua senha atual é "1234". Para proteger sua conta, você deve trocá-la por uma senha mais forte agora.</p>
+      </div>
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-1">Nova Senha</label>
+        <input type="password" [(ngModel)]="passwordData.newPassword" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all outline-none">
+      </div>
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-1">Confirmar Nova Senha</label>
+        <input type="password" [(ngModel)]="passwordData.confirmPassword" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all outline-none">
+      </div>
+    </div>
+    <div class="px-6 py-4 bg-slate-50 rounded-b-2xl border-t border-slate-100 flex justify-end space-x-3">
+      <button (click)="showPasswordModal = false" class="px-4 py-2 text-slate-600 font-bold hover:text-slate-800 transition-colors">Cancelar</button>
+      <button (click)="savePassword()" [disabled]="saving || !passwordData.newPassword" class="px-6 py-2 bg-primary-600 text-white font-bold rounded-lg hover:bg-primary-700 shadow-lg shadow-primary-600/20 flex items-center">
+        <svg *ngIf="saving" class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        {{ saving ? 'Alterando...' : 'Atualizar Senha' }}
+      </button>
+    </div>
+  </div>
 </div>

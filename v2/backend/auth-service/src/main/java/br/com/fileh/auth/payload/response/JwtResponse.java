@@ -12,8 +12,10 @@ public class JwtResponse {
     private String name;
     private String email;
     private List<String> roles;
+    private String msgFooter;
+    private boolean defaultPassword;
 
-    public JwtResponse(String accessToken, Long id, Long tenantId, Long entidadeId, String username, String name, String email, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, Long tenantId, Long entidadeId, String username, String name, String email, List<String> roles, String msgFooter, boolean defaultPassword) {
         this.token = accessToken;
         this.id = id;
         this.tenantId = tenantId;
@@ -22,6 +24,8 @@ public class JwtResponse {
         this.name = name;
         this.email = email;
         this.roles = roles;
+        this.msgFooter = msgFooter;
+        this.defaultPassword = defaultPassword;
     }
 
     // Getters
@@ -34,4 +38,6 @@ public class JwtResponse {
     public String getName() { return name; }
     public String getEmail() { return email; }
     public List<String> getRoles() { return roles; }
+    public String getMsgFooter() { return msgFooter; }
+    public boolean isDefaultPassword() { return defaultPassword; }
 }

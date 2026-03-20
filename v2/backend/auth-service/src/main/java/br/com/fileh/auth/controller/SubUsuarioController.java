@@ -30,6 +30,10 @@ public class SubUsuarioController {
     public ResponseEntity<SubUsuario> create(@PathVariable Long tenantId, @RequestBody SubUsuario subUsuario) {
         return usuarioRepository.findById(tenantId).map(usuario -> {
             subUsuario.setUsuario(usuario);
+            // Default password if not provided
+            if (subUsuario.getSenha() == null || subUsuario.getSenha().trim().isEmpty()) {
+                subUsuario.setSenha("1234");
+            }
             return ResponseEntity.ok(repository.save(subUsuario));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -60,5 +64,18 @@ public class SubUsuarioController {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @PatchMapping("/profile/{id}")
+    public ResponseEntity<SubUsuario> patchProfile(@PathVariable Long id, @RequestBody SubUsuario details) {
+        return repository.findById(id).map(subUsuario -> {
+            if (details.getMsgFooter() != null) {
+                subUsuario.setMsgFooter(details.getMsgFooter());
+            }
+            if (details.getSenha() != null && !details.getSenha().trim().isEmpty()) {
+                subUsuario.setSenha(details.getSenha());
+            }
+            return ResponseEntity.ok(repository.save(subUsuario));
+        }).orElse(ResponseEntity.notFound().build());
     }
 }

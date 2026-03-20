@@ -48,6 +48,8 @@ public class AuthController {
                 userDetails.getUsername(),
                 userDetails.getName(),
                 userDetails.getEmail(),
-                roles));
+                roles,
+                userDetails.getMsgFooter(),
+                userDetails.isDefaultPassword()));
     }
 }

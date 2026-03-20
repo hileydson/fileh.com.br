@@ -48,23 +48,51 @@
           
           <tr *ngIf="!loading && produtos.length === 0"><td colspan="6" class="p-12 text-center text-slate-500">Nenhum produto cadastrado.</td></tr>
           
-          <tr *ngFor="let p of produtos" class="hover:bg-slate-50/80 group transition-colors">
+          <tr *ngFor="let p of produtosExibidos" class="hover:bg-slate-50/80 group transition-colors">
             <td class="p-4 font-medium text-slate-800">{{p.descricao}}</td>
             <td class="p-4 text-slate-500 font-mono text-sm">{{p.sku}}</td>
-            <td class="p-4 text-slate-800 font-medium">R$ {{p.valorVenda}}</td>
+            <td class="p-4 text-slate-800 font-medium">R$ {{p.valorVenda | number:'1.2-2'}}</td>
             <td class="p-4 text-slate-500 text-sm text-center">{{p.unidade}}</td>
             <td class="p-4 text-center">
                <span [class]="p.estoque > 0 ? 'text-slate-800' : 'text-red-500 font-bold'">{{p.estoque}}</span>
             </td>
             <td class="p-4 text-center">
                <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <button (click)="openModal(p)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
-                 <button (click)="deleteItem(p.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                 <button (click)="openModal(p)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
+                 <button (click)="deleteItem(p.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                </div>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- Pagination Footer -->
+    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-4">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Registros por página:</span>
+        <select [(ngModel)]="pageSize" (change)="onPageSizeChange()" class="bg-white border border-slate-200 rounded-lg text-sm px-2 py-1 outline-none focus:ring-2 focus:ring-primary-500/50">
+          <option [ngValue]="20">20</option>
+          <option [ngValue]="50">50</option>
+          <option [ngValue]="100">100</option>
+        </select>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1" class="p-2 rounded-lg hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all disabled:opacity-30 disabled:hover:bg-transparent">
+          <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <div class="flex items-center px-4 py-1 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <span class="text-sm font-bold text-slate-700">{{ currentPage }} <span class="text-slate-400 font-medium mx-1">/</span> {{ totalPaginas || 1 }}</span>
+        </div>
+        <button [disabled]="currentPage === totalPaginas || totalPaginas === 0" (click)="currentPage = currentPage + 1" class="p-2 rounded-lg hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all disabled:opacity-30 disabled:hover:bg-transparent">
+          <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+        Total: {{ produtos.length }} itens
+      </div>
     </div>
   </div>
 </div>

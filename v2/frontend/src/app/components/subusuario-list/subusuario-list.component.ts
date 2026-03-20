@@ -61,7 +61,7 @@ export class SubUsuarioListComponent implements OnInit {
   openModal(usuario?: SubUsuario): void {
     if (usuario) {
       this.isEditing = true;
-      this.currentUsuario = { ...usuario, senha: '' }; // Don't show password hash
+      this.currentUsuario = { ...usuario };
     } else {
       this.isEditing = false;
       this.currentUsuario = this.getEmptyUsuario();
@@ -118,7 +118,6 @@ export class SubUsuarioListComponent implements OnInit {
     return {
       nome: '',
       login: '',
-      senha: '',
       moduloVenda: false,
       isAdm: false,
       moduloCaixa: false,

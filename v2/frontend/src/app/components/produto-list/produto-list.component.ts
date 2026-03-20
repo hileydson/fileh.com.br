@@ -20,6 +20,10 @@ export class ProdutoListComponent implements OnInit {
   currentProduto: Produto = this.getEmptyProduto();
   searchTerm: string = '';
 
+  // Paginação
+  currentPage = 1;
+  pageSize = 20;
+
   // === Importação CSV ===
   showImportModal = false;
   importMode: 'add' | 'replace' = 'add';
@@ -59,8 +63,22 @@ export class ProdutoListComponent implements OnInit {
     this.loading = true;
     this.produtoService.search(this.entidadeId, this.searchTerm.trim()).subscribe(data => {
         this.produtos = data;
+        this.currentPage = 1; // Reset to first page
         this.loading = false;
     });
+  }
+
+  get totalPaginas(): number {
+    return Math.ceil(this.produtos.length / this.pageSize);
+  }
+
+  get produtosExibidos(): Produto[] {
+    const inicio = (this.currentPage - 1) * this.pageSize;
+    return this.produtos.slice(inicio, inicio + this.pageSize);
+  }
+
+  onPageSizeChange(): void {
+    this.currentPage = 1;
   }
 
   getEmptyProduto(): Produto {

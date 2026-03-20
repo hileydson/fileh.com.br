@@ -19,6 +19,8 @@ public class UserDetailsImpl implements UserDetails {
     private String username;
     private String name;
     private String email;
+    private String msgFooter;
+    private boolean defaultPassword;
 
     @JsonIgnore
     private String password;
@@ -26,7 +28,7 @@ public class UserDetailsImpl implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(Long id, Long tenantId, Long entidadeId, String username, String name, String email, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+                           String msgFooter, boolean defaultPassword, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.tenantId = tenantId;
         this.entidadeId = entidadeId;
@@ -34,6 +36,8 @@ public class UserDetailsImpl implements UserDetails {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.msgFooter = msgFooter;
+        this.defaultPassword = defaultPassword;
         this.authorities = authorities;
     }
 
@@ -64,6 +68,8 @@ public class UserDetailsImpl implements UserDetails {
                 subUsuario.getNome(),
                 email,
                 subUsuario.getSenha(),
+                subUsuario.getMsgFooter(),
+                "1234".equals(subUsuario.getSenha()),
                 authorities);
     }
 
@@ -72,6 +78,8 @@ public class UserDetailsImpl implements UserDetails {
     public Long getEntidadeId() { return entidadeId; }
     public String getName() { return name; }
     public String getEmail() { return email; }
+    public String getMsgFooter() { return msgFooter; }
+    public boolean isDefaultPassword() { return defaultPassword; }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { return authorities; }

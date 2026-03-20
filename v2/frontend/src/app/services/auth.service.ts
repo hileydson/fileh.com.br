@@ -11,6 +11,8 @@ export interface AuthContext {
   nome: string;
   email: string;
   roles: string[];
+  msgFooter?: string;
+  isDefaultPassword?: boolean;
 }
 
 @Injectable({
@@ -35,7 +37,9 @@ export class AuthService {
             username: res.username,
             nome: res.name,
             email: res.email,
-            roles: res.roles || []
+            roles: res.roles || [],
+            msgFooter: res.msgFooter,
+            isDefaultPassword: res.isDefaultPassword
           };
           localStorage.setItem('auth_context', JSON.stringify(authContext));
           
@@ -75,5 +79,23 @@ export class AuthService {
       ctx.entidadeNome = nome;
       localStorage.setItem('auth_context', JSON.stringify(ctx));
     }
+  }
+
+  updateProfile(details: any): Observable<any> {
+    const ctx = this.getAuthContext();
+    if (!ctx) return new Observable(obs => obs.error('No session'));
+    
+    return this.http.patch(`/api/auth/subusuarios/profile/${ctx.id}`, details).pipe(
+      tap((res: any) => {
+        if (res) {
+          ctx.nome = res.nome || ctx.nome;
+          ctx.msgFooter = res.msgFooter !== undefined ? res.msgFooter : ctx.msgFooter;
+          if (details.senha) {
+            ctx.isDefaultPassword = false;
+          }
+          localStorage.setItem('auth_context', JSON.stringify(ctx));
+        }
+      })
+    );
   }
 }

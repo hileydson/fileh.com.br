@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { PropostaComercialService, PropostaComercial } from '../../services/proposta-comercial.service';
 import { ItemPropostaService, ItemProposta } from '../../services/item-proposta.service';
 import { ProdutoService, Produto } from '../../services/produto.service';
+import { ClienteService, Cliente } from '../../services/cliente.service';
 import { AuthService } from '../../services/auth.service';
 import { Observable, forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -36,11 +37,27 @@ export class PropostaComercialListComponent implements OnInit {
   novoItemProdutoId: number | null = null;
   novoItemQuantidade: number = 1;
 
+  // Filters and Pagination
+  filtros = {
+    id: '',
+    cliente: '',
+    dataCadastroInicio: '',
+    dataCadastroFim: '',
+    dataPrevistaInicio: '',
+    dataPrevistaFim: '',
+    situacao: ''
+  };
+  currentPage = 1;
+  pageSize = 20;
+  clientes: Cliente[] = [];
+  clienteMap: { [key: number]: string } = {};
+
   constructor(
     private propostaService: PropostaComercialService,
     private itemService: ItemPropostaService,
     private produtoService: ProdutoService,
-    private authService: AuthService
+    private clienteService: ClienteService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -57,8 +74,13 @@ export class PropostaComercialListComponent implements OnInit {
       next: (data) => {
         this.propostas = data;
         this.loading = false;
-        // preload products
+        // Preload children
         this.produtoService.getAllByTenant(this.entidadeId).subscribe(prods => this.produtos = prods);
+        this.clienteService.getAllByTenant(this.entidadeId).subscribe(clis => {
+          this.clientes = clis;
+          this.clienteMap = {};
+          clis.forEach(c => { if(c.id) this.clienteMap[c.id] = c.nome; });
+        });
       },
       error: (err) => {
         console.error('Erro ao buscar propostas', err);
@@ -191,6 +213,50 @@ export class PropostaComercialListComponent implements OnInit {
          this.closeModal();
          this.saving = false;
      });
+  }
+
+  // --- Filter & Pagination Getters ---
+
+  get propostasFiltradas(): PropostaComercial[] {
+    return this.propostas.filter(p => {
+      const matchId = !this.filtros.id || p.id?.toString().includes(this.filtros.id);
+      
+      const cliNome = p.clienteId ? (this.clienteMap[p.clienteId] || '').toLowerCase() : '';
+      const matchCliente = !this.filtros.cliente || 
+                          cliNome.includes(this.filtros.cliente.toLowerCase()) || 
+                          p.clienteId?.toString() === this.filtros.cliente;
+
+      const matchSituacao = !this.filtros.situacao || p.situacao === this.filtros.situacao;
+
+      // Dates
+      const matchDataCad = this.matchDateRange(p.dataCadastro, this.filtros.dataCadastroInicio, this.filtros.dataCadastroFim);
+      const matchDataPrev = this.matchDateRange(p.dataPrevista, this.filtros.dataPrevistaInicio, this.filtros.dataPrevistaFim);
+
+      return matchId && matchCliente && matchSituacao && matchDataCad && matchDataPrev;
+    });
+  }
+
+  private matchDateRange(dateStr: string | undefined, start: string, end: string): boolean {
+    if (!start && !end) return true;
+    if (!dateStr) return false;
+    
+    // dateStr is YYYY-MM-DD
+    if (start && dateStr < start) return false;
+    if (end && dateStr > end) return false;
+    return true;
+  }
+
+  get totalPaginas(): number {
+    return Math.ceil(this.propostasFiltradas.length / this.pageSize);
+  }
+
+  get propostasExibidas(): PropostaComercial[] {
+    const inicio = (this.currentPage - 1) * this.pageSize;
+    return this.propostasFiltradas.slice(inicio, inicio + this.pageSize);
+  }
+
+  onFilterChange(): void {
+    this.currentPage = 1;
   }
 
   deleteProposta(id?: number): void {

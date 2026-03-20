@@ -11,27 +11,73 @@
     </button>
   </div>
 
+  <!-- Advanced Filters -->
+  <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+    <div class="flex items-center space-x-2 mb-2">
+      <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+      <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wider">Filtros de Pesquisa</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Cód. Proposta</label>
+        <input type="text" [(ngModel)]="filtros.id" (input)="onFilterChange()" placeholder="Ex: 123" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-500/50 outline-none">
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Cód. ou Nome Cliente</label>
+        <input type="text" [(ngModel)]="filtros.cliente" (input)="onFilterChange()" placeholder="Nome ou ID..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-500/50 outline-none">
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Período Cadastro</label>
+        <div class="flex items-center space-x-2">
+          <input type="date" [(ngModel)]="filtros.dataCadastroInicio" (change)="onFilterChange()" class="w-full px-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-primary-500/50 outline-none">
+          <span class="text-slate-400">-</span>
+          <input type="date" [(ngModel)]="filtros.dataCadastroFim" (change)="onFilterChange()" class="w-full px-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-primary-500/50 outline-none">
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Expectativa Envio</label>
+        <div class="flex items-center space-x-2">
+          <input type="date" [(ngModel)]="filtros.dataPrevistaInicio" (change)="onFilterChange()" class="w-full px-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-primary-500/50 outline-none">
+          <span class="text-slate-400">-</span>
+          <input type="date" [(ngModel)]="filtros.dataPrevistaFim" (change)="onFilterChange()" class="w-full px-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-primary-500/50 outline-none">
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Situação</label>
+        <select [(ngModel)]="filtros.situacao" (change)="onFilterChange()" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-500/50 outline-none">
+          <option value="">Todas</option>
+          <option value="EM COTAÇÃO">Em Cotação</option>
+          <option value="APROVADA">Aprovada</option>
+          <option value="REJEITADA">Rejeitada</option>
+          <option value="MANDADO PARA FATURAMENTO">Faturamento</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
   <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
     <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-      <h3 class="text-lg font-semibold text-slate-800">Lista de Propostas</h3>
-      <div class="relative">
-        <input type="text" placeholder="Buscar proposta..." class="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 w-64 transition-all">
-        <svg class="w-5 h-5 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <h3 class="text-lg font-semibold text-slate-800">Resultados</h3>
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+        {{ propostasFiltradas.length }} propostas encontradas
       </div>
     </div>
     <div class="overflow-x-auto">
       <table class="w-full text-left border-collapse">
         <thead>
           <tr class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
-            <th class="p-4 font-semibold rounded-tl-lg">ID / Data</th>
-            <th class="p-4 font-semibold">Cliente ID / Atendente</th>
+            <th class="p-4 font-semibold rounded-tl-lg">Código</th>
+            <th class="p-4 font-semibold">Cliente</th>
+            <th class="p-4 font-semibold">Cadastro</th>
+            <th class="p-4 font-semibold">Previsão</th>
             <th class="p-4 font-semibold">Situação</th>
+            <th class="p-4 font-semibold text-right">Total (R$)</th>
             <th class="p-4 font-semibold text-center rounded-tr-lg">Ações</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-100">
           <tr *ngIf="loading">
-            <td colspan="4" class="p-8 text-center text-slate-500">
+            <td colspan="7" class="p-8 text-center text-slate-500">
               <div class="flex justify-center items-center">
                 <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -41,36 +87,43 @@
               </div>
             </td>
           </tr>
-          <tr *ngIf="!loading && propostas.length === 0">
-            <td colspan="4" class="p-12 text-center text-slate-500">
+          <tr *ngIf="!loading && propostasFiltradas.length === 0">
+            <td colspan="7" class="p-12 text-center text-slate-500">
               <svg class="w-12 h-12 mx-auto text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              <p class="text-lg font-medium text-slate-700">Nenhuma proposta registrada</p>
-              <p class="text-sm">Clique em "Nova Proposta" para criar um orçamento.</p>
+              <p class="text-lg font-medium text-slate-700">Nenhuma proposta encontrada</p>
+              <p class="text-sm">Ajuste seus filtros ou crie uma nova proposta.</p>
             </td>
           </tr>
-          <tr *ngFor="let p of propostas" class="hover:bg-slate-50/80 transition-colors group">
+          <tr *ngFor="let p of propostasExibidas" class="hover:bg-slate-50/80 transition-colors group">
             <td class="p-4">
-              <div class="font-medium text-slate-800">#{{p.id || 'N/A'}}</div>
-              <div class="text-xs text-slate-500 mt-1 flex items-center">
-                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                {{ formatDateBR(p.dataCadastro) }}
-              </div>
+              <div class="font-bold text-slate-800">#{{p.id}}</div>
             </td>
             <td class="p-4">
-              <div class="text-sm text-slate-800">{{p.clienteId ? 'Cliente #' + p.clienteId : 'Sem Cliente'}}</div>
-              <div class="text-xs text-slate-500 mt-1 flex items-center">
-                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                {{p.atendente || 'Sem atendente'}}
-              </div>
+              <div class="text-sm font-semibold text-slate-700">{{p.clienteId ? (clienteMap[p.clienteId] || 'ID #' + p.clienteId) : 'N/A'}}</div>
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-tighter">{{p.atendente || 'Sem atendente'}}</div>
             </td>
             <td class="p-4">
-              <span class="px-2.5 py-1 rounded-full text-xs font-medium" 
-                    [ngClass]="{'bg-blue-100 text-blue-700': p.situacao === 'EM COTAÇÃO', 'bg-green-100 text-green-700': p.situacao === 'APROVADA', 'bg-red-100 text-red-700': p.situacao === 'REJEITADA'}">
+              <div class="text-sm text-slate-600">{{ formatDateBR(p.dataCadastro) }}</div>
+            </td>
+            <td class="p-4">
+              <div class="text-sm text-slate-600 font-medium">{{ formatDateBR(p.dataPrevista) }}</div>
+            </td>
+            <td class="p-4">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" 
+                    [ngClass]="{
+                      'bg-blue-50 text-blue-600 border border-blue-100': p.situacao === 'EM COTAÇÃO', 
+                      'bg-green-50 text-green-600 border border-green-100': p.situacao === 'APROVADA', 
+                      'bg-red-50 text-red-600 border border-red-100': p.situacao === 'REJEITADA',
+                      'bg-purple-50 text-purple-600 border border-purple-100': p.situacao === 'MANDADO PARA FATURAMENTO'
+                    }">
                 {{p.situacao || 'N/A'}}
               </span>
             </td>
+            <td class="p-4 text-right">
+              <div class="text-sm font-bold text-primary-700">R$ {{p.valorTotal | number:'1.2-2'}}</div>
+            </td>
             <td class="p-4 text-center">
-              <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex justify-center space-x-2">
                 <button (click)="openModal(p)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors" title="Editar">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                 </button>
@@ -82,6 +135,34 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- Pagination Footer -->
+    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-4">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Registros por página:</span>
+        <select [(ngModel)]="pageSize" (change)="onFilterChange()" class="bg-white border border-slate-200 rounded-lg text-sm px-2 py-1 outline-none focus:ring-2 focus:ring-primary-500/50">
+          <option [ngValue]="20">20</option>
+          <option [ngValue]="50">50</option>
+          <option [ngValue]="100">100</option>
+        </select>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1" class="p-2 rounded-lg hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all disabled:opacity-30 disabled:hover:bg-transparent">
+          <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <div class="flex items-center px-4 py-1 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <span class="text-sm font-bold text-slate-700">{{ currentPage }} <span class="text-slate-400 font-medium mx-1">/</span> {{ totalPaginas || 1 }}</span>
+        </div>
+        <button [disabled]="currentPage === totalPaginas || totalPaginas === 0" (click)="currentPage = currentPage + 1" class="p-2 rounded-lg hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all disabled:opacity-30 disabled:hover:bg-transparent">
+          <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest hidden lg:block">
+        Gerado por: {{ authService.getAuthContext()?.nome }}
+      </div>
     </div>
   </div>
 </div>
