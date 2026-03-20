@@ -1,5 +1,6 @@
 package br.com.fileh.financial.model;
 
+import br.com.fileh.financial.model.converter.BooleanToSNConverter;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +38,8 @@ public class ContaReceber {
     @Column(name = "COR_NR_DOCUMENTO")
     private String numeroDocumento;
 
-    @Column(name = "COR_FL_PARCELADO")
+    @Column(name = "COR_FL_PARCELADO", length = 1)
+    @Convert(converter = BooleanToSNConverter.class)
     private Boolean parcelado;
 
     @Transient
@@ -49,7 +51,8 @@ public class ContaReceber {
     @Column(name = "COR_DS_FORNECEDOR", nullable = false)
     private String fornecedor; // In legacy it's FORNECEDOR but probably means the origin/payer
 
-    @Column(name = "COR_FL_RECEBIDO")
+    @Column(name = "COR_FL_RECEBIDO", length = 1)
+    @Convert(converter = BooleanToSNConverter.class)
     private Boolean recebido;
 
     @Column(name = "COR_CD_TIPO_CONTA")

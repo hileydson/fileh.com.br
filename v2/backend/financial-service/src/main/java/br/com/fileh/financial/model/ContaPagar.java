@@ -1,5 +1,6 @@
 package br.com.fileh.financial.model;
 
+import br.com.fileh.financial.model.converter.BooleanToSNConverter;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +38,8 @@ public class ContaPagar {
     @Column(name = "COP_NR_DOCUMENTO")
     private String numeroDocumento;
 
-    @Column(name = "COP_FL_PARCELADO")
+    @Column(name = "COP_FL_PARCELADO", length = 1)
+    @Convert(converter = BooleanToSNConverter.class)
     private Boolean parcelado;
 
     @Transient
@@ -49,7 +51,8 @@ public class ContaPagar {
     @Column(name = "COP_DS_FORNECEDOR", nullable = false)
     private String fornecedor;
 
-    @Column(name = "COP_FL_PAGO")
+    @Column(name = "COP_FL_PAGO", length = 1)
+    @Convert(converter = BooleanToSNConverter.class)
     private Boolean pago;
 
     @Column(name = "COP_CD_TIPO_CONTA")
