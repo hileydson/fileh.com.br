@@ -43,6 +43,13 @@ export class PropostaComercialListComponent implements OnInit {
   showProdutoResults = false;
   produtoValido = false;
 
+  // Busca de Clientes
+  clienteBusca: string = '';
+  clientesFiltrados: Cliente[] = [];
+  showClienteResults = false;
+  clienteValido = false;
+  clienteSelecionado: Cliente | null = null;
+
   // Filters and Pagination
   filtros = {
     id: '',
@@ -115,15 +122,35 @@ export class PropostaComercialListComponent implements OnInit {
       this.itemService.getAllByProposta(proposta.id!).subscribe(res => {
           this.itens = res;
       });
+      // Set client search state
+      if (this.currentProposta.clienteId) {
+        this.clienteValido = true;
+        const cli = this.clientes.find(c => c.id === this.currentProposta.clienteId);
+        if (cli) {
+          this.clienteBusca = cli.nome;
+          this.clienteSelecionado = cli;
+        }
+      }
     } else {
       this.isEditing = false;
       this.currentProposta = this.getEmptyProposta();
+      const ctx = this.authService.getAuthContext();
+      if (ctx) {
+          this.currentProposta.atendente = ctx.nome;
+      }
     }
     this.showModal = true;
     this.produtoBusca = '';
     this.produtosFiltrados = [];
     this.showProdutoResults = false;
     this.produtoValido = false;
+    
+    // Reset client search logic for new/switching
+    if (!proposta) {
+      this.clienteBusca = '';
+      this.clienteValido = false;
+      this.clienteSelecionado = null;
+    }
   }
 
   closeModal(): void {
@@ -134,7 +161,7 @@ export class PropostaComercialListComponent implements OnInit {
   // --- Itens Logic ---
   
   buscarProdutos(term: string): void {
-    if (!term || term.length < 2) {
+    if (!term || term.trim().length < 2) {
       this.produtosFiltrados = [];
       this.showProdutoResults = false;
       return;
@@ -150,6 +177,26 @@ export class PropostaComercialListComponent implements OnInit {
     this.novoItemProdutoId = p.id!;
     this.produtoValido = true;
     this.showProdutoResults = false;
+  }
+
+  buscarClientes(term: string): void {
+    if (!term || term.trim().length < 2) {
+      this.clientesFiltrados = [];
+      this.showClienteResults = false;
+      return;
+    }
+    this.clienteService.search(this.entidadeId, term).subscribe(data => {
+      this.clientesFiltrados = data;
+      this.showClienteResults = true;
+    });
+  }
+
+  selecionarCliente(c: Cliente): void {
+    this.currentProposta.clienteId = c.id;
+    this.clienteBusca = c.nome;
+    this.clienteSelecionado = c;
+    this.clienteValido = true;
+    this.showClienteResults = false;
   }
 
   adicionarItem(): void {
@@ -186,13 +233,11 @@ export class PropostaComercialListComponent implements OnInit {
   }
 
   calcularTotais(): void {
-     let totalItens = 0;
+     let total = 0;
      for (let it of this.itens) {
-         totalItens += ((it.valor * it.quantidade) - (it.valorDesconto || 0));
+         total += ((it.valor * it.quantidade) - (it.valorDesconto || 0));
      }
-     const frete = this.currentProposta.valorFrete || 0;
-     const desc = this.currentProposta.valorDesconto || 0;
-     this.currentProposta.valorTotal = totalItens + frete - desc;
+     this.currentProposta.valorTotal = total;
   }
 
   // --- Save Logic ---

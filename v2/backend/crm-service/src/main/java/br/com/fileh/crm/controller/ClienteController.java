@@ -20,6 +20,36 @@ public class ClienteController {
         return ResponseEntity.ok(clienteRepository.findByEntidadeId(entidadeId));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Cliente>> searchClientes(@RequestParam Long entidadeId, @RequestParam String query) {
+        String[] words = query.split("\\s+");
+        org.springframework.data.jpa.domain.Specification<Cliente> spec = (root, q, cb) -> cb.equal(root.get("entidadeId"), entidadeId);
+
+        for (String word : words) {
+            if (word.isEmpty()) continue;
+            final String pattern = "%" + word.toLowerCase() + "%";
+            
+            org.springframework.data.jpa.domain.Specification<Cliente> wordSpec = (root, q, cb) -> {
+                try {
+                    Long id = Long.parseLong(word);
+                    return cb.or(
+                        cb.equal(root.get("id"), id),
+                        cb.like(cb.lower(root.get("nome")), pattern),
+                        cb.like(cb.lower(root.get("cpf")), pattern)
+                    );
+                } catch (NumberFormatException e) {
+                    return cb.or(
+                        cb.like(cb.lower(root.get("nome")), pattern),
+                        cb.like(cb.lower(root.get("cpf")), pattern)
+                    );
+                }
+            };
+            spec = spec.and(wordSpec);
+        }
+
+        return ResponseEntity.ok(clienteRepository.findAll(spec));
+    }
+
     @PostMapping
     public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente) {
         return ResponseEntity.ok(clienteRepository.save(cliente));
