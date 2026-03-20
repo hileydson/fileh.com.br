@@ -50,6 +50,7 @@ public class AuthController {
                 userDetails.getEmail(),
                 roles,
                 userDetails.getMsgFooter(),
-                userDetails.isDefaultPassword()));
+                userDetails.isDefaultPassword(),
+                userDetails.getEntidadeNome()));
     }
 }

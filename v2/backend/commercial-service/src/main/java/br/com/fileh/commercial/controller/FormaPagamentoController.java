@@ -17,10 +17,11 @@ public class FormaPagamentoController {
 
     @GetMapping("/tenant/{entidadeId}")
     public ResponseEntity<List<FormaPagamento>> getAllByTenant(@PathVariable Long entidadeId, @RequestParam(required = false) String tipo) {
+        // Agora global: ignora entidadeId
         if (tipo != null && !tipo.isEmpty()) {
-            return ResponseEntity.ok(repository.findByEntidadeIdAndTipo(entidadeId, tipo));
+            return ResponseEntity.ok(repository.findByTipo(tipo));
         }
-        return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
+        return ResponseEntity.ok(repository.findAll());
     }
 
     @PostMapping

@@ -21,6 +21,7 @@ public class UserDetailsImpl implements UserDetails {
     private String email;
     private String msgFooter;
     private boolean defaultPassword;
+    private String entidadeNome;
 
     @JsonIgnore
     private String password;
@@ -28,7 +29,7 @@ public class UserDetailsImpl implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(Long id, Long tenantId, Long entidadeId, String username, String name, String email, String password,
-                           String msgFooter, boolean defaultPassword, Collection<? extends GrantedAuthority> authorities) {
+                           String msgFooter, boolean defaultPassword, String entidadeNome, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.tenantId = tenantId;
         this.entidadeId = entidadeId;
@@ -38,10 +39,11 @@ public class UserDetailsImpl implements UserDetails {
         this.password = password;
         this.msgFooter = msgFooter;
         this.defaultPassword = defaultPassword;
+        this.entidadeNome = entidadeNome;
         this.authorities = authorities;
     }
 
-    public static UserDetailsImpl build(SubUsuario subUsuario) {
+    public static UserDetailsImpl build(SubUsuario subUsuario, String entidadeNome) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         if (Boolean.TRUE.equals(subUsuario.getIsAdm())) {
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
@@ -70,6 +72,7 @@ public class UserDetailsImpl implements UserDetails {
                 subUsuario.getSenha(),
                 subUsuario.getMsgFooter(),
                 "1234".equals(subUsuario.getSenha()),
+                entidadeNome,
                 authorities);
     }
 
@@ -80,6 +83,7 @@ public class UserDetailsImpl implements UserDetails {
     public String getEmail() { return email; }
     public String getMsgFooter() { return msgFooter; }
     public boolean isDefaultPassword() { return defaultPassword; }
+    public String getEntidadeNome() { return entidadeNome; }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { return authorities; }

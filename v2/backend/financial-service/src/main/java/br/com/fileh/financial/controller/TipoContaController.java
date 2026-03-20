@@ -18,7 +18,8 @@ public class TipoContaController {
 
     @GetMapping("/entidade/{entidadeId}")
     public List<TipoConta> listarPorEntidade(@PathVariable Long entidadeId) {
-        return repository.findByEntidadeId(entidadeId);
+        // Agora global: retorna tudo
+        return repository.findAll();
     }
 
     @PostMapping

@@ -17,14 +17,15 @@ public class FornecedorController {
 
     @GetMapping("/tenant/{entidadeId}")
     public ResponseEntity<List<Fornecedor>> getAllFornecedoresByTenant(@PathVariable Long entidadeId) {
-        return ResponseEntity.ok(fornecedorRepository.findByEntidadeId(entidadeId));
+        // Agora global: ignora entidadeId e retorna tudo
+        return ResponseEntity.ok(fornecedorRepository.findAll());
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<Fornecedor>> searchFornecedores(@RequestParam Long entidadeId, @RequestParam String query) {
+        // Agora global: ignora entidadeId e busca em tudo
         String[] words = query.split("\\s+");
-        org.springframework.data.jpa.domain.Specification<Fornecedor> spec = (root, q, cb) -> 
-            cb.equal(root.get("entidadeId"), entidadeId);
+        org.springframework.data.jpa.domain.Specification<Fornecedor> spec = (root, q, cb) -> cb.conjunction();
 
         for (String word : words) {
             if (word.isEmpty()) continue;

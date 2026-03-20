@@ -5,6 +5,8 @@ import { PropostaComercialService, PropostaComercial } from '../../services/prop
 import { ItemPropostaService, ItemProposta } from '../../services/item-proposta.service';
 import { ProdutoService, Produto } from '../../services/produto.service';
 import { ClienteService, Cliente } from '../../services/cliente.service';
+import { SituacaoPropostaService, SituacaoProposta } from '../../services/situacao-proposta.service';
+import { FormaPagamentoService, FormaPagamento } from '../../services/forma-pagamento.service';
 import { AuthService } from '../../services/auth.service';
 import { Observable, forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -41,8 +43,6 @@ export class PropostaComercialListComponent implements OnInit {
   filtros = {
     id: '',
     cliente: '',
-    dataCadastroInicio: '',
-    dataCadastroFim: '',
     dataPrevistaInicio: '',
     dataPrevistaFim: '',
     situacao: ''
@@ -50,6 +50,8 @@ export class PropostaComercialListComponent implements OnInit {
   currentPage = 1;
   pageSize = 20;
   clientes: Cliente[] = [];
+  situacoes: SituacaoProposta[] = [];
+  formasPagamento: FormaPagamento[] = [];
   clienteMap: { [key: number]: string } = {};
 
   constructor(
@@ -57,6 +59,8 @@ export class PropostaComercialListComponent implements OnInit {
     private itemService: ItemPropostaService,
     private produtoService: ProdutoService,
     private clienteService: ClienteService,
+    private situacaoService: SituacaoPropostaService,
+    private formaPagamentoService: FormaPagamentoService,
     public authService: AuthService
   ) {}
 
@@ -81,6 +85,10 @@ export class PropostaComercialListComponent implements OnInit {
           this.clienteMap = {};
           clis.forEach(c => { if(c.id) this.clienteMap[c.id] = c.nome; });
         });
+        
+        // Load situations and payment methods
+        this.situacaoService.getAllByTenant(this.entidadeId).subscribe(data => this.situacoes = data);
+        this.formaPagamentoService.getAllByTenant(this.entidadeId).subscribe(data => this.formasPagamento = data);
       },
       error: (err) => {
         console.error('Erro ao buscar propostas', err);
@@ -229,10 +237,9 @@ export class PropostaComercialListComponent implements OnInit {
       const matchSituacao = !this.filtros.situacao || p.situacao === this.filtros.situacao;
 
       // Dates
-      const matchDataCad = this.matchDateRange(p.dataCadastro, this.filtros.dataCadastroInicio, this.filtros.dataCadastroFim);
       const matchDataPrev = this.matchDateRange(p.dataPrevista, this.filtros.dataPrevistaInicio, this.filtros.dataPrevistaFim);
 
-      return matchId && matchCliente && matchSituacao && matchDataCad && matchDataPrev;
+      return matchId && matchCliente && matchSituacao && matchDataPrev;
     });
   }
 

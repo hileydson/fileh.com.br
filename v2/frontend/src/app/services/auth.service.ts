@@ -39,7 +39,8 @@ export class AuthService {
             email: res.email,
             roles: res.roles || [],
             msgFooter: res.msgFooter,
-            isDefaultPassword: res.isDefaultPassword
+            isDefaultPassword: res.isDefaultPassword,
+            entidadeNome: res.entidadeNome
           };
           localStorage.setItem('auth_context', JSON.stringify(authContext));
           
