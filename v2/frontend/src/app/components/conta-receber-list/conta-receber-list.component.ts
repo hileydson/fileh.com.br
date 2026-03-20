@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ContaReceberService, ContaReceber } from '../../services/conta-receber.service';
 import { AuthService } from '../../services/auth.service';
 import { TipoContaService, TipoConta } from '../../services/tipo-conta.service';
+import { FornecedorService, Fornecedor } from '../../services/fornecedor.service';
 
 @Component({
   selector: 'app-conta-receber-list',
@@ -20,9 +21,31 @@ export class ContaReceberListComponent implements OnInit {
   
   showModal = false;
   isEditing = false;
-  currentConta: ContaReceber = this.getEmptyConta();
+  currentConta: any = this.getEmptyConta();
 
   entidadeId: number = 0;
+
+  // Selection
+  selectedIds: Set<number> = new Set();
+  
+  fornecedoresFiltrados: Fornecedor[] = [];
+  showFornecedorResults = false;
+  fornecedorValido = false;
+
+  // Filtering
+  contasFiltradas: ContaReceber[] = [];
+  filtros = {
+    status: 'todos',
+    tipoContaId: null as number | null,
+    fornecedor: '',
+    dataInicio: '',
+    dataFim: '',
+    numeroDocumento: ''
+  };
+
+  // Parcelamento
+  isParcelado = false;
+  totalParcelas = 1;
 
   // Dashboard stats
   totalPendente: number = 0;
@@ -33,7 +56,8 @@ export class ContaReceberListComponent implements OnInit {
   constructor(
     private contaReceberService: ContaReceberService,
     private authService: AuthService,
-    private tipoContaService: TipoContaService
+    private tipoContaService: TipoContaService,
+    private fornecedorService: FornecedorService
   ) {}
 
   ngOnInit(): void {
@@ -63,8 +87,9 @@ export class ContaReceberListComponent implements OnInit {
     this.contaReceberService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
         this.contas = data;
-        this.calculateDashboard();
+        this.applyFilters();
         this.loading = false;
+        this.selectedIds.clear();
       },
       error: (err) => {
         console.error('Erro ao buscar contas a receber', err);
@@ -73,15 +98,110 @@ export class ContaReceberListComponent implements OnInit {
     });
   }
 
+  // Selection Logic
+  toggleSelectAll(event: any): void {
+    if (event.target.checked) {
+      this.contas.forEach(c => {
+        if (c.id) this.selectedIds.add(c.id);
+      });
+    } else {
+      this.selectedIds.clear();
+    }
+  }
+
+  toggleSelection(id?: number): void {
+    if (!id) return;
+    if (this.selectedIds.has(id)) {
+      this.selectedIds.delete(id);
+    } else {
+      this.selectedIds.add(id);
+    }
+  }
+
+  isAllSelected(): boolean {
+    return this.contas.length > 0 && this.selectedIds.size === this.contas.length;
+  }
+
+  bulkUpdateStatus(recebido: boolean): void {
+    if (this.selectedIds.size === 0) return;
+    
+    this.saving = true;
+    const ids = Array.from(this.selectedIds);
+    this.contaReceberService.bulkUpdateStatus(ids, recebido).subscribe({
+      next: () => {
+        this.loadContas(); // Reloads and applies filters
+        this.saving = false;
+      },
+      error: (err) => {
+        console.error('Erro no update em massa', err);
+        this.saving = false;
+      }
+    });
+  }
+
+  applyFilters(): void {
+    this.contasFiltradas = this.contas.filter(c => {
+      const matchStatus = this.filtros.status === 'todos' || 
+                        (this.filtros.status === 'pago' && c.recebido) || 
+                        (this.filtros.status === 'pendente' && !c.recebido);
+      
+      const matchTipo = !this.filtros.tipoContaId || c.tipoContaId === this.filtros.tipoContaId;
+      
+      const searchTerm = this.filtros.fornecedor?.toLowerCase() || '';
+      const matchSearch = !searchTerm || 
+                         c.fornecedor?.toLowerCase().includes(searchTerm) || 
+                         c.numeroDocumento?.toLowerCase().includes(searchTerm) ||
+                         c.descricao?.toLowerCase().includes(searchTerm);
+      
+      const dueDate = c.dataVencimento ? new Date(c.dataVencimento + 'T00:00:00') : null; // Ensure date comparison is correct
+      const filterStartDate = this.filtros.dataInicio ? new Date(this.filtros.dataInicio + 'T00:00:00') : null;
+      const filterEndDate = this.filtros.dataFim ? new Date(this.filtros.dataFim + 'T00:00:00') : null;
+
+      const matchStart = !filterStartDate || (dueDate && dueDate >= filterStartDate);
+      const matchEnd = !filterEndDate || (dueDate && dueDate <= filterEndDate);
+
+      return matchStatus && matchTipo && matchSearch && matchStart && matchEnd;
+    });
+    this.calculateDashboard();
+    this.selectedIds.clear();
+  }
+
+  // Fornecedor Search (Using Fornecedor table as requested)
+  buscarFornecedores(term: string): void {
+    if (!term || term.length < 2) {
+      this.fornecedoresFiltrados = [];
+      this.showFornecedorResults = false;
+      return;
+    }
+    this.fornecedorService.search(this.entidadeId, term).subscribe(data => {
+      this.fornecedoresFiltrados = data;
+      this.showFornecedorResults = true;
+    });
+  }
+
+  selecionarFornecedor(f: Fornecedor): void {
+    this.currentConta.fornecedor = f.nome;
+    this.fornecedorValido = true;
+    this.showFornecedorResults = false;
+  }
+
   openModal(conta?: ContaReceber): void {
     if (conta) {
       this.isEditing = true;
       this.currentConta = { ...conta };
+      this.isParcelado = !!conta.parcelado; // Consistent with record
+      this.totalParcelas = conta.totalParcelas || 1; // Default for edit
+      this.fornecedorValido = true; // Assumed valid if existing
     } else {
       this.isEditing = false;
       this.currentConta = this.getEmptyConta();
+      this.isParcelado = false;
+      this.totalParcelas = 1;
+      this.fornecedorValido = false;
     }
     this.showModal = true;
+    this.fornecedoresFiltrados = [];
+    this.showFornecedorResults = false;
   }
 
   closeModal(): void {
@@ -90,8 +210,16 @@ export class ContaReceberListComponent implements OnInit {
   }
 
   saveConta(): void {
+    if (!this.fornecedorValido) {
+        alert('Por favor, selecione um cliente/responsável válido da lista de sugestões.');
+        return;
+    }
     this.saving = true;
     this.currentConta.entidadeId = this.entidadeId;
+
+    if (this.isParcelado && !this.isEditing) {
+        this.currentConta.totalParcelas = this.totalParcelas;
+    }
 
     if (this.isEditing) {
       this.contaReceberService.update(this.currentConta.id!, this.currentConta).subscribe({
@@ -131,8 +259,8 @@ export class ContaReceberListComponent implements OnInit {
   }
 
   toggleRecebido(conta: ContaReceber): void {
-    const updatedConta = { ...conta, recebido: !conta.recebido };
-    this.contaReceberService.update(conta.id!, updatedConta).subscribe({
+    const ids = [conta.id!];
+    this.contaReceberService.bulkUpdateStatus(ids, !conta.recebido).subscribe({
       next: () => this.loadContas(),
       error: (err) => console.error('Erro ao atualizar status', err)
     });

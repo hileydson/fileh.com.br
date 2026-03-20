@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { ProdutoService, Produto } from '../../services/produto.service';
 import { FormaPagamentoService, FormaPagamento } from '../../services/forma-pagamento.service';
 import { SituacaoPropostaService, SituacaoProposta } from '../../services/situacao-proposta.service';
+import { TipoContaService, TipoConta } from '../../services/tipo-conta.service';
 
 @Component({
   selector: 'app-vendas-config',
@@ -13,7 +13,7 @@ import { SituacaoPropostaService, SituacaoProposta } from '../../services/situac
   templateUrl: './vendas-config.component.html'
 })
 export class VendasConfigComponent implements OnInit {
-  activeTab: 'situacoes' | 'formas' = 'situacoes';
+  activeTab: 'situacoes' | 'formas' | 'tipos-conta' = 'situacoes';
   
   entidadeId: number = 0;
   loading = false;
@@ -28,12 +28,17 @@ export class VendasConfigComponent implements OnInit {
   formas: FormaPagamento[] = [];
   currentForma: FormaPagamento = { descricao: '', tipo: 'CX' };
 
+  // Tipos de Conta
+  tiposConta: TipoConta[] = [];
+  currentTipoConta: TipoConta = { nome: '', entidadeId: 0 };
+
   isEditing = false;
 
   constructor(
     private authService: AuthService,
     private formaPagamentoService: FormaPagamentoService,
-    private situacaoPropostaService: SituacaoPropostaService
+    private situacaoPropostaService: SituacaoPropostaService,
+    private tipoContaService: TipoContaService
   ) {}
 
   ngOnInit(): void {
@@ -56,10 +61,15 @@ export class VendasConfigComponent implements OnInit {
             this.formas = data as FormaPagamento[];
             this.loading = false;
         });
+    } else if (this.activeTab === 'tipos-conta') {
+        this.tipoContaService.listarPorEntidade(this.entidadeId).subscribe(data => {
+            this.tiposConta = data;
+            this.loading = false;
+        });
     }
   }
 
-  switchTab(tab: 'situacoes' | 'formas'): void {
+  switchTab(tab: 'situacoes' | 'formas' | 'tipos-conta'): void {
     this.activeTab = tab;
     this.loadData();
   }
@@ -70,6 +80,8 @@ export class VendasConfigComponent implements OnInit {
           this.currentSituacao = item ? { ...item } : { descricao: '' };
       } else if (this.activeTab === 'formas') {
           this.currentForma = item ? { ...item } : { descricao: '', tipo: 'CX' };
+      } else if (this.activeTab === 'tipos-conta') {
+          this.currentTipoConta = item ? { ...item } : { nome: '', entidadeId: this.entidadeId };
       }
       this.showModal = true;
   }
@@ -88,6 +100,12 @@ export class VendasConfigComponent implements OnInit {
           this.currentForma.entidadeId = this.entidadeId;
           const req = this.isEditing ? this.formaPagamentoService.update(this.currentForma.id!, this.currentForma) : this.formaPagamentoService.create(this.currentForma);
           req.subscribe(() => { this.closeModal(); this.loadData(); this.saving = false; });
+      } else if (this.activeTab === 'tipos-conta') {
+          this.currentTipoConta.entidadeId = this.entidadeId;
+          const req = this.isEditing && this.currentTipoConta.id 
+            ? this.tipoContaService.atualizar(this.currentTipoConta.id, this.currentTipoConta) 
+            : this.tipoContaService.salvar(this.currentTipoConta);
+          req.subscribe(() => { this.closeModal(); this.loadData(); this.saving = false; });
       }
   }
 
@@ -97,6 +115,8 @@ export class VendasConfigComponent implements OnInit {
           this.situacaoPropostaService.delete(id).subscribe(() => this.loadData());
       } else if (this.activeTab === 'formas') {
           this.formaPagamentoService.delete(id).subscribe(() => this.loadData());
+      } else if (this.activeTab === 'tipos-conta') {
+          this.tipoContaService.excluir(id).subscribe(() => this.loadData());
       }
   }
 }

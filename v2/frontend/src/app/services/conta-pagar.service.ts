@@ -15,6 +15,7 @@ export interface ContaPagar {
   fornecedor: string;
   pago?: boolean;
   tipoContaId?: number;
+  totalParcelas?: number;
 }
 
 @Injectable({
@@ -39,5 +40,9 @@ export class ContaPagarService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  bulkUpdateStatus(ids: number[], pago: boolean): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/bulk-pago?pago=${pago}`, ids);
   }
 }

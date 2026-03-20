@@ -15,6 +15,7 @@ export interface ContaReceber {
   fornecedor: string;
   recebido?: boolean;
   tipoContaId?: number;
+  totalParcelas?: number;
 }
 
 @Injectable({
@@ -39,5 +40,9 @@ export class ContaReceberService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  bulkUpdateStatus(ids: number[], recebido: boolean): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/bulk-recebido?recebido=${recebido}`, ids);
   }
 }

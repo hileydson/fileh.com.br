@@ -1,8 +1,8 @@
 <div class="space-y-6">
   <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
     <div>
-      <h2 class="text-2xl font-bold text-slate-800">Parâmetros de Vendas</h2>
-      <p class="text-slate-500 text-sm mt-1">Gerencie situações de propostas e formas de pagamento.</p>
+      <h2 class="text-2xl font-bold text-slate-800">Configurações do Sistema</h2>
+      <p class="text-slate-500 text-sm mt-1">Gerencie situações de propostas, formas de pagamento e tipos de conta.</p>
     </div>
     <div class="flex space-x-3">
       <button (click)="openModal()" class="mt-4 sm:mt-0 btn-primary flex items-center">
@@ -13,14 +13,18 @@
   </div>
 
   <!-- Tabs Navigation -->
-  <div class="flex border-b border-slate-200">
-    <button (click)="switchTab('situacoes')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors"
+  <div class="flex border-b border-slate-200 overflow-x-auto">
+    <button (click)="switchTab('situacoes')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors whitespace-nowrap"
       [class.border-primary-500]="activeTab === 'situacoes'" [class.text-primary-600]="activeTab === 'situacoes'"
       [class.border-transparent]="activeTab !== 'situacoes'" [class.text-slate-500]="activeTab !== 'situacoes'">Situações da Proposta</button>
 
-    <button (click)="switchTab('formas')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors"
+    <button (click)="switchTab('formas')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors whitespace-nowrap"
       [class.border-primary-500]="activeTab === 'formas'" [class.text-primary-600]="activeTab === 'formas'"
       [class.border-transparent]="activeTab !== 'formas'" [class.text-slate-500]="activeTab !== 'formas'">Formas de Pagamento</button>
+
+    <button (click)="switchTab('tipos-conta')" class="px-6 py-3 border-b-2 text-sm font-medium transition-colors whitespace-nowrap"
+      [class.border-primary-500]="activeTab === 'tipos-conta'" [class.text-primary-600]="activeTab === 'tipos-conta'"
+      [class.border-transparent]="activeTab !== 'tipos-conta'" [class.text-slate-500]="activeTab !== 'tipos-conta'">Tipos de Conta</button>
   </div>
 
   <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
@@ -28,14 +32,14 @@
       <table class="w-full text-left border-collapse">
         <thead class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
           <tr>
-             <th class="p-4 font-semibold">Descrição</th>
+             <th class="p-4 font-semibold">{{ activeTab === 'tipos-conta' ? 'Nome' : 'Descrição' }}</th>
              <th *ngIf="activeTab === 'formas'" class="p-4 font-semibold">Tipo</th>
              <th class="p-4 font-semibold text-center w-32">Ações</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-100">
           <tr *ngIf="loading">
-             <td colspan="2" class="p-8 text-center text-slate-500">
+             <td colspan="3" class="p-8 text-center text-slate-500">
                <div class="flex justify-center items-center">
                  <svg class="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -74,6 +78,18 @@
             </tr>
           </ng-container>
 
+          <ng-container *ngIf="!loading && activeTab === 'tipos-conta'">
+            <tr *ngIf="tiposConta.length === 0"><td colspan="2" class="p-8 text-center text-slate-500">Nenhum tipo de conta cadastrado.</td></tr>
+            <tr *ngFor="let tc of tiposConta" class="hover:bg-slate-50/80 group">
+              <td class="p-4 font-medium text-slate-800">{{tc.nome}}</td>
+              <td class="p-4 text-center">
+                 <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <button (click)="openModal(tc)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>
+                   <button (click)="deleteItem(tc.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                 </div>
+              </td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
     </div>
@@ -83,29 +99,39 @@
 <div *ngIf="showModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
   <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all animate-fade-in-up">
     <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
-      <h3 class="text-xl font-bold text-slate-800">{{ isEditing ? 'Editar' : 'Novo' }}</h3>
+      <h3 class="text-xl font-bold text-slate-800">{{ isEditing ? 'Editar' : 'Novo' }} {{ activeTab === 'tipos-conta' ? 'Tipo de Conta' : activeTab === 'formas' ? 'Forma de Pagamento' : 'Situação' }}</h3>
       <button (click)="closeModal()" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
     </div>
     <form (ngSubmit)="saveItem()" class="p-6">
-       <!-- Tab Situação / Forma (ambos só usam descricao) -->
+       <!-- Tab Situação -->
        <div *ngIf="activeTab === 'situacoes'" class="space-y-4">
           <div><label class="block text-sm font-medium mb-1">Descrição</label><input type="text" [(ngModel)]="currentSituacao.descricao" name="sdesc" required class="input-field"></div>
        </div>
 
-          <div *ngIf="activeTab === 'formas'" class="space-y-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1">Descrição *</label>
-              <input type="text" [(ngModel)]="currentForma.descricao" name="descricao" required class="input-field" placeholder="Ex: Pix, Dinheiro, Cartão...">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1">Tipo de Uso *</label>
-              <select [(ngModel)]="currentForma.tipo" name="tipo" required class="input-field">
-                <option value="CX">Fluxo de Caixa</option>
-                <option value="PR">Proposta Comercial</option>
-              </select>
-              <p class="text-xs text-slate-500 mt-1">Identifica onde esta forma de pagamento será exibida.</p>
-            </div>
-          </div>
+       <!-- Tab Forma de Pagamento -->
+       <div *ngIf="activeTab === 'formas'" class="space-y-4">
+         <div>
+           <label class="block text-sm font-medium text-slate-700 mb-1">Descrição *</label>
+           <input type="text" [(ngModel)]="currentForma.descricao" name="descricao" required class="input-field" placeholder="Ex: Pix, Dinheiro, Cartão...">
+         </div>
+         <div>
+           <label class="block text-sm font-medium text-slate-700 mb-1">Tipo de Uso *</label>
+           <select [(ngModel)]="currentForma.tipo" name="tipo" required class="input-field">
+             <option value="CX">Fluxo de Caixa</option>
+             <option value="PR">Proposta Comercial</option>
+           </select>
+           <p class="text-xs text-slate-500 mt-1">Identifica onde esta forma de pagamento será exibida.</p>
+         </div>
+       </div>
+
+       <!-- Tab Tipo de Conta -->
+       <div *ngIf="activeTab === 'tipos-conta'" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Nome *</label>
+          <input type="text" [(ngModel)]="currentTipoConta.nome" name="nome" required class="input-field" placeholder="Ex: Fixa, Variável, Pessoal...">
+        </div>
+      </div>
+
        <div class="mt-8 flex justify-end space-x-3">
         <button type="button" (click)="closeModal()" class="px-5 py-2.5 text-slate-600 bg-slate-100 hover:bg-slate-200 font-medium rounded-lg">Cancelar</button>
         <button type="submit" [disabled]="saving" class="px-5 py-2.5 btn-primary font-medium flex items-center">

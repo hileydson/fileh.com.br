@@ -37,8 +37,11 @@ public class ContaReceber {
     @Column(name = "COR_NR_DOCUMENTO")
     private String numeroDocumento;
 
-    @Column(name = "COR_FL_PARCELADO", insertable = false, updatable = false)
+    @Column(name = "COR_FL_PARCELADO")
     private Boolean parcelado;
+
+    @Transient
+    private Integer totalParcelas;
 
     @Column(name = "COR_NR_PARCELA", nullable = false)
     private Integer numeroParcela;

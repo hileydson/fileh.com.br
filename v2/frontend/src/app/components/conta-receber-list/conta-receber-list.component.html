@@ -48,26 +48,73 @@
 
   <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
     <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-      <h3 class="text-lg font-semibold text-slate-800">Lista de Recebimentos</h3>
+      <div class="flex items-center space-x-4">
+        <h3 class="text-lg font-semibold text-slate-800">Lista de Recebimentos</h3>
+        <button *ngIf="selectedIds.size > 0" (click)="bulkUpdateStatus(true)" class="btn-primary text-xs py-1.5 px-3 bg-green-600 hover:bg-green-700">
+          Marcar Selecionadas como Recebidas ({{ selectedIds.size }})
+        </button>
+      </div>
       <div class="relative">
         <input type="text" placeholder="Buscar receita..." class="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 w-64 transition-all">
         <svg class="w-5 h-5 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </div>
+    </div>    <!-- Filters Section -->
+    <div class="bg-white border-b border-slate-200 p-4 space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Status</label>
+          <select [(ngModel)]="filtros.status" (change)="applyFilters()" class="input-field py-1 text-sm bg-slate-50">
+            <option value="todos">Todos</option>
+            <option value="pendente">Pendentes</option>
+            <option value="pago">Recebidos</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Tipo de Conta</label>
+          <select [(ngModel)]="filtros.tipoContaId" (change)="applyFilters()" class="input-field py-1 text-sm bg-slate-50">
+            <option [ngValue]="null">Todos</option>
+            <option *ngFor="let t of tiposConta" [ngValue]="t.id">{{ t.nome }}</option>
+          </select>
+        </div>
+        <div class="lg:col-span-2">
+          <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Responsável / Documento</label>
+          <div class="relative">
+            <input type="text" [(ngModel)]="filtros.fornecedor" (input)="applyFilters()" 
+                   placeholder="Buscar por nome ou nº documento..." 
+                   class="input-field py-1 pl-8 text-sm bg-slate-50">
+            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Início</label>
+          <input type="date" [(ngModel)]="filtros.dataInicio" (change)="applyFilters()" class="input-field py-1 text-sm bg-slate-50">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Fim</label>
+          <input type="date" [(ngModel)]="filtros.dataFim" (change)="applyFilters()" class="input-field py-1 text-sm bg-slate-50">
+        </div>
+      </div>
     </div>
+
+    <!-- Table Section -->
     <div class="overflow-x-auto">
       <table class="w-full text-left border-collapse">
-        <thead>
-          <tr class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
-            <th class="p-4 font-semibold rounded-tl-lg">Descrição / Origem</th>
-            <th class="p-4 font-semibold">Vencimento</th>
-            <th class="p-4 font-semibold">Valor (R$)</th>
-            <th class="p-4 font-semibold text-center">Status</th>
-            <th class="p-4 font-semibold text-center rounded-tr-lg">Ações</th>
+        <thead class="bg-slate-50/50 border-b border-slate-200">
+          <tr>
+            <th class="p-4 w-10">
+              <input type="checkbox" [checked]="isAllSelected()" (change)="toggleSelectAll($event)" class="w-4 h-4 text-primary-600 rounded border-slate-300">
+            </th>
+            <th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Descrição / Responsável</th>
+            <th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Parc.</th>
+            <th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Vencimento</th>
+            <th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Valor</th>
+            <th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+            <th class="p-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Ações</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-100">
           <tr *ngIf="loading">
-            <td colspan="5" class="p-8 text-center text-slate-500">
+            <td colspan="7" class="p-8 text-center text-slate-500">
               <div class="flex justify-center items-center">
                 <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -77,39 +124,55 @@
               </div>
             </td>
           </tr>
-          <tr *ngIf="!loading && contas.length === 0">
-            <td colspan="5" class="p-12 text-center text-slate-500">
+          <tr *ngIf="!loading && contasFiltradas.length === 0">
+            <td colspan="7" class="p-12 text-center text-slate-500">
               <svg class="w-12 h-12 mx-auto text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
               <p class="text-lg font-medium text-slate-700">Nenhuma conta a receber registrada</p>
               <p class="text-sm">Clique em "Nova Receita" para adicionar um recebimento.</p>
             </td>
           </tr>
-          <tr *ngFor="let c of contas" class="hover:bg-slate-50/80 transition-colors group">
+          <tr *ngFor="let conta of contasFiltradas" 
+              class="hover:bg-slate-50/80 transition-colors group"
+              [ngClass]="{'bg-primary-50/30': selectedIds.has(conta.id!)}">
             <td class="p-4">
-              <div class="font-medium text-slate-800">{{c.descricao}}</div>
+              <input type="checkbox" [checked]="selectedIds.has(conta.id!)" (change)="toggleSelection(conta.id!)" class="w-4 h-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500">
+            </td>
+            <td class="p-4">
+              <div class="font-medium text-slate-800">{{conta.descricao}}</div>
               <div class="text-xs text-slate-500 mt-1 flex items-center">
                 <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                {{c.fornecedor}} | {{ getTipoContaNome(c.tipoContaId) }}
+                {{conta.fornecedor}} | {{ getTipoContaNome(conta.tipoContaId) }} <span *ngIf="conta.numeroDocumento">- Doc: {{ conta.numeroDocumento }}</span>
               </div>
             </td>
-            <td class="p-4 font-mono text-sm" [ngClass]="{'text-red-500 font-bold': !c.recebido && c.dataVencimento < (currentConta.dataVencimento || '')}">
-              {{ formatDateBR(c.dataVencimento) }}
+            <td class="p-4">
+               <span *ngIf="conta.parcelado" class="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                 {{ conta.numeroParcela }}
+               </span>
+               <span *ngIf="!conta.parcelado" class="text-xs text-slate-300">-</span>
+            </td>
+            <td class="p-4 font-mono text-sm" [ngClass]="{'text-red-500 font-bold': !conta.recebido && conta.dataVencimento < (currentConta.dataVencimento || '')}">
+              {{ formatDateBR(conta.dataVencimento) }}
             </td>
             <td class="p-4 font-medium text-slate-900">
-              R$ {{c.valor}} <span *ngIf="c.parcelado" class="text-xs text-slate-400 font-normal">({{c.numeroParcela}})</span>
+              R$ {{conta.valor}}
             </td>
             <td class="p-4 text-center">
-              <button (click)="toggleRecebido(c)" class="px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-colors"
-                [ngClass]="c.recebido ? 'bg-green-100 text-green-700 hover:bg-green-200' : 'bg-red-100 text-red-700 hover:bg-red-200'">
-                {{c.recebido ? 'RECEBIDO' : 'PENDENTE'}}
+              <button (click)="toggleRecebido(conta)" class="px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-colors"
+                [ngClass]="conta.recebido ? 'bg-green-100 text-green-700 hover:bg-green-200' : 'bg-red-100 text-red-700 hover:bg-red-200'">
+                {{conta.recebido ? 'RECEBIDO' : 'PENDENTE'}}
               </button>
             </td>
-            <td class="p-4 text-center">
-              <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button (click)="openModal(c)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors" title="Editar">
+            <td class="p-4 text-right">
+              <div class="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button (click)="toggleRecebido(conta)" 
+                        [title]="conta.recebido ? 'Marcar como Pendente' : 'Marcar como Recebido'"
+                        class="p-2 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors">
+                  <i class="fas" [ngClass]="conta.recebido ? 'fa-undo' : 'fa-check-circle'"></i>
+                </button>
+                <button (click)="openModal(conta)" class="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors" title="Editar">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                 </button>
-                <button (click)="deleteConta(c.id)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors" title="Excluir">
+                <button (click)="deleteConta(conta.id!)" class="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors" title="Excluir">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                 </button>
               </div>
@@ -139,9 +202,25 @@
           <input type="text" [(ngModel)]="currentConta.descricao" name="descricao" required class="input-field" placeholder="Ex: Venda de Licença, Mensalidade...">
         </div>
 
-        <div>
+        <div class="relative">
            <label class="block text-sm font-medium text-slate-700 mb-1">Responsável/Cliente *</label>
-           <input type="text" [(ngModel)]="currentConta.fornecedor" name="fornecedor" required class="input-field" placeholder="Nome do Cliente ou Origem">
+           <input type="text" [(ngModel)]="currentConta.fornecedor" name="fornecedor" 
+                  (input)="buscarFornecedores(currentConta.fornecedor); fornecedorValido = false"
+                  required class="input-field" 
+                  [ngClass]="{'border-red-500': !fornecedorValido && currentConta.fornecedor}"
+                  placeholder="Nome do Cliente ou Origem">
+           <p *ngIf="!fornecedorValido && currentConta.fornecedor && !showFornecedorResults" class="text-xs text-red-500 mt-1">Selecione um cliente da lista.</p>
+           
+           <!-- Search Results -->
+           <div *ngIf="showFornecedorResults && fornecedoresFiltrados.length > 0" 
+                class="absolute z-50 left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+             <div *ngFor="let f of fornecedoresFiltrados" 
+                  (click)="selecionarFornecedor(f)"
+                  class="p-2 hover:bg-slate-50 cursor-pointer text-sm text-slate-700 flex justify-between">
+               <span>{{ f.nome }}</span>
+               <span class="text-xs text-slate-400">{{ f.cnpj }}</span>
+             </div>
+           </div>
         </div>
 
         <div>
@@ -163,13 +242,25 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Nº Documento / Fatura</label>
-          <input type="text" [(ngModel)]="currentConta.numeroDocumento" name="numeroDocumento" class="input-field" placeholder="12345/09">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Nº Documento</label>
+          <input type="text" [(ngModel)]="currentConta.numeroDocumento" name="numeroDocumento" class="input-field" placeholder="12345">
         </div>
 
-        <div>
-           <label class="block text-sm font-medium text-slate-700 mb-1">Parcela</label>
-           <input type="number" [(ngModel)]="currentConta.numeroParcela" name="numeroParcela" class="input-field" min="1" placeholder="1">
+        <div class="flex items-center space-x-4">
+           <div class="flex items-center h-full mt-6">
+              <input type="checkbox" id="parcelado" [(ngModel)]="isParcelado" name="parcelado" class="w-4 h-4 text-primary-600 rounded border-slate-300 focus:ring-primary-500">
+              <label for="parcelado" class="ml-2 text-sm font-medium text-slate-700">Parcelado?</label>
+           </div>
+           
+           <div *ngIf="isParcelado" class="flex-1">
+              <label class="block text-sm font-medium text-slate-700 mb-1">Quantidade de Parcelas</label>
+              <input type="number" [(ngModel)]="totalParcelas" name="totalParcelas" class="input-field" min="2" [disabled]="isEditing">
+           </div>
+
+           <div *ngIf="!isParcelado" class="flex-1">
+              <label class="block text-sm font-medium text-slate-700 mb-1">Nº da Parcela</label>
+              <input type="number" [(ngModel)]="currentConta.numeroParcela" name="numeroParcela" class="input-field" min="1">
+           </div>
         </div>
 
       </div>

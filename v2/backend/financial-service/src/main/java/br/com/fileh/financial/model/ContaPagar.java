@@ -37,8 +37,11 @@ public class ContaPagar {
     @Column(name = "COP_NR_DOCUMENTO")
     private String numeroDocumento;
 
-    @Column(name = "COP_FL_PARCELADO", insertable = false, updatable = false)
+    @Column(name = "COP_FL_PARCELADO")
     private Boolean parcelado;
+
+    @Transient
+    private Integer totalParcelas;
 
     @Column(name = "COP_NR_PARCELA", nullable = false)
     private Integer numeroParcela;
