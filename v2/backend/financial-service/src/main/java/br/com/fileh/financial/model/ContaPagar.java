@@ -49,6 +49,6 @@ public class ContaPagar {
     @Column(name = "COP_FL_PAGO")
     private Boolean pago;
 
-    @Column(name = "COP_DS_TIPO_CONTA", nullable = false)
-    private String tipoConta;
+    @Column(name = "COP_CD_TIPO_CONTA")
+    private Long tipoContaId;
 }

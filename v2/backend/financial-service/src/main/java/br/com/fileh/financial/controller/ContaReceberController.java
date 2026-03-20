@@ -36,7 +36,7 @@ public class ContaReceberController {
             conta.setNumeroParcela(details.getNumeroParcela());
             conta.setFornecedor(details.getFornecedor());
             conta.setRecebido(details.getRecebido());
-            conta.setTipoConta(details.getTipoConta());
+            conta.setTipoContaId(details.getTipoContaId());
             return ResponseEntity.ok(repository.save(conta));
         }).orElse(ResponseEntity.notFound().build());
     }

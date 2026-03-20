@@ -17,6 +17,7 @@ import { VendasConfigComponent } from './components/vendas-config/vendas-config.
 import { SubUsuarioListComponent } from './components/subusuario-list/subusuario-list.component';
 import { ProdutoListComponent } from './components/produto-list/produto-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FinanceiroConfigComponent } from './components/financeiro-config/financeiro-config.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -36,7 +37,8 @@ export const routes: Routes = [
       { path: 'contas-receber', component: ContaReceberListComponent, canActivate: [adminGuard] },
       { path: 'usuarios', component: SubUsuarioListComponent, canActivate: [adminGuard] },
       { path: 'produtos', component: ProdutoListComponent, canActivate: [vendasGuard] },
-      { path: 'vendas-config', component: VendasConfigComponent, canActivate: [adminGuard] }
+      { path: 'vendas-config', component: VendasConfigComponent, canActivate: [adminGuard] },
+      { path: 'financeiro-config', component: FinanceiroConfigComponent, canActivate: [adminGuard] }
     ]
   },
   { path: '**', redirectTo: '' }

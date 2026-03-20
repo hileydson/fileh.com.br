@@ -49,6 +49,6 @@ public class ContaReceber {
     @Column(name = "COR_FL_RECEBIDO")
     private Boolean recebido;
 
-    @Column(name = "COR_DS_TIPO_CONTA", nullable = false)
-    private String tipoConta;
+    @Column(name = "COR_CD_TIPO_CONTA")
+    private Long tipoContaId;
 }

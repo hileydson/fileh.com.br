@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContaPagarService, ContaPagar } from '../../services/conta-pagar.service';
 import { AuthService } from '../../services/auth.service';
+import { TipoContaService, TipoConta } from '../../services/tipo-conta.service';
 
 @Component({
   selector: 'app-conta-pagar-list',
@@ -13,6 +14,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ContaPagarListComponent implements OnInit {
   contas: ContaPagar[] = [];
+  tiposConta: TipoConta[] = [];
   loading = true;
   saving = false;
   
@@ -30,7 +32,8 @@ export class ContaPagarListComponent implements OnInit {
 
   constructor(
     private contaPagarService: ContaPagarService,
-    private authService: AuthService
+    private authService: AuthService,
+    private tipoContaService: TipoContaService
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +41,21 @@ export class ContaPagarListComponent implements OnInit {
     if (ctx && ctx.entidadeId) {
         this.entidadeId = ctx.entidadeId;
         this.loadContas();
+        this.loadTiposConta();
     }
+  }
+
+  loadTiposConta(): void {
+    this.tipoContaService.listarPorEntidade(this.entidadeId).subscribe({
+      next: (data) => this.tiposConta = data,
+      error: (err) => console.error('Erro ao carregar tipos de conta', err)
+    });
+  }
+
+  getTipoContaNome(id?: number): string {
+    if (!id) return 'Não Definido';
+    const tipo = this.tiposConta.find(t => t.id === id);
+    return tipo ? tipo.nome : 'Não Definido';
   }
 
   loadContas(): void {
@@ -178,7 +195,7 @@ export class ContaPagarListComponent implements OnInit {
       valor: 0,
       numeroParcela: 1,
       fornecedor: '',
-      tipoConta: 'DESPESA_FIXA',
+      tipoContaId: undefined,
       pago: false,
       dataCadastro: today
     };

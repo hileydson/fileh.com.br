@@ -14,7 +14,7 @@ export interface ContaReceber {
   numeroParcela: number;
   fornecedor: string;
   recebido?: boolean;
-  tipoConta: string;
+  tipoContaId?: number;
 }
 
 @Injectable({

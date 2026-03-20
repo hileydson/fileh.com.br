@@ -36,7 +36,7 @@ public class ContaPagarController {
             conta.setNumeroParcela(details.getNumeroParcela());
             conta.setFornecedor(details.getFornecedor());
             conta.setPago(details.getPago());
-            conta.setTipoConta(details.getTipoConta());
+            conta.setTipoContaId(details.getTipoContaId());
             return ResponseEntity.ok(repository.save(conta));
         }).orElse(ResponseEntity.notFound().build());
     }

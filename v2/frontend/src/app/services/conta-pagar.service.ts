@@ -14,7 +14,7 @@ export interface ContaPagar {
   numeroParcela: number;
   fornecedor: string;
   pago?: boolean;
-  tipoConta: string;
+  tipoContaId?: number;
 }
 
 @Injectable({
