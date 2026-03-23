@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PropostaComercialService, PropostaComercial } from '../../services/proposta-comercial.service';
@@ -22,6 +22,7 @@ export class PropostaComercialListComponent implements OnInit {
   propostas: PropostaComercial[] = [];
   loading = true;
   saving = false;
+  @ViewChild('qtdInput') qtdInput!: ElementRef;
   
   showModal = false;
   isEditing = false;
@@ -88,7 +89,13 @@ export class PropostaComercialListComponent implements OnInit {
     this.loading = true;
     this.propostaService.getAllByTenant(this.entidadeId).subscribe({
       next: (data) => {
-        this.propostas = data;
+        // Sort by dataCadastro (desc) and then id (desc)
+        this.propostas = data.sort((a, b) => {
+          const dateA = a.dataCadastro || '';
+          const dateB = b.dataCadastro || '';
+          if (dateA !== dateB) return dateB.localeCompare(dateA);
+          return (b.id || 0) - (a.id || 0);
+        });
         this.loading = false;
         // Preload children
         this.produtoService.getAllByTenant(this.entidadeId).subscribe(prods => this.produtos = prods);
@@ -177,6 +184,24 @@ export class PropostaComercialListComponent implements OnInit {
     this.novoItemProdutoId = p.id!;
     this.produtoValido = true;
     this.showProdutoResults = false;
+    
+    // Focus and select quantity input
+    setTimeout(() => {
+      // Multiple attempts to ensure it works
+      const el = document.querySelector('input[name="novoItemQtd"]') as HTMLInputElement;
+      if (el) {
+        el.focus();
+        el.select();
+      }
+    }, 50);
+
+    setTimeout(() => {
+      const el = document.querySelector('input[name="novoItemQtd"]') as HTMLInputElement;
+      if (el) {
+        el.focus();
+        el.select();
+      }
+    }, 150);
   }
 
   buscarClientes(term: string): void {
@@ -221,6 +246,12 @@ export class PropostaComercialListComponent implements OnInit {
     this.produtoBusca = '';
     this.produtoValido = false;
     this.calcularTotais();
+    
+    // After adding, focus back to product search
+    setTimeout(() => {
+      const el = document.querySelector('input[name="prodBusca"]') as HTMLInputElement;
+      if (el) el.focus();
+    }, 100);
   }
 
   removerItem(index: number): void {
@@ -240,6 +271,19 @@ export class PropostaComercialListComponent implements OnInit {
      this.currentProposta.valorTotal = subtotal - (this.currentProposta.valorDesconto || 0);
   }
 
+  formatarDesconto(event: any): void {
+    let value = event.target.value;
+    value = value.replace(/\D/g, '');
+    if (value === '') {
+      this.currentProposta.valorDesconto = 0;
+    } else {
+      const numericValue = parseInt(value, 10) / 100;
+      this.currentProposta.valorDesconto = numericValue;
+    }
+    event.target.value = this.getValorFormatado(this.currentProposta.valorDesconto || 0);
+    this.calcularTotais();
+  }
+
   formatarValorItem(event: any, index: number): void {
     let value = event.target.value;
     value = value.replace(/\D/g, '');
@@ -251,6 +295,12 @@ export class PropostaComercialListComponent implements OnInit {
     this.itens[index].valor = numericValue;
     event.target.value = this.getValorFormatado(numericValue);
     this.calcularTotais();
+  }
+
+  selectVal(event: any): void {
+    if (event.target && event.target.select) {
+      event.target.select();
+    }
   }
 
   getValorFormatado(valor: number): string {
@@ -279,6 +329,7 @@ export class PropostaComercialListComponent implements OnInit {
     } else {
       this.propostaService.create(this.currentProposta).subscribe({
         next: (savedProposta) => {
+          alert(`Proposta comercial criada com sucesso! Código: ${savedProposta.id}`);
           this.saveItemsEConcluir(savedProposta.id!);
         },
         error: (err) => {
@@ -392,5 +443,112 @@ export class PropostaComercialListComponent implements OnInit {
       situacao: 'EM COTAÇÃO', // Defaulting based on assumed workflow
       dataCadastro: today
     };
+  }
+
+  imprimirProposta(p: PropostaComercial): void {
+     // Pre-load items before printing
+     this.itemService.getAllByProposta(p.id!).subscribe(items => {
+        const cliName = p.clienteId ? (this.clienteMap[p.clienteId] || 'N/A') : 'N/A';
+        const printWindow = window.open('', '_blank');
+        if (!printWindow) return;
+
+        const html = `
+          <html>
+            <head>
+              <title>Proposta Comercial #${p.id}</title>
+              <style>
+                body { font-family: sans-serif; padding: 40px; color: #333; }
+                .header { display: flex; justify-between: space-between; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
+                .title { font-size: 24px; font-weight: bold; color: #1e40af; }
+                .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+                .info-box { border: 1px solid #eee; padding: 15px; rounded: 8px; }
+                .label { font-size: 10px; text-transform: uppercase; color: #666; font-weight: bold; margin-bottom: 5px; }
+                .value { font-size: 14px; font-weight: 500; }
+                table { w-full; border-collapse: collapse; margin-bottom: 30px; }
+                th { text-align: left; padding: 12px; background: #f8fafc; border-bottom: 1px solid #eee; font-size: 12px; }
+                td { padding: 12px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+                .total-section { float: right; w-64; }
+                .total-row { display: flex; justify-content: space-between; padding: 8px 0; }
+                .total-final { font-size: 18px; font-weight: bold; color: #1e40af; border-top: 2px solid #eee; margin-top: 10px; padding-top: 10px; }
+              </style>
+            </head>
+            <body>
+              <div class="header">
+                <div class="title">PROPOSTA COMERCIAL #${p.id}</div>
+                <div style="text-align: right">
+                  <div>Data: ${this.formatDateBR(p.dataCadastro)}</div>
+                  <div style="font-size: 12px; color: #666">Validade: 15 dias</div>
+                </div>
+              </div>
+
+              <div class="info-grid">
+                <div class="info-box">
+                  <div class="label">CLIENTE</div>
+                  <div class="value">${cliName}</div>
+                </div>
+                <div class="info-box">
+                  <div class="label">ATENDENTE</div>
+                  <div class="value">${p.atendente || 'N/A'}</div>
+                </div>
+                <div class="info-box">
+                  <div class="label">FORMA DE PAGAMENTO</div>
+                  <div class="value">${p.formaPagamento || 'A combinar'}</div>
+                </div>
+                <div class="info-box">
+                   <div class="label">SITUAÇÃO</div>
+                   <div class="value">${p.situacao}</div>
+                </div>
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>DESCRIÇÃO</th>
+                    <th style="text-align: center">UNID.</th>
+                    <th style="text-align: right">VALOR UNIT.</th>
+                    <th style="text-align: center">QTD.</th>
+                    <th style="text-align: right">SUBTOTAL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${items.map(it => `
+                    <tr>
+                      <td>${it.descricao}</td>
+                      <td style="text-align: center">${it.unidade}</td>
+                      <td style="text-align: right">R$ ${this.getValorFormatado(it.valor)}</td>
+                      <td style="text-align: center">${it.quantidade}</td>
+                      <td style="text-align: right">R$ ${this.getValorFormatado(it.valor * it.quantidade)}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+
+              <div class="total-section">
+                <div class="total-row">
+                  <span>Subtotal:</span>
+                  <span>R$ ${this.getValorFormatado(p.valorTotal + (p.valorDesconto || 0))}</span>
+                </div>
+                <div class="total-row" style="color: #dc2626">
+                  <span>Desconto:</span>
+                  <span>- R$ ${this.getValorFormatado(p.valorDesconto || 0)}</span>
+                </div>
+                <div class="total-row total-final">
+                  <span>TOTAL:</span>
+                  <span>R$ ${this.getValorFormatado(p.valorTotal)}</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 100px; border-top: 1px solid #eee; pt-20">
+                <div class="label">OBSERVAÇÕES</div>
+                <div style="font-size: 12px; line-height: 1.6">${p.observacao || 'N/A'}</div>
+              </div>
+            </body>
+          </html>
+        `;
+
+        printWindow.document.write(html);
+        printWindow.document.close();
+        setTimeout(() => printWindow.print(), 500);
+     });
   }
 }
