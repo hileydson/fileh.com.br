@@ -17,13 +17,19 @@ public class ClienteController {
 
     @GetMapping("/tenant/{entidadeId}")
     public ResponseEntity<List<Cliente>> getAllClientesByTenant(@PathVariable Long entidadeId) {
-        return ResponseEntity.ok(clienteRepository.findByEntidadeId(entidadeId));
+        // Now global: returning all customers regardless of entidadeId
+        return ResponseEntity.ok(clienteRepository.findAll());
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Cliente>> searchClientes(@RequestParam Long entidadeId, @RequestParam String query) {
+    public ResponseEntity<List<Cliente>> searchClientes(@RequestParam(required = false) Long entidadeId, @RequestParam String query) {
         String[] words = query.split("\\s+");
-        org.springframework.data.jpa.domain.Specification<Cliente> spec = (root, q, cb) -> cb.equal(root.get("entidadeId"), entidadeId);
+        // Start with a specification that is always true, or starts with entidadeId if provided
+        org.springframework.data.jpa.domain.Specification<Cliente> spec = (root, q, cb) -> cb.conjunction();
+        
+        if (entidadeId != null && entidadeId > 0) {
+            spec = spec.and((root, q, cb) -> cb.equal(root.get("entidadeId"), entidadeId));
+        }
 
         for (String word : words) {
             if (word.isEmpty()) continue;

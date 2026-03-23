@@ -237,6 +237,11 @@
           <input type="date" [(ngModel)]="currentProposta.dataPrevista" name="dataPrevista" class="input-field">
         </div>
 
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1 text-red-600 font-bold">Desconto Total (R$)</label>
+          <input type="number" step="0.01" [(ngModel)]="currentProposta.valorDesconto" (change)="calcularTotais()" name="vlrDesc" class="input-field border-red-200 focus:ring-red-500/50" placeholder="0,00">
+        </div>
+
         <div class="col-span-1 md:col-span-2">
            <label class="block text-sm font-medium text-slate-700 mb-1">Atendente</label>
            <input type="text" [(ngModel)]="currentProposta.atendente" name="atendente" class="input-field bg-slate-50" readonly>
@@ -300,7 +305,6 @@
                   <th class="p-3 font-semibold text-center">Un.</th>
                   <th class="p-3 font-semibold text-right w-28">Valor Unit.</th>
                   <th class="p-3 font-semibold text-center w-24">Qtd.</th>
-                  <th class="p-3 font-semibold text-right w-28">Desconto (R$)</th>
                   <th class="p-3 font-semibold text-right w-28">Subtotal</th>
                   <th class="p-3 font-semibold text-center w-16">Ação</th>
                 </tr>
@@ -313,18 +317,14 @@
                   <td class="p-3 font-medium">{{it.descricao}}</td>
                   <td class="p-3 text-center text-slate-500 whitespace-nowrap">{{it.unidade}}</td>
                   <td class="p-3 text-right">
-                    <input type="number" step="0.01" [(ngModel)]="it.valor" [name]="'itVal'+i" (change)="calcularTotais()" 
+                    <input type="text" [value]="getValorFormatado(it.valor)" (input)="formatarValorItem($event, i)" 
                            class="w-full px-2 py-1 bg-white border border-slate-200 rounded text-right text-xs outline-none focus:ring-1 focus:ring-primary-500">
                   </td>
                   <td class="p-3 text-center">
                     <input type="number" [(ngModel)]="it.quantidade" [name]="'itQtd'+i" (change)="calcularTotais()" 
                            class="w-full px-2 py-1 bg-white border border-slate-200 rounded text-center text-xs outline-none focus:ring-1 focus:ring-primary-500">
                   </td>
-                  <td class="p-3 text-right">
-                    <input type="number" step="0.01" [(ngModel)]="it.valorDesconto" [name]="'itDesc'+i" (change)="calcularTotais()" 
-                           class="w-full px-2 py-1 bg-white border border-slate-200 rounded text-right text-xs outline-none focus:ring-1 focus:ring-primary-500">
-                  </td>
-                  <td class="p-3 text-right font-medium text-primary-700 whitespace-nowrap">R$ {{(it.valor * it.quantidade - (it.valorDesconto || 0)) | number:'1.2-2'}}</td>
+                  <td class="p-3 text-right font-medium text-primary-700 whitespace-nowrap">R$ {{(it.valor * it.quantidade) | number:'1.2-2'}}</td>
                   <td class="p-3 text-center">
                     <button type="button" (click)="removerItem(i)" class="text-red-400 hover:text-red-600 p-1">
                       <svg class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
@@ -334,7 +334,7 @@
               </tbody>
               <tfoot class="bg-slate-50 border-t border-slate-200">
                 <tr>
-                   <td colspan="5" class="p-3 text-right font-bold text-slate-800 uppercase tracking-wider text-xs">VALOR TOTAL:</td>
+                   <td colspan="4" class="p-3 text-right font-bold text-slate-800 uppercase tracking-wider text-xs">VALOR TOTAL:</td>
                    <td colspan="2" class="p-3 font-bold text-lg text-primary-700">R$ {{currentProposta.valorTotal | number:'1.2-2'}}</td>
                 </tr>
               </tfoot>

@@ -233,11 +233,31 @@ export class PropostaComercialListComponent implements OnInit {
   }
 
   calcularTotais(): void {
-     let total = 0;
+     let subtotal = 0;
      for (let it of this.itens) {
-         total += ((it.valor * it.quantidade) - (it.valorDesconto || 0));
+         subtotal += (it.valor * it.quantidade);
      }
-     this.currentProposta.valorTotal = total;
+     this.currentProposta.valorTotal = subtotal - (this.currentProposta.valorDesconto || 0);
+  }
+
+  formatarValorItem(event: any, index: number): void {
+    let value = event.target.value;
+    value = value.replace(/\D/g, '');
+    if (value === '') {
+      this.itens[index].valor = 0;
+      return;
+    }
+    const numericValue = parseInt(value, 10) / 100;
+    this.itens[index].valor = numericValue;
+    event.target.value = this.getValorFormatado(numericValue);
+    this.calcularTotais();
+  }
+
+  getValorFormatado(valor: number): string {
+    return new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(valor);
   }
 
   // --- Save Logic ---

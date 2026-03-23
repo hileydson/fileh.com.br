@@ -22,6 +22,21 @@ export class ClienteListComponent implements OnInit {
 
   entidadeId: number = 0;
 
+  // Filtros e Paginação
+  filtros = {
+    idNome: '',
+    cpf: '',
+    bairro: ''
+  };
+  currentPage = 1;
+  pageSize = 20;
+
+  listaUfs: string[] = [
+    'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 
+    'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 
+    'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'
+  ];
+
   constructor(
     private clienteService: ClienteService,
     private authService: AuthService
@@ -37,7 +52,8 @@ export class ClienteListComponent implements OnInit {
 
   loadClientes(): void {
     this.loading = true;
-    this.clienteService.getAllByTenant(this.entidadeId).subscribe({
+    // Calling with 0 as it's now global in backend
+    this.clienteService.getAllByTenant(0).subscribe({
       next: (data) => {
         this.clientes = data;
         this.loading = false;
@@ -104,6 +120,33 @@ export class ClienteListComponent implements OnInit {
         error: (err) => console.error('Erro ao excluir', err)
       });
     }
+  }
+
+  // Filter and Pagination Getters
+  get clientesFiltrados(): Cliente[] {
+    return this.clientes.filter(c => {
+      const matchIdNome = !this.filtros.idNome || 
+                          c.id?.toString().includes(this.filtros.idNome) || 
+                          c.nome.toLowerCase().includes(this.filtros.idNome.toLowerCase());
+      
+      const matchCpf = !this.filtros.cpf || (c.cpf && c.cpf.includes(this.filtros.cpf));
+      const matchBairro = !this.filtros.bairro || (c.bairro && c.bairro.toLowerCase().includes(this.filtros.bairro.toLowerCase()));
+      
+      return matchIdNome && matchCpf && matchBairro;
+    });
+  }
+
+  get clientesExibidos(): Cliente[] {
+    const inicio = (this.currentPage - 1) * this.pageSize;
+    return this.clientesFiltrados.slice(inicio, inicio + this.pageSize);
+  }
+
+  get totalPaginas(): number {
+    return Math.ceil(this.clientesFiltrados.length / this.pageSize) || 1;
+  }
+
+  onFilterChange(): void {
+    this.currentPage = 1;
   }
 
   private getEmptyCliente(): Cliente {
