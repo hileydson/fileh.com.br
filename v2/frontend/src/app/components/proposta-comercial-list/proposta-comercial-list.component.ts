@@ -445,110 +445,149 @@ export class PropostaComercialListComponent implements OnInit {
     };
   }
 
-  imprimirProposta(p: PropostaComercial): void {
+   imprimirProposta(p: PropostaComercial): void {
      // Pre-load items before printing
      this.itemService.getAllByProposta(p.id!).subscribe(items => {
-        const cliName = p.clienteId ? (this.clienteMap[p.clienteId] || 'N/A') : 'N/A';
+        const cliId = p.clienteId;
+        const cliObj = this.clientes.find(c => c.id === cliId);
+        const authCtx = this.authService.getAuthContext();
+        const footerMsg = authCtx?.msgFooter || '';
+        
         const printWindow = window.open('', '_blank');
         if (!printWindow) return;
 
         const html = `
           <html>
             <head>
-              <title>Proposta Comercial #${p.id}</title>
+              <title>Proposta Comercial - ${p.id}</title>
               <style>
-                body { font-family: sans-serif; padding: 40px; color: #333; }
-                .header { display: flex; justify-between: space-between; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
-                .title { font-size: 24px; font-weight: bold; color: #1e40af; }
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #334155; line-height: 1.5; }
+                .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
+                .title { font-size: 28px; font-weight: 800; color: #1e40af; }
+                .date-header { text-align: right; font-size: 14px; color: #64748b; font-weight: 500; }
+                
                 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-                .info-box { border: 1px solid #eee; padding: 15px; rounded: 8px; }
-                .label { font-size: 10px; text-transform: uppercase; color: #666; font-weight: bold; margin-bottom: 5px; }
-                .value { font-size: 14px; font-weight: 500; }
-                table { w-full; border-collapse: collapse; margin-bottom: 30px; }
-                th { text-align: left; padding: 12px; background: #f8fafc; border-bottom: 1px solid #eee; font-size: 12px; }
-                td { padding: 12px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
-                .total-section { float: right; w-64; }
-                .total-row { display: flex; justify-content: space-between; padding: 8px 0; }
-                .total-final { font-size: 18px; font-weight: bold; color: #1e40af; border-top: 2px solid #eee; margin-top: 10px; padding-top: 10px; }
+                .info-box { border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; background: #f8fafc; }
+                .label { font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.05em; }
+                .value { font-size: 14px; font-weight: 600; color: #1e293b; }
+                
+                .client-details { font-size: 13px; color: #475569; margin-top: 5px; line-height: 1.4; }
+                
+                table { width: 100%; border-collapse: collapse; margin-bottom: 40px; border-radius: 8px; overflow: hidden; }
+                th { text-align: left; padding: 14px; background: #1e40af; color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+                td { padding: 14px; border-bottom: 1px solid #f1f5f9; font-size: 13px; vertical-align: middle; }
+                tr:nth-child(even) { background-color: #f8fafc; }
+                
+                .total-section { float: right; width: 300px; background: #f1f5f9; padding: 20px; border-radius: 12px; }
+                .total-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
+                .total-final { font-size: 20px; font-weight: 800; color: #1e40af; border-top: 2px solid #cbd5e1; margin-top: 12px; padding-top: 12px; }
+                
+                .footer { position: fixed; bottom: 40px; left: 40px; right: 40px; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 12px; color: #94a3b8; font-style: italic; }
+                
+                @media print {
+                  body { padding: 0; }
+                  .footer { position: absolute; }
+                }
               </style>
             </head>
             <body>
               <div class="header">
-                <div class="title">PROPOSTA COMERCIAL #${p.id}</div>
-                <div style="text-align: right">
-                  <div>Data: ${this.formatDateBR(p.dataCadastro)}</div>
-                  <div style="font-size: 12px; color: #666">Validade: 15 dias</div>
+                <div class="title">PROPOSTA COMERCIAL - ${p.id}</div>
+                <div class="date-header">
+                  <div>Data de Emissão: ${this.formatDateBR(p.dataCadastro)}</div>
                 </div>
               </div>
 
               <div class="info-grid">
                 <div class="info-box">
-                  <div class="label">CLIENTE</div>
-                  <div class="value">${cliName}</div>
+                  <div class="label">Dados do Cliente</div>
+                  <div class="value">${cliObj?.nome || 'N/A'}</div>
+                  <div class="client-details">
+                    ${cliObj?.cpf ? `<div><strong>CPF/CNPJ:</strong> ${cliObj.cpf}</div>` : ''}
+                    ${cliObj?.logradouro ? `<div><strong>Endereço:</strong> ${cliObj.logradouro}, ${cliObj.bairro} - ${cliObj.cidade}/${cliObj.uf}</div>` : ''}
+                    ${cliObj?.telefone ? `<div><strong>Telefone:</strong> ${cliObj.telefone}</div>` : ''}
+                    ${cliObj?.email ? `<div><strong>E-mail:</strong> ${cliObj.email}</div>` : ''}
+                  </div>
                 </div>
                 <div class="info-box">
-                  <div class="label">ATENDENTE</div>
-                  <div class="value">${p.atendente || 'N/A'}</div>
-                </div>
-                <div class="info-box">
-                  <div class="label">FORMA DE PAGAMENTO</div>
-                  <div class="value">${p.formaPagamento || 'A combinar'}</div>
-                </div>
-                <div class="info-box">
-                   <div class="label">SITUAÇÃO</div>
-                   <div class="value">${p.situacao}</div>
+                  <div class="label">Condições de Venda</div>
+                  <div class="value" style="margin-bottom: 10px;">
+                    <span style="color: #64748b; font-weight: 500;">Atendente:</span> ${p.atendente || 'N/A'}
+                  </div>
+                  <div class="value" style="margin-bottom: 10px;">
+                    <span style="color: #64748b; font-weight: 500;">Forma de Pgto:</span> ${p.formaPagamento || 'A combinar'}
+                  </div>
+                  <div class="value">
+                    <span style="color: #64748b; font-weight: 500;">Situação:</span> ${p.situacao}
+                  </div>
                 </div>
               </div>
 
               <table>
                 <thead>
                   <tr>
-                    <th>DESCRIÇÃO</th>
-                    <th style="text-align: center">UNID.</th>
-                    <th style="text-align: right">VALOR UNIT.</th>
-                    <th style="text-align: center">QTD.</th>
-                    <th style="text-align: right">SUBTOTAL</th>
+                    <th>Item / Descrição</th>
+                    <th style="text-align: center">Qtd</th>
+                    <th style="text-align: center">Un</th>
+                    <th style="text-align: right">Vlr Unitário</th>
+                    <th style="text-align: right">Subtotal</th>
                   </tr>
                 </thead>
                 <tbody>
                   ${items.map(it => `
                     <tr>
-                      <td>${it.descricao}</td>
+                      <td><strong>${it.descricao}</strong></td>
+                      <td style="text-align: center">${it.quantidade}</td>
                       <td style="text-align: center">${it.unidade}</td>
                       <td style="text-align: right">R$ ${this.getValorFormatado(it.valor)}</td>
-                      <td style="text-align: center">${it.quantidade}</td>
-                      <td style="text-align: right">R$ ${this.getValorFormatado(it.valor * it.quantidade)}</td>
+                      <td style="text-align: right; font-weight: 600;">R$ ${this.getValorFormatado(it.valor * it.quantidade)}</td>
                     </tr>
                   `).join('')}
                 </tbody>
               </table>
 
-              <div class="total-section">
-                <div class="total-row">
-                  <span>Subtotal:</span>
-                  <span>R$ ${this.getValorFormatado(p.valorTotal + (p.valorDesconto || 0))}</span>
-                </div>
-                <div class="total-row" style="color: #dc2626">
-                  <span>Desconto:</span>
-                  <span>- R$ ${this.getValorFormatado(p.valorDesconto || 0)}</span>
-                </div>
-                <div class="total-row total-final">
-                  <span>TOTAL:</span>
-                  <span>R$ ${this.getValorFormatado(p.valorTotal)}</span>
+              <div style="width: 100%; overflow: hidden;">
+                <div class="total-section">
+                  <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span>R$ ${this.getValorFormatado(p.valorTotal + (p.valorDesconto || 0))}</span>
+                  </div>
+                  <div class="total-row" style="color: #dc2626;">
+                    <span>Desconto:</span>
+                    <span>- R$ ${this.getValorFormatado(p.valorDesconto || 0)}</span>
+                  </div>
+                  <div class="total-row total-final">
+                    <span>TOTAL:</span>
+                    <span>R$ ${this.getValorFormatado(p.valorTotal)}</span>
+                  </div>
                 </div>
               </div>
 
-              <div style="margin-top: 100px; border-top: 1px solid #eee; pt-20">
-                <div class="label">OBSERVAÇÕES</div>
-                <div style="font-size: 12px; line-height: 1.6">${p.observacao || 'N/A'}</div>
+              ${p.observacao ? `
+                <div style="margin-top: 40px; padding: 20px; border: 1px dashed #cbd5e1; border-radius: 8px;">
+                  <div class="label">Observações</div>
+                  <div style="font-size: 13px;">${p.observacao.replace(/\n/g, '<br>')}</div>
+                </div>
+              ` : ''}
+
+              <div class="footer">
+                ${footerMsg}
               </div>
+
+              <script>
+                window.onload = () => {
+                  setTimeout(() => {
+                    window.print();
+                    // window.close(); // Opcional
+                  }, 500);
+                };
+              </script>
             </body>
           </html>
         `;
 
         printWindow.document.write(html);
         printWindow.document.close();
-        setTimeout(() => printWindow.print(), 500);
      });
   }
 }

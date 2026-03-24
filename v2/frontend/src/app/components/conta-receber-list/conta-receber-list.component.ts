@@ -5,6 +5,7 @@ import { ContaReceberService, ContaReceber } from '../../services/conta-receber.
 import { AuthService } from '../../services/auth.service';
 import { TipoContaService, TipoConta } from '../../services/tipo-conta.service';
 import { FornecedorService, Fornecedor } from '../../services/fornecedor.service';
+import { PropostaComercialService, PropostaComercial } from '../../services/proposta-comercial.service';
 
 @Component({
   selector: 'app-conta-receber-list',
@@ -58,12 +59,15 @@ export class ContaReceberListComponent implements OnInit {
   totalVencido: number = 0;
   totalRecebidoMes: number = 0;
   totalParaReceberHoje: number = 0;
+  totalPropostasPedido: number = 0;
+  propostas: PropostaComercial[] = [];
 
   constructor(
     private contaReceberService: ContaReceberService,
     private authService: AuthService,
     private tipoContaService: TipoContaService,
-    private fornecedorService: FornecedorService
+    private fornecedorService: FornecedorService,
+    private propostaService: PropostaComercialService
   ) {}
 
   ngOnInit(): void {
@@ -73,6 +77,7 @@ export class ContaReceberListComponent implements OnInit {
         this.entidadeId = ctx.entidadeId;
         this.loadContas();
         this.loadTiposConta();
+        this.loadPropostas();
     }
   }
 
@@ -80,6 +85,17 @@ export class ContaReceberListComponent implements OnInit {
     this.tipoContaService.listarPorEntidade(this.entidadeId).subscribe({
       next: (data) => this.tiposConta = data,
       error: (err) => console.error('Erro ao carregar tipos de conta', err)
+    });
+  }
+
+  loadPropostas(): void {
+    if (!this.entidadeId) return;
+    this.propostaService.getAllByTenant(this.entidadeId).subscribe({
+      next: (data) => {
+        this.propostas = data;
+        this.calculateDashboard();
+      },
+      error: (err) => console.error('Erro ao carregar propostas', err)
     });
   }
 
@@ -353,6 +369,23 @@ export class ContaReceberListComponent implements OnInit {
             }
             if (c.dataVencimento === todayStr) {
                 this.totalParaReceberHoje += val;
+            }
+        }
+    });
+
+    // Calculate Proposals with status "Pedido" in the period
+    this.totalPropostasPedido = 0;
+    const filterStartDate = this.filtros.dataInicio ? new Date(this.filtros.dataInicio + 'T00:00:00') : null;
+    const filterEndDate = this.filtros.dataFim ? new Date(this.filtros.dataFim + 'T00:00:00') : null;
+
+    this.propostas.forEach(p => {
+        if (p.situacao === 'Pedido' && p.dataPrevista) {
+            const dueDate = new Date(p.dataPrevista + 'T00:00:00');
+            const matchStart = !filterStartDate || dueDate >= filterStartDate;
+            const matchEnd = !filterEndDate || dueDate <= filterEndDate;
+            
+            if (matchStart && matchEnd) {
+                this.totalPropostasPedido += (p.valorTotal || 0);
             }
         }
     });

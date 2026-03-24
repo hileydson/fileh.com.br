@@ -13,6 +13,8 @@ export interface Cliente {
   nomeEntidade: string;
   referencia: string;
   cpf: string;
+  email?: string;
+  cidade?: string;
 }
 
 @Injectable({

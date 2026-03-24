@@ -158,7 +158,9 @@ export class ClienteListComponent implements OnInit {
       telefone: '',
       nomeEntidade: 'N/A',
       referencia: '',
-      cpf: ''
+      cpf: '',
+      email: '',
+      cidade: ''
     };
   }
 }

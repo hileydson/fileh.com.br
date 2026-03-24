@@ -149,6 +149,11 @@
         </div>
 
         <div class="col-span-1 md:col-span-2">
+          <label class="block text-sm font-medium text-slate-700 mb-1">E-mail</label>
+          <input type="email" [(ngModel)]="currentCliente.email" name="email" class="input-field" placeholder="exemplo@email.com">
+        </div>
+
+        <div class="col-span-1 md:col-span-2">
           <label class="block text-sm font-medium text-slate-700 mb-1">Endereço (Logradouro)</label>
           <input type="text" [(ngModel)]="currentCliente.logradouro" name="logradouro" class="input-field" placeholder="Rua Exemplo, 123">
         </div>
@@ -157,7 +162,12 @@
           <label class="block text-sm font-medium text-slate-700 mb-1">Bairro</label>
           <input type="text" [(ngModel)]="currentCliente.bairro" name="bairro" class="input-field" placeholder="Centro">
         </div>
-        
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Cidade</label>
+          <input type="text" [(ngModel)]="currentCliente.cidade" name="cidade" class="input-field" placeholder="Ex: São Paulo">
+        </div>
+
         <div>
           <label class="block text-sm font-medium text-slate-700 mb-1">UF</label>
           <select [(ngModel)]="currentCliente.uf" name="uf" class="input-field">
