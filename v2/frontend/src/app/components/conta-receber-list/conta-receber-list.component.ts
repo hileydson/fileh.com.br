@@ -6,11 +6,14 @@ import { AuthService } from '../../services/auth.service';
 import { TipoContaService, TipoConta } from '../../services/tipo-conta.service';
 import { FornecedorService, Fornecedor } from '../../services/fornecedor.service';
 import { PropostaComercialService, PropostaComercial } from '../../services/proposta-comercial.service';
+import { EntidadeService, Entidade } from '../../services/entidade.service';
+import { DateBrPipe } from '../../pipes/date-br.pipe';
+import { DateInputComponent } from '../shared/date-input/date-input.component';
 
 @Component({
   selector: 'app-conta-receber-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DateBrPipe, DateInputComponent],
   templateUrl: './conta-receber-list.component.html',
   styleUrls: ['./conta-receber-list.component.scss']
 })
@@ -61,13 +64,16 @@ export class ContaReceberListComponent implements OnInit {
   totalParaReceberHoje: number = 0;
   totalPropostasPedido: number = 0;
   propostas: PropostaComercial[] = [];
+  entidades: Entidade[] = [];
+  entityBreakdown: { nome: string, total: number }[] = [];
 
   constructor(
     private contaReceberService: ContaReceberService,
     private authService: AuthService,
     private tipoContaService: TipoContaService,
     private fornecedorService: FornecedorService,
-    private propostaService: PropostaComercialService
+    private propostaService: PropostaComercialService,
+    private entidadeService: EntidadeService
   ) {}
 
   ngOnInit(): void {
@@ -78,6 +84,7 @@ export class ContaReceberListComponent implements OnInit {
         this.loadContas();
         this.loadTiposConta();
         this.loadPropostas();
+        this.loadEntidades();
     }
   }
 
@@ -89,13 +96,22 @@ export class ContaReceberListComponent implements OnInit {
   }
 
   loadPropostas(): void {
-    if (!this.entidadeId) return;
-    this.propostaService.getAllByTenant(this.entidadeId).subscribe({
+    this.propostaService.getAllGlobal().subscribe({
       next: (data) => {
         this.propostas = data;
         this.calculateDashboard();
       },
-      error: (err) => console.error('Erro ao carregar propostas', err)
+      error: (err) => console.error('Erro ao carregar propostas globais', err)
+    });
+  }
+
+  loadEntidades(): void {
+    this.entidadeService.getAllGlobal().subscribe({
+      next: (data) => {
+        this.entidades = data;
+        this.calculateDashboard();
+      },
+      error: (err) => console.error('Erro ao carregar entidades globais', err)
     });
   }
 
@@ -311,14 +327,7 @@ export class ContaReceberListComponent implements OnInit {
     });
   }
 
-  formatDateBR(isoString: string | undefined): string {
-    if (!isoString) return 'N/A';
-    const parts = isoString.split('-');
-    if (parts.length === 3) {
-      return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    }
-    return isoString;
-  }
+  // Formatter moved to DateBrPipe
 
   formatarValor(event: any): void {
     let value = event.target.value;
@@ -378,6 +387,8 @@ export class ContaReceberListComponent implements OnInit {
     const filterStartDate = this.filtros.dataInicio ? new Date(this.filtros.dataInicio + 'T00:00:00') : null;
     const filterEndDate = this.filtros.dataFim ? new Date(this.filtros.dataFim + 'T00:00:00') : null;
 
+    const breakdownMap = new Map<number, number>();
+
     this.propostas.forEach(p => {
         if (p.situacao === 'Pedido' && p.dataPrevista) {
             const dueDate = new Date(p.dataPrevista + 'T00:00:00');
@@ -385,9 +396,19 @@ export class ContaReceberListComponent implements OnInit {
             const matchEnd = !filterEndDate || dueDate <= filterEndDate;
             
             if (matchStart && matchEnd) {
-                this.totalPropostasPedido += (p.valorTotal || 0);
+                const val = (p.valorTotal || 0);
+                this.totalPropostasPedido += val;
+                
+                if (p.entidadeId) {
+                    breakdownMap.set(p.entidadeId, (breakdownMap.get(p.entidadeId) || 0) + val);
+                }
             }
         }
+    });
+
+    this.entityBreakdown = Array.from(breakdownMap.entries()).map(([id, total]) => {
+        const ent = this.entidades.find(e => e.id === id);
+        return { nome: ent ? ent.nome : 'N/A', total };
     });
   }
 

@@ -2,13 +2,15 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FluxoCaixaService, FluxoCaixa } from '../../services/fluxo-caixa.service';
+import { DateBrPipe } from '../../pipes/date-br.pipe';
 import { AuthService } from '../../services/auth.service';
 import { FormaPagamentoService, FormaPagamento } from '../../services/forma-pagamento.service';
+import { DateInputComponent } from '../shared/date-input/date-input.component';
 
 @Component({
   selector: 'app-fluxo-caixa-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DateBrPipe, DateInputComponent],
   templateUrl: './fluxo-caixa-list.component.html',
   styleUrls: ['./fluxo-caixa-list.component.scss']
 })
@@ -160,14 +162,7 @@ export class FluxoCaixaListComponent implements OnInit {
     }
   }
 
-  formatDateBR(isoString: string | undefined): string {
-    if (!isoString) return 'N/A';
-    const parts = isoString.split('-');
-    if (parts.length === 3) {
-      return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    }
-    return isoString;
-  }
+  // Formatter moved to DateBrPipe
 
   calcularSaldoVisual(): number {
       return this.registros.reduce((acc, curr) => {

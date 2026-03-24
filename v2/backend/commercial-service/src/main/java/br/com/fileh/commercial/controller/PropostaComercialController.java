@@ -20,6 +20,11 @@ public class PropostaComercialController {
         return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
     }
 
+    @GetMapping("/global")
+    public ResponseEntity<List<PropostaComercial>> getAllGlobal() {
+        return ResponseEntity.ok(repository.findAll());
+    }
+
     @PostMapping
     public ResponseEntity<PropostaComercial> create(@RequestBody PropostaComercial proposta) {
         return ResponseEntity.ok(repository.save(proposta));

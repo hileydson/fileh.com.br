@@ -5,11 +5,13 @@ import { ContaPagarService, ContaPagar } from '../../services/conta-pagar.servic
 import { AuthService } from '../../services/auth.service';
 import { TipoContaService, TipoConta } from '../../services/tipo-conta.service';
 import { FornecedorService, Fornecedor } from '../../services/fornecedor.service';
+import { DateBrPipe } from '../../pipes/date-br.pipe';
+import { DateInputComponent } from '../shared/date-input/date-input.component';
 
 @Component({
   selector: 'app-conta-pagar-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DateBrPipe, DateInputComponent],
   templateUrl: './conta-pagar-list.component.html',
   styleUrls: ['./conta-pagar-list.component.scss']
 })
@@ -301,14 +303,7 @@ export class ContaPagarListComponent implements OnInit {
     });
   }
 
-  formatDateBR(isoString: string | undefined): string {
-    if (!isoString) return 'N/A';
-    const parts = isoString.split('-');
-    if (parts.length === 3) {
-      return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    }
-    return isoString;
-  }
+  // Formatter moved to DateBrPipe
 
   formatarValor(event: any): void {
     let value = event.target.value;

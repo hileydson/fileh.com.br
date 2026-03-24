@@ -26,14 +26,15 @@
         <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Cód. ou Nome Cliente</label>
         <input type="text" [(ngModel)]="filtros.cliente" (input)="onFilterChange()" placeholder="Nome ou ID..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-500/50 outline-none">
       </div>
-      <div>
-        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Data Prevista</label>
-        <div class="flex items-center space-x-2">
-          <input type="date" [(ngModel)]="filtros.dataPrevistaInicio" (change)="onFilterChange()" class="w-full px-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-primary-500/50 outline-none">
-          <span class="text-slate-400">-</span>
-          <input type="date" [(ngModel)]="filtros.dataPrevistaFim" (change)="onFilterChange()" class="w-full px-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-primary-500/50 outline-none">
+      
+        <div class="col-span-1">
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Previsão Início</label>
+          <app-date-input [(ngModel)]="filtros.dataPrevistaInicio" (ngModelChange)="onFilterChange()"></app-date-input>
         </div>
-      </div>
+        <div class="col-span-1">
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Previsão Fim</label>
+          <app-date-input [(ngModel)]="filtros.dataPrevistaFim" (ngModelChange)="onFilterChange()"></app-date-input>
+        </div>
       <div>
         <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Situação</label>
         <select [(ngModel)]="filtros.situacao" (change)="onFilterChange()" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-500/50 outline-none">
@@ -58,7 +59,7 @@
             <th class="p-4 font-semibold rounded-tl-lg">Código</th>
             <th class="p-4 font-semibold">Cliente</th>
             <th class="p-4 font-semibold">Cadastro</th>
-            <th class="p-4 font-semibold">Previsão</th>
+            <th class="p-4 font-semibold">Data Prevista</th>
             <th class="p-4 font-semibold">Situação</th>
             <th class="p-4 font-semibold text-right">Total (R$)</th>
             <th class="p-4 font-semibold text-center rounded-tr-lg">Ações</th>
@@ -92,10 +93,10 @@
               <div class="text-[10px] text-slate-400 font-bold uppercase tracking-tighter">{{p.atendente || 'Sem atendente'}}</div>
             </td>
             <td class="p-4">
-              <div class="text-sm text-slate-600">{{ formatDateBR(p.dataCadastro) }}</div>
+              <div class="text-sm text-slate-600">{{ p.dataCadastro | dateBr }}</div>
             </td>
             <td class="p-4">
-              <div class="text-sm text-slate-600 font-medium">{{ formatDateBR(p.dataPrevista) }}</div>
+              <div class="text-sm text-slate-600 font-medium">{{ p.dataPrevista | dateBr }}</div>
             </td>
             <td class="p-4">
               <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" 
@@ -221,6 +222,13 @@
           </div>
         </div>
 
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Data Prevista</label>
+          <app-date-input [(ngModel)]="currentProposta.dataPrevista" name="dataPrevista" 
+                          [disabled]="currentProposta.situacao !== 'Pedido'">
+          </app-date-input>
+        </div>
+
         <div>
            <label class="block text-sm font-medium text-slate-700 mb-1">Situação</label>
            <select [(ngModel)]="currentProposta.situacao" name="situacao" class="input-field">
@@ -230,15 +238,11 @@
         
         <!-- Global Discount and Freight removed per request -->
 
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Data de Cadastro</label>
-          <input type="date" [(ngModel)]="currentProposta.dataCadastro" name="dataCadastro" class="input-field" readonly>
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Data do Cadastro</label>
+          <app-date-input [(ngModel)]="currentProposta.dataCadastro" name="dataCadastro" [readonly]="true"></app-date-input>
         </div>
 
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Data Prevista</label>
-          <input type="date" [(ngModel)]="currentProposta.dataPrevista" name="dataPrevista" class="input-field">
-        </div>
 
         <div class="col-span-1 md:col-span-2">
            <label class="block text-sm font-medium text-slate-700 mb-1">Atendente</label>

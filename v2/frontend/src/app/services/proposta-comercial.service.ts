@@ -30,6 +30,10 @@ export class PropostaComercialService {
     return this.http.get<PropostaComercial[]>(`${this.apiUrl}/tenant/${entidadeId}`);
   }
 
+  getAllGlobal(): Observable<PropostaComercial[]> {
+    return this.http.get<PropostaComercial[]>(`${this.apiUrl}/global`);
+  }
+
   create(proposta: PropostaComercial): Observable<PropostaComercial> {
     return this.http.post<PropostaComercial>(this.apiUrl, proposta);
   }

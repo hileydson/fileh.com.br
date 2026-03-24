@@ -20,6 +20,11 @@ public class EntidadeController {
         return ResponseEntity.ok(entidadeRepository.findByUsuarioId(tenantId));
     }
 
+    @GetMapping("/global")
+    public ResponseEntity<List<Entidade>> getAllGlobal() {
+        return ResponseEntity.ok(entidadeRepository.findAll());
+    }
+
     @GetMapping("/search")
     public ResponseEntity<List<Entidade>> searchEntidades(@RequestParam Long tenantId, @RequestParam String query) {
         String[] words = query.split("\\s+");

@@ -24,12 +24,8 @@ public class ClienteController {
     @GetMapping("/search")
     public ResponseEntity<List<Cliente>> searchClientes(@RequestParam(required = false) Long entidadeId, @RequestParam String query) {
         String[] words = query.split("\\s+");
-        // Start with a specification that is always true, or starts with entidadeId if provided
+        // Start with a specification that is always true
         org.springframework.data.jpa.domain.Specification<Cliente> spec = (root, q, cb) -> cb.conjunction();
-        
-        if (entidadeId != null && entidadeId > 0) {
-            spec = spec.and((root, q, cb) -> cb.equal(root.get("entidadeId"), entidadeId));
-        }
 
         for (String word : words) {
             if (word.isEmpty()) continue;

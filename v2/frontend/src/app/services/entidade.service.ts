@@ -20,6 +20,10 @@ export class EntidadeService {
     return this.http.get<Entidade[]>(`${this.apiUrl}/tenant/${tenantId}`);
   }
 
+  getAllGlobal(): Observable<Entidade[]> {
+    return this.http.get<Entidade[]>(`${this.apiUrl}/global`);
+  }
+
   search(tenantId: number, query: string): Observable<Entidade[]> {
     const params = new HttpParams()
       .set('tenantId', tenantId.toString())

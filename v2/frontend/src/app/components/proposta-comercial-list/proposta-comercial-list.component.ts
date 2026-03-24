@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PropostaComercialService, PropostaComercial } from '../../services/proposta-comercial.service';
+import { DateBrPipe } from '../../pipes/date-br.pipe';
 import { ItemPropostaService, ItemProposta } from '../../services/item-proposta.service';
 import { ProdutoService, Produto } from '../../services/produto.service';
 import { ClienteService, Cliente } from '../../services/cliente.service';
@@ -10,11 +11,12 @@ import { FormaPagamentoService, FormaPagamento } from '../../services/forma-paga
 import { AuthService } from '../../services/auth.service';
 import { Observable, forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { DateInputComponent } from '../shared/date-input/date-input.component';
 
 @Component({
   selector: 'app-proposta-comercial-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DateBrPipe, DateInputComponent],
   templateUrl: './proposta-comercial-list.component.html',
   styleUrls: ['./proposta-comercial-list.component.scss']
 })
@@ -313,6 +315,26 @@ export class PropostaComercialListComponent implements OnInit {
   // --- Save Logic ---
 
   saveProposta(): void {
+    if (!this.currentProposta.clienteId) {
+      alert('Por favor, selecione um cliente válido antes de salvar a proposta.');
+      return;
+    }
+
+    if (this.itens.length === 0) {
+      alert('Não é possível salvar uma proposta sem itens. Por favor, adicione pelo menos um produto.');
+      return;
+    }
+
+    if (this.currentProposta.situacao === 'Pedido') {
+      if (!this.currentProposta.dataPrevista) {
+        alert('Para propostas em situação "Pedido", a "Data Prevista" é obrigatória.');
+        return;
+      }
+    } else {
+      // Se não for pedido, remove a data prevista se houver
+      this.currentProposta.dataPrevista = undefined;
+    }
+    
     this.saving = true;
     this.currentProposta.entidadeId = this.entidadeId;
     this.currentProposta.usuarioId = this.authService.getAuthContext()?.id;
@@ -425,14 +447,7 @@ export class PropostaComercialListComponent implements OnInit {
     }
   }
 
-  formatDateBR(isoString: string | undefined): string {
-    if (!isoString) return 'N/A';
-    const parts = isoString.split('-');
-    if (parts.length === 3) {
-      return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    }
-    return isoString;
-  }
+  // Formatter moved to DateBrPipe
 
   private getEmptyProposta(): PropostaComercial {
     const today = new Date().toISOString().split('T')[0];
@@ -495,7 +510,7 @@ export class PropostaComercialListComponent implements OnInit {
               <div class="header">
                 <div class="title">PROPOSTA COMERCIAL - ${p.id}</div>
                 <div class="date-header">
-                  <div>Data de Emissão: ${this.formatDateBR(p.dataCadastro)}</div>
+                  <div>Data de Emissão: ${p.dataCadastro?.split('-').reverse().join('/') || 'N/A'}</div>
                 </div>
               </div>
 
