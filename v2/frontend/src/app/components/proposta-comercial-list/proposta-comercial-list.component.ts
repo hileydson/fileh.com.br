@@ -460,6 +460,7 @@ export class PropostaComercialListComponent implements OnInit {
           <html>
             <head>
               <title>Proposta Comercial - ${p.id}</title>
+              <link rel="icon" type="image/png" href="logo.png">
               <style>
                 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #334155; line-height: 1.5; }
                 .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
