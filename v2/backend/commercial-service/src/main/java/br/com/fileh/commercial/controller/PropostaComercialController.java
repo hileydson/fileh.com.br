@@ -28,6 +28,8 @@ public class PropostaComercialController {
     @PutMapping("/{id}")
     public ResponseEntity<PropostaComercial> update(@PathVariable Long id, @RequestBody PropostaComercial details) {
         return repository.findById(id).map(proposta -> {
+            proposta.setEntidadeId(details.getEntidadeId());
+            proposta.setUsuarioId(details.getUsuarioId());
             proposta.setClienteId(details.getClienteId());
             proposta.setValorDesconto(details.getValorDesconto());
             proposta.setValorFrete(details.getValorFrete());

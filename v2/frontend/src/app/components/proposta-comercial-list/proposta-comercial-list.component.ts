@@ -315,6 +315,7 @@ export class PropostaComercialListComponent implements OnInit {
   saveProposta(): void {
     this.saving = true;
     this.currentProposta.entidadeId = this.entidadeId;
+    this.currentProposta.usuarioId = this.authService.getAuthContext()?.id;
 
     if (this.isEditing) {
       this.propostaService.update(this.currentProposta.id!, this.currentProposta).subscribe({
@@ -329,7 +330,6 @@ export class PropostaComercialListComponent implements OnInit {
     } else {
       this.propostaService.create(this.currentProposta).subscribe({
         next: (savedProposta) => {
-          alert(`Proposta comercial criada com sucesso! Código: ${savedProposta.id}`);
           this.saveItemsEConcluir(savedProposta.id!);
         },
         error: (err) => {

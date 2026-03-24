@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface PropostaComercial {
   id?: number;
   entidadeId?: number;
+  usuarioId?: number;
   clienteId?: number;
   valorDesconto: number;
   valorFrete: number;

@@ -23,6 +23,9 @@ public class PropostaComercial {
     @Column(name = "PRC_CD_ENTIDADE", nullable = false)
     private Long entidadeId;
 
+    @Column(name = "PRC_CD_USUARIO", nullable = false)
+    private Long usuarioId;
+
     @Column(name = "PRC_CD_CLIENTE")
     private Long clienteId;
 
