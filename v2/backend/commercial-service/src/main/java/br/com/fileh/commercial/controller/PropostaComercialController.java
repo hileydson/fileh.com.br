@@ -16,8 +16,10 @@ public class PropostaComercialController {
     private PropostaComercialRepository repository;
 
     @GetMapping("/tenant/{entidadeId}")
-    public ResponseEntity<List<PropostaComercial>> getAllByTenant(@PathVariable Long entidadeId) {
-        return ResponseEntity.ok(repository.findByEntidadeId(entidadeId));
+    public ResponseEntity<List<PropostaComercial>> getAllByTenant(
+            @PathVariable Long entidadeId,
+            @RequestParam(required = false, defaultValue = "true") Boolean ativo) {
+        return ResponseEntity.ok(repository.findByEntidadeIdAndAtivo(entidadeId, ativo));
     }
 
     @GetMapping("/global")
@@ -51,10 +53,10 @@ public class PropostaComercialController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            return ResponseEntity.ok().build();
-        }
-        return ResponseEntity.notFound().build();
+        return repository.findById(id).map(proposta -> {
+            proposta.setAtivo(false);
+            repository.save(proposta);
+            return ResponseEntity.ok().<Void>build();
+        }).orElse(ResponseEntity.notFound().build());
     }
 }

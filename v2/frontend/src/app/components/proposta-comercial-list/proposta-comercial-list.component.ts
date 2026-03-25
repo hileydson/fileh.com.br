@@ -24,6 +24,7 @@ export class PropostaComercialListComponent implements OnInit {
   propostas: PropostaComercial[] = [];
   loading = true;
   saving = false;
+  today = new Date().toISOString().split('T')[0];
   @ViewChild('qtdInput') qtdInput!: ElementRef;
   
   showModal = false;
@@ -59,7 +60,8 @@ export class PropostaComercialListComponent implements OnInit {
     cliente: '',
     dataPrevistaInicio: '',
     dataPrevistaFim: '',
-    situacao: ''
+    situacao: '',
+    exibirInativos: false
   };
   currentPage = 1;
   pageSize = 20;
@@ -89,7 +91,7 @@ export class PropostaComercialListComponent implements OnInit {
 
   loadPropostas(): void {
     this.loading = true;
-    this.propostaService.getAllByTenant(this.entidadeId).subscribe({
+    this.propostaService.getAllByTenant(this.entidadeId, !this.filtros.exibirInativos).subscribe({
       next: (data) => {
         // Sort by dataCadastro (desc) and then id (desc)
         this.propostas = data.sort((a, b) => {
@@ -320,6 +322,11 @@ export class PropostaComercialListComponent implements OnInit {
       return;
     }
 
+    if (!this.currentProposta.formaPagamento) {
+      alert('Por favor, selecione uma forma de pagamento antes de salvar.');
+      return;
+    }
+
     if (this.itens.length === 0) {
       alert('Não é possível salvar uma proposta sem itens. Por favor, adicione pelo menos um produto.');
       return;
@@ -328,6 +335,10 @@ export class PropostaComercialListComponent implements OnInit {
     if (this.currentProposta.situacao === 'Pedido') {
       if (!this.currentProposta.dataPrevista) {
         alert('Para propostas em situação "Pedido", a "Data Prevista" é obrigatória.');
+        return;
+      }
+      if (this.currentProposta.dataPrevista < this.today) {
+        alert('A "Data Prevista" não pode ser anterior ao dia de hoje.');
         return;
       }
     } else {
@@ -439,10 +450,21 @@ export class PropostaComercialListComponent implements OnInit {
 
   deleteProposta(id?: number): void {
     if (!id) return;
-    if (confirm('Tem certeza que deseja excluir esta proposta comercial?')) {
+    if (confirm('Tem certeza que deseja inativar esta proposta comercial?')) {
       this.propostaService.delete(id).subscribe({
         next: () => this.loadPropostas(),
-        error: (err) => console.error('Erro ao excluir', err)
+        error: (err) => console.error('Erro ao inativar', err)
+      });
+    }
+  }
+
+  reativarProposta(p: PropostaComercial): void {
+    if (!p.id) return;
+    if (confirm('Deseja reativar esta proposta comercial?')) {
+      const updated = { ...p, ativo: true };
+      this.propostaService.update(p.id, updated).subscribe({
+        next: () => this.loadPropostas(),
+        error: (err) => console.error('Erro ao reativar', err)
       });
     }
   }
@@ -456,7 +478,8 @@ export class PropostaComercialListComponent implements OnInit {
       valorFrete: 0,
       valorTotal: 0,
       situacao: 'EM COTAÇÃO', // Defaulting based on assumed workflow
-      dataCadastro: today
+      dataCadastro: today,
+      ativo: true
     };
   }
 

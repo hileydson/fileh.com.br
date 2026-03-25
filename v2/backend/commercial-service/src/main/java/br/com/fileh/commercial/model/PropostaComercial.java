@@ -55,4 +55,14 @@ public class PropostaComercial {
 
     @Column(name = "PRC_DS_FORMA_PAGAMENTO")
     private String formaPagamento;
+
+    @Column(name = "PRC_BT_ATIVO", nullable = false)
+    private Boolean ativo = true;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.ativo == null) {
+            this.ativo = true;
+        }
+    }
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PropostaComercialRepository extends JpaRepository<PropostaComercial, Long> {
     List<PropostaComercial> findByEntidadeId(Long entidadeId);
+    List<PropostaComercial> findByEntidadeIdAndAtivo(Long entidadeId, Boolean ativo);
 }

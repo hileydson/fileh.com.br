@@ -16,6 +16,7 @@ export interface PropostaComercial {
   atendente?: string;
   situacao?: string;
   formaPagamento?: string;
+  ativo?: boolean;
 }
 
 @Injectable({
@@ -26,8 +27,8 @@ export class PropostaComercialService {
 
   constructor(private http: HttpClient) {}
 
-  getAllByTenant(entidadeId: number): Observable<PropostaComercial[]> {
-    return this.http.get<PropostaComercial[]>(`${this.apiUrl}/tenant/${entidadeId}`);
+  getAllByTenant(entidadeId: number, ativo: boolean = true): Observable<PropostaComercial[]> {
+    return this.http.get<PropostaComercial[]>(`${this.apiUrl}/tenant/${entidadeId}?ativo=${ativo}`);
   }
 
   getAllGlobal(): Observable<PropostaComercial[]> {

@@ -40,6 +40,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
         #hiddenPicker 
         type="date" 
         [disabled]="disabled || readonly"
+        [min]="min"
         (change)="onPickerChange($event)"
         class="absolute opacity-0 pointer-events-none"
         style="right: 30px; top: 50%; width: 1px; height: 1px; transform: translateY(-50%);"
@@ -51,6 +52,7 @@ export class DateInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = 'DD/MM/AAAA';
   @Input() customClass: string = '';
   @Input() readonly: boolean = false;
+  @Input() min: string = '';
   
   @ViewChild('hiddenPicker') hiddenPicker!: ElementRef<HTMLInputElement>;
 
