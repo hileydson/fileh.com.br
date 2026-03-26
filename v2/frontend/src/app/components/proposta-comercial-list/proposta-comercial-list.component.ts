@@ -327,6 +327,11 @@ export class PropostaComercialListComponent implements OnInit {
       return;
     }
 
+    if (!this.currentProposta.situacao) {
+      alert('Por favor, selecione a situação da proposta antes de salvar.');
+      return;
+    }
+
     if (this.itens.length === 0) {
       alert('Não é possível salvar uma proposta sem itens. Por favor, adicione pelo menos um produto.');
       return;
@@ -345,7 +350,14 @@ export class PropostaComercialListComponent implements OnInit {
       // Se não for pedido, remove a data prevista se houver
       this.currentProposta.dataPrevista = undefined;
     }
-    
+    // Ensure dates have time component for LocalDateTime backend
+    if (this.currentProposta.dataPrevista && this.currentProposta.dataPrevista.length === 10) {
+      this.currentProposta.dataPrevista += 'T00:00:00';
+    }
+    if (this.currentProposta.dataCadastro && this.currentProposta.dataCadastro.length === 10) {
+      this.currentProposta.dataCadastro += 'T00:00:00';
+    }
+
     this.saving = true;
     this.currentProposta.entidadeId = this.entidadeId;
     this.currentProposta.usuarioId = this.authService.getAuthContext()?.id;
@@ -472,12 +484,12 @@ export class PropostaComercialListComponent implements OnInit {
   // Formatter moved to DateBrPipe
 
   private getEmptyProposta(): PropostaComercial {
-    const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString();
     return {
       valorDesconto: 0,
       valorFrete: 0,
       valorTotal: 0,
-      situacao: 'EM COTAÇÃO', // Defaulting based on assumed workflow
+      situacao: '', 
       dataCadastro: today,
       ativo: true
     };

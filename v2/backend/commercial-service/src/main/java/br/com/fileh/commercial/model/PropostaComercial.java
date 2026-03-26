@@ -1,11 +1,12 @@
 package br.com.fileh.commercial.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "PROPOSTA_COMERCIAL")
@@ -39,10 +40,12 @@ public class PropostaComercial {
     private BigDecimal valorTotal = BigDecimal.ZERO;
 
     @Column(name = "PRC_DT_CADASTRO")
-    private LocalDate dataCadastro;
+    @JsonFormat(pattern = "yyyy-MM-dd['T'HH:mm:ss[.SSS][XXX]]")
+    private LocalDateTime dataCadastro;
 
     @Column(name = "PRC_DT_PREVISTA")
-    private LocalDate dataPrevista;
+    @JsonFormat(pattern = "yyyy-MM-dd['T'HH:mm:ss[.SSS][XXX]]")
+    private LocalDateTime dataPrevista;
 
     @Column(name = "PRC_DS_OBS")
     private String observacao;
