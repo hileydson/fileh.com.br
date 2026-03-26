@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/financial-service/pom.xml" />
         <option value="$PROJECT_DIR$/commercial-service/pom.xml" />
+        <option value="$PROJECT_DIR$/fileh-app/pom.xml" />
       </list>
     </option>
   </component>

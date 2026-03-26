@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  max-http-header-size: 16KB
+  tomcat:
+    max-http-form-post-size: 20MB
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+spring:
+  application:
+    name: fileh-app
+  datasource:
+    url: jdbc:mysql://localhost:3306/fileh_v2?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password: camila
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+
+fileh:
+  app:
+    jwtSecret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    jwtExpirationMs: 86400000  # 24 horas em milissegundos

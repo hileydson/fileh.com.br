@@ -9,14 +9,14 @@
         <module name="api-gateway" />
         <module name="eureka-server" />
       </profile>
-      <profile name="Annotation profile for financial-service" enabled="true">
+      <profile name="Annotation profile for fileh-app" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
+        <module name="fileh-app" />
         <module name="financial-service" />
         <module name="auth-service" />
         <module name="commercial-service" />
@@ -31,6 +31,7 @@
       <module name="commercial-service" options="-parameters" />
       <module name="crm-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="fileh-app" options="-parameters" />
       <module name="financial-service" options="-parameters" />
     </option>
   </component>

@@ -1,0 +1,46 @@
+package br.com.fileh.auth.payload.response;
+
+import java.util.List;
+
+public class JwtResponse {
+    private String token;
+    private String type = "Bearer";
+    private Long id;
+    private Long tenantId;
+    private Long entidadeId;
+    private String username;
+    private String name;
+    private String email;
+    private List<String> roles;
+    private String msgFooter;
+    private boolean defaultPassword;
+    private String entidadeNome;
+
+    public JwtResponse(String accessToken, Long id, Long tenantId, Long entidadeId, String username, String name,
+                       String email, List<String> roles, String msgFooter, boolean defaultPassword, String entidadeNome) {
+        this.token = accessToken;
+        this.id = id;
+        this.tenantId = tenantId;
+        this.entidadeId = entidadeId;
+        this.username = username;
+        this.name = name;
+        this.email = email;
+        this.roles = roles;
+        this.msgFooter = msgFooter;
+        this.defaultPassword = defaultPassword;
+        this.entidadeNome = entidadeNome;
+    }
+
+    public String getToken() { return token; }
+    public String getType() { return type; }
+    public Long getId() { return id; }
+    public Long getTenantId() { return tenantId; }
+    public Long getEntidadeId() { return entidadeId; }
+    public String getUsername() { return username; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+    public List<String> getRoles() { return roles; }
+    public String getMsgFooter() { return msgFooter; }
+    public boolean isDefaultPassword() { return defaultPassword; }
+    public String getEntidadeNome() { return entidadeNome; }
+}
