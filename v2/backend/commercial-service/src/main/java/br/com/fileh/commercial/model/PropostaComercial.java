@@ -2,10 +2,14 @@ package br.com.fileh.commercial.model;
 
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.math.BigDecimal;
+import org.hibernate.annotations.Formula;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,6 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PropostaComercial {
 
     @Id
@@ -20,7 +25,6 @@ public class PropostaComercial {
     @Column(name = "PRC_CD_PROPOSTA_COMERCIAL")
     private Long id;
 
-    // Entity/Branch ID
     @Column(name = "PRC_CD_ENTIDADE", nullable = false)
     private Long entidadeId;
 
@@ -30,21 +34,30 @@ public class PropostaComercial {
     @Column(name = "PRC_CD_CLIENTE")
     private Long clienteId;
 
-    @Column(name = "PRC_VL_DESCONTO", nullable = false)
+    @Column(name = "PRC_VL_DESCONTO")
     private BigDecimal valorDesconto;
 
-    @Column(name = "PRC_VL_FRETE", nullable = false)
-    private BigDecimal valorFrete;
-
-    @Column(name = "PRC_VL_TOTAL", nullable = false)
+    // Physical column to satisfy NOT NULL constraint - hidden from JSON
+    @Column(name = "PRC_VL_TOTAL")
+    @JsonIgnore
     private BigDecimal valorTotal = BigDecimal.ZERO;
 
+    // Dynamic formula for correct business logic with {alias} correlation and lowercase for MySQL Linux compatibility
+    @Formula("(SELECT COALESCE(SUM(it.ipc_vl_item_proposta * it.ipc_nr_quantidade), 0) FROM item_proposta it WHERE it.ipc_cd_proposta_comercial = {alias}.prc_cd_proposta_comercial) - COALESCE({alias}.prc_vl_desconto, 0)")
+    @JsonProperty(value = "valorTotal", access = JsonProperty.Access.READ_ONLY)
+    private BigDecimal totalCalculado;
+
+    // Physical column to satisfy NOT NULL constraint - hidden from JSON
+    @Column(name = "PRC_VL_FRETE")
+    @JsonIgnore
+    private BigDecimal valorFrete = BigDecimal.ZERO;
+
     @Column(name = "PRC_DT_CADASTRO")
-    @JsonFormat(pattern = "yyyy-MM-dd['T'HH:mm:ss[.SSS][XXX]]")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dataCadastro;
 
     @Column(name = "PRC_DT_PREVISTA")
-    @JsonFormat(pattern = "yyyy-MM-dd['T'HH:mm:ss[.SSS][XXX]]")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dataPrevista;
 
     @Column(name = "PRC_DS_OBS")
@@ -66,6 +79,15 @@ public class PropostaComercial {
     public void prePersist() {
         if (this.ativo == null) {
             this.ativo = true;
+        }
+        if (this.valorTotal == null) {
+            this.valorTotal = BigDecimal.ZERO;
+        }
+        if (this.valorFrete == null) {
+            this.valorFrete = BigDecimal.ZERO;
+        }
+        if (this.dataCadastro == null) {
+            this.dataCadastro = LocalDateTime.now();
         }
     }
 }

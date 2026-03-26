@@ -38,6 +38,7 @@ export class PropostaComercialListComponent implements OnInit {
   produtos: Produto[] = [];
   itens: ItemProposta[] = [];
   deletedItens: number[] = [];
+  itensTotal: number = 0;
   
   // New Item Form
   novoItemProdutoId: number | null = null;
@@ -86,7 +87,33 @@ export class PropostaComercialListComponent implements OnInit {
   ngOnInit(): void {
     if (this.entidadeId !== undefined) {
         this.loadPropostas();
+        this.loadSituacoes();
+        this.loadFormasPagamento();
+        this.preloadData();
     }
+  }
+
+  private preloadData(): void {
+    this.produtoService.getAllByTenant(this.entidadeId).subscribe(prods => this.produtos = prods);
+    this.clienteService.getAllByTenant(this.entidadeId).subscribe(clis => {
+      this.clientes = clis;
+      this.clienteMap = {};
+      clis.forEach(c => { if(c.id) this.clienteMap[c.id] = c.nome; });
+    });
+  }
+
+  loadSituacoes(): void {
+    this.situacaoService.getAllByTenant(this.entidadeId).subscribe({
+      next: (data) => this.situacoes = data,
+      error: (err) => console.error('Erro ao buscar situações', err)
+    });
+  }
+
+  loadFormasPagamento(): void {
+    this.formaPagamentoService.getAllByTenant(this.entidadeId).subscribe({
+      next: (data) => this.formasPagamento = data,
+      error: (err) => console.error('Erro ao buscar formas de pagamento', err)
+    });
   }
 
   loadPropostas(): void {
@@ -101,17 +128,6 @@ export class PropostaComercialListComponent implements OnInit {
           return (b.id || 0) - (a.id || 0);
         });
         this.loading = false;
-        // Preload children
-        this.produtoService.getAllByTenant(this.entidadeId).subscribe(prods => this.produtos = prods);
-        this.clienteService.getAllByTenant(this.entidadeId).subscribe(clis => {
-          this.clientes = clis;
-          this.clienteMap = {};
-          clis.forEach(c => { if(c.id) this.clienteMap[c.id] = c.nome; });
-        });
-        
-        // Load situations and payment methods
-        this.situacaoService.getAllByTenant(this.entidadeId).subscribe(data => this.situacoes = data);
-        this.formaPagamentoService.getAllByTenant(this.entidadeId).subscribe(data => this.formasPagamento = data);
       },
       error: (err) => {
         console.error('Erro ao buscar propostas', err);
@@ -272,7 +288,11 @@ export class PropostaComercialListComponent implements OnInit {
      for (let it of this.itens) {
          subtotal += (it.valor * it.quantidade);
      }
-     this.currentProposta.valorTotal = subtotal - (this.currentProposta.valorDesconto || 0);
+     this.itensTotal = subtotal;
+  }
+
+  get totalFinal(): number {
+    return this.itensTotal - (this.currentProposta.valorDesconto || 0);
   }
 
   formatarDesconto(event: any): void {
@@ -350,12 +370,20 @@ export class PropostaComercialListComponent implements OnInit {
       // Se não for pedido, remove a data prevista se houver
       this.currentProposta.dataPrevista = undefined;
     }
-    // Ensure dates have time component for LocalDateTime backend
-    if (this.currentProposta.dataPrevista && this.currentProposta.dataPrevista.length === 10) {
-      this.currentProposta.dataPrevista += 'T00:00:00';
+    // Ensure dates have time component for LocalDateTime backend (YYYY-MM-DDTHH:mm:ss)
+    if (this.currentProposta.dataPrevista) {
+      if (this.currentProposta.dataPrevista.length === 10) {
+        this.currentProposta.dataPrevista += 'T00:00:00';
+      } else if (this.currentProposta.dataPrevista.length > 19) {
+        this.currentProposta.dataPrevista = this.currentProposta.dataPrevista.substring(0, 19);
+      }
     }
-    if (this.currentProposta.dataCadastro && this.currentProposta.dataCadastro.length === 10) {
-      this.currentProposta.dataCadastro += 'T00:00:00';
+    if (this.currentProposta.dataCadastro) {
+      if (this.currentProposta.dataCadastro.length === 10) {
+        this.currentProposta.dataCadastro += 'T00:00:00';
+      } else if (this.currentProposta.dataCadastro.length > 19) {
+        this.currentProposta.dataCadastro = this.currentProposta.dataCadastro.substring(0, 19);
+      }
     }
 
     this.saving = true;
@@ -487,7 +515,6 @@ export class PropostaComercialListComponent implements OnInit {
     const today = new Date().toISOString();
     return {
       valorDesconto: 0,
-      valorFrete: 0,
       valorTotal: 0,
       situacao: '', 
       dataCadastro: today,

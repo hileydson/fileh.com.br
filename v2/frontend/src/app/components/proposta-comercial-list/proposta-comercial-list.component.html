@@ -353,10 +353,10 @@
                    <td colspan="2" class="p-3">
                       <div class="space-y-1 text-right">
                         <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Resumo Financeiro</div>
-                        <div class="text-sm text-slate-600">Subtotal: R$ {{ (currentProposta.valorTotal + (currentProposta.valorDesconto || 0)) | number:'1.2-2' }}</div>
+                        <div class="text-sm text-slate-600">Subtotal Itens: R$ {{ itensTotal | number:'1.2-2' }}</div>
                         <div class="text-sm text-red-500">Desconto: - R$ {{ (currentProposta.valorDesconto || 0) | number:'1.2-2' }}</div>
                         <div class="text-xl font-bold text-primary-700 pt-2 border-t border-slate-200 mt-2">
-                           <span class="text-xs text-slate-400 mr-2">TOTAL:</span> R$ {{currentProposta.valorTotal | number:'1.2-2'}}
+                           <span class="text-xs text-slate-400 mr-2">TOTAL:</span> R$ {{ totalFinal | number:'1.2-2' }}
                         </div>
                       </div>
                    </td>

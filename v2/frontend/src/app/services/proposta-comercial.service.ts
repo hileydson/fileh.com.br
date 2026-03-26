@@ -8,7 +8,6 @@ export interface PropostaComercial {
   usuarioId?: number;
   clienteId?: number;
   valorDesconto: number;
-  valorFrete: number;
   valorTotal: number;
   dataCadastro?: string;
   dataPrevista?: string;

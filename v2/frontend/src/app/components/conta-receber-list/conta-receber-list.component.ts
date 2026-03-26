@@ -390,8 +390,12 @@ export class ContaReceberListComponent implements OnInit {
     const breakdownMap = new Map<number, number>();
 
     this.propostas.forEach(p => {
-        if (p.situacao === 'Pedido' && p.dataPrevista) {
-            const dueDate = new Date(p.dataPrevista + 'T00:00:00');
+        // Only active proposals with status "Pedido" in the period
+        if (p.ativo !== false && p.situacao === 'Pedido' && p.dataPrevista) {
+            // Robust parsing: backend strings often already contain 'T'
+            const dateStr = p.dataPrevista.includes('T') ? p.dataPrevista : p.dataPrevista + 'T00:00:00';
+            const dueDate = new Date(dateStr);
+            
             const matchStart = !filterStartDate || dueDate >= filterStartDate;
             const matchEnd = !filterEndDate || dueDate <= filterEndDate;
             
