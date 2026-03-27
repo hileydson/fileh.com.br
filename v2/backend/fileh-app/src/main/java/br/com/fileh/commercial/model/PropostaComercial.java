@@ -2,7 +2,6 @@ package br.com.fileh.commercial.model;
 
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -37,17 +36,9 @@ public class PropostaComercial {
     @Column(name = "PRC_VL_DESCONTO")
     private BigDecimal valorDesconto;
 
-    @Column(name = "PRC_VL_TOTAL")
-    @JsonIgnore
-    private BigDecimal valorTotal = BigDecimal.ZERO;
-
     @Formula("(SELECT COALESCE(SUM(it.ipc_vl_item_proposta * it.ipc_nr_quantidade), 0) FROM item_proposta it WHERE it.ipc_cd_proposta_comercial = {alias}.prc_cd_proposta_comercial) - COALESCE({alias}.prc_vl_desconto, 0)")
     @JsonProperty(value = "valorTotal", access = JsonProperty.Access.READ_ONLY)
     private BigDecimal totalCalculado;
-
-    @Column(name = "PRC_VL_FRETE")
-    @JsonIgnore
-    private BigDecimal valorFrete = BigDecimal.ZERO;
 
     @Column(name = "PRC_DT_CADASTRO")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
@@ -75,8 +66,6 @@ public class PropostaComercial {
     @PrePersist
     public void prePersist() {
         if (this.ativo == null) this.ativo = true;
-        if (this.valorTotal == null) this.valorTotal = BigDecimal.ZERO;
-        if (this.valorFrete == null) this.valorFrete = BigDecimal.ZERO;
         if (this.dataCadastro == null) this.dataCadastro = LocalDateTime.now();
     }
 }
