@@ -6,8 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
-        <module name="eureka-server" />
       </profile>
       <profile name="Annotation profile for fileh-app" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -15,14 +13,19 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
         <module name="fileh-app" />
-        <module name="financial-service" />
-        <module name="auth-service" />
-        <module name="commercial-service" />
-        <module name="crm-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="21" />
+      <module name="auth-service" target="21" />
+      <module name="commercial-service" target="21" />
+      <module name="crm-service" target="21" />
+      <module name="eureka-server" target="21" />
+      <module name="financial-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

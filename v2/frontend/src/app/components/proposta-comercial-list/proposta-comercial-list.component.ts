@@ -148,6 +148,7 @@ export class PropostaComercialListComponent implements OnInit {
       this.currentProposta = { ...proposta };
       this.itemService.getAllByProposta(proposta.id!).subscribe(res => {
           this.itens = res;
+          this.calcularTotais();
       });
       // Set client search state
       if (this.currentProposta.clienteId) {
