@@ -19,7 +19,7 @@ public class PropostaComercialController {
     public ResponseEntity<?> getAllByTenant(@PathVariable Long entidadeId,
             @RequestParam(required = false, defaultValue = "true") Boolean ativo) {
         try {
-            return ResponseEntity.ok(repository.findByEntidadeIdAndAtivo(entidadeId, ativo));
+            return ResponseEntity.ok(repository.findListByEntidadeIdAndAtivo(entidadeId, ativo));
         } catch (Exception e) {
             logError(e, "getAllByTenant");
             return ResponseEntity.status(500).body("Error retrieving proposals: " + e.getMessage());
@@ -29,7 +29,7 @@ public class PropostaComercialController {
     @GetMapping("/global")
     public ResponseEntity<?> getAllGlobal() {
         try {
-            return ResponseEntity.ok(repository.findAll());
+            return ResponseEntity.ok(repository.findAllList());
         } catch (Exception e) {
             logError(e, "getAllGlobal");
             return ResponseEntity.status(500).body("Error retrieving global proposals: " + e.getMessage());
