@@ -7,9 +7,21 @@
     </div>
     <div class="mt-4 sm:mt-0 flex flex-wrap gap-4 items-center">
         <div class="flex items-center bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
-            <div class="flex items-center space-x-1 w-32">
+            <div class="flex items-center space-x-1 w-36">
             <app-date-input [(ngModel)]="selectedDate" (ngModelChange)="onDateChange()"></app-date-input>
           </div>
+        </div>
+        <div class="flex flex-col bg-slate-50 px-4 py-1.5 rounded-lg border border-slate-200">
+            <span class="text-xs text-slate-500 font-medium">Entradas</span>
+            <span class="text-lg font-bold text-green-600">
+                R$ {{ calcularEntradas() | number:'1.2-2' }}
+            </span>
+        </div>
+        <div class="flex flex-col bg-slate-50 px-4 py-1.5 rounded-lg border border-slate-200">
+            <span class="text-xs text-slate-500 font-medium">Saídas</span>
+            <span class="text-lg font-bold text-red-600">
+                R$ {{ calcularSaidas() | number:'1.2-2' }}
+            </span>
         </div>
         <div class="flex flex-col bg-slate-50 px-4 py-1.5 rounded-lg border border-slate-200">
             <span class="text-xs text-slate-500 font-medium">Saldo do Dia</span>
@@ -116,7 +128,7 @@
               </span>
             </td>
             <td class="p-4 text-right font-medium" [ngClass]="r.tipo === 'EN' ? 'text-green-600' : 'text-red-600'">
-              {{ r.tipo === 'EN' ? '+' : '-' }} R$ {{r.valor | number:'1.2-2'}}
+              {{ r.tipo === 'EN' ? '+' : '-' }} R$ {{ (r.valor < 0 ? -r.valor : r.valor) | number:'1.2-2' }}
             </td>
             <td class="p-4 text-center">
               <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">

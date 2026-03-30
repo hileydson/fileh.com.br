@@ -98,14 +98,11 @@ export class FluxoCaixaListComponent implements OnInit {
   saveRegistro(): void {
     if (this.saving) return;
     
-    // Auto-detect type based on sign
-    if (this.currentRegistro.valor < 0) {
-      this.currentRegistro.tipo = 'SA';
+    // Ensure correct sign in database: EN is positive, SA is negative
+    if (this.currentRegistro.tipo === 'SA') {
+      this.currentRegistro.valor = -Math.abs(this.currentRegistro.valor);
+    } else {
       this.currentRegistro.valor = Math.abs(this.currentRegistro.valor);
-    } else if (this.currentRegistro.valor > 0 && this.currentRegistro.tipo === 'SA' && !this.isEditing) {
-      // If it's a new entry and user explicitly has 'SA' selected but entered a positive number,
-      // it should remain 'SA' (case where they use the E/S toggle instead of the sign).
-      // If it's positive and they didn't toggle 'SA', it's 'EN' (default).
     }
 
     this.saving = true;
@@ -165,8 +162,18 @@ export class FluxoCaixaListComponent implements OnInit {
   // Formatter moved to DateBrPipe
 
   calcularSaldoVisual(): number {
+      return this.registros.reduce((acc, curr) => acc + curr.valor, 0);
+  }
+
+  calcularEntradas(): number {
       return this.registros.reduce((acc, curr) => {
-          return curr.tipo === 'EN' ? acc + curr.valor : acc - curr.valor;
+          return curr.tipo === 'EN' ? acc + Math.abs(curr.valor) : acc;
+      }, 0);
+  }
+
+  calcularSaidas(): number {
+      return this.registros.reduce((acc, curr) => {
+          return curr.tipo === 'SA' ? acc + Math.abs(curr.valor) : acc;
       }, 0);
   }
 
