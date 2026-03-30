@@ -100,12 +100,12 @@ export class FluxoCaixaListComponent implements OnInit {
     
     // Auto-detect type based on sign
     if (this.currentRegistro.valor < 0) {
-      this.currentRegistro.tipo = 'S';
+      this.currentRegistro.tipo = 'SA';
       this.currentRegistro.valor = Math.abs(this.currentRegistro.valor);
-    } else if (this.currentRegistro.valor > 0 && this.currentRegistro.tipo === 'S' && !this.isEditing) {
-      // If it's a new entry and user explicitly has 'S' selected but entered a positive number,
-      // it should remain 'S' (case where they use the E/S toggle instead of the sign).
-      // If it's positive and they didn't toggle 'S', it's 'E' (default).
+    } else if (this.currentRegistro.valor > 0 && this.currentRegistro.tipo === 'SA' && !this.isEditing) {
+      // If it's a new entry and user explicitly has 'SA' selected but entered a positive number,
+      // it should remain 'SA' (case where they use the E/S toggle instead of the sign).
+      // If it's positive and they didn't toggle 'SA', it's 'EN' (default).
     }
 
     this.saving = true;
@@ -137,7 +137,7 @@ export class FluxoCaixaListComponent implements OnInit {
           if (this.manualTypeSelection) {
             this.currentRegistro.tipo = savedType;
           } else {
-            this.currentRegistro.tipo = 'E';
+            this.currentRegistro.tipo = 'EN';
           }
           
           this.currentRegistro.formaPagamento = savedFP;
@@ -166,7 +166,7 @@ export class FluxoCaixaListComponent implements OnInit {
 
   calcularSaldoVisual(): number {
       return this.registros.reduce((acc, curr) => {
-          return curr.tipo === 'E' ? acc + curr.valor : acc - curr.valor;
+          return curr.tipo === 'EN' ? acc + curr.valor : acc - curr.valor;
       }, 0);
   }
 
@@ -175,7 +175,7 @@ export class FluxoCaixaListComponent implements OnInit {
       descricao: '',
       entidadeId: this.entidadeId,
       valor: 0,
-      tipo: 'E',
+      tipo: 'EN',
       dataCadastro: this.selectedDate,
       formaPagamento: this.formasPagamento.length > 0 ? this.formasPagamento[0].descricao : 'Dinheiro'
     };

@@ -3,7 +3,7 @@
   <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
     <div>
       <h2 class="text-2xl font-bold text-slate-800">Fluxo de Caixa</h2>
-      <p class="text-slate-500 text-sm mt-1">Acompanhe as entradas e saídas financeiras (E/S).</p>
+      <p class="text-slate-500 text-sm mt-1">Acompanhe as entradas e saídas financeiras (EN/SA).</p>
     </div>
     <div class="mt-4 sm:mt-0 flex flex-wrap gap-4 items-center">
         <div class="flex items-center bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
@@ -26,14 +26,14 @@
       <div class="flex-none flex flex-col">
         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 ml-1">Tipo</label>
         <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 h-[38px]">
-          <button type="button" (click)="currentRegistro.tipo = 'E'; manualTypeSelection = true" 
+          <button type="button" (click)="currentRegistro.tipo = 'EN'; manualTypeSelection = true" 
             class="flex-1 px-3 rounded-lg text-[10px] font-bold transition-all uppercase tracking-wider"
-            [class.bg-emerald-500]="currentRegistro.tipo === 'E'" [class.text-white]="currentRegistro.tipo === 'E'"
-            [class.shadow-sm]="currentRegistro.tipo === 'E'" [class.text-slate-500]="currentRegistro.tipo !== 'E'">ENTRADA</button>
-          <button type="button" (click)="currentRegistro.tipo = 'S'; manualTypeSelection = true" 
+            [class.bg-emerald-500]="currentRegistro.tipo === 'EN'" [class.text-white]="currentRegistro.tipo === 'EN'"
+            [class.shadow-sm]="currentRegistro.tipo === 'EN'" [class.text-slate-500]="currentRegistro.tipo !== 'EN'">ENTRADA</button>
+          <button type="button" (click)="currentRegistro.tipo = 'SA'; manualTypeSelection = true" 
             class="flex-1 px-3 rounded-lg text-[10px] font-bold transition-all uppercase tracking-wider"
-            [class.bg-rose-500]="currentRegistro.tipo === 'S'" [class.text-white]="currentRegistro.tipo === 'S'"
-            [class.shadow-sm]="currentRegistro.tipo === 'S'" [class.text-slate-500]="currentRegistro.tipo !== 'S'">SAÍDA</button>
+            [class.bg-rose-500]="currentRegistro.tipo === 'SA'" [class.text-white]="currentRegistro.tipo === 'SA'"
+            [class.shadow-sm]="currentRegistro.tipo === 'SA'" [class.text-slate-500]="currentRegistro.tipo !== 'SA'">SAÍDA</button>
         </div>
       </div>
 
@@ -111,12 +111,12 @@
             </td>
             <td class="p-4">
               <span class="px-2.5 py-1 rounded-md text-xs font-bold tracking-widest"
-                [ngClass]="r.tipo === 'E' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
-                {{r.tipo === 'E' ? 'ENTRADA' : 'SAÍDA'}}
+                [ngClass]="r.tipo === 'EN' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+                {{r.tipo === 'EN' ? 'ENTRADA' : 'SAÍDA'}}
               </span>
             </td>
-            <td class="p-4 text-right font-medium" [ngClass]="r.tipo === 'E' ? 'text-green-600' : 'text-red-600'">
-              {{ r.tipo === 'E' ? '+' : '-' }} R$ {{r.valor | number:'1.2-2'}}
+            <td class="p-4 text-right font-medium" [ngClass]="r.tipo === 'EN' ? 'text-green-600' : 'text-red-600'">
+              {{ r.tipo === 'EN' ? '+' : '-' }} R$ {{r.valor | number:'1.2-2'}}
             </td>
             <td class="p-4 text-center">
               <div class="flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -157,8 +157,8 @@
             <div>
                <label class="block text-sm font-medium text-slate-700 mb-1">Tipo *</label>
                <select [(ngModel)]="currentRegistro.tipo" name="tipo" class="input-field" required>
-                 <option value="E">Entrada (Receita)</option>
-                 <option value="S">Saída (Despesa)</option>
+                 <option value="EN">Entrada (Receita)</option>
+                 <option value="SA">Saída (Despesa)</option>
                </select>
             </div>
             <div>

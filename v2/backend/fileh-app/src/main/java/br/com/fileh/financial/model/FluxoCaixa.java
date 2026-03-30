@@ -32,7 +32,7 @@ public class FluxoCaixa {
     private LocalDate dataCadastro;
 
     @Column(name = "FLU_FL_TIPO", nullable = false)
-    private Character tipo;
+    private String tipo;
 
     @Column(name = "FLU_DS_FORMA_PAGAMENTO")
     private String formaPagamento;
