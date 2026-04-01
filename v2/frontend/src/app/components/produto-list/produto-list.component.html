@@ -129,7 +129,7 @@
   <div class="bg-white rounded-2xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto transform transition-all">
     <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white/95 backdrop-blur z-10">
       <h3 class="text-xl font-bold text-slate-800">Importar Produtos</h3>
-      <button (click)="closeImportModal()" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+      <button (click)="closeImportModal()" [disabled]="importing" class="text-slate-400 hover:bg-slate-100 p-2 rounded-full disabled:opacity-30"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
     </div>
     <div class="p-6 space-y-4">
        <div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-primary-400 transition-colors cursor-pointer relative">
@@ -139,9 +139,9 @@
 
       <div *ngIf="importError" class="bg-red-50 text-red-700 p-3 rounded-lg text-sm">{{importError}}</div>
 
-      <div *ngIf="importPreview.length > 0" class="flex items-center space-x-6 bg-slate-50 p-4 rounded-lg">
-        <label class="flex items-center space-x-2"><input type="radio" [(ngModel)]="importMode" value="add"><span>Adicionar</span></label>
-        <label class="flex items-center space-x-2"><input type="radio" [(ngModel)]="importMode" value="replace" class="text-red-500"><span>Substituir Tudo</span></label>
+      <div *ngIf="importPreview.length > 0" class="flex items-center space-x-6 bg-slate-50 p-4 rounded-lg opacity-60">
+        <label class="flex items-center space-x-2 cursor-not-allowed"><input type="radio" [(ngModel)]="importMode" value="add" [disabled]="true"><span>Adicionar</span></label>
+        <label class="flex items-center space-x-2 cursor-not-allowed"><input type="radio" [(ngModel)]="importMode" value="replace" class="text-red-500" [disabled]="true"><span>Substituir Tudo</span></label>
       </div>
 
       <div *ngIf="importing" class="space-y-2">
@@ -152,7 +152,7 @@
       </div>
 
       <div class="flex justify-end space-x-3 pt-4">
-        <button (click)="closeImportModal()" class="px-5 py-2.5 text-slate-600 bg-slate-100 rounded-lg">Cancelar</button>
+        <button (click)="closeImportModal()" [disabled]="importing" class="px-5 py-2.5 text-slate-600 bg-slate-100 rounded-lg disabled:opacity-30">Cancelar</button>
         <button (click)="confirmarImportacao()" [disabled]="importing || importPreview.length === 0" class="btn-primary px-5 py-2.5">Confirmar Importação</button>
       </div>
     </div>

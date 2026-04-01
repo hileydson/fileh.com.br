@@ -27,7 +27,7 @@ export class ProdutoListComponent implements OnInit {
 
   // === Importação CSV ===
   showImportModal = false;
-  importMode: 'add' | 'replace' = 'add';
+  importMode: 'add' | 'replace' = 'replace';
   importPreview: Produto[] = [];
   importFileName = '';
   importError = '';
@@ -138,7 +138,7 @@ export class ProdutoListComponent implements OnInit {
       this.importPreview = [];
       this.importFileName = '';
       this.importError = '';
-      this.importMode = 'add';
+      this.importMode = 'replace';
       this.importProgress = 0;
   }
 
