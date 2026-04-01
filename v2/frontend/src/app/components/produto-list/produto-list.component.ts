@@ -19,6 +19,7 @@ export class ProdutoListComponent implements OnInit {
   isEditing = false;
   currentProduto: Produto = this.getEmptyProduto();
   searchTerm: string = '';
+  isFullAdmin: boolean = false;
 
   // Paginação
   currentPage = 1;
@@ -42,6 +43,7 @@ export class ProdutoListComponent implements OnInit {
     const ctx = this.authService.getAuthContext();
     if (ctx) {
         this.entidadeId = ctx.entidadeId || 0;
+        this.isFullAdmin = ctx.roles.includes('ROLE_ADMIN');
         this.loadProdutos();
     }
   }
@@ -162,44 +164,78 @@ export class ProdutoListComponent implements OnInit {
   }
 
   private parseCSV(csvText: string): void {
-      const firstLine = csvText.split('\n')[0];
-      const separator = firstLine.includes(';') ? ';' : ',';
-      const lines = csvText.split('\n').filter(l => l.trim().length > 0);
-      
-      if (lines.length < 2) {
+      const allLines = csvText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      if (allLines.length < 2) {
           this.importError = 'Arquivo vazio ou sem dados.';
           return;
       }
 
-      const headers = lines[0].split(separator).map(h => h.trim().toUpperCase().replace(/"/g, ''));
-      const colMap: Record<string, string> = {
-          'PRD_CD_PRODUTO': 'id',
-          'PRD_DS_PRODUTO': 'descricao',
-          'PRD_VL_PRECO': 'valorVenda',
-          'PRD_DS_UNIDADE': 'unidade',
-          'PRD_NR_ESTOQUE': 'estoque',
+      // 1. Encontrar a linha de cabeçalho e o separador
+      let headerIndex = -1;
+      let separator = ',';
+      
+      const aliasMap: Record<string, string[]> = {
+          'id': ['PRD_CD_PRODUTO', 'CD_PRODUTO', 'SKU', 'CODIGO'],
+          'descricao': ['PRD_DS_PRODUTO', 'DS_PRODUTO', 'DESCRICAO', 'PRODUTO'],
+          'valorVenda': ['PRD_VL_PRECO', 'VL_PRECO', 'VALOR', 'PRECO', 'VALOR_VENDA'],
+          'unidade': ['PRD_DS_UNIDADE', 'DS_UNIDADE', 'UN', 'UNIDADE'],
+          'estoque': ['PRD_NR_ESTOQUE', 'NR_ESTOQUE', 'ESTOQUE', 'QUANTIDADE']
       };
 
-      const indices: Record<string, number> = {};
-      for (const [csvCol, field] of Object.entries(colMap)) {
-          const idx = headers.indexOf(csvCol);
-          if (idx !== -1) indices[field] = idx;
+      for (let i = 0; i < Math.min(allLines.length, 5); i++) {
+          const line = allLines[i];
+          const sep = line.includes(';') ? ';' : ',';
+          const cols = line.split(sep).map(c => c.trim().toUpperCase().replace(/"/g, ''));
+          
+          // Se a linha tem mais de uma coluna e contém pelo menos 2 cabeçalhos conhecidos
+          let matches = 0;
+          for (const aliases of Object.values(aliasMap)) {
+              if (aliases.some(alias => cols.includes(alias))) {
+                  matches++;
+              }
+          }
+
+          if (cols.length > 1 && matches >= 2) {
+              headerIndex = i;
+              separator = sep;
+              break;
+          }
       }
 
-      if (indices['descricao'] === undefined || indices['valorVenda'] === undefined) {
-          this.importError = 'O CSV deve conter as colunas PRD_DS_PRODUTO e PRD_VL_PRECO.';
+      if (headerIndex === -1) {
+          this.importError = 'Não foi possível identificar o cabeçalho do CSV. Verifique as colunas.';
           return;
       }
 
+      // 2. Mapear índices das colunas
+      const headers = allLines[headerIndex].split(separator).map(h => h.trim().toUpperCase().replace(/"/g, ''));
+      const indices: Record<string, number> = {};
+
+      for (const [field, aliases] of Object.entries(aliasMap)) {
+          for (const alias of aliases) {
+              const idx = headers.indexOf(alias);
+              if (idx !== -1) {
+                  indices[field] = idx;
+                  break;
+              }
+          }
+      }
+
+      if (indices['descricao'] === undefined || indices['valorVenda'] === undefined) {
+          this.importError = 'O CSV deve conter colunas de Descrição e Preço.';
+          return;
+      }
+
+      // 3. Processar dados
       const produtos: Produto[] = [];
-      for (let i = 1; i < lines.length; i++) {
-          const cols = lines[i].split(separator).map(c => c.trim().replace(/"/g, ''));
+      for (let i = headerIndex + 1; i < allLines.length; i++) {
+          const cols = allLines[i].split(separator).map(c => c.trim().replace(/"/g, ''));
           if (cols.length < 2) continue;
 
           const prod: Produto = {
               descricao: cols[indices['descricao']] || '',
               sku: indices['id'] !== undefined ? cols[indices['id']] : '',
-              valorVenda: parseFloat(cols[indices['valorVenda']].replace(',', '.')) || 0,
+              valorVenda: parseFloat(cols[indices['valorVenda']]?.replace(',', '.') || '0') || 0,
               unidade: indices['unidade'] !== undefined ? cols[indices['unidade']] : 'UN',
               estoque: indices['estoque'] !== undefined ? parseInt(cols[indices['estoque']]) || 0 : 0,
               entidadeId: this.entidadeId
@@ -209,7 +245,7 @@ export class ProdutoListComponent implements OnInit {
       }
 
       if (produtos.length === 0) {
-          this.importError = 'Nenhum produto válido encontrado.';
+          this.importError = 'Nenhum produto válido encontrado após o cabeçalho.';
           return;
       }
 
