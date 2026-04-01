@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import packageInfo from '../../../../package.json';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent {
   credentials = { username: '', password: '' };
   loading = false;
   errorMessage = '';
+  version = packageInfo.version;
 
   constructor(private authService: AuthService, private router: Router) {
     if (this.authService.isLoggedIn()) {
