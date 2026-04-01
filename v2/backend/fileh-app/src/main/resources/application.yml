@@ -14,7 +14,7 @@ spring:
   datasource:
 
     #LOCAL ou no SERVIDOR
-    url: jdbc:mysql://localhost:3306/serdo_rimacol?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/serdo_rimacol?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
     password: ${BANCO_SENHA}
 
     #REMOTO
@@ -30,7 +30,7 @@ spring:
     properties:
       hibernate:
         format_sql: false
-        dialect: org.hibernate.dialect.MySQLDialect
+        # dialect: org.hibernate.dialect.MySQLDialect (Redundante no Hibernate 6+)
 
 fileh:
   app:
