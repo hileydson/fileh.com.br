@@ -8,6 +8,7 @@ import { ProdutoService, Produto } from '../../services/produto.service';
 import { ClienteService, Cliente } from '../../services/cliente.service';
 import { SituacaoPropostaService, SituacaoProposta } from '../../services/situacao-proposta.service';
 import { FormaPagamentoService, FormaPagamento } from '../../services/forma-pagamento.service';
+import { EntidadeService, Entidade } from '../../services/entidade.service';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin, of } from 'rxjs';
@@ -63,6 +64,7 @@ export class PropostaComercialListComponent implements OnInit {
     dataPrevistaInicio: '',
     dataPrevistaFim: '',
     situacao: '',
+    entidadeId: null as number | null,
     exibirInativos: false
   };
   currentPage = 1;
@@ -79,6 +81,7 @@ export class PropostaComercialListComponent implements OnInit {
     private clienteService: ClienteService,
     private situacaoService: SituacaoPropostaService,
     private formaPagamentoService: FormaPagamentoService,
+    private entidadeService: EntidadeService,
     public authService: AuthService,
     private route: ActivatedRoute
   ) {
@@ -88,10 +91,12 @@ export class PropostaComercialListComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.entidadeId !== undefined) {
+        this.filtros.entidadeId = this.entidadeId; // Default to current entity
         this.loadPropostas();
         this.loadSituacoes();
         this.loadFormasPagamento();
         this.preloadData();
+        this.loadEntidadesFiltro();
         
         // Handle client filter from navigation
         this.route.queryParams.subscribe(params => {
@@ -124,6 +129,17 @@ export class PropostaComercialListComponent implements OnInit {
       next: (data) => this.formasPagamento = data,
       error: (err) => console.error('Erro ao buscar formas de pagamento', err)
     });
+  }
+
+  entidadesFiltro: Entidade[] = [];
+  loadEntidadesFiltro(): void {
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.tenantId) {
+      this.entidadeService.getAllByTenant(ctx.tenantId).subscribe({
+        next: (data: Entidade[]) => this.entidadesFiltro = data.sort((a: Entidade, b: Entidade) => a.nome.localeCompare(b.nome)),
+        error: (err: any) => console.error('Erro ao buscar entidades para filtro', err)
+      });
+    }
   }
 
   loadPropostas(): void {
@@ -469,13 +485,15 @@ export class PropostaComercialListComponent implements OnInit {
 
       const matchSituacao = !this.filtros.situacao || p.situacao === this.filtros.situacao;
 
+      const matchEntidade = !this.filtros.entidadeId || p.entidadeId === this.filtros.entidadeId;
+
       // Inativos filter logic
       const matchAtivo = this.filtros.exibirInativos ? !p.ativo : p.ativo;
 
       // Dates
       const matchDataPrev = this.matchDateRange(p.dataPrevista, this.filtros.dataPrevistaInicio, this.filtros.dataPrevistaFim);
 
-      return matchId && matchCliente && matchSituacao && matchDataPrev && matchAtivo;
+      return matchId && matchCliente && matchSituacao && matchDataPrev && matchAtivo && matchEntidade;
     });
   }
 

@@ -35,6 +35,13 @@
           <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Previsão Fim</label>
           <app-date-input [(ngModel)]="filtros.dataPrevistaFim" (ngModelChange)="onFilterChange()"></app-date-input>
         </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase text-primary-600">Entidade</label>
+        <select [(ngModel)]="filtros.entidadeId" (change)="onFilterChange()" class="w-full px-3 py-2 bg-primary-50 border border-primary-100 rounded-lg text-sm focus:ring-2 focus:ring-primary-500/50 outline-none text-primary-700 font-bold">
+          <option [ngValue]="null">Todas as Entidades</option>
+          <option *ngFor="let ent of entidadesFiltro" [ngValue]="ent.id">{{ ent.nome }}</option>
+        </select>
+      </div>
       <div *ngIf="authService.getAuthContext()?.roles?.includes('ROLE_ADMIN')">
         <label class="block text-xs font-bold text-slate-500 mb-1 uppercase text-rose-500">Status</label>
         <select [(ngModel)]="filtros.exibirInativos" (change)="onFilterChange()" class="w-full px-3 py-2 bg-rose-50 border border-rose-100 rounded-lg text-sm focus:ring-2 focus:ring-rose-500/50 outline-none text-rose-700 font-bold">
