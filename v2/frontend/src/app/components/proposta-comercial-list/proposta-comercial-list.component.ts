@@ -118,7 +118,7 @@ export class PropostaComercialListComponent implements OnInit {
 
   loadPropostas(): void {
     this.loading = true;
-    this.propostaService.getAllByTenant(this.entidadeId, !this.filtros.exibirInativos).subscribe({
+    this.propostaService.getAllGlobal().subscribe({
       next: (data) => {
         // Sort by dataCadastro (desc) and then id (desc)
         this.propostas = data.sort((a, b) => {
