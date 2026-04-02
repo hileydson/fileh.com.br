@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ClienteService, Cliente } from '../../services/cliente.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-list',
@@ -39,7 +40,8 @@ export class ClienteListComponent implements OnInit {
 
   constructor(
     private clienteService: ClienteService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -147,6 +149,10 @@ export class ClienteListComponent implements OnInit {
 
   onFilterChange(): void {
     this.currentPage = 1;
+  }
+
+  buscarPropostas(clienteId: number): void {
+    this.router.navigate(['/propostas'], { queryParams: { clienteId: clienteId } });
   }
 
   private getEmptyCliente(): Cliente {

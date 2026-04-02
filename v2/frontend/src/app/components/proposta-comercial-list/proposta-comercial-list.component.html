@@ -35,9 +35,9 @@
           <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Previsão Fim</label>
           <app-date-input [(ngModel)]="filtros.dataPrevistaFim" (ngModelChange)="onFilterChange()"></app-date-input>
         </div>
-      <div>
+      <div *ngIf="authService.getAuthContext()?.roles?.includes('ROLE_ADMIN')">
         <label class="block text-xs font-bold text-slate-500 mb-1 uppercase text-rose-500">Status</label>
-        <select [(ngModel)]="filtros.exibirInativos" (change)="loadPropostas()" class="w-full px-3 py-2 bg-rose-50 border border-rose-100 rounded-lg text-sm focus:ring-2 focus:ring-rose-500/50 outline-none text-rose-700 font-bold">
+        <select [(ngModel)]="filtros.exibirInativos" (change)="onFilterChange()" class="w-full px-3 py-2 bg-rose-50 border border-rose-100 rounded-lg text-sm focus:ring-2 focus:ring-rose-500/50 outline-none text-rose-700 font-bold">
           <option [ngValue]="false">Ativas (Padrão)</option>
           <option [ngValue]="true">Inativadas</option>
         </select>
@@ -104,7 +104,8 @@
                       'bg-blue-50 text-blue-600 border border-blue-100': p.situacao === 'EM COTAÇÃO', 
                       'bg-green-50 text-green-600 border border-green-100': p.situacao === 'APROVADA', 
                       'bg-red-50 text-red-600 border border-red-100': p.situacao === 'REJEITADA',
-                      'bg-purple-50 text-purple-600 border border-purple-100': p.situacao === 'MANDADO PARA FATURAMENTO'
+                      'bg-purple-50 text-purple-600 border border-purple-100': p.situacao === 'MANDADO PARA FATURAMENTO',
+                      'bg-emerald-50 text-emerald-600 border border-emerald-100': p.situacao === 'FINALIZADA'
                     }">
                 {{p.situacao || 'N/A'}}
               </span>
@@ -114,6 +115,9 @@
             </td>
             <td class="p-4 text-center">
               <div class="flex justify-center space-x-2">
+                <button *ngIf="p.situacao !== 'FINALIZADA'" (click)="marcarComoFinalizada(p)" class="p-2 bg-emerald-50 text-emerald-600 hover:bg-emerald-100 rounded-lg transition-colors" title="Marcar como Pago">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </button>
                 <button (click)="imprimirProposta(p)" class="p-2 bg-slate-50 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" title="Imprimir">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
         </button>
@@ -298,7 +302,7 @@
             </div>
             <div class="w-24">
               <label class="block text-xs font-medium text-slate-700 mb-1">Qtd.</label>
-              <input type="number" #qtdInput [(ngModel)]="novoItemQuantidade" name="novoItemQtd" min="1" (keydown.enter)="$event.preventDefault(); adicionarItem()" class="input-field text-center">
+              <input type="number" #qtdInput [(ngModel)]="novoItemQuantidade" name="novoItemQtd" step="any" min="1" (keydown.enter)="$event.preventDefault(); adicionarItem()" class="input-field text-center">
             </div>
             <button type="button" (click)="adicionarItem()" [disabled]="!novoItemProdutoId" class="px-4 py-2.5 bg-blue-100 text-blue-700 hover:bg-blue-200 font-medium rounded-lg transition-colors flex items-center">
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
@@ -324,13 +328,16 @@
                 </tr>
                 <tr *ngFor="let it of itens; let i = index" class="hover:bg-slate-50">
                   <td class="p-3 font-medium">{{it.descricao}}</td>
-                  <td class="p-3 text-center text-slate-500 whitespace-nowrap">{{it.unidade}}</td>
+                  <td class="p-3 text-center text-slate-500 whitespace-nowrap">
+                    <input type="text" [(ngModel)]="it.unidade" [name]="'itUn'+i" 
+                           class="w-16 px-2 py-1 bg-white border border-slate-200 rounded text-center text-xs outline-none focus:ring-1 focus:ring-primary-500">
+                  </td>
                   <td class="p-3 text-right">
                     <input type="text" [value]="getValorFormatado(it.valor)" (input)="formatarValorItem($event, i)" (focus)="selectVal($event)" 
                            class="w-full px-2 py-1 bg-white border border-slate-200 rounded text-right text-xs outline-none focus:ring-1 focus:ring-primary-500">
                   </td>
                   <td class="p-3 text-center">
-                    <input type="number" [(ngModel)]="it.quantidade" [name]="'itQtd'+i" (change)="calcularTotais()" 
+                    <input type="number" [(ngModel)]="it.quantidade" [name]="'itQtd'+i" step="any" (change)="calcularTotais()" 
                            class="w-full px-2 py-1 bg-white border border-slate-200 rounded text-center text-xs outline-none focus:ring-1 focus:ring-primary-500">
                   </td>
                   <td class="p-3 text-right font-medium text-primary-700 whitespace-nowrap">R$ {{(it.valor * it.quantidade) | number:'1.2-2'}}</td>

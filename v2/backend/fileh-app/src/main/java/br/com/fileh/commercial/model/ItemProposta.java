@@ -28,7 +28,7 @@ public class ItemProposta {
     private BigDecimal valor;
 
     @Column(name = "IPC_NR_QUANTIDADE", nullable = false)
-    private Integer quantidade;
+    private BigDecimal quantidade;
 
     @Column(name = "IPC_VL_DESCONTO", nullable = false)
     private BigDecimal valorDesconto;

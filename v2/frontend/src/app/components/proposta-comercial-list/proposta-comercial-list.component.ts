@@ -9,6 +9,7 @@ import { ClienteService, Cliente } from '../../services/cliente.service';
 import { SituacaoPropostaService, SituacaoProposta } from '../../services/situacao-proposta.service';
 import { FormaPagamentoService, FormaPagamento } from '../../services/forma-pagamento.service';
 import { AuthService } from '../../services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { DateInputComponent } from '../shared/date-input/date-input.component';
@@ -78,7 +79,8 @@ export class PropostaComercialListComponent implements OnInit {
     private clienteService: ClienteService,
     private situacaoService: SituacaoPropostaService,
     private formaPagamentoService: FormaPagamentoService,
-    public authService: AuthService
+    public authService: AuthService,
+    private route: ActivatedRoute
   ) {
     const ctx = this.authService.getAuthContext();
     this.entidadeId = ctx?.entidadeId || 0;
@@ -90,6 +92,14 @@ export class PropostaComercialListComponent implements OnInit {
         this.loadSituacoes();
         this.loadFormasPagamento();
         this.preloadData();
+        
+        // Handle client filter from navigation
+        this.route.queryParams.subscribe(params => {
+          if (params['clienteId']) {
+            this.filtros.cliente = params['clienteId'];
+            this.onFilterChange();
+          }
+        });
     }
   }
 
@@ -459,10 +469,13 @@ export class PropostaComercialListComponent implements OnInit {
 
       const matchSituacao = !this.filtros.situacao || p.situacao === this.filtros.situacao;
 
+      // Inativos filter logic
+      const matchAtivo = this.filtros.exibirInativos ? !p.ativo : p.ativo;
+
       // Dates
       const matchDataPrev = this.matchDateRange(p.dataPrevista, this.filtros.dataPrevistaInicio, this.filtros.dataPrevistaFim);
 
-      return matchId && matchCliente && matchSituacao && matchDataPrev;
+      return matchId && matchCliente && matchSituacao && matchDataPrev && matchAtivo;
     });
   }
 
@@ -510,6 +523,15 @@ export class PropostaComercialListComponent implements OnInit {
     }
   }
 
+  marcarComoFinalizada(p: PropostaComercial): void {
+    if (!p.id) return;
+    const updated = { ...p, situacao: 'FINALIZADA' };
+    this.propostaService.update(p.id, updated).subscribe({
+      next: () => this.loadPropostas(),
+      error: (err) => console.error('Erro ao finalizar proposta', err)
+    });
+  }
+
   // Formatter moved to DateBrPipe
 
   private getEmptyProposta(): PropostaComercial {
@@ -541,20 +563,20 @@ export class PropostaComercialListComponent implements OnInit {
               <link rel="icon" type="image/png" href="logo.png">
               <style>
                 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #334155; line-height: 1.5; }
-                .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
+                .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px; }
                 .title { font-size: 28px; font-weight: 800; color: #1e40af; }
                 .date-header { text-align: right; font-size: 14px; color: #64748b; font-weight: 500; }
                 
-                .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+                .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
                 .info-box { border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; background: #f8fafc; }
                 .label { font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.05em; }
                 .value { font-size: 14px; font-weight: 600; color: #1e293b; }
                 
                 .client-details { font-size: 13px; color: #475569; margin-top: 5px; line-height: 1.4; }
                 
-                table { width: 100%; border-collapse: collapse; margin-bottom: 40px; border-radius: 8px; overflow: hidden; }
-                th { text-align: left; padding: 14px; background: #1e40af; color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; }
-                td { padding: 14px; border-bottom: 1px solid #f1f5f9; font-size: 13px; vertical-align: middle; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 25px; border-radius: 8px; overflow: hidden; }
+                th { text-align: left; padding: 8px 12px; background: #1e40af; color: white; font-size: 10.5px; font-weight: 600; text-transform: uppercase; }
+                td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; font-size: 11px; vertical-align: middle; }
                 tr:nth-child(even) { background-color: #f8fafc; }
                 
                 .total-section { float: right; width: 300px; background: #f1f5f9; padding: 20px; border-radius: 12px; }

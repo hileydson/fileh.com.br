@@ -34,5 +34,5 @@ public class Produto {
     private String unidade;
 
     @Column(name = "PRO_NR_ESTOQUE")
-    private Integer estoque = 0;
+    private BigDecimal estoque = BigDecimal.ZERO;
 }
