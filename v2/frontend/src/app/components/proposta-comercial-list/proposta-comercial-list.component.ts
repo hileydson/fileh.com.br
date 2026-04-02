@@ -479,6 +479,17 @@ export class PropostaComercialListComponent implements OnInit {
     });
   }
 
+  get totalFiltrado(): number {
+    return this.propostasFiltradas.reduce((acc, p) => acc + (p.valorTotal || 0), 0);
+  }
+
+  get exibirTotalFiltro(): boolean {
+    if (!this.filtros.cliente || this.propostasFiltradas.length === 0) return false;
+    const firstId = this.propostasFiltradas[0].clienteId;
+    // Check if the filter resulted in propostas from only ONE unique client ID
+    return this.propostasFiltradas.every(p => p.clienteId === firstId);
+  }
+
   private matchDateRange(dateStr: string | undefined, start: string, end: string): boolean {
     if (!start && !end) return true;
     if (!dateStr) return false;

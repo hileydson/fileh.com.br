@@ -4,6 +4,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } fro
 import { filter } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { EntidadeService, Entidade } from '../../services/entidade.service';
 
 @Component({
   selector: 'app-layout',
@@ -24,13 +25,20 @@ export class LayoutComponent {
   showUserMenu = false;
   showProfileModal = false;
   showPasswordModal = false;
+  showSwitchModal = false;
   isSidebarOpen = false;
+  
+  entidades: Entidade[] = [];
 
   profileData = { nome: '', msgFooter: '' };
   passwordData = { newPassword: '', confirmPassword: '' };
   saving = false;
   
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService, 
+    private entidadeService: EntidadeService,
+    private router: Router
+  ) {
     const ctx = this.authService.getAuthContext();
     if (ctx) {
       if (ctx.entidadeNome) {
@@ -125,5 +133,39 @@ export class LayoutComponent {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  openSwitchModal(): void {
+    const ctx = this.authService.getAuthContext();
+    if (ctx && ctx.tenantId) {
+      this.entidadeService.getAllByTenant(ctx.tenantId).subscribe({
+        next: (data) => {
+          this.entidades = data;
+          this.showSwitchModal = true;
+          this.showUserMenu = false;
+        },
+        error: (err) => console.error('Erro ao buscar entidades', err)
+      });
+    }
+  }
+
+  closeSwitchModal(): void {
+    this.showSwitchModal = false;
+  }
+
+  confirmSwitch(entidadeId: number): void {
+    this.saving = true;
+    this.authService.switchEntidade(entidadeId).subscribe({
+      next: () => {
+        this.saving = false;
+        // Full reload to refresh all contexts
+        window.location.reload();
+      },
+      error: (err) => {
+        console.error('Erro ao trocar entidade', err);
+        this.saving = false;
+        alert('Erro ao trocar entidade. Tente novamente.');
+      }
+    });
   }
 }

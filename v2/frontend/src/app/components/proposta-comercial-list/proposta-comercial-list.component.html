@@ -134,6 +134,13 @@
     </td>
 </tr>
         </tbody>
+        <tfoot *ngIf="exibirTotalFiltro" class="bg-primary-50/50 border-t-2 border-primary-100">
+          <tr class="font-bold text-primary-800">
+            <td colspan="5" class="p-4 text-right uppercase tracking-wider text-[10px]">Total Acumulado para o Cliente:</td>
+            <td class="p-4 text-right text-base whitespace-nowrap">R$ {{ totalFiltrado | number:'1.2-2' }}</td>
+            <td></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 

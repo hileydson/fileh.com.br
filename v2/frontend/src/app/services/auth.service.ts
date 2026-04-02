@@ -99,4 +99,30 @@ export class AuthService {
       })
     );
   }
+
+  switchEntidade(entidadeId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/switch-entidade/${entidadeId}`, {}).pipe(
+      tap((res: any) => {
+        if (res && res.token) {
+          localStorage.setItem('jwt_token', res.token);
+          
+          const authContext: AuthContext = {
+            id: res.id,
+            tenantId: res.tenantId,
+            entidadeId: res.entidadeId,
+            username: res.username,
+            nome: res.name,
+            email: res.email,
+            roles: res.roles || [],
+            msgFooter: res.msgFooter,
+            isDefaultPassword: res.isDefaultPassword,
+            entidadeNome: res.entidadeNome
+          };
+          localStorage.setItem('auth_context', JSON.stringify(authContext));
+          
+          this.loggedIn.next(true);
+        }
+      })
+    );
+  }
 }

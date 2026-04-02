@@ -43,6 +43,23 @@ public class JwtUtils {
                 .compact();
     }
 
+    public String generateJwtTokenForEntidade(Authentication authentication, Long entidadeId, String entidadeNome) {
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
+
+        return Jwts.builder()
+                .subject(userPrincipal.getUsername())
+                .claim("tenantId", userPrincipal.getTenantId())
+                .claim("entidadeId", entidadeId)
+                .claim("name", userPrincipal.getName())
+                .claim("roles", userPrincipal.getAuthorities().stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toList()))
+                .issuedAt(new Date())
+                .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(key(), Jwts.SIG.HS256)
+                .compact();
+    }
+
     private SecretKey key() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
     }
