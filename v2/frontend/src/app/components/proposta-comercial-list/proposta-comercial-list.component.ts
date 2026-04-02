@@ -114,7 +114,7 @@ export class PropostaComercialListComponent implements OnInit {
 
   loadSituacoes(): void {
     this.situacaoService.getAllByTenant(this.entidadeId).subscribe({
-      next: (data) => this.situacoes = data,
+      next: (data) => this.situacoes = data.sort((a, b) => a.descricao.localeCompare(b.descricao)),
       error: (err) => console.error('Erro ao buscar situações', err)
     });
   }
@@ -539,7 +539,8 @@ export class PropostaComercialListComponent implements OnInit {
     return {
       valorDesconto: 0,
       valorTotal: 0,
-      situacao: '', 
+      situacao: 'Orçamento', 
+      formaPagamento: 'DINHEIRO',
       dataCadastro: today,
       ativo: true
     };

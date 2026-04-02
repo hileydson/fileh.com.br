@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
@@ -23,6 +24,7 @@ export class LayoutComponent {
   showUserMenu = false;
   showProfileModal = false;
   showPasswordModal = false;
+  isSidebarOpen = false;
 
   profileData = { nome: '', msgFooter: '' };
   passwordData = { newPassword: '', confirmPassword: '' };
@@ -45,6 +47,21 @@ export class LayoutComponent {
         msgFooter: ctx.msgFooter || ''
       };
     }
+
+    // Close sidebar on navigation
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.closeSidebar();
+    });
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  closeSidebar(): void {
+    this.isSidebarOpen = false;
   }
 
   toggleUserMenu(): void {
