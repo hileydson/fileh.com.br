@@ -126,6 +126,10 @@ export class ContaPagarListComponent implements OnInit {
       const matchEnd = !this.filtros.dataFim || (dueDate && dueDate <= new Date(this.filtros.dataFim));
 
       return matchStatus && matchTipo && matchSearch && matchStart && matchEnd;
+    }).sort((a, b) => {
+      const dateA = a.dataVencimento || '';
+      const dateB = b.dataVencimento || '';
+      return dateA.localeCompare(dateB);
     });
     this.calculateDashboard();
     this.updatePagination();
