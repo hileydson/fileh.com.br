@@ -50,6 +50,11 @@ export class PropostaComercialListComponent implements OnInit {
   showProdutoResults = false;
   produtoValido = false;
 
+  pagamentos: any[] = [];
+  novoPagamentoDesc = '';
+  novoPagamentoValor = 0;
+  totalFinal = 0;
+
   // Busca de Clientes
   clienteBusca: string = '';
   clientesFiltrados: Cliente[] = [];
@@ -165,6 +170,7 @@ export class PropostaComercialListComponent implements OnInit {
   openModal(proposta?: PropostaComercial): void {
     this.activeTab = 'dados';
     this.itens = [];
+    this.pagamentos = [];
     this.deletedItens = [];
     this.novoItemProdutoId = null;
     this.novoItemQuantidade = 1;
@@ -172,19 +178,18 @@ export class PropostaComercialListComponent implements OnInit {
     if (proposta) {
       this.isEditing = true;
       this.currentProposta = { ...proposta };
-      this.itemService.getAllByProposta(proposta.id!).subscribe(res => {
-          this.itens = res;
-          this.calcularTotais();
+      this.clienteBusca = proposta.clienteId ? (this.clienteMap[proposta.clienteId] || proposta.clienteId.toString()) : '';
+      this.clienteValido = true;
+      
+      this.itemService.getAllByProposta(proposta.id!).subscribe(items => {
+        this.itens = items.filter(i => i.valor > 0);
+        this.pagamentos = items.filter(i => i.valor < 0).map(i => ({
+          id: i.id,
+          descricao: i.descricao,
+          valor: Math.abs(i.valor)
+        }));
+        this.calcularTotais();
       });
-      // Set client search state
-      if (this.currentProposta.clienteId) {
-        this.clienteValido = true;
-        const cli = this.clientes.find(c => c.id === this.currentProposta.clienteId);
-        if (cli) {
-          this.clienteBusca = cli.nome;
-          this.clienteSelecionado = cli;
-        }
-      }
     } else {
       this.isEditing = false;
       this.currentProposta = this.getEmptyProposta();
@@ -192,19 +197,15 @@ export class PropostaComercialListComponent implements OnInit {
       if (ctx) {
           this.currentProposta.atendente = ctx.nome;
       }
+      this.clienteBusca = '';
+      this.clienteValido = false;
+      this.clienteSelecionado = null;
     }
     this.showModal = true;
     this.produtoBusca = '';
     this.produtosFiltrados = [];
     this.showProdutoResults = false;
     this.produtoValido = false;
-    
-    // Reset client search logic for new/switching
-    if (!proposta) {
-      this.clienteBusca = '';
-      this.clienteValido = false;
-      this.clienteSelecionado = null;
-    }
   }
 
   closeModal(): void {
@@ -232,23 +233,10 @@ export class PropostaComercialListComponent implements OnInit {
     this.produtoValido = true;
     this.showProdutoResults = false;
     
-    // Focus and select quantity input
     setTimeout(() => {
-      // Multiple attempts to ensure it works
       const el = document.querySelector('input[name="novoItemQtd"]') as HTMLInputElement;
-      if (el) {
-        el.focus();
-        el.select();
-      }
+      if (el) { el.focus(); el.select(); }
     }, 50);
-
-    setTimeout(() => {
-      const el = document.querySelector('input[name="novoItemQtd"]') as HTMLInputElement;
-      if (el) {
-        el.focus();
-        el.select();
-      }
-    }, 150);
   }
 
   buscarClientes(term: string): void {
@@ -294,7 +282,6 @@ export class PropostaComercialListComponent implements OnInit {
     this.produtoValido = false;
     this.calcularTotais();
     
-    // After adding, focus back to product search
     setTimeout(() => {
       const el = document.querySelector('input[name="prodBusca"]') as HTMLInputElement;
       if (el) el.focus();
@@ -310,16 +297,28 @@ export class PropostaComercialListComponent implements OnInit {
     this.calcularTotais();
   }
 
-  calcularTotais(): void {
-     let subtotal = 0;
-     for (let it of this.itens) {
-         subtotal += (it.valor * it.quantidade);
-     }
-     this.itensTotal = subtotal;
+  adicionarPagamento(): void {
+    if (this.novoPagamentoValor <= 0) return;
+    this.pagamentos.push({
+      descricao: this.novoPagamentoDesc || 'Pagamento',
+      valor: this.novoPagamentoValor
+    });
+    this.novoPagamentoDesc = '';
+    this.novoPagamentoValor = 0;
+    this.calcularTotais();
   }
 
-  get totalFinal(): number {
-    return this.itensTotal - (this.currentProposta.valorDesconto || 0);
+  removerPagamento(index: number): void {
+    const p = this.pagamentos[index];
+    if (p.id) this.deletedItens.push(p.id);
+    this.pagamentos.splice(index, 1);
+    this.calcularTotais();
+  }
+
+  calcularTotais(): void {
+    this.itensTotal = this.itens.reduce((sum, item) => sum + (item.valor * item.quantidade), 0);
+    const totalPagamentos = this.pagamentos.reduce((sum, p) => sum + p.valor, 0);
+    this.totalFinal = this.itensTotal - (this.currentProposta.valorDesconto || 0) - totalPagamentos;
   }
 
   formatarDesconto(event: any): void {
@@ -394,10 +393,9 @@ export class PropostaComercialListComponent implements OnInit {
         return;
       }
     } else {
-      // Se não for pedido, remove a data prevista se houver
       this.currentProposta.dataPrevista = undefined;
     }
-    // Ensure dates have time component for LocalDateTime backend (YYYY-MM-DDTHH:mm:ss)
+    
     if (this.currentProposta.dataPrevista) {
       if (this.currentProposta.dataPrevista.length === 10) {
         this.currentProposta.dataPrevista += 'T00:00:00';
@@ -441,16 +439,26 @@ export class PropostaComercialListComponent implements OnInit {
   }
 
   private saveItemsEConcluir(propostaId: number): void {
-     const operations: Observable<any>[] = [];
+    const allItems = [
+      ...this.itens.map(it => ({ ...it, propostaId })),
+      ...this.pagamentos.map(p => ({
+        id: p.id,
+        propostaId,
+        descricao: p.descricao,
+        valor: -Math.abs(p.valor),
+        quantidade: 1,
+        valorDesconto: 0,
+        unidade: 'UN'
+      }))
+    ];
+
+    const operations: Observable<any>[] = [];
      
-     // 1. Deletions
      for (let delId of this.deletedItens) {
          operations.push(this.itemService.delete(delId).pipe(catchError(() => of(null))));
      }
 
-     // 2. Inserts / Updates
-     for (let item of this.itens) {
-         item.propostaId = propostaId; // crucial for new proposals
+     for (let item of allItems) {
          if (item.id) {
              operations.push(this.itemService.update(item.id, item).pipe(catchError(() => of(null))));
          } else {
@@ -578,6 +586,11 @@ export class PropostaComercialListComponent implements OnInit {
    imprimirProposta(p: PropostaComercial): void {
      // Pre-load items before printing
      this.itemService.getAllByProposta(p.id!).subscribe(items => {
+        const products = items.filter(it => it.valor > 0);
+        const abatements = items.filter(it => it.valor < 0);
+        const subtotalProds = products.reduce((acc, it) => acc + (it.valor * it.quantidade), 0);
+        const totalAbatements = abatements.reduce((acc, it) => acc + Math.abs(it.valor * it.quantidade), 0);
+
         const cliId = p.clienteId;
         const cliObj = this.clientes.find(c => c.id === cliId);
         const authCtx = this.authService.getAuthContext();
@@ -609,7 +622,7 @@ export class PropostaComercialListComponent implements OnInit {
                 td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; font-size: 11px; vertical-align: middle; }
                 tr:nth-child(even) { background-color: #f8fafc; }
                 
-                .total-section { float: right; width: 300px; background: #f1f5f9; padding: 20px; border-radius: 12px; }
+                .total-section { float: right; width: 320px; background: #f1f5f9; padding: 20px; border-radius: 12px; }
                 .total-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
                 .total-final { font-size: 20px; font-weight: 800; color: #1e40af; border-top: 2px solid #cbd5e1; margin-top: 12px; padding-top: 12px; }
                 
@@ -664,7 +677,7 @@ export class PropostaComercialListComponent implements OnInit {
                   </tr>
                 </thead>
                 <tbody>
-                  ${items.map(it => `
+                  ${products.map(it => `
                     <tr>
                       <td><strong>${it.descricao}</strong></td>
                       <td style="text-align: center">${it.quantidade}</td>
@@ -679,13 +692,19 @@ export class PropostaComercialListComponent implements OnInit {
               <div style="width: 100%; overflow: hidden;">
                 <div class="total-section">
                   <div class="total-row">
-                    <span>Subtotal:</span>
-                    <span>R$ ${this.getValorFormatado(p.valorTotal + (p.valorDesconto || 0))}</span>
+                    <span>Subtotal Produtos:</span>
+                    <span>R$ ${this.getValorFormatado(subtotalProds)}</span>
                   </div>
                   <div class="total-row" style="color: #dc2626;">
                     <span>Desconto:</span>
                     <span>- R$ ${this.getValorFormatado(p.valorDesconto || 0)}</span>
                   </div>
+                  ${totalAbatements > 0 ? `
+                  <div class="total-row" style="color: #be123c;">
+                    <span>Pagamentos/Abatimentos:</span>
+                    <span>- R$ ${this.getValorFormatado(totalAbatements)}</span>
+                  </div>
+                  ` : ''}
                   <div class="total-row total-final">
                     <span>TOTAL:</span>
                     <span>R$ ${this.getValorFormatado(p.valorTotal)}</span>

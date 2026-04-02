@@ -121,6 +121,7 @@ export class SubUsuarioListComponent implements OnInit {
       moduloVenda: false,
       isAdm: false,
       moduloCaixa: false,
+      permiteImportarCSV: false,
       entidadeId: undefined
     };
   }

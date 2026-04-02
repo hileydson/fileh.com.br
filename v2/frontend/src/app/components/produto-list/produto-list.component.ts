@@ -35,7 +35,7 @@ export class ProdutoListComponent implements OnInit {
   importProgress = 0;
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private produtoService: ProdutoService
   ) {}
 

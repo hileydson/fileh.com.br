@@ -22,6 +22,7 @@ public class UserDetailsImpl implements UserDetails {
     private String msgFooter;
     private boolean defaultPassword;
     private String entidadeNome;
+    private boolean permiteImportarCSV;
 
     @JsonIgnore
     private String password;
@@ -29,7 +30,7 @@ public class UserDetailsImpl implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(Long id, Long tenantId, Long entidadeId, String username, String name, String email, String password,
-                           String msgFooter, boolean defaultPassword, String entidadeNome, Collection<? extends GrantedAuthority> authorities) {
+                           String msgFooter, boolean defaultPassword, String entidadeNome, boolean permiteImportarCSV, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.tenantId = tenantId;
         this.entidadeId = entidadeId;
@@ -40,6 +41,7 @@ public class UserDetailsImpl implements UserDetails {
         this.msgFooter = msgFooter;
         this.defaultPassword = defaultPassword;
         this.entidadeNome = entidadeNome;
+        this.permiteImportarCSV = permiteImportarCSV;
         this.authorities = authorities;
     }
 
@@ -66,7 +68,7 @@ public class UserDetailsImpl implements UserDetails {
                 subUsuario.getId(), tenantId, subUsuario.getEntidadeId(),
                 subUsuario.getLogin(), subUsuario.getNome(), email, subUsuario.getSenha(),
                 subUsuario.getMsgFooter(), "1234".equals(subUsuario.getSenha()),
-                entidadeNome, authorities);
+                entidadeNome, Boolean.TRUE.equals(subUsuario.getPermiteImportarCSV()), authorities);
     }
 
     public Long getId() { return id; }
@@ -77,6 +79,7 @@ public class UserDetailsImpl implements UserDetails {
     public String getMsgFooter() { return msgFooter; }
     public boolean isDefaultPassword() { return defaultPassword; }
     public String getEntidadeNome() { return entidadeNome; }
+    public boolean getPermiteImportarCSV() { return permiteImportarCSV; }
 
     @Override public Collection<? extends GrantedAuthority> getAuthorities() { return authorities; }
     @Override public String getPassword() { return password; }

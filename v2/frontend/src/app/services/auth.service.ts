@@ -13,6 +13,7 @@ export interface AuthContext {
   roles: string[];
   msgFooter?: string;
   isDefaultPassword?: boolean;
+  permiteImportarCSV?: boolean;
 }
 
 @Injectable({
@@ -40,7 +41,8 @@ export class AuthService {
             roles: res.roles || [],
             msgFooter: res.msgFooter,
             isDefaultPassword: res.isDefaultPassword,
-            entidadeNome: res.entidadeNome
+            entidadeNome: res.entidadeNome,
+            permiteImportarCSV: res.permiteImportarCSV
           };
           localStorage.setItem('auth_context', JSON.stringify(authContext));
           
@@ -116,7 +118,8 @@ export class AuthService {
             roles: res.roles || [],
             msgFooter: res.msgFooter,
             isDefaultPassword: res.isDefaultPassword,
-            entidadeNome: res.entidadeNome
+            entidadeNome: res.entidadeNome,
+            permiteImportarCSV: res.permiteImportarCSV
           };
           localStorage.setItem('auth_context', JSON.stringify(authContext));
           

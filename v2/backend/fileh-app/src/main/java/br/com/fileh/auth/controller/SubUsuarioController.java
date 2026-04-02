@@ -51,6 +51,7 @@ public class SubUsuarioController {
             subUsuario.setModuloVenda(details.getModuloVenda());
             subUsuario.setModuloCliente(details.getModuloCliente());
             subUsuario.setModuloCaixa(details.getModuloCaixa());
+            subUsuario.setPermiteImportarCSV(details.getPermiteImportarCSV());
             subUsuario.setMsgFooter(details.getMsgFooter());
             return ResponseEntity.ok(repository.save(subUsuario));
         }).orElse(ResponseEntity.notFound().build());

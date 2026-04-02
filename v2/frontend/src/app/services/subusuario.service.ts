@@ -12,6 +12,7 @@ export interface SubUsuario {
   moduloVenda: boolean;
   isAdm: boolean;
   moduloCaixa: boolean;
+  permiteImportarCSV: boolean;
   msgFooter?: string;
 }
 

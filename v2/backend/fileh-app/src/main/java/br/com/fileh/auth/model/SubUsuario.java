@@ -62,6 +62,10 @@ public class SubUsuario {
     @Convert(converter = BooleanToIntegerConverter.class)
     private Boolean moduloCaixa = false;
 
+    @Column(name = "SBU_FL_IMPORT_CSV", nullable = false)
+    @Convert(converter = BooleanToIntegerConverter.class)
+    private Boolean permiteImportarCSV = false;
+
     @Column(name = "SBU_DS_MSG_FOOTER")
     private String msgFooter;
 }

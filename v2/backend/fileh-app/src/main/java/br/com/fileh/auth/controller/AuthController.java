@@ -1,6 +1,5 @@
 package br.com.fileh.auth.controller;
 
-import br.com.fileh.crm.model.Entidade;
 import br.com.fileh.crm.repository.EntidadeRepository;
 import br.com.fileh.auth.payload.request.LoginRequest;
 import br.com.fileh.auth.payload.response.JwtResponse;
@@ -49,7 +48,7 @@ public class AuthController {
                 userDetails.getId(), userDetails.getTenantId(), userDetails.getEntidadeId(),
                 userDetails.getUsername(), userDetails.getName(), userDetails.getEmail(),
                 roles, userDetails.getMsgFooter(), userDetails.isDefaultPassword(),
-                userDetails.getEntidadeNome()));
+                userDetails.getEntidadeNome(), userDetails.getPermiteImportarCSV()));
     }
 
     @PostMapping("/switch-entidade/{entidadeId}")
@@ -84,7 +83,7 @@ public class AuthController {
                     userDetails.getId(), userDetails.getTenantId(), entidadeId,
                     userDetails.getUsername(), userDetails.getName(), userDetails.getEmail(),
                     roles, userDetails.getMsgFooter(), userDetails.isDefaultPassword(),
-                    entidade.getNome()));
+                    entidade.getNome(), userDetails.getPermiteImportarCSV()));
         }).orElse(ResponseEntity.notFound().build());
     }
 }

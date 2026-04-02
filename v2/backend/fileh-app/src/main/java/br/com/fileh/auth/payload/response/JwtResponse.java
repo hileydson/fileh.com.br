@@ -15,9 +15,11 @@ public class JwtResponse {
     private String msgFooter;
     private boolean defaultPassword;
     private String entidadeNome;
+    private boolean permiteImportarCSV;
 
     public JwtResponse(String accessToken, Long id, Long tenantId, Long entidadeId, String username, String name,
-                       String email, List<String> roles, String msgFooter, boolean defaultPassword, String entidadeNome) {
+                       String email, List<String> roles, String msgFooter, boolean defaultPassword, String entidadeNome,
+                       boolean permiteImportarCSV) {
         this.token = accessToken;
         this.id = id;
         this.tenantId = tenantId;
@@ -29,6 +31,7 @@ public class JwtResponse {
         this.msgFooter = msgFooter;
         this.defaultPassword = defaultPassword;
         this.entidadeNome = entidadeNome;
+        this.permiteImportarCSV = permiteImportarCSV;
     }
 
     public String getToken() { return token; }
@@ -43,4 +46,5 @@ public class JwtResponse {
     public String getMsgFooter() { return msgFooter; }
     public boolean isDefaultPassword() { return defaultPassword; }
     public String getEntidadeNome() { return entidadeNome; }
+    public boolean isPermiteImportarCSV() { return permiteImportarCSV; }
 }
