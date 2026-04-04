@@ -3,6 +3,7 @@ package br.com.fileh.commercial.controller;
 import br.com.fileh.commercial.model.Produto;
 import br.com.fileh.commercial.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class ProdutoController {
 
     @GetMapping("/tenant/{entidadeId}")
     public ResponseEntity<List<Produto>> getAllByTenant(@PathVariable Long entidadeId) {
-        return ResponseEntity.ok(repository.findAll());
+        return ResponseEntity.ok(repository.findByEntidadeIdOrderByDescricaoAsc(entidadeId));
     }
 
     @GetMapping("/search")
@@ -31,7 +32,7 @@ public class ProdutoController {
                 cb.or(cb.like(cb.lower(root.get("descricao")), pattern), cb.like(cb.lower(root.get("sku")), pattern));
             spec = spec.and(wordSpec);
         }
-        return ResponseEntity.ok(repository.findAll(spec));
+        return ResponseEntity.ok(repository.findAll(spec, Sort.by(Sort.Direction.ASC, "descricao")));
     }
 
     @PostMapping

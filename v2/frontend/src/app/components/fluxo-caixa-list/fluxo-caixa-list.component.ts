@@ -30,6 +30,10 @@ export class FluxoCaixaListComponent implements OnInit {
   formasPagamento: FormaPagamento[] = [];
   currentRegistro: FluxoCaixa = this.getEmptyRegistro();
   
+  // Filtros
+  searchTerm: string = '';
+  selectedFormaPagamento: string = '';
+  
   @ViewChild('valorInput') valorInput!: ElementRef;
 
   // Context ID fetched on init
@@ -161,18 +165,33 @@ export class FluxoCaixaListComponent implements OnInit {
 
   // Formatter moved to DateBrPipe
 
+  get registrosFiltrados(): FluxoCaixa[] {
+    return this.registros.filter(r => {
+      const s = this.searchTerm.toLowerCase();
+      const matchSearch = !this.searchTerm || 
+        r.descricao.toLowerCase().includes(s) ||
+        r.valor.toString().includes(s) ||
+        (r.formaPagamento && r.formaPagamento.toLowerCase().includes(s));
+      
+      const matchFP = !this.selectedFormaPagamento || 
+        r.formaPagamento === this.selectedFormaPagamento;
+        
+      return matchSearch && matchFP;
+    });
+  }
+
   calcularSaldoVisual(): number {
-      return this.registros.reduce((acc, curr) => acc + curr.valor, 0);
+      return this.registrosFiltrados.reduce((acc, curr) => acc + curr.valor, 0);
   }
 
   calcularEntradas(): number {
-      return this.registros.reduce((acc, curr) => {
+      return this.registrosFiltrados.reduce((acc, curr) => {
           return curr.tipo === 'EN' ? acc + Math.abs(curr.valor) : acc;
       }, 0);
   }
 
   calcularSaidas(): number {
-      return this.registros.reduce((acc, curr) => {
+      return this.registrosFiltrados.reduce((acc, curr) => {
           return curr.tipo === 'SA' ? acc + Math.abs(curr.valor) : acc;
       }, 0);
   }

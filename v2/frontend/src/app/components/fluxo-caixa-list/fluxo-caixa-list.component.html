@@ -76,9 +76,16 @@
   <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
     <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
       <h3 class="text-lg font-semibold text-slate-800">Histórico do Dia</h3>
-      <div class="relative">
-        <input type="text" placeholder="Filtrar registros..." class="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 w-64 transition-all bg-white">
-        <svg class="w-5 h-5 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <div class="flex items-center space-x-3">
+        <select [(ngModel)]="selectedFormaPagamento" class="px-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 bg-white transition-all">
+          <option value="">Todas as formas</option>
+          <option *ngFor="let fp of formasPagamento" [value]="fp.descricao">{{fp.descricao}}</option>
+          <option *ngIf="formasPagamento.length === 0" value="Dinheiro">Dinheiro</option>
+        </select>
+        <div class="relative">
+          <input type="text" [(ngModel)]="searchTerm" placeholder="Filtrar registros..." class="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 w-64 transition-all bg-white">
+          <svg class="w-5 h-5 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
       </div>
     </div>
     <div class="overflow-x-auto">
@@ -104,14 +111,14 @@
               </div>
             </td>
           </tr>
-          <tr *ngIf="!loading && registros.length === 0">
+          <tr *ngIf="!loading && registrosFiltrados.length === 0">
             <td colspan="5" class="p-12 text-center text-slate-500">
               <svg class="w-12 h-12 mx-auto text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               <p class="text-lg font-medium text-slate-700">Nenhum lançamento encontrado</p>
-              <p class="text-sm">Clique em "Lançar Registro" para iniciar a movimentação.</p>
+              <p class="text-sm">Tente ajustar seus filtros ou realize um novo lançamento.</p>
             </td>
           </tr>
-          <tr *ngFor="let r of registros" class="hover:bg-slate-50/80 transition-colors group">
+          <tr *ngFor="let r of registrosFiltrados" class="hover:bg-slate-50/80 transition-colors group">
             <td class="p-4 font-mono text-sm text-slate-600">
               {{ r.dataCadastro | dateBr }}
             </td>
