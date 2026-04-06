@@ -15,6 +15,7 @@ export interface Cliente {
   cpf: string;
   email?: string;
   cidade?: string;
+  usuarioId?: number;
 }
 
 @Injectable({

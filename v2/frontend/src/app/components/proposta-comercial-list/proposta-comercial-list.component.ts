@@ -647,7 +647,7 @@ export class PropostaComercialListComponent implements OnInit {
                   <div class="label">Dados do Cliente</div>
                   <div class="value">${cliObj?.nome || 'N/A'}</div>
                   <div class="client-details">
-                    ${cliObj?.logradouro ? `<div><strong>Endereço:</strong> ${cliObj.logradouro}, ${cliObj.bairro} - ${cliObj.cidade}/${cliObj.uf}</div>` : ''}
+                    ${cliObj?.logradouro ? `<div><strong>Endereço:</strong> ${cliObj.logradouro}${cliObj.bairro ? ', ' + cliObj.bairro : ''}${cliObj.cidade ? ' - ' + cliObj.cidade : ''}${cliObj.uf ? '/' + cliObj.uf : ''}</div>` : ''}
                     ${cliObj?.telefone ? `<div><strong>Telefone:</strong> ${cliObj.telefone}</div>` : ''}
                     ${cliObj?.email ? `<div><strong>E-mail:</strong> ${cliObj.email}</div>` : ''}
                   </div>

@@ -86,6 +86,7 @@ export class ClienteListComponent implements OnInit {
   saveCliente(): void {
     this.saving = true;
     this.currentCliente.entidadeId = this.entidadeId; // Ensure entity ID is set
+    this.currentCliente.usuarioId = this.authService.getAuthContext()?.id;
 
     if (this.isEditing) {
       this.clienteService.update(this.currentCliente.id!, this.currentCliente).subscribe({

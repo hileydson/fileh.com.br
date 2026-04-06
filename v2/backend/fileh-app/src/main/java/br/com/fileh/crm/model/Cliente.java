@@ -43,4 +43,7 @@ public class Cliente {
 
     @Column(name = "CLI_NR_CPF", nullable = false)
     private String cpf;
+
+    @Column(name = "CLI_CD_USUARIO", nullable = false)
+    private Long usuarioId;
 }
