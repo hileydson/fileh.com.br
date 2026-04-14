@@ -665,6 +665,13 @@ export class PropostaComercialListComponent implements OnInit {
                   </div>
                 </div>
               </div>
+              
+              ${p.observacao ? `
+                <div style="margin-top: 20px; padding: 15px; border: 1px dashed #cbd5e1; border-radius: 12px; background: #fff; margin-bottom: 20px;">
+                  <div class="label">Observações</div>
+                  <div style="font-size: 13px;">${p.observacao.replace(/\n/g, '<br>')}</div>
+                </div>
+              ` : ''}
 
               <table>
                 <thead>
@@ -712,12 +719,6 @@ export class PropostaComercialListComponent implements OnInit {
                 </div>
               </div>
 
-              ${p.observacao ? `
-                <div style="margin-top: 40px; padding: 20px; border: 1px dashed #cbd5e1; border-radius: 8px;">
-                  <div class="label">Observações</div>
-                  <div style="font-size: 13px;">${p.observacao.replace(/\n/g, '<br>')}</div>
-                </div>
-              ` : ''}
 
               <div class="footer">
                 ${footerMsg}
