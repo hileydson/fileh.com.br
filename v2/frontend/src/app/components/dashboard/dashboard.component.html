@@ -6,8 +6,19 @@
       <h2 class="text-2xl font-bold text-slate-800">Resumo Executivo</h2>
       <p class="text-slate-500 text-sm mt-1">{{ entidadeNome }} • Indicadores de Performance</p>
     </div>
-    <div class="mt-4 md:mt-0 flex items-center space-x-3">
-      <div class="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm">
+    <div class="mt-4 md:mt-0 flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4">
+      <!-- Filter Mode Selector -->
+      <div class="flex bg-slate-100 p-1 rounded-xl">
+        <button (click)="filterMode = 'month'; calculateTotals()" 
+          [class]="filterMode === 'month' ? 'bg-white shadow-sm text-primary-600' : 'text-slate-500 hover:text-slate-700'"
+          class="px-4 py-1.5 text-xs font-bold rounded-lg transition-all">Mês/Ano</button>
+        <button (click)="filterMode = 'period'; calculateTotals()" 
+          [class]="filterMode === 'period' ? 'bg-white shadow-sm text-primary-600' : 'text-slate-500 hover:text-slate-700'"
+          class="px-4 py-1.5 text-xs font-bold rounded-lg transition-all">Período</button>
+      </div>
+
+      <!-- Month/Year Filter -->
+      <div *ngIf="filterMode === 'month'" class="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm transition-all animate-in zoom-in-95 duration-200">
         <svg class="w-4 h-4 text-primary-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
         <select [(ngModel)]="selectedMonth" (change)="onPeriodChange()" class="text-sm font-bold text-slate-700 bg-transparent border-none focus:ring-0 outline-none cursor-pointer">
           <option *ngFor="let m of months" [value]="m.value">{{ m.label }}</option>
@@ -16,6 +27,17 @@
         <select [(ngModel)]="selectedYear" (change)="onPeriodChange()" class="text-sm font-bold text-slate-700 bg-transparent border-none focus:ring-0 outline-none cursor-pointer">
           <option *ngFor="let y of years" [value]="y">{{ y }}</option>
         </select>
+      </div>
+
+      <!-- Custom Period Filter -->
+      <div *ngIf="filterMode === 'period'" class="flex items-center space-x-2 bg-white px-2 py-1 rounded-xl border border-slate-200 shadow-sm transition-all animate-in zoom-in-95 duration-200">
+        <div class="w-32">
+          <app-date-input [(ngModel)]="startDate" (ngModelChange)="onPeriodChange()" customClass="!py-1 !text-xs !border-none !shadow-none !bg-transparent"></app-date-input>
+        </div>
+        <span class="text-slate-300 text-[10px] font-black uppercase">até</span>
+        <div class="w-32">
+          <app-date-input [(ngModel)]="endDate" (ngModelChange)="onPeriodChange()" customClass="!py-1 !text-xs !border-none !shadow-none !bg-transparent"></app-date-input>
+        </div>
       </div>
     </div>
   </div>
@@ -60,6 +82,16 @@
           <div class="h-full bg-green-500 transition-all duration-1000" [style.width.%]="fluxoPercent"></div>
           <div class="h-full bg-red-400 transition-all duration-1000" [style.width.%]="100 - fluxoPercent"></div>
         </div>
+
+        <!-- Breakdown by Payment Method -->
+        <div *ngIf="fluxoBreakdown.length > 0" class="pt-4 mt-4 border-t border-slate-50 space-y-2">
+          <div *ngFor="let item of fluxoBreakdown" class="flex justify-between items-center text-[10px] uppercase font-bold text-slate-500">
+            <span>{{ item.label }}</span>
+            <span [ngClass]="item.value >= 0 ? 'text-slate-700' : 'text-rose-500'">
+              {{ item.value | currency:'BRL' }}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -94,7 +126,7 @@
         <div class="p-3 bg-rose-50 text-rose-600 rounded-2xl">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         </div>
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Obrigações</span>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">PAGAMENTOS</span>
       </div>
       <div class="space-y-1 mb-6 relative group">
         <p class="text-sm text-slate-500 font-medium">Previsão de Pagamento</p>

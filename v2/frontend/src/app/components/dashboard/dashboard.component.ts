@@ -7,11 +7,12 @@ import { AuthService } from '../../services/auth.service';
 import { forkJoin } from 'rxjs';
 
 import { FormsModule } from '@angular/forms';
+import { DateInputComponent } from '../shared/date-input/date-input.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DateInputComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -39,8 +40,12 @@ export class DashboardComponent implements OnInit {
   ];
   years: number[] = [];
 
-  rawData: { fluxo: FluxoCaixa[], pagar: ContaPagar[], receber: ContaReceber[] } | null = null;
+  filterMode: 'month' | 'period' = 'month';
+  startDate: string = '';
+  endDate: string = '';
 
+  rawData: { fluxo: FluxoCaixa[], pagar: ContaPagar[], receber: ContaReceber[] } | null = null;
+  // ... rest of the properties ...
   // Totals
   fluxoEntradas = 0;
   fluxoSaidas = 0;
@@ -54,6 +59,8 @@ export class DashboardComponent implements OnInit {
   fluxoPercent = 0;
   contasPercent = 0;
 
+  fluxoBreakdown: { label: string, value: number }[] = [];
+
   constructor(
     private fluxoService: FluxoCaixaService,
     private pagarService: ContaPagarService,
@@ -64,6 +71,12 @@ export class DashboardComponent implements OnInit {
     this.selectedMonth = now.getMonth();
     this.selectedYear = now.getFullYear();
     
+    // Default period: Current month
+    const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+    const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    this.startDate = firstDay.toISOString().split('T')[0];
+    this.endDate = lastDay.toISOString().split('T')[0];
+
     // Generate years from 2024 to now+1
     const startYear = 2024;
     const endYear = now.getFullYear() + 1;
@@ -123,50 +136,94 @@ export class DashboardComponent implements OnInit {
     this.fluxoSaidas = 0;
     this.contasPagarTotal = 0;
     this.contasReceberTotal = 0;
+    this.fluxoBreakdown = [];
 
-    const parseDateStr = (dateStr: any) => {
-      if (!dateStr || typeof dateStr !== 'string') return { y: -1, m: -1 };
-      const parts = dateStr.includes('-') ? dateStr.split('-') : dateStr.split('/');
-      if (parts.length < 2) return { y: -1, m: -1 };
+    const parseDate = (dateVal: any) => {
+      if (!dateVal) return null;
       
-      let y, m;
-      if (parts[0].length === 4) {
-        // YYYY-MM-DD
-        y = parseInt(parts[0], 10);
-        m = parseInt(parts[1], 10) - 1;
-      } else {
-        // DD/MM/YYYY
-        y = parseInt(parts[2], 10);
-        m = parseInt(parts[1], 10) - 1;
+      // If it's already a string, parse it
+      if (typeof dateVal === 'string') {
+        // Handle ISO with time or just date
+        const dateStr = dateVal.includes('T') ? dateVal.split('T')[0] : dateVal;
+        const parts = dateStr.includes('-') ? dateStr.split('-') : dateStr.split('/');
+        
+        if (parts.length < 3) return null;
+        
+        let y, m, d;
+        if (parts[0].length === 4) {
+          // YYYY-MM-DD
+          y = parseInt(parts[0], 10);
+          m = parseInt(parts[1], 10) - 1;
+          d = parseInt(parts[2], 10);
+        } else {
+          // DD/MM/YYYY
+          y = parseInt(parts[2], 10);
+          m = parseInt(parts[1], 10) - 1;
+          d = parseInt(parts[0], 10);
+        }
+        return new Date(y, m, d);
       }
-      return { y, m };
+      
+      // If it's an array [Y, M, D]
+      if (Array.isArray(dateVal) && dateVal.length >= 3) {
+        return new Date(dateVal[0], dateVal[1] - 1, dateVal[2]);
+      }
+      
+      return null;
     };
+
+    const isMatch = (dateVal: any) => {
+      const d = parseDate(dateVal);
+      if (!d) return false;
+
+      if (this.filterMode === 'month') {
+        return d.getMonth() === targetMonth && d.getFullYear() === targetYear;
+      } else {
+        const start = this.startDate ? new Date(this.startDate + 'T00:00:00') : null;
+        const end = this.endDate ? new Date(this.endDate + 'T23:59:59') : null;
+        
+        if (start && d < start) return false;
+        if (end && d > end) return false;
+        return true;
+      }
+    };
+
+    const breakdownMap: { [key: string]: number } = {};
 
     // Filter and Sum Fluxo de Caixa
     fluxo.forEach(item => {
-      const { y, m } = parseDateStr(item.dataCadastro);
-      if (m == targetMonth && y == targetYear) {
-        if (item.tipo === 'E') {
-          this.fluxoEntradas += item.valor;
-        } else if (item.tipo === 'S') {
-          this.fluxoSaidas += item.valor;
+      if (isMatch(item.dataCadastro)) {
+        const val = item.valor || 0;
+        const forma = item.formaPagamento || 'Não Informado';
+        
+        if (item.tipo === 'EN') { // Updated to match list component EN
+          this.fluxoEntradas += val;
+          breakdownMap[forma] = (breakdownMap[forma] || 0) + val;
+        } else if (item.tipo === 'SA') { // Updated to match list component SA
+          this.fluxoSaidas += val;
+          breakdownMap[forma] = (breakdownMap[forma] || 0) - val;
         }
       }
     });
+
+    // Convert map to array for display
+    this.fluxoBreakdown = Object.keys(breakdownMap).map(key => ({
+      label: key,
+      value: breakdownMap[key]
+    })).sort((a, b) => b.value - a.value);
+
     this.fluxoSaldo = this.fluxoEntradas - this.fluxoSaidas;
 
     // Filter and Sum Contas a Pagar
     pagar.forEach(item => {
-      const { y, m } = parseDateStr(item.dataVencimento);
-      if (m == targetMonth && y == targetYear) {
+      if (isMatch(item.dataVencimento)) {
         this.contasPagarTotal += item.valor;
       }
     });
 
     // Filter and Sum Contas a Receber
     receber.forEach(item => {
-      const { y, m } = parseDateStr(item.dataVencimento);
-      if (m == targetMonth && y == targetYear) {
+      if (isMatch(item.dataVencimento)) {
         this.contasReceberTotal += item.valor;
       }
     });
