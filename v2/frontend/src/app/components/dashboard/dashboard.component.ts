@@ -196,12 +196,12 @@ export class DashboardComponent implements OnInit {
         const val = item.valor || 0;
         const forma = item.formaPagamento || 'Não Informado';
         
-        if (item.tipo === 'EN') { // Updated to match list component EN
-          this.fluxoEntradas += val;
+        if (item.tipo === 'EN') {
+          this.fluxoEntradas += Math.abs(val);
           breakdownMap[forma] = (breakdownMap[forma] || 0) + val;
-        } else if (item.tipo === 'SA') { // Updated to match list component SA
-          this.fluxoSaidas += val;
-          breakdownMap[forma] = (breakdownMap[forma] || 0) - val;
+        } else if (item.tipo === 'SA') {
+          this.fluxoSaidas += Math.abs(val);
+          breakdownMap[forma] = (breakdownMap[forma] || 0) + val;
         }
       }
     });
