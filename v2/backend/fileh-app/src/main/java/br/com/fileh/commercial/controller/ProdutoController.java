@@ -23,8 +23,14 @@ public class ProdutoController {
 
     @GetMapping("/search")
     public ResponseEntity<List<Produto>> search(@RequestParam Long entidadeId, @RequestParam String query) {
-        String[] words = query.split("\\s+");
-        org.springframework.data.jpa.domain.Specification<Produto> spec = (root, q, cb) -> cb.conjunction();
+        String[] words = query.trim().split("\\s+");
+        if (words.length == 0 || (words.length == 1 && words[0].isEmpty())) {
+            return ResponseEntity.ok(repository.findByEntidadeIdOrderByDescricaoAsc(entidadeId));
+        }
+
+        final String firstWord = words[0].toLowerCase();
+        org.springframework.data.jpa.domain.Specification<Produto> spec = (root, q, cb) -> cb.equal(root.get("entidadeId"), entidadeId);
+
         for (String word : words) {
             if (word.isEmpty()) continue;
             final String pattern = "%" + word.toLowerCase() + "%";
@@ -32,7 +38,22 @@ public class ProdutoController {
                 cb.or(cb.like(cb.lower(root.get("descricao")), pattern), cb.like(cb.lower(root.get("sku")), pattern));
             spec = spec.and(wordSpec);
         }
-        return ResponseEntity.ok(repository.findAll(spec, Sort.by(Sort.Direction.ASC, "descricao")));
+
+        List<Produto> results = new java.util.ArrayList<>(repository.findAll(spec));
+        results.sort((a, b) -> {
+            String descA = a.getDescricao() != null ? a.getDescricao().toLowerCase() : "";
+            String descB = b.getDescricao() != null ? b.getDescricao().toLowerCase() : "";
+            
+            boolean startsA = descA.startsWith(firstWord);
+            boolean startsB = descB.startsWith(firstWord);
+
+            if (startsA && !startsB) return -1;
+            if (!startsA && startsB) return 1;
+
+            return descA.compareTo(descB);
+        });
+
+        return ResponseEntity.ok(results);
     }
 
     @PostMapping

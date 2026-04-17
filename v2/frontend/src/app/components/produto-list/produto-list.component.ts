@@ -23,7 +23,7 @@ export class ProdutoListComponent implements OnInit {
 
   // Paginação
   currentPage = 1;
-  pageSize = 20;
+  pageSize = 50;
 
   // === Importação CSV ===
   showImportModal = false;
