@@ -18,18 +18,15 @@ public class ProdutoController {
 
     @GetMapping("/tenant/{entidadeId}")
     public ResponseEntity<List<Produto>> getAllByTenant(@PathVariable Long entidadeId) {
-        return ResponseEntity.ok(repository.findByEntidadeIdOrderByDescricaoAsc(entidadeId));
+        return ResponseEntity.ok(repository.findAll(Sort.by(Sort.Direction.ASC, "descricao")));
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<Produto>> search(@RequestParam Long entidadeId, @RequestParam String query) {
         String[] words = query.trim().split("\\s+");
-        if (words.length == 0 || (words.length == 1 && words[0].isEmpty())) {
-            return ResponseEntity.ok(repository.findByEntidadeIdOrderByDescricaoAsc(entidadeId));
-        }
 
         final String firstWord = words[0].toLowerCase();
-        org.springframework.data.jpa.domain.Specification<Produto> spec = (root, q, cb) -> cb.equal(root.get("entidadeId"), entidadeId);
+        org.springframework.data.jpa.domain.Specification<Produto> spec = (root, q, cb) -> cb.conjunction();
 
         for (String word : words) {
             if (word.isEmpty()) continue;
