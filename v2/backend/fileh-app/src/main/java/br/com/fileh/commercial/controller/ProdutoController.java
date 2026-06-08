@@ -36,11 +36,19 @@ public class ProdutoController {
             spec = spec.and(wordSpec);
         }
 
+        final String fullQuery = query.toLowerCase().trim();
+
         List<Produto> results = new java.util.ArrayList<>(repository.findAll(spec));
         results.sort((a, b) -> {
             String descA = a.getDescricao() != null ? a.getDescricao().toLowerCase() : "";
             String descB = b.getDescricao() != null ? b.getDescricao().toLowerCase() : "";
             
+            boolean startsFullA = descA.startsWith(fullQuery);
+            boolean startsFullB = descB.startsWith(fullQuery);
+
+            if (startsFullA && !startsFullB) return -1;
+            if (!startsFullA && startsFullB) return 1;
+
             boolean startsA = descA.startsWith(firstWord);
             boolean startsB = descB.startsWith(firstWord);
 
