@@ -198,10 +198,9 @@ export class DashboardComponent implements OnInit {
         
         if (item.tipo === 'EN') {
           this.fluxoEntradas += Math.abs(val);
-          breakdownMap[forma] = (breakdownMap[forma] || 0) + val;
+          breakdownMap[forma] = (breakdownMap[forma] || 0) + Math.abs(val);
         } else if (item.tipo === 'SA') {
           this.fluxoSaidas += Math.abs(val);
-          breakdownMap[forma] = (breakdownMap[forma] || 0) + val;
         }
       }
     });
