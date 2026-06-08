@@ -22,7 +22,10 @@ public class FornecedorController {
 
     @GetMapping("/search")
     public ResponseEntity<List<Fornecedor>> searchFornecedores(@RequestParam Long entidadeId, @RequestParam String query) {
-        String[] words = query.split("\\s+");
+        String[] words = query.trim().split("\\s+");
+        final String firstWord = words.length > 0 ? words[0].toLowerCase() : "";
+        final String fullQuery = query.toLowerCase().trim();
+
         org.springframework.data.jpa.domain.Specification<Fornecedor> spec = (root, q, cb) -> cb.conjunction();
         for (String word : words) {
             if (word.isEmpty()) continue;
@@ -31,7 +34,28 @@ public class FornecedorController {
                 cb.or(cb.like(cb.lower(root.get("nome")), pattern), cb.like(cb.lower(root.get("cnpj")), pattern));
             spec = spec.and(wordSpec);
         }
-        return ResponseEntity.ok(fornecedorRepository.findAll(spec));
+
+        List<Fornecedor> results = new java.util.ArrayList<>(fornecedorRepository.findAll(spec));
+        results.sort((a, b) -> {
+            String nomeA = a.getNome() != null ? a.getNome().toLowerCase() : "";
+            String nomeB = b.getNome() != null ? b.getNome().toLowerCase() : "";
+            
+            boolean startsFullA = nomeA.startsWith(fullQuery);
+            boolean startsFullB = nomeB.startsWith(fullQuery);
+
+            if (startsFullA && !startsFullB) return -1;
+            if (!startsFullA && startsFullB) return 1;
+
+            boolean startsA = nomeA.startsWith(firstWord);
+            boolean startsB = nomeB.startsWith(firstWord);
+
+            if (startsA && !startsB) return -1;
+            if (!startsA && startsB) return 1;
+
+            return nomeA.compareTo(nomeB);
+        });
+
+        return ResponseEntity.ok(results);
     }
 
     @PostMapping
