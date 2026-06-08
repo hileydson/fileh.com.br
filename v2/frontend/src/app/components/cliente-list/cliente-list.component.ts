@@ -127,7 +127,7 @@ export class ClienteListComponent implements OnInit {
 
   // Filter and Pagination Getters
   get clientesFiltrados(): Cliente[] {
-    return this.clientes.filter(c => {
+    let filtrados = this.clientes.filter(c => {
       const matchIdNome = !this.filtros.idNome || 
                           c.id?.toString().includes(this.filtros.idNome) || 
                           c.nome.toLowerCase().includes(this.filtros.idNome.toLowerCase());
@@ -137,6 +137,33 @@ export class ClienteListComponent implements OnInit {
       
       return matchIdNome && matchCpf && matchBairro;
     });
+
+    filtrados.sort((a, b) => {
+      const nomeA = a.nome ? a.nome.toLowerCase() : "";
+      const nomeB = b.nome ? b.nome.toLowerCase() : "";
+
+      if (this.filtros.idNome) {
+        const query = this.filtros.idNome.toLowerCase().trim();
+        const words = query.split(/\s+/);
+        const firstWord = words.length > 0 ? words[0] : "";
+
+        const startsFullA = nomeA.startsWith(query);
+        const startsFullB = nomeB.startsWith(query);
+
+        if (startsFullA && !startsFullB) return -1;
+        if (!startsFullA && startsFullB) return 1;
+
+        const startsA = nomeA.startsWith(firstWord);
+        const startsB = nomeB.startsWith(firstWord);
+
+        if (startsA && !startsB) return -1;
+        if (!startsA && startsB) return 1;
+      }
+      
+      return nomeA.localeCompare(nomeB);
+    });
+
+    return filtrados;
   }
 
   get clientesExibidos(): Cliente[] {
