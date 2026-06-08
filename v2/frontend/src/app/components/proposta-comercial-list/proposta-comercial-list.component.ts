@@ -206,11 +206,17 @@ export class PropostaComercialListComponent implements OnInit {
     this.produtosFiltrados = [];
     this.showProdutoResults = false;
     this.produtoValido = false;
+    this.clientesFiltrados = [];
+    this.showClienteResults = false;
   }
 
   closeModal(): void {
     this.showModal = false;
     this.currentProposta = this.getEmptyProposta();
+    this.clientesFiltrados = [];
+    this.showClienteResults = false;
+    this.produtosFiltrados = [];
+    this.showProdutoResults = false;
   }
 
   // --- Itens Logic ---
@@ -650,6 +656,7 @@ export class PropostaComercialListComponent implements OnInit {
                     ${cliObj?.logradouro ? `<div><strong>Endereço:</strong> ${cliObj.logradouro}${cliObj.bairro ? ', ' + cliObj.bairro : ''}${cliObj.cidade ? ' - ' + cliObj.cidade : ''}${cliObj.uf ? '/' + cliObj.uf : ''}</div>` : ''}
                     ${cliObj?.telefone ? `<div><strong>Telefone:</strong> ${cliObj.telefone}</div>` : ''}
                     ${cliObj?.email ? `<div><strong>E-mail:</strong> ${cliObj.email}</div>` : ''}
+                    ${cliObj?.referencia ? `<div><strong>Referência:</strong> ${cliObj.referencia}</div>` : ''}
                   </div>
                 </div>
                 <div class="info-box">

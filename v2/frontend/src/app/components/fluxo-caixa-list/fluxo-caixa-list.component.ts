@@ -66,6 +66,9 @@ export class FluxoCaixaListComponent implements OnInit {
   }
 
   onDateChange(): void {
+    if (this.currentRegistro) {
+      this.currentRegistro.dataCadastro = this.selectedDate;
+    }
     this.loadRegistros();
   }
 

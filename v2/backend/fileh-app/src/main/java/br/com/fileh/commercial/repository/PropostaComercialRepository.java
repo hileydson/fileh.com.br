@@ -36,6 +36,8 @@ public interface PropostaComercialRepository extends JpaRepository<PropostaComer
         LEFT JOIN item_proposta it ON it.ipc_cd_proposta_comercial = p.prc_cd_proposta_comercial
         WHERE p.prc_cd_entidade = :entidadeId
           AND p.prc_bt_ativo = :ativo
+          AND p.prc_cd_cliente IS NOT NULL
+          AND p.prc_cd_cliente > 0
         GROUP BY p.prc_cd_proposta_comercial
         ORDER BY p.prc_dt_cadastro DESC
         """, nativeQuery = true)
@@ -60,6 +62,8 @@ public interface PropostaComercialRepository extends JpaRepository<PropostaComer
                 - COALESCE(p.prc_vl_desconto, 0) AS valorTotal
         FROM proposta_comercial p
         LEFT JOIN item_proposta it ON it.ipc_cd_proposta_comercial = p.prc_cd_proposta_comercial
+        WHERE p.prc_cd_cliente IS NOT NULL
+          AND p.prc_cd_cliente > 0
         GROUP BY p.prc_cd_proposta_comercial
         ORDER BY p.prc_dt_cadastro DESC
         """, nativeQuery = true)
