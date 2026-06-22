@@ -16,13 +16,9 @@ spring:
     #LOCAL ou no SERVIDOR
     url: jdbc:mysql://localhost:3306/serdo_rimacol?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
     password: ${BANCO_SENHA}
-
-    #REMOTO
-    #url: jdbc:mysql://187.77.253.60:3306/serdo_rimacol?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    #password: serdo_rimacol_pwd
-
     username: usuario_serdo_rimacol
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update

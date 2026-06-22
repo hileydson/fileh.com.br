@@ -87,6 +87,7 @@ export class FornecedorListComponent implements OnInit {
   saveFornecedor(): void {
     this.saving = true;
     this.currentFornecedor.entidadeId = this.entidadeId;
+    this.currentFornecedor.usuarioId = this.authService.getAuthContext()?.id;
 
     if (this.isEditing) {
       this.fornecedorService.update(this.currentFornecedor.id!, this.currentFornecedor).subscribe({

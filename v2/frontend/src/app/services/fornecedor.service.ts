@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface Fornecedor {
   id?: number;
   entidadeId?: number;
+  usuarioId?: number;
   nome: string;
   cnpj?: string;
   logradouro?: string;
